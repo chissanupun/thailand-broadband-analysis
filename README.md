@@ -1,0 +1,106 @@
+# Thailand Broadband Analysis
+
+วิเคราะห์ประสิทธิภาพบรอดแบนด์แบบมีสายในระดับจังหวัดของประเทศไทย โดยเปรียบเทียบข้อมูลจาก **Ookla Open Data** และ **NDT7 (M-Lab)** ครอบคลุมช่วง Q1/2566 – Q4/2568
+
+---
+
+## Dataset
+
+### Ookla Open Data
+- Fixed broadband performance tiles (Quadkey zoom 16, ~610×610m)
+- 11 quarters: Q1/2023 – Q4/2025
+- ตัวชี้วัด: Download speed, Upload speed, Latency, Test count
+- License: CC BY-NC-SA 4.0
+- Source: [ookla-open-data](https://github.com/teamookla/ookla-open-data)
+
+### NDT7 (M-Lab)
+- Passive background measurement (ต่างจาก Ookla ที่ผู้ใช้กดเอง)
+- Source: [M-Lab BigQuery](https://www.measurementlab.net/data/docs/bq/quickstart/)
+
+> Raw data ไม่อยู่ใน repo (ขนาดใหญ่เกิน) — ดูวิธี download ด้านล่าง
+
+---
+
+## Project Structure
+
+```
+├── data/
+│   ├── geo/                  # Thailand province boundaries (GeoJSON)
+│   ├── reference/            # Province reference (population, GDP, tier)
+│   ├── ookla/
+│   │   ├── raw/              # Parquet files (download แยก)
+│   │   └── processed/        # Master dataset (regenerate จาก notebook)
+│   └── ndt7/
+│       ├── raw/
+│       └── processed/
+├── notebooks/
+│   ├── ookla/                # EDA + analysis notebooks
+│   └── ndt7/
+├── outputs/
+│   ├── ookla/                # Figures and maps
+│   └── ndt7/
+└── docs/
+    ├── paper.tex             # Research paper (XeLaTeX, Thai)
+    ├── Process.md            # Sprint plan
+    └── citations.md          # Data sources and citations
+```
+
+---
+
+## Setup
+
+```bash
+# Create venv and install dependencies
+python3 -m venv datasci
+datasci/bin/pip install geopandas pandas numpy scipy matplotlib pyarrow ipykernel nbconvert
+
+# Register Jupyter kernel
+datasci/bin/python -m ipykernel install --user --name datasci --display-name "Python (datasci)"
+```
+
+## Download Ookla Raw Data
+
+```bash
+TARGET_DIR="data/ookla/raw"
+mkdir -p "$TARGET_DIR"
+
+for year in 2023 2024 2025; do
+    for q in 1 2 3 4; do
+        if [ "$q" -eq 1 ]; then month="01"; fi
+        if [ "$q" -eq 2 ]; then month="04"; fi
+        if [ "$q" -eq 3 ]; then month="07"; fi
+        if [ "$q" -eq 4 ]; then month="10"; fi
+        URL="https://ookla-open-data.s3.us-west-2.amazonaws.com/parquet/performance/type=fixed/year=${year}/quarter=${q}/${year}-${month}-01_performance_fixed_tiles.parquet"
+        curl -L "$URL" -o "$TARGET_DIR/${year}-Q${q}_performance_fixed_tiles.parquet"
+    done
+done
+```
+
+---
+
+## Key Findings (Preliminary)
+
+- ความเร็วดาวน์โหลดเฉลี่ยรายจังหวัด: **137–317 Mbps** (ต่างกัน 2.3×)
+- GDP ต่อหัวระหว่างจังหวัดต่างกันถึง **7×** แต่ความเร็วเน็ตต่างกันน้อยมาก
+- National mean UL/DL ratio = **0.852** — หลักฐานการขยาย FTTH fiber ทั่วประเทศ
+- จังหวัดที่ช้าสุด: แม่ฮ่องสอน (137 Mbps) — พื้นที่ภูเขา ชายแดน
+- จังหวัดที่เร็วสุด: นนทบุรี (317 Mbps)
+
+---
+
+## Paper
+
+เขียนด้วย XeLaTeX (ภาษาไทย) — compile ด้วย:
+
+```bash
+cd docs && xelatex paper.tex && xelatex paper.tex
+```
+
+ต้องการ font: `sudo apt install fonts-thai-tlwg`
+
+---
+
+## License
+
+Code: MIT  
+Data: ดู [citations.md](docs/citations.md) สำหรับ license ของแต่ละ dataset
