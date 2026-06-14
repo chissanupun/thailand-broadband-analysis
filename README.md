@@ -1,6 +1,6 @@
 # Thailand Broadband Analysis
 
-วิเคราะห์ประสิทธิภาพบรอดแบนด์แบบมีสายในระดับจังหวัดของประเทศไทย โดยเปรียบเทียบข้อมูลจาก **Ookla Open Data** และ **NDT7 (M-Lab)** ครอบคลุมช่วง Q1/2566 – Q4/2568
+Province-level fixed broadband performance analysis in Thailand, comparing **Ookla Open Data** and **NDT7 (M-Lab)** across Q1/2023 – Q4/2025.
 
 ---
 
@@ -9,15 +9,15 @@
 ### Ookla Open Data
 - Fixed broadband performance tiles (Quadkey zoom 16, ~610×610m)
 - 11 quarters: Q1/2023 – Q4/2025
-- ตัวชี้วัด: Download speed, Upload speed, Latency, Test count
+- Metrics: Download speed, Upload speed, Latency, Test count
 - License: CC BY-NC-SA 4.0
 - Source: [ookla-open-data](https://github.com/teamookla/ookla-open-data)
 
 ### NDT7 (M-Lab)
-- Passive background measurement (ต่างจาก Ookla ที่ผู้ใช้กดเอง)
+- Passive background measurement (differs from Ookla which requires user-initiated tests)
 - Source: [M-Lab BigQuery](https://www.measurementlab.net/data/docs/bq/quickstart/)
 
-> Raw data ไม่อยู่ใน repo (ขนาดใหญ่เกิน) — ดูวิธี download ด้านล่าง
+> Raw data is not included in this repo (too large) — see download instructions below.
 
 ---
 
@@ -26,10 +26,10 @@
 ```
 ├── data/
 │   ├── geo/                  # Thailand province boundaries (GeoJSON)
-│   ├── reference/            # Province reference (population, GDP, tier)
+│   ├── reference/            # Province reference (population, GDP, internet tier)
 │   ├── ookla/
-│   │   ├── raw/              # Parquet files (download แยก)
-│   │   └── processed/        # Master dataset (regenerate จาก notebook)
+│   │   ├── raw/              # Parquet files (download separately)
+│   │   └── processed/        # Master dataset (regenerate from notebook)
 │   └── ndt7/
 │       ├── raw/
 │       └── processed/
@@ -80,27 +80,27 @@ done
 
 ## Key Findings (Preliminary)
 
-- ความเร็วดาวน์โหลดเฉลี่ยรายจังหวัด: **137–317 Mbps** (ต่างกัน 2.3×)
-- GDP ต่อหัวระหว่างจังหวัดต่างกันถึง **7×** แต่ความเร็วเน็ตต่างกันน้อยมาก
-- National mean UL/DL ratio = **0.852** — หลักฐานการขยาย FTTH fiber ทั่วประเทศ
-- จังหวัดที่ช้าสุด: แม่ฮ่องสอน (137 Mbps) — พื้นที่ภูเขา ชายแดน
-- จังหวัดที่เร็วสุด: นนทบุรี (317 Mbps)
+- Province-level avg download speed: **137–317 Mbps** (2.3× gap)
+- GDP per capita varies **7×** across provinces, yet broadband speed gap is much smaller
+- National mean UL/DL ratio = **0.852** — evidence of nationwide FTTH fiber deployment
+- Slowest province: Mae Hong Son (137 Mbps) — mountainous, border region
+- Fastest province: Nonthaburi (317 Mbps)
 
 ---
 
 ## Paper
 
-เขียนด้วย XeLaTeX (ภาษาไทย) — compile ด้วย:
+Written in XeLaTeX (Thai language) — compile with:
 
 ```bash
 cd docs && xelatex paper.tex && xelatex paper.tex
 ```
 
-ต้องการ font: `sudo apt install fonts-thai-tlwg`
+Requires font: `sudo apt install fonts-thai-tlwg`
 
 ---
 
 ## License
 
 Code: MIT  
-Data: ดู [citations.md](docs/citations.md) สำหรับ license ของแต่ละ dataset
+Data: See [citations.md](docs/citations.md) for individual dataset licenses.
