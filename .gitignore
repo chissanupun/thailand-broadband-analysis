@@ -1,0 +1,30 @@
+# Virtual environment
+datasci/
+
+# Raw parquet data (too large — download via script)
+data/ookla/raw/
+data/ndt7/raw/
+
+# Processed parquet (regenerate from notebooks)
+data/ookla/processed/
+data/ndt7/processed/
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
+**/.ipynb_checkpoints/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# LaTeX build artifacts
+docs/*.aux
+docs/*.log
+docs/*.toc
+docs/*.out
+docs/*.pdf
