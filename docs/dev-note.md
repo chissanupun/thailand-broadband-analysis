@@ -715,7 +715,7 @@ r = -1.0 → ตรงข้ามกันสมบูรณ์
 ```python
 master['ul_dl_ratio'] = master['avg_u_mbps'] / master['avg_d_mbps']
 ratio_mean = master.groupby('name')['ul_dl_ratio'].mean()
-weird_ratio = ratio_mean[ratio_mean['ul_dl_ratio'] > 0.8]
+divergent_ratio = ratio_mean[ratio_mean['ul_dl_ratio'] > 0.8]
 ```
 
 **UL/DL ratio บอกอะไร:**
@@ -731,7 +731,7 @@ ADSL:                ratio ≈ 0.1–0.2
 - เส้นแดงประ (1.0) = symmetric สมบูรณ์ upload = download
 - เส้นดำจุด (~0.85) = ค่าเฉลี่ยประเทศ
 
-**`weird_ratio > 0.8`:** จังหวัดที่ ratio สูงมาก = น่าจะใช้ไฟเบอร์แล้ว — ถ้าส่วนใหญ่เกิน 0.8 = หลักฐานว่า FTTH ทั่วถึงแล้วทั้งประเทศ
+**`divergent_ratio > 0.8`:** จังหวัดที่ ratio สูงมาก = น่าจะใช้ไฟเบอร์แล้ว — ถ้าส่วนใหญ่เกิน 0.8 = หลักฐานว่า FTTH ทั่วถึงแล้วทั้งประเทศ
 
 **ทำไมสำคัญ:** ใช้ยืนยัน hypothesis ว่า "ความเหลื่อมล้ำด้านเน็ตแคบลงเพราะ FTTH ขยายทั่วประเทศ ไม่ได้กระจุกแค่จังหวัดรวย"
 
@@ -912,10 +912,10 @@ growth = ((last - first) / first * 100)
 
 ---
 
-### Cell 29 — Deep Dive: 5 จังหวัดผิดปกติ → `05_deep_dive_weird.png`
+### Cell 29 — Deep Dive: 5 จังหวัดผิดปกติ → `05_deep_dive_divergent.png`
 
 ```python
-WEIRD = {
+DIVERGENT = {
     'Mae Hong Son':             'ภูเขา/ชายแดน ช้าสุดในภาคเหนือ',
     'Satun':                    'เกาะ ภูมิศาสตร์จำกัด',
     'Ubon Ratchathani':         'Tier 4 แต่เร็วผิดคาด',
@@ -939,16 +939,16 @@ WEIRD = {
 
 ---
 
-### Cell 30 — Setup Weirdness EDA (self-contained) ⭐ จุดเปลี่ยน section
+### Cell 30 — Setup Divergence EDA (self-contained) ⭐ จุดเปลี่ยน section
 
 ```python
 if 'master' not in dir() or master is None:
     master = pd.read_parquet(...)   # โหลดถ้ายังไม่มีใน memory
 
-weird_df = master.groupby(['name','region']).agg(mean_dl, mean_ul, mean_lat, mean_tests)
+divergent_df = master.groupby(['name','region']).agg(mean_dl, mean_ul, mean_lat, mean_tests)
 temp_std = master.groupby('name')['avg_d_mbps'].std()
-weird_df['cv_dl'] = weird_df['std_dl'] / weird_df['mean_dl']
-weird_df['tests_per_1000_pop'] = mean_tests / pop_2024 * 1000
+divergent_df['cv_dl'] = divergent_df['std_dl'] / divergent_df['mean_dl']
+divergent_df['tests_per_1000_pop'] = mean_tests / pop_2024 * 1000
 ```
 
 **ทำไม section นี้ไม่ใช้ `prov_mean` จาก cell ก่อน:**
@@ -962,14 +962,14 @@ weird_df['tests_per_1000_pop'] = mean_tests / pop_2024 * 1000
 | `cv_dl` | std_dl ÷ mean_dl | % ความแปรปรวน — สูง = ขึ้นๆลงๆผิดปกติ |
 | `tests_per_1000_pop` | mean_tests ÷ pop × 1,000 | proxy ของ penetration rate + tech-savviness |
 
-> **สั้นๆ:** สร้าง `weird_df` ใหม่ที่มี metric พิเศษสำหรับวิเคราะห์ความ "ผิดปกติ" โดยเฉพาะ — self-contained รัน standalone ได้
+> **สั้นๆ:** สร้าง `divergent_df` ใหม่ที่มี metric พิเศษสำหรับวิเคราะห์ความ "ผิดปกติ" โดยเฉพาะ — self-contained รัน standalone ได้
 
 ---
 
-### Cell 31 — Composite Weirdness Score (7 Dimensions)
+### Cell 31 — Composite Divergence Score (7 Dimensions)
 
 ```python
-weirdness_score = |tier_z| + |gdp_z| + |den_z| + |regional_z| + |ratio_z| + |lat_z| + |coverage_z|
+divergence_score = |tier_z| + |gdp_z| + |den_z| + |regional_z| + |ratio_z| + |lat_z| + |coverage_z|
 ```
 
 **แนวคิด:** ไม่ได้วัดว่าเร็ว/ช้า แต่วัดว่า "ผิดคาดมากแค่ไหน" จาก 7 มุมพร้อมกัน
@@ -990,7 +990,7 @@ weirdness_score = |tier_z| + |gdp_z| + |den_z| + |regional_z| + |ratio_z| + |lat
 - GDP → `np.log` (ไม่มีค่า 0)
 - density → `np.log1p` = log(1+x) ป้องกัน log(0) ถ้า density น้อยมาก
 
-> **สั้นๆ:** คำนวณ "Weirdness Score" จาก 7 z-score รวมกัน — จังหวัด score สูง = ผิดคาดจากหลายมุมพร้อมกัน ไม่ใช่แค่เร็วหรือช้า
+> **สั้นๆ:** คำนวณ "Divergence Score" จาก 7 z-score รวมกัน — จังหวัด score สูง = ผิดคาดจากหลายมุมพร้อมกัน ไม่ใช่แค่เร็วหรือช้า
 
 ---
 
@@ -1041,14 +1041,14 @@ coverage ต่ำ = อาจหมายถึง
 
 ---
 
-### Cell 34 — Top 20 Weirdest Provinces: Bar + Heatmap
+### Cell 34 — Top 20 Divergentest Provinces: Bar + Heatmap
 
 ```python
 # Layout: bar (1 unit) + heatmap (2 units) เป็น panel เดียว
 gs = fig.add_gridspec(1, 2, width_ratios=[1, 2], wspace=0.08)
 ```
 
-**กราฟซ้าย:** composite weirdness score bar — rank 1–20 บนลงล่าง, สีตาม region
+**กราฟซ้าย:** composite divergence score bar — rank 1–20 บนลงล่าง, สีตาม region
 
 **กราฟขวา — heatmap 20×7:**
 - แดง = สูงกว่าคาด | น้ำเงิน = ต่ำกว่าคาด | intensity = ขนาด z-score
@@ -1064,18 +1064,18 @@ gs = fig.add_gridspec(1, 2, width_ratios=[1, 2], wspace=0.08)
 
 ---
 
-### Cell 35 — Geographic Distribution: Weirdness + Speed Map
+### Cell 35 — Geographic Distribution: Divergence + Speed Map
 
 ```python
-geo_weird = thailand_gdf.merge(weird_df[['name','weirdness_score','mean_dl','internet_tier']], ...)
-geo_weird['weirdness_score'] = geo_weird['weirdness_score'].fillna(0)
+geo_divergent = thailand_gdf.merge(divergent_df[['name','divergence_score','mean_dl','internet_tier']], ...)
+geo_divergent['divergence_score'] = geo_divergent['divergence_score'].fillna(0)
 ```
 
 **2 แผนที่:**
 
 | ซ้าย | ขวา |
 |---|---|
-| Weirdness score choropleth (YlOrRd — เหลือง→แดง) | Download speed choropleth (YlGnBu — เหลือง→น้ำเงิน) |
+| Divergence score choropleth (YlOrRd — เหลือง→แดง) | Download speed choropleth (YlGnBu — เหลือง→น้ำเงิน) |
 | annotate top 10 จังหวัดแปลกสุด | ขอบแดง = Tier 1, ขอบส้มประ = Tier 4 |
 
 **`try/except` guard:** ถ้า `thailand_gdf` ไม่อยู่ใน memory → โหลดใหม่จาก path อัตโนมัติ
@@ -1084,7 +1084,7 @@ geo_weird['weirdness_score'] = geo_weird['weirdness_score'].fillna(0)
 
 **ขอบ Tier บนแผนที่ขวา:** เห็นว่า Tier 4 บางจังหวัดสีเข้ม (เร็ว) = catch-up growth จริง ไม่ใช่แค่ทฤษฎี
 
-> **สั้นๆ:** แผนที่ปิดท้าย Weirdness EDA — เห็นการกระจายเชิงพื้นที่ว่าจังหวัดแปลก/เร็ว/ช้าอยู่ตรงไหนของประเทศ
+> **สั้นๆ:** แผนที่ปิดท้าย Divergence EDA — เห็นการกระจายเชิงพื้นที่ว่าจังหวัดแปลก/เร็ว/ช้าอยู่ตรงไหนของประเทศ
 
 ---
 
@@ -1107,7 +1107,7 @@ signals.sort(reverse=True)
 **Styling 4 ชั้น:**
 | Column | Color |
 |---|---|
-| Score | YlOrRd — เหลือง→แดงตาม weirdness |
+| Score | YlOrRd — เหลือง→แดงตาม divergence |
 | z-columns (7 มิติ) | RdBu_r — น้ำเงิน=ต่ำกว่าคาด, แดง=สูงกว่าคาด |
 | DL Mbps | YlGn — เหลือง→เขียวตามความเร็ว |
 | Tier | background สี tier (แดง/ส้ม/เขียว/น้ำเงินอ่อน) |

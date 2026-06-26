@@ -87,7 +87,7 @@ SLIDES = [
     {
         'type': 'image',
         'title': '5 จังหวัดที่ผิดปกติที่สุด',
-        'image': '05_deep_dive_weird.png',
+        'image': '05_deep_dive_divergent.png',
         'metric': 'วัดจาก Download/Upload trend และ Latency trend ตลอด 11 ไตรมาส รายจังหวัด',
         'findings': [
             '<b>แม่ฮ่องสอน</b> — ช้าสุดในภาคเหนือ, latency พุ่งสูง (ภูเขา/ชายแดน)',
@@ -131,8 +131,8 @@ SLIDES = [
     {
         'type': 'image',
         'title': 'แผนที่ความผิดปกติ — จังหวัดไหนผิดปกติที่สุด?',
-        'image': '27_weirdness_map.png',
-        'metric': 'วัดจาก Composite Weirdness Score — ผลรวมค่าเบี่ยงเบนจากค่าคาดการณ์ใน 7 มิติ (ความเร็ว, latency, GDP, density, tier, UL/DL ratio, coverage)',
+        'image': '27_divergence_map.png',
+        'metric': 'วัดจาก Composite Divergence Score — ผลรวมค่าเบี่ยงเบนจากค่าคาดการณ์ใน 7 มิติ (ความเร็ว, latency, GDP, density, tier, UL/DL ratio, coverage)',
         'findings': [
             'ซ้าย: แดงเข้ม = ผิดปกติมาก (ไม่ว่าจะเร็วหรือช้า) · ขวา: น้ำเงินเข้ม = เร็วมาก',
             'ภาคเหนือบางจังหวัดแปลกมากแต่ไม่จำเป็นต้องเร็ว — outlier เพราะ geography',
