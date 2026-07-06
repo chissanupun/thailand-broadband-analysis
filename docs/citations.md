@@ -112,7 +112,33 @@ s3://ookla-open-data/parquet/performance/type=fixed/year={YEAR}/quarter={Q}/{YEA
 
 ---
 
-## 6. Summary Table — Source vs. Use
+## 6. Public Perception & Discourse — "Is Thai Internet Good or Bad?"
+
+**Used for:** Introduction framing — the contradiction between national-level rankings ("good") and user-reported complaints ("bad") that motivates this paper's research question.
+
+**6a. Ookla — Speedtest Global Index ranking (the "good" side):**
+> Nation Thailand. (2025, March 1). *Thailand ranks 13th in the world for fixed broadband speed*. https://www.nationthailand.com/business/tech/40046895
+
+**Key stats used:** Thailand fixed broadband — 13th globally, 237.05 Mbps avg download. Thailand mobile — 39th globally, 101.56 Mbps avg download. Gap between fixed rank and mobile rank is itself evidence the "good/bad" question depends on network type.
+
+**6b. ETDA / Statista — user complaint survey (the "bad" side):**
+> Electronic Transactions Development Agency (ETDA). (2024, March 18). *Leading online issues that caused annoyances among internet users in Thailand in 2022* [Graph]. Statista. https://www.statista.com/statistics/1129934/thailand-leading-online-problems-internet-users/
+
+**Key stat used:** 64.65% of Thai internet users cite slow connection speed as their top annoyance (2022 survey, published by ETDA — same agency already cited in §5c).
+
+**6c. Nation Thailand — telecom duopoly / outage coverage (the "bad" side, post-merger):**
+> Nation Thailand. (2025, May 23). *Thai telecom outages expose duopoly flaws, experts call for fair competition*. https://www.nationthailand.com/business/tech/40050343
+
+**Key stats used:** Foundation for Consumers survey — 81% of users experienced network issues in the prior 6 months; NBTC complaint volume rose from <1,000 to ~3,000 cases in the first 7 months of 2025; nationwide True Corporation outage (May 2025) caused documented business losses.
+
+**6d. Methodology reference — comparing two independent measurement platforms:**
+> MacMillan, K., Mangla, T., Saxon, J., Marwell, N. P., & Feamster, N. (2023). *A Comparative Analysis of Ookla Speedtest and Measurement Labs Network Diagnostic Test (NDT7)*. Proc. ACM Meas. Anal. Comput. Syst., 7(1), Article 19. https://dl.acm.org/doi/epdf/10.1145/3579448
+
+**Used for:** Cross-validation methodology between Ookla and NDT7 (see `comparison-research.md`); also already the source PDF at `docs/macmillan2023_ndt7_vs_ookla.pdf`.
+
+---
+
+## 7. Summary Table — Source vs. Use
 
 | Data | Column in CSV | Primary Source | Alternative to |
 |------|---------------|----------------|----------------|
@@ -122,10 +148,13 @@ s3://ookla-open-data/parquet/performance/type=fixed/year={YEAR}/quarter={Q}/{YEA
 | GPP per capita 2021 | `gdp_per_capita_thb_2021` | NESDC GPP Chain Volume Measures | Wikipedia / thaiwebsites.com |
 | Internet tier (proxy) | `internet_tier` | Derived (NESDC + NBTC context) | — |
 | Fixed BB speed tiles | (parquet files) | Ookla Open Data (CC BY-NC-SA 4.0) | — |
+| Mobile speed tiles | (parquet files) | Ookla Open Data (CC BY-NC-SA 4.0) | — |
+| Per-test network diagnostics | (NDT7 tables) | M-Lab NDT7 via BigQuery Public Datasets | — |
+| "Good/bad" perception framing | (paper §1 only) | Ookla Speedtest Global Index, ETDA/Statista, Nation Thailand | — |
 
 ---
 
-## 7. Note on Wikipedia
+## 8. Note on Wikipedia
 
 Wikipedia was used during initial exploration only. For publication, all data traces back to:
 - **DOPA** (population)
