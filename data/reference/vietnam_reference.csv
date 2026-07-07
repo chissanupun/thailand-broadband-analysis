@@ -1,0 +1,65 @@
+province_en,province_th,region,area_km2,pop_2024,density_per_km2,gdp_per_capita_thb_2021,internet_tier
+An Giang,An Giang,Mekong Delta,3536.68,2057000,540,3791.46,1
+Bà Rịa–Vũng Tàu,Bà Rịa–Vũng Tàu,Southeast,1980.98,1303000,580,36786.39,1
+Bình Dương,Bình Dương,Southeast,2694.64,2564000,901,3663.54,2
+Bình Phước,Bình Phước,Southeast,6876.76,1313000,145,3606.56,2
+Bình Thuận,Bình Thuận,South Central Coast,7943.93,1498000,155,3090.17,2
+Bình Định,Bình Định,South Central Coast,6066.21,1679000,245,3089.1,2
+Bạc Liêu,Bạc Liêu,Mekong Delta,2669.01,1105000,340,3701.98,2
+Bắc Giang,Bắc Giang,Northeast,3895.59,1884000,463,1909.44,4
+Bắc Kạn,Bắc Kạn,Northeast,4859.96,338000,65,1766.68,4
+Bắc Ninh,Bắc Ninh,Red River Delta,822.71,1447000,1664,4451.41,1
+Bến Tre,Bến Tre,Mekong Delta,2394.81,1331000,538,2978.48,2
+Cao Bằng,Cao Bằng,Northeast,6700.26,576000,79,1564.27,4
+Cà Mau,Cà Mau,Mekong Delta,5221.19,1369000,229,3121.66,2
+Côn Đảo,Côn Đảo,Southeast,1980.98,1303000,580,36786.39,1
+Cần Thơ,Cần Thơ,Mekong Delta,1438.96,1456000,858,6260.52,1
+Gia Lai,Gia Lai,Central Highlands,15510.99,1586000,98,3023.2,2
+Ho Chi Minh,Ho Chi Minh,Southeast,2061.41,9125000,4363,7147.09,1
+Hà Giang,Hà Giang,Northeast,7929.48,910000,108,1083.72,4
+Hà Nam,Hà Nam,Red River Delta,861.93,945000,989,2131.93,4
+Hà Nội,Hà Nội,Red River Delta,3358.6,8146000,2398,3923.21,1
+Hà Tĩnh,Hà Tĩnh,North Central Coast,5990.67,1402000,215,2117.32,4
+Hòa Bình,Hòa Bình,Northwest,4590.57,979000,186,2343.13,3
+Hưng Yên,Hưng Yên,Red River Delta,930.22,1340000,1347,2503.79,3
+Hải Dương,Hải Dương,Red River Delta,1668.24,2003000,1134,2513.92,3
+Hải Phòng,Hải Phòng,Red River Delta,1561.76,2138000,1299,3849.18,1
+Hậu Giang,Hậu Giang,Mekong Delta,1621.7,853000,452,2943.84,2
+Khánh Hòa,Khánh Hòa,South Central Coast,5137.79,1371000,240,4180.68,1
+Kiên Giang,Kiên Giang,Mekong Delta,6348.78,1789000,271,4336.43,1
+Kon Tum,Kon Tum,Central Highlands,9674.18,589000,56,2075.42,4
+Lai Châu,Lai Châu,Northwest,9068.79,527000,51,1081.84,4
+Long An,Long An,Mekong Delta,4494.94,1730000,376,4012.39,1
+Lào Cai,Lào Cai,Northwest,6364.03,898000,115,2767.55,3
+Lâm Đồng,Lâm Đồng,Central Highlands,9783.34,1390000,133,3331.8,2
+Lạng Sơn,Lạng Sơn,Northeast,8310.09,828000,94,2201.98,4
+Nam Định,Nam Định,Red River Delta,1668.57,1852000,1067,1904.97,4
+Nghệ An,Nghệ An,North Central Coast,16481.41,3399000,202,2379.59,3
+Ninh Bình,Ninh Bình,Red River Delta,1386.79,1102000,708,2478.79,3
+Ninh Thuận,Ninh Thuận,South Central Coast,3355.34,720000,176,2402.34,3
+Phú Thọ,Phú Thọ,Northeast,3534.56,1515000,414,1916.23,4
+Phú Yên,Phú Yên,South Central Coast,5023.42,1056000,174,2541.8,3
+Quảng Bình,Quảng Bình,North Central Coast,8065.3,992000,112,2203.01,3
+Quảng Nam,Quảng Nam,South Central Coast,10574.86,1697000,141,3192.34,2
+Quảng Ngãi,Quảng Ngãi,South Central Coast,5155.78,1355000,239,3516.44,2
+Quảng Ninh,Quảng Ninh,Northeast,6178.21,1387000,214,7834.55,1
+Quảng Trị,Quảng Trị,North Central Coast,4621.72,687000,137,2672.1,3
+Sóc Trăng,Sóc Trăng,Mekong Delta,3311.88,1256000,362,2835.46,3
+Sơn La,Sơn La,Northwest,14123.49,1356000,88,1773.9,4
+Thanh Hóa,Thanh Hóa,North Central Coast,11114.65,3689000,328,2434.69,3
+Thái Bình,Thái Bình,Red River Delta,1586.35,1934000,1173,2090.86,4
+Thái Nguyên,Thái Nguyên,Northeast,3526.64,1356000,365,2547.11,3
+Thừa Thiên Huế,Thừa Thiên Huế,North Central Coast,4902.44,1257000,230,3072.58,2
+Tiền Giang,Tiền Giang,Mekong Delta,2510.61,1898000,703,3781.77,1
+Trà Vinh,Trà Vinh,Mekong Delta,2358.26,1067000,428,2662.89,3
+Tuyên Quang,Tuyên Quang,Northeast,5867.9,1056000,134,1948.18,4
+Tây Ninh,Tây Ninh,Southeast,4041.25,1207000,289,4058.65,1
+Vĩnh Long,Vĩnh Long,Mekong Delta,1525.73,1100000,670,3360.01,2
+Vĩnh Phúc,Vĩnh Phúc,Red River Delta,1235.87,1296000,932,3990.61,1
+Yên Bái,Yên Bái,Northwest,6887.46,950000,119,1845.51,4
+Điện Biên,Điện Biên,Northwest,9541.25,705000,63,1589.03,4
+Đà Nẵng,Đà Nẵng,South Central Coast,1284.88,1294000,883,4811.58,1
+Đắk Lắk,Đắk Lắk,Central Highlands,13030.5,2016000,143,2555.78,3
+Đắk Nông,Đắk Nông,Central Highlands,6509.27,670000,96,3000.7,2
+Đồng Nai,Đồng Nai,Southeast,5863.6,3227000,528,3485.16,2
+Đồng Tháp,Đồng Tháp,Mekong Delta,3383.85,1838000,473,2240.56,3
