@@ -1,6 +1,6 @@
-province_en,province_th,region,area_km2,pop_2024,density_per_km2,gdp_per_capita_thb_2021,internet_tier
-Central Region,Central Region,Central Region,133.54,975310,7304,107758,2
-East Region,East Region,East Region,111.6,710690,6368,107758,3
-North Region,North Region,North Region,134.51,599400,4456,107758,4
-North-East Region,North-East Region,North-East Region,111.03,974650,8778,107758,1
-West Region,West Region,West Region,234.94,944480,4020,107758,4
+province_en,province_th,region,area_km2,pop_2024,density_per_km2,internet_tier,gdp_per_capita_raw_2021,gdp_per_capita_usd_ppp_2021,gdp_per_capita_thb_2021
+Central Region,Central Region,Central Region,133.54,975310,7304,2,107758,132617.35,4241102.85
+East Region,East Region,East Region,111.6,710690,6368,3,107758,132617.35,4241102.85
+North Region,North Region,North Region,134.51,599400,4456,4,107758,132617.35,4241102.85
+North-East Region,North-East Region,North-East Region,111.03,974650,8778,1,107758,132617.35,4241102.85
+West Region,West Region,West Region,234.94,944480,4020,4,107758,132617.35,4241102.85

@@ -1,18 +1,18 @@
-province_en,province_th,region,area_km2,pop_2024,density_per_km2,gdp_per_capita_thb_2021,internet_tier
-ARMM,ARMM,Mindanao,11935.7,4545486,330,1278,4
-Bicol Region,Bicol Region,Luzon,18155.82,6064426,319,2002,4
-CAR,CAR,Luzon,19422.03,1808985,89,4145,1
-Cagayan Valley,Cagayan Valley,Luzon,28228.83,3777608,122,2606,3
-Calabarzon,Calabarzon,Luzon,16873.31,16933234,854,3647,2
-Caraga,Caraga,Mindanao,21478.35,2865196,121,2630,3
-Central Luzon,Central Luzon,Luzon,22014.63,12989074,510,3697,2
-Central Visayas,Central Visayas,Visayas,10114.52,6640875,647,3448,2
-Davao Region,Davao Region,Mindanao,20357.42,5389422,245,4079,1
-Eastern Visayas,Eastern Visayas,Visayas,23251.1,4625929,191,2076,4
-Ilocos Region,Ilocos Region,Luzon,13012.6,5342453,386,2716,3
-Mimaropa,Mimaropa,Luzon,29620.9,3245446,100,2680,3
-NCR,NCR,Luzon,636.0,14001751,20247,10426,1
-Northern Mindanao,Northern Mindanao,Mindanao,20496.02,5178326,229,4096,1
-Soccsksargen,Soccsksargen,Mindanao,22513.3,4462776,202,2459,4
-Western Visayas,Western Visayas,Visayas,26276.19,9766855,372,2765,2
-Zamboanga Peninsula,Zamboanga Peninsula,Mindanao,17056.73,5089934,213,2525,4
+province_en,province_th,region,area_km2,pop_2024,density_per_km2,internet_tier,gdp_per_capita_raw_2021,gdp_per_capita_usd_ppp_2021,gdp_per_capita_thb_2021
+ARMM,ARMM,Mindanao,11935.7,4545486,330,4,1278,2846.41,91028.33
+Bicol Region,Bicol Region,Luzon,18155.82,6064426,319,4,2002,4458.94,142596.8
+CAR,CAR,Luzon,19422.03,1808985,89,1,4145,9231.91,295236.64
+Cagayan Valley,Cagayan Valley,Luzon,28228.83,3777608,122,3,2606,5804.19,185618.02
+Calabarzon,Calabarzon,Luzon,16873.31,16933234,854,2,3647,8122.75,259765.51
+Caraga,Caraga,Mindanao,21478.35,2865196,121,3,2630,5857.64,187327.47
+Central Luzon,Central Luzon,Luzon,22014.63,12989074,510,2,3697,8234.11,263326.87
+Central Visayas,Central Visayas,Visayas,10114.52,6640875,647,2,3448,7679.53,245591.3
+Davao Region,Davao Region,Mindanao,20357.42,5389422,245,1,4079,9084.92,290535.65
+Eastern Visayas,Eastern Visayas,Visayas,23251.1,4625929,191,4,2076,4623.75,147867.62
+Ilocos Region,Ilocos Region,Luzon,13012.6,5342453,386,3,2716,6049.19,193453.01
+Mimaropa,Mimaropa,Luzon,29620.9,3245446,100,3,2680,5969.01,190888.83
+NCR,NCR,Luzon,636.0,14001751,20247,1,10426,23221.22,742614.53
+Northern Mindanao,Northern Mindanao,Mindanao,20496.02,5178326,229,1,4096,9122.78,291746.51
+Soccsksargen,Soccsksargen,Mindanao,22513.3,4462776,202,4,2459,5476.79,175147.62
+Western Visayas,Western Visayas,Visayas,26276.19,9766855,372,2,2765,6158.32,196943.14
+Zamboanga Peninsula,Zamboanga Peninsula,Mindanao,17056.73,5089934,213,4,2525,5623.78,179848.62

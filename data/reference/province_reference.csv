@@ -1,78 +1,78 @@
-province_en,province_th,region,area_km2,pop_2024,density_per_km2,gdp_per_capita_thb_2021,internet_tier
-Bangkok Metropolis,กรุงเทพมหานคร,Bangkok & Vicinity,1564,5456000,3488,593927,1
-Amnat Charoen,อำนาจเจริญ,Northeastern,3290,372000,113,77048,4
-Ang Thong,อ่างทอง,Central,950,269000,283,142287,3
-Bueng Kan,บึงกาฬ,Northeastern,4003,419000,105,80159,4
-Buri Ram,บุรีรัมย์,Northeastern,10080,1566000,155,80684,4
-Chachoengsao,ฉะเชิงเทรา,Eastern,5169,733000,142,400385,2
-Chai Nat,ชัยนาท,Central,2506,314000,131,135667,3
-Chaiyaphum,ชัยภูมิ,Northeastern,12698,1106000,88,73134,4
-Chanthaburi,จันทบุรี,Eastern,6415,536000,83,243317,2
-Chiang Mai,เชียงใหม่,Northern,22311,1799000,79,133306,2
-Chiang Rai,เชียงราย,Northern,11503,1298000,112,90203,3
-Chon Buri,ชลบุรี,Eastern,4508,1636000,363,524002,1
-Chumphon,ชุมพร,Southern,5998,508000,84,259853,2
-Kalasin,กาฬสินธุ์,Northeastern,6936,962000,139,77397,4
-Kamphaeng Phet,กำแพงเพชร,Northern,8512,701000,82,141987,3
-Kanchanaburi,กาญจนบุรี,Western,19385,896000,46,127365,3
-Khon Kaen,ขอนแก่น,Northeastern,10659,1772000,166,124489,3
-Krabi,กระบี่,Southern,5323,484000,91,168552,2
-Lampang,ลำปาง,Northern,12488,704000,56,104754,3
-Lamphun,ลำพูน,Northern,4478,397000,89,226464,2
-Loei,เลย,Northeastern,10500,632000,60,105205,4
-Lop Buri,ลพบุรี,Central,6493,725000,111,142287,3
-Mae Hong Son,แม่ฮ่องสอน,Northern,12765,288000,23,65653,4
-Maha Sarakham,มหาสารคาม,Northeastern,5607,930000,165,85228,4
-Mukdahan,มุกดาหาร,Northeastern,4126,351000,85,67203,4
-Nakhon Nayok,นครนายก,Eastern,2141,260000,121,115666,3
-Nakhon Pathom,นครปฐม,Bangkok & Vicinity,2142,926000,432,297901,2
-Nakhon Phanom,นครพนม,Northeastern,5637,711000,125,87122,4
-Nakhon Ratchasima,นครราชสีมา,Northeastern,20736,2620000,126,126119,3
-Nakhon Sawan,นครสวรรค์,Northern,9526,1014000,106,119856,3
-Nakhon Si Thammarat,นครศรีธรรมราช,Southern,9885,1535000,154,122494,3
-Nan,น่าน,Northern,12130,471000,39,81233,4
-Narathiwat,นราธิวาส,Southern,4491,824000,183,61787,4
-Nong Bua Lam Phu,หนองบัวลำภู,Northeastern,4099,504000,123,63568,4
-Nong Khai,หนองคาย,Northeastern,3275,512000,156,97617,4
-Nonthaburi,นนทบุรี,Bangkok & Vicinity,637,1318000,2069,193641,1
-Pathum Thani,ปทุมธานี,Bangkok & Vicinity,1520,1236000,813,230401,1
-Pattani,ปัตตานี,Southern,1977,741000,375,78131,4
-Phangnga,พังงา,Southern,5495,266000,49,194282,2
-Phatthalung,พัทลุง,Southern,3861,519000,135,81529,3
-Phayao,พะเยา,Northern,6189,455000,74,96550,3
-Phetchabun,เพชรบูรณ์,Northern,12340,961000,75,88485,3
-Phetchaburi,เพชรบุรี,Western,6172,484100,76,144370,3
-Phichit,พิจิตร,Northern,4319,517000,120,93950,3
-Phitsanulok,พิษณุโลก,Northern,10589,839000,78,113013,3
-Phra Nakhon Si Ayutthaya,พระนครศรีอยุธยา,Central,2548,823000,323,468579,1
-Phrae,แพร่,Northern,6483,422000,65,82755,3
-Phuket,ภูเก็ต,Southern,547,430000,786,165343,1
-Prachin Buri,ปราจีนบุรี,Eastern,5026,501000,100,490499,1
-Prachuap Khiri Khan,ประจวบคีรีขันธ์,Western,6414,552000,87,192326,2
-Ranong,ระนอง,Southern,3230,193000,59,105256,3
-Ratchaburi,ราชบุรี,Western,5189,864000,167,221383,2
-Rayong,ระยอง,Eastern,3666,782000,213,955119,1
-Roi Et,ร้อยเอ็ด,Northeastern,7873,1276000,162,78688,4
-Sa Kaeo,สระแก้ว,Eastern,6831,562000,80,73744,4
-Sakon Nakhon,สกลนคร,Northeastern,9580,1138000,118,72117,4
-Samut Prakan,สมุทรปราการ,Bangkok & Vicinity,947,1381000,1458,283160,1
-Samut Sakhon,สมุทรสาคร,Bangkok & Vicinity,866,591000,682,391442,1
-Samut Songkhram,สมุทรสงคราม,Western,414,187000,452,160089,2
-Saraburi,สระบุรี,Central,3499,639000,182,323556,1
-Satun,สตูล,Southern,3019,325000,108,113481,3
-Sing Buri,สิงห์บุรี,Central,817,200000,245,142428,3
-Si Sa Ket,ศรีสะเกษ,Northeastern,8936,1442000,161,83332,4
-Songkhla,สงขลา,Southern,7741,1431000,185,145123,2
-Sukhothai,สุโขทัย,Northern,6671,573000,86,80170,3
-Suphan Buri,สุพรรณบุรี,Western,5410,822000,152,107792,3
-Surat Thani,สุราษฎร์ธานี,Southern,13079,1077000,81,154835,2
-Surin,สุรินทร์,Northeastern,8854,1360000,153,81675,4
-Tak,ตาก,Northern,17303,699000,40,114952,3
-Trang,ตรัง,Southern,4726,635000,134,109656,3
-Trat,ตราด,Eastern,2866,227000,77,160025,2
-Ubon Ratchathani,อุบลราชธานี,Northeastern,15626,1868000,119,78275,4
-Udon Thani,อุดรธานี,Northeastern,11072,1552000,140,90818,4
-Uthai Thani,อุทัยธานี,Northern,6647,320000,48,101640,3
-Uttaradit,อุตรดิตถ์,Northern,7906,436000,55,103567,3
-Yala,ยะลา,Southern,4476,553000,124,105453,4
-Yasothon,ยโสธร,Northeastern,4131,525000,127,70327,4
+province_en,province_th,region,area_km2,pop_2024,density_per_km2,internet_tier,gdp_per_capita_raw_2021,gdp_per_capita_usd_ppp_2021,gdp_per_capita_thb_2021
+Bangkok Metropolis,กรุงเทพมหานคร,Bangkok & Vicinity,1564,5456000,3488,1,593927,61200.11,1957179.52
+Amnat Charoen,อำนาจเจริญ,Northeastern,3290,372000,113,4,77048,7939.27,253897.82
+Ang Thong,อ่างทอง,Central,950,269000,283,3,142287,14661.7,468881.2
+Bueng Kan,บึงกาฬ,Northeastern,4003,419000,105,4,80159,8259.84,264149.56
+Buri Ram,บุรีรัมย์,Northeastern,10080,1566000,155,4,80684,8313.93,265879.6
+Chachoengsao,ฉะเชิงเทรา,Eastern,5169,733000,142,2,400385,41256.93,1319396.7
+Chai Nat,ชัยนาท,Central,2506,314000,131,3,135667,13979.56,447066.18
+Chaiyaphum,ชัยภูมิ,Northeastern,12698,1106000,88,4,73134,7535.96,240999.93
+Chanthaburi,จันทบุรี,Eastern,6415,536000,83,2,243317,25072.15,801807.38
+Chiang Mai,เชียงใหม่,Northern,22311,1799000,79,2,133306,13736.27,439285.93
+Chiang Rai,เชียงราย,Northern,11503,1298000,112,3,90203,9294.8,297247.75
+Chon Buri,ชลบุรี,Eastern,4508,1636000,363,1,524002,53994.82,1726754.27
+Chumphon,ชุมพร,Southern,5998,508000,84,2,259853,26776.07,856298.79
+Kalasin,กาฬสินธุ์,Northeastern,6936,962000,139,4,77397,7975.23,255047.88
+Kamphaeng Phet,กำแพงเพชร,Northern,8512,701000,82,3,141987,14630.79,467892.6
+Kanchanaburi,กาญจนบุรี,Western,19385,896000,46,3,127365,13124.09,419708.43
+Khon Kaen,ขอนแก่น,Northeastern,10659,1772000,166,3,124489,12827.74,410231.09
+Krabi,กระบี่,Southern,5323,484000,91,2,168552,17368.13,555432.78
+Lampang,ลำปาง,Northern,12488,704000,56,3,104754,10794.18,345197.95
+Lamphun,ลำพูน,Northern,4478,397000,89,2,226464,23335.56,746271.35
+Loei,เลย,Northeastern,10500,632000,60,4,105205,10840.65,346684.14
+Lop Buri,ลพบุรี,Central,6493,725000,111,3,142287,14661.7,468881.2
+Mae Hong Son,แม่ฮ่องสอน,Northern,12765,288000,23,4,65653,6765.09,216347.64
+Maha Sarakham,มหาสารคาม,Northeastern,5607,930000,165,4,85228,8782.16,280853.53
+Mukdahan,มุกดาหาร,Northeastern,4126,351000,85,4,67203,6924.81,221455.39
+Nakhon Nayok,นครนายก,Eastern,2141,260000,121,3,115666,11918.59,381156.48
+Nakhon Pathom,นครปฐม,Bangkok & Vicinity,2142,926000,432,2,297901,30696.66,981679.12
+Nakhon Phanom,นครพนม,Northeastern,5637,711000,125,4,87122,8977.33,287094.87
+Nakhon Ratchasima,นครราชสีมา,Northeastern,20736,2620000,126,3,126119,12995.7,415602.46
+Nakhon Sawan,นครสวรรค์,Northern,9526,1014000,106,3,119856,12350.34,394963.87
+Nakhon Si Thammarat,นครศรีธรรมราช,Southern,9885,1535000,154,3,122494,12622.17,403656.93
+Nan,น่าน,Northern,12130,471000,39,4,81233,8370.5,267688.73
+Narathiwat,นราธิวาส,Southern,4491,824000,183,4,61787,6366.73,203607.94
+Nong Bua Lam Phu,หนองบัวลำภู,Northeastern,4099,504000,123,4,63568,6550.25,209476.9
+Nong Khai,หนองคาย,Northeastern,3275,512000,156,4,97617,10058.76,321679.25
+Nonthaburi,นนทบุรี,Bangkok & Vicinity,637,1318000,2069,1,193641,19953.38,638109.06
+Pathum Thani,ปทุมธานี,Bangkok & Vicinity,1520,1236000,813,1,230401,23741.25,759245.02
+Pattani,ปัตตานี,Southern,1977,741000,375,4,78131,8050.86,257466.65
+Phangnga,พังงา,Southern,5495,266000,49,2,194282,20019.43,640221.36
+Phatthalung,พัทลุง,Southern,3861,519000,135,3,81529,8401.01,268664.14
+Phayao,พะเยา,Northern,6189,455000,74,3,96550,9948.82,318163.15
+Phetchabun,เพชรบูรณ์,Northern,12340,961000,75,3,88485,9117.77,291586.39
+Phetchaburi,เพชรบุรี,Western,6172,484100,76,3,144370,14876.34,475745.35
+Phichit,พิจิตร,Northern,4319,517000,120,3,93950,9680.9,309595.31
+Phitsanulok,พิษณุโลก,Northern,10589,839000,78,3,113013,11645.22,372414.0
+Phra Nakhon Si Ayutthaya,พระนครศรีอยุธยา,Central,2548,823000,323,1,468579,48283.86,1544117.75
+Phrae,แพร่,Northern,6483,422000,65,3,82755,8527.34,272704.21
+Phuket,ภูเก็ต,Southern,547,430000,786,1,165343,17037.46,544858.1
+Prachin Buri,ปราจีนบุรี,Eastern,5026,501000,100,1,490499,50542.56,1616351.17
+Prachuap Khiri Khan,ประจวบคีรีขันธ์,Western,6414,552000,87,2,192326,19817.88,633775.72
+Ranong,ระนอง,Southern,3230,193000,59,3,105256,10845.91,346852.2
+Ratchaburi,ราชบุรี,Western,5189,864000,167,2,221383,22812.0,729527.83
+Rayong,ระยอง,Eastern,3666,782000,213,1,955119,98418.47,3147422.75
+Roi Et,ร้อยเอ็ด,Northeastern,7873,1276000,162,4,78688,8108.26,259302.14
+Sa Kaeo,สระแก้ว,Eastern,6831,562000,80,4,73744,7598.81,243010.08
+Sakon Nakhon,สกลนคร,Northeastern,9580,1138000,118,4,72117,7431.16,237648.59
+Samut Prakan,สมุทรปราการ,Bangkok & Vicinity,947,1381000,1458,1,283160,29177.7,933102.81
+Samut Sakhon,สมุทรสาคร,Bangkok & Vicinity,866,591000,682,1,391442,40335.42,1289926.65
+Samut Songkhram,สมุทรสงคราม,Western,414,187000,452,2,160089,16496.08,527544.48
+Saraburi,สระบุรี,Central,3499,639000,182,1,323556,33340.23,1066220.56
+Satun,สตูล,Southern,3019,325000,108,3,113481,11693.44,373956.21
+Sing Buri,สิงห์บุรี,Central,817,200000,245,3,142428,14676.23,469345.84
+Si Sa Ket,ศรีสะเกษ,Northeastern,8936,1442000,161,4,83332,8586.79,274605.61
+Songkhla,สงขลา,Southern,7741,1431000,185,2,145123,14953.93,478226.73
+Sukhothai,สุโขทัย,Northern,6671,573000,86,3,80170,8260.97,264185.8
+Suphan Buri,สุพรรณบุรี,Western,5410,822000,152,3,107792,11107.23,355209.13
+Surat Thani,สุราษฎร์ธานี,Southern,13079,1077000,81,2,154835,15954.69,510230.87
+Surin,สุรินทร์,Northeastern,8854,1360000,153,4,81675,8416.05,269145.26
+Tak,ตาก,Northern,17303,699000,40,3,114952,11845.02,378803.63
+Trang,ตรัง,Southern,4726,635000,134,3,109656,11299.3,361351.61
+Trat,ตราด,Eastern,2866,227000,77,2,160025,16489.48,527333.58
+Ubon Ratchathani,อุบลราชธานี,Northeastern,15626,1868000,119,4,78275,8065.7,257941.17
+Udon Thani,อุดรธานี,Northeastern,11072,1552000,140,4,90818,9358.17,299274.37
+Uthai Thani,อุทัยธานี,Northern,6647,320000,48,3,101640,10473.31,334936.33
+Uttaradit,อุตรดิตถ์,Northern,7906,436000,55,3,103567,10671.87,341286.41
+Yala,ยะลา,Southern,4476,553000,124,4,105453,10866.21,347501.38
+Yasothon,ยโสธร,Northeastern,4131,525000,127,4,70327,7246.72,231749.97

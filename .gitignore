@@ -11,6 +11,7 @@ data/ndt7/raw/
 # Processed parquet (regenerate from notebooks)
 data/ookla/processed/
 data/ndt7/processed/
+data/ndt7/vn/*.parquet
 
 # Jupyter checkpoints
 .ipynb_checkpoints/
