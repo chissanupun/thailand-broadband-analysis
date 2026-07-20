@@ -1,0 +1,17 @@
+province_en,province_th,region,area_km2,pop_2024,density_per_km2,internet_tier,gdp_per_capita_raw_2021,gdp_per_capita_usd_ppp_2021,gdp_per_capita_thb_2021
+Johor,Johor,Southern,19210,4186300,218,3,8810,24097.67,771125.44
+Kedah,Kedah,Northern,9500,2217500,233,4,5694,15574.59,498386.88
+Kelantan,Kelantan,East Coast,15099,1888500,125,4,3764,10295.53,329456.96
+Malacca,Malacca,Southern,1664,1047100,629,2,10775,29472.46,943118.72
+Negeri Sembilan,Negeri Sembilan,Central,6686,1240100,185,2,10747,29395.88,940668.16
+Pahang,Pahang,East Coast,36137,1668200,46,3,9978,27292.46,873358.72
+Penang,Penang,Northern,1048,1800400,1718,2,14416,39431.56,1261809.92
+Perak,Perak,Northern,21035,2569600,122,3,8294,22686.27,725960.64
+Perlis,Perlis,Northern,821,296800,362,4,5195,14209.69,454710.08
+Sabah,Sabah,Borneo / East Malaysia,73631,3742200,51,4,7236,19792.37,633355.84
+Sarawak,Sarawak,Borneo / East Malaysia,124450,2518100,20,1,15935,43586.42,1394765.44
+Selangor,Selangor,Central,8104,7363400,909,2,12543,34308.41,1097869.12
+Terengganu,Terengganu,East Coast,13035,1232100,95,3,7464,20416.01,653312.32
+Kuala Lumpur,Kuala Lumpur,Central,243,2067500,8508,1,26882,73529.35,2352939.2
+Labuan,Labuan,Borneo / East Malaysia,91,100800,1108,1,19648,53742.45,1719758.4
+Putrajaya,Putrajaya,Central,49,120300,2455,1,26882,73529.35,2352939.2

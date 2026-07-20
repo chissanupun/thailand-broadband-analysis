@@ -1,6 +1,8 @@
-# Is Southeast Asian Internet Good or Bad? An Empirical Comparison of Broadband Quality in Thailand, Vietnam, the Philippines, and Singapore
+# Is Southeast Asian Internet Good or Bad? An Empirical Comparison of Broadband Quality Across Eight Southeast Asian Countries
 
 *Draft — Introduction, Data, and Methodology sections only. Results/Discussion/Conclusion not yet written. Working format is Markdown, not the LaTeX manuscript (`docs/paper.tex`, currently left untouched pending a separate template decision).*
+
+*Scope update (2026-07-20): the country set was expanded from four (Thailand, Vietnam, the Philippines, Singapore) to eight, adding Cambodia, Myanmar, Laos, and Malaysia on the Ookla side. This expansion round is Ookla-only — NDT7 cross-validation (Section 2.2/3.3) remains scoped to Thailand and Vietnam for now and has not been extended to the four new countries.*
 
 ## 1. Introduction
 
@@ -14,16 +16,16 @@ On the other side, real-user perception data and news coverage suggest Thai inte
 
 This contradiction between national-aggregate statistics and real user experience is the gap this research aims to close. Rather than relying on subjective opinion from news or social media, this study uses real network-quality measurement data at the tile/test level from two independent sources — Ookla Open Data (covering both fixed and mobile broadband) and M-Lab NDT7 — to cross-validate results between the two platforms, an approach that has not previously been applied in a Thai context, following the comparative framework of MacMillan et al. (2023), who compared Ookla and NDT7 in a US context.
 
-**Scope note (revised from the original single-country framing):** the original version of this study asked only whether *Thailand's* internet is good or bad. The current version extends the same question regionally: is Thailand's broadband quality good or bad *relative to its Southeast Asian neighbors* — Vietnam, the Philippines, and Singapore — using the same Ookla methodology across all four countries, plus an Ookla-vs-NDT7 cross-validation wherever NDT7 data exists per country (currently Thailand and Vietnam; Philippines pending delivery from a collaborator; Singapore's NDT7 scope is still unconfirmed as of this draft).
+**Scope note (revised from the original single-country framing):** the original version of this study asked only whether *Thailand's* internet is good or bad. The current version extends the same question regionally: is Thailand's broadband quality good or bad *relative to its Southeast Asian neighbors* — Vietnam, the Philippines, Singapore, Cambodia, Myanmar, Laos, and Malaysia — using the same Ookla methodology across all eight countries, plus an Ookla-vs-NDT7 cross-validation wherever NDT7 data exists per country (currently Thailand and Vietnam only; Philippines pending delivery from a collaborator; Singapore's NDT7 scope is still unconfirmed; Cambodia/Myanmar/Laos/Malaysia are Ookla-only as of this draft, with no NDT7 cross-validation planned yet).
 
-This research therefore aims to answer: what is the real quality of Thai internet, as measured empirically — both in absolute terms, at province level nationwide (77 provinces) and district level in 8 sample provinces, and in relative terms, against Vietnam, the Philippines, and Singapore — covering both fixed and mobile broadband? The study uses Ookla Open Data covering Q1 2023 through Q4 2025 (11–12 quarters depending on country) and M-Lab NDT7 data for the overlapping period (currently Thailand: Q4 2023–Q1 2025; Vietnam: Q1 2023–Q4 2025).
+This research therefore aims to answer: what is the real quality of Thai internet, as measured empirically — both in absolute terms, at province level nationwide (77 provinces) and district level in 8 sample provinces, and in relative terms, against seven other Southeast Asian countries (Vietnam, the Philippines, Singapore, Cambodia, Myanmar, Laos, and Malaysia) — covering both fixed and mobile broadband? The study uses Ookla Open Data covering Q1 2023 through Q4 2025 (11–12 quarters depending on country) and M-Lab NDT7 data for the overlapping period where available (currently Thailand: Q4 2023–Q1 2025; Vietnam: Q1 2023–Q4 2025).
 
 ### 1.1 Research Objectives
 
 This research has four main objectives:
 
 1. Measure and compare internet quality (download speed, upload speed, and latency) for both fixed and mobile broadband, at the province and district level across Thailand, in both spatial and temporal dimensions.
-2. Compare Thailand's broadband quality against Vietnam, the Philippines, and Singapore on the same Ookla metrics, and test whether cross-country differences are explained by socioeconomic context (GDP per capita, population density) or persist as a country-specific effect after controlling for that context.
+2. Compare Thailand's broadband quality against seven other Southeast Asian countries (Vietnam, the Philippines, Singapore, Cambodia, Myanmar, Laos, and Malaysia) on the same Ookla metrics, and test whether cross-country differences are explained by socioeconomic context (GDP per capita, population density) or persist as a country-specific effect after controlling for that context.
 3. Cross-validate results between Ookla and NDT7 data, wherever both sources overlap, to confirm the reliability of conclusions and explain any gap between the two using contextual factors such as latency, test density, and measurement methodology (active vs. passive).
 4. Answer the question "is [Southeast Asian] internet good or bad" by comparing real measured results against international rankings (Speedtest Global Index), explaining the apparent contradiction between national-level statistics and user perception, and identifying provinces/regions with anomalous behavior to inform policy recommendations.
 
@@ -31,15 +33,26 @@ This research has four main objectives:
 
 This study hypothesizes that Thai internet is not uniformly "good" or "bad" nationwide, but varies significantly in quality by area and network type: fixed broadband in urban areas and economically stronger provinces will show world-class quality consistent with Ookla's reported ranking, while mobile internet and rural or economically weaker provinces will show significantly lower quality. This spatial and network-type variation is expected to explain why public perception conflicts with national-aggregate statistics.
 
-Regionally, we hypothesize that Thailand sits in the middle of the Southeast Asian pack — better than Vietnam and the Philippines but behind Singapore on fixed broadband — and that this ranking is **not** fully explained by GDP or population density alone; a country-specific residual effect (infrastructure investment, ISP market structure, regulatory environment) is expected to remain significant even after controlling for socioeconomic context.
+Regionally, we hypothesize that Thailand sits toward the upper end of the Southeast Asian pack on fixed broadband — behind Singapore, but ahead of the other six countries in this study (Vietnam, the Philippines, Cambodia, Myanmar, Laos, and Malaysia; Malaysia's ranking relative to Thailand is treated as an open question rather than assumed) — and that this ranking is **not** fully explained by GDP or population density alone; a country-specific residual effect (infrastructure investment, ISP market structure, regulatory environment) is expected to remain significant even after controlling for socioeconomic context.
 
 We also expect Ookla and NDT7 results to be **directionally consistent** (positive correlation in relative province rankings) even though the **absolute magnitudes measured may differ substantially**, given the two platforms' different measurement methodologies (active/user-initiated vs. passive/background) and different user populations.
 
 ### 1.3 Research Scope
 
-The research covers both fixed (wired) and mobile (cellular) broadband from Ookla Open Data, covering all provinces/administrative regions of Thailand (77 provinces), Vietnam (64 provinces), the Philippines (17 regions), and Singapore (5 planning-area aggregates), at the province/region level, with a district-level deep dive in 8 sample Thai provinces: Bangkok, Nakhon Ratchasima, Khon Kaen, Chiang Mai, Phuket, Chonburi, Songkhla, and Rayong.
+The research covers both fixed (wired) and mobile (cellular) broadband from Ookla Open Data, covering all provinces/administrative regions of eight countries, at the province/region level, with a district-level deep dive in 8 sample Thai provinces: Bangkok, Nakhon Ratchasima, Khon Kaen, Chiang Mai, Phuket, Chonburi, Songkhla, and Rayong.
 
-The Ookla study period is Q1 2023 through Q4 2025 for all four countries (Singapore and the Philippines have some missing quarters depending on data availability). M-Lab NDT7 data is used for cross-validation currently for Thailand (Q4 2023–Q1 2025 overlap) and Vietnam (Q1 2023–Q4 2025 overlap); Philippines NDT7 is being collected by a research collaborator and not yet available; Singapore NDT7 is not yet in scope.
+| Country | Provinces/states/regions |
+|---|---|
+| Thailand | 77 |
+| Vietnam | 64 |
+| Philippines | 17 |
+| Singapore | 5 (aggregated planning areas) |
+| Cambodia | 25 |
+| Laos | 18 |
+| Malaysia | 16 (13 states + 3 federal territories) |
+| Myanmar | 14 (Naypyidaw union territory not separately delineated in the source boundary data; folded into Mandalay Region — see 2.3) |
+
+The Ookla study period is Q1 2023 through Q4 2025 for all eight countries (some countries have a few missing quarters depending on data availability). M-Lab NDT7 data is used for cross-validation currently for Thailand (Q4 2023–Q1 2025 overlap) and Vietnam (Q1 2023–Q4 2025 overlap); Philippines NDT7 is being collected by a research collaborator and not yet available; Singapore, Cambodia, Myanmar, Laos, and Malaysia NDT7 are not yet in scope.
 
 ---
 
@@ -76,6 +89,12 @@ Structure and processing steps are identical between the two types, differing on
 | Vietnam | 64 | Done |
 | Philippines | 17 | Done |
 | Singapore | 5 (aggregated planning areas) | Done, but small-n — some multivariate models degenerate |
+| Cambodia | 25 | Done — no official sub-national GDP available (see 2.4) |
+| Laos | 18 | Done — no official sub-national GDP available (see 2.4) |
+| Malaysia | 16 | Done — real state-level GDP (DOSM) |
+| Myanmar | 14 | Done — no official sub-national GDP available (see 2.4); Naypyidaw folded into Mandalay Region (see 2.3) |
+
+All eight countries' raw Ookla tiles come from the same global quarterly parquet releases (no per-country download was needed for the four newly added countries) — only the boundary and reference data below had to be newly compiled per country.
 
 ### 2.2 M-Lab Network Diagnostic Test Data (NDT7)
 
@@ -89,16 +108,16 @@ M-Lab's Network Diagnostic Test (NDT7) is another open dataset, published via Go
 
 ### 2.3 Spatial Boundary Data (GeoJSON)
 
-Administrative boundaries at the province/region level for all four countries, in GeoJSON format, WGS84/EPSG:4326 coordinate system, used for spatial joins to assign each Ookla tile or NDT7 test point to a province/region.
+Administrative boundaries (ADM1: province/state/region) for all eight countries, in GeoJSON format, WGS84/EPSG:4326 coordinate system, used for spatial joins to assign each Ookla tile or NDT7 test point to a province/region. The four newly added countries (Cambodia, Myanmar, Laos, Malaysia) were sourced from geoBoundaries' open ADM1 release, same as the original four. One data limitation: geoBoundaries' Myanmar ADM1 boundary set contains 14 units rather than the official 15 (7 states + 7 regions + Naypyidaw union territory) — Naypyidaw, carved administratively out of Mandalay Region in 2005, is not delineated as a separate polygon in this source. Its 2014 census population and area are folded into Mandalay Region for this study, which should be read as a coarsening of that one unit rather than a missing-data gap.
 
 ### 2.4 Province/Region Reference Data
 
 A dataset compiled by the researcher from official sources per country, containing:
 
-- **Population**: national statistical/civil-registry sources per country (e.g., Thailand's Department of Provincial Administration)
+- **Population**: national statistical/civil-registry sources per country (e.g., Thailand's Department of Provincial Administration; Wikipedia-sourced census/estimate figures for the four newly added countries)
 - **Area and density**: Wikipedia / national mapping agencies
-- **GDP per capita**: national economic-planning agencies per country (e.g., Thailand's NESDC), expressed in three forms — raw local units, USD PPP, and THB-equivalent for cross-country comparability
-- **Internet Tier**: a researcher-defined hypothetical variable (four tiers, from "expected fastest" to "expected slowest," based on economic/urbanization proxies) — see Table 1 for the Thailand tier assignment used as the template
+- **GDP per capita**: national economic-planning agencies per country (e.g., Thailand's NESDC) where available, expressed in three forms — raw nominal value, USD PPP, and THB-equivalent for cross-country comparability. For Cambodia, Myanmar, and Laos, no official sub-national (province-level) GDP series exists — Cambodia's National Institute of Statistics confirms provincial economic accounts are still under development, and no equivalent was found for Myanmar or Laos — so national GDP per capita (World Bank, 2021, current US$) is repeated across all provinces for these three countries, following the same convention already used for Singapore (which also lacks sub-national GDP). This is a real data-quality limitation: any GDP-vs-speed regression for these four countries (Singapore included) has zero within-country GDP variance by construction and cannot identify a GDP effect. Malaysia is the exception among the new countries — real state-level nominal GDP per capita for 2021 is published by Malaysia's Department of Statistics (DOSM) and is used directly, on the same footing as Thailand/Vietnam/Philippines.
+- **Internet Tier**: a researcher-defined hypothetical variable (four tiers, from "expected fastest" to "expected slowest," based on economic/urbanization proxies) — see Table 1 for the Thailand tier assignment used as the template. Where a usable proxy exists, tier is derived from that (Cambodia: quartiles of HDI-by-province, Cambodia Human Development Report 2023; Malaysia: quartiles of actual GDP per capita); otherwise (Myanmar, Laos) tier is derived from quartiles of population density, the same fallback proxy used elsewhere in this study when no better economic signal is available.
 
 **Table 1. Internet Tier definitions (Thailand)**
 
@@ -133,13 +152,14 @@ where $\bar{v}_j$ is the weighted average for province $j$, $v_i$ is the measure
 
 ### 3.2 Cross-Country Comparison
 
-To compare Thailand against Vietnam, the Philippines, and Singapore, each country's province-level, reliability-filtered data is collapsed to one row per province (mean across all reliable quarters), then compared as follows:
+To compare Thailand against the other seven countries, each country's province-level, reliability-filtered data is collapsed to one row per province (mean across all reliable quarters), then compared as follows:
 
 1. **Distributional comparison** — box plots of mean download/upload speed by country.
-2. **Omnibus test** — Kruskal-Wallis H-test across the four country groups (chosen over one-way ANOVA given the small sample sizes for Singapore, n=5, and the Philippines, n=17, where a normality assumption is hard to justify).
-3. **Pairwise comparison** — Mann-Whitney U test, Thailand vs. each neighbor individually, to identify which specific country/countries differ from Thailand rather than only that "some" country differs.
-4. **Cross-country regression** — OLS of `mean_dl ~ log(GDP per capita) + log(population density) + country` (Thailand as reference category), to test whether a country-level fixed effect remains significant after controlling for socioeconomic context — i.e., whether cross-country gaps are explained by wealth/density or reflect something country-specific.
+2. **Omnibus test** — Kruskal-Wallis H-test across the eight country groups (chosen over one-way ANOVA given the small sample sizes for Singapore, n=5, and Myanmar, n=14, where a normality assumption is hard to justify).
+3. **Pairwise comparison** — Mann-Whitney U test, Thailand vs. each other country individually, to identify which specific country/countries differ from Thailand rather than only that "some" country differs.
+4. **Cross-country regression** — OLS of `mean_dl ~ log(GDP per capita) + log(population density) + country` (Thailand as reference category), to test whether a country-level fixed effect remains significant after controlling for socioeconomic context — i.e., whether cross-country gaps are explained by wealth/density or reflect something country-specific. Note the GDP term is degenerate for Singapore, Cambodia, Myanmar, and Laos (no within-country GDP variance — see 2.4), so this regression's GDP coefficient is identified mainly off Thailand/Vietnam/Philippines/Malaysia's within-country variation, and country fixed effects for the zero-variance countries should be read with that caveat in mind.
 5. **Fixed-vs-mobile gap** — the same comparison repeated for mobile data, and the fixed/mobile speed ratio computed per country, to check whether Thailand's public fixed (#13 globally) vs. mobile (#39 globally) ranking split is visible in the measured data and whether it is unusually large relative to its neighbors.
+6. **Capital/top-city comparison** — a supplementary comparison of each country's capital province/region against its own national average, and each country's top-5 fastest provinces, to check whether "how good is a country's internet" is being driven by the capital specifically or is broader-based.
 
 ### 3.3 Ookla-vs-NDT7 Cross-Validation
 
@@ -194,3 +214,7 @@ All analysis is performed in Python 3.12, in an isolated virtual environment (`d
 - Nation Thailand. (2025a, March 1). *Thailand ranks 13th in the world for fixed broadband speed*. https://www.nationthailand.com/business/tech/40046895
 - Nation Thailand. (2025b, May 23). *Thai telecom outages expose duopoly flaws, experts call for fair competition*. https://www.nationthailand.com/business/tech/40050343
 - Electronic Transactions Development Agency (ETDA). (2024, March 18). *Leading online issues that caused annoyances among internet users in Thailand in 2022* [Graph]. Statista. https://www.statista.com/statistics/1129934/thailand-leading-online-problems-internet-users/
+- geoBoundaries. (2023). *geoBoundaries Global Database of Political Administrative Boundaries* [Dataset]. https://www.geoboundaries.org
+- World Bank. (2026). *GDP per capita (current US$) and GDP per capita, PPP (current international $)* [Dataset]. World Bank Open Data. https://data.worldbank.org
+- Department of Statistics Malaysia (DOSM). (2022). *Gross Domestic Product (GDP) by State, 2021*. https://www.dosm.gov.my
+- National Institute of Statistics, Ministry of Planning, Cambodia. *Statistical Yearbook* [confirms no province-level GRDP series currently published]. https://www.nis.gov.kh

@@ -1,0 +1,41 @@
+country,capital_province,capital_mean_dl,national_mean_dl,capital_premium_pct,rank,top5_province,top5_mean_dl,is_capital
+Thailand,Bangkok Metropolis,295.5,244.2,21.0,1,Nonthaburi,317.3,False
+Thailand,Bangkok Metropolis,295.5,244.2,21.0,2,Pathum Thani,315.2,False
+Thailand,Bangkok Metropolis,295.5,244.2,21.0,3,Samut Prakan,312.0,False
+Thailand,Bangkok Metropolis,295.5,244.2,21.0,4,Samut Sakhon,299.9,False
+Thailand,Bangkok Metropolis,295.5,244.2,21.0,5,Nakhon Pathom,297.0,False
+Philippines,NCR,158.7,106.1,49.6,1,NCR,158.7,True
+Philippines,NCR,158.7,106.1,49.6,2,Calabarzon,144.6,False
+Philippines,NCR,158.7,106.1,49.6,3,Central Luzon,126.1,False
+Philippines,NCR,158.7,106.1,49.6,4,Central Visayas,122.1,False
+Philippines,NCR,158.7,106.1,49.6,5,CAR,121.1,False
+Singapore,Central Region,341.1,376.3,-9.4,1,North Region,389.2,False
+Singapore,Central Region,341.1,376.3,-9.4,2,North-East Region,388.2,False
+Singapore,Central Region,341.1,376.3,-9.4,3,West Region,385.3,False
+Singapore,Central Region,341.1,376.3,-9.4,4,East Region,377.8,False
+Singapore,Central Region,341.1,376.3,-9.4,5,Central Region,341.1,True
+Vietnam,Hà Nội,153.1,134.6,13.7,1,Ho Chi Minh,178.2,False
+Vietnam,Hà Nội,153.1,134.6,13.7,2,Đà Nẵng,165.3,False
+Vietnam,Hà Nội,153.1,134.6,13.7,3,Bình Dương,164.5,False
+Vietnam,Hà Nội,153.1,134.6,13.7,4,Cần Thơ,160.1,False
+Vietnam,Hà Nội,153.1,134.6,13.7,5,Lâm Đồng,158.4,False
+Cambodia,Phnom Penh,54.2,44.0,23.3,1,Svay Rieng,54.9,False
+Cambodia,Phnom Penh,54.2,44.0,23.3,2,Phnom Penh,54.2,True
+Cambodia,Phnom Penh,54.2,44.0,23.3,3,Bantey Meanchey,54.0,False
+Cambodia,Phnom Penh,54.2,44.0,23.3,4,Preah Sihanouk,52.7,False
+Cambodia,Phnom Penh,54.2,44.0,23.3,5,Kandal,51.1,False
+Myanmar,Yangon,27.1,29.1,-6.8,1,Kayin,41.3,False
+Myanmar,Yangon,27.1,29.1,-6.8,2,Shan,41.3,False
+Myanmar,Yangon,27.1,29.1,-6.8,3,Tanitharyi,37.6,False
+Myanmar,Yangon,27.1,29.1,-6.8,4,Kayah,35.5,False
+Myanmar,Yangon,27.1,29.1,-6.8,5,Mon,31.1,False
+Laos,Vientiane Capital,53.2,45.3,17.5,1,Bokeo,59.8,False
+Laos,Vientiane Capital,53.2,45.3,17.5,2,Attapeu,57.4,False
+Laos,Vientiane Capital,53.2,45.3,17.5,3,Vientiane Capital,53.2,True
+Laos,Vientiane Capital,53.2,45.3,17.5,4,Xaignabouli,50.9,False
+Laos,Vientiane Capital,53.2,45.3,17.5,5,Khammouane,49.6,False
+Malaysia,Kuala Lumpur,209.8,178.0,17.9,1,Kuala Lumpur,209.8,True
+Malaysia,Kuala Lumpur,209.8,178.0,17.9,2,Selangor,207.0,False
+Malaysia,Kuala Lumpur,209.8,178.0,17.9,3,Penang,194.3,False
+Malaysia,Kuala Lumpur,209.8,178.0,17.9,4,Johor,192.0,False
+Malaysia,Kuala Lumpur,209.8,178.0,17.9,5,Sabah,180.7,False
