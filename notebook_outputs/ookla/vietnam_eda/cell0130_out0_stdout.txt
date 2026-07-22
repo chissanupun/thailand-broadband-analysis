@@ -1,0 +1,7 @@
+Provinces in analysis: 64
+           name              region  internet_tier    mean_dl  ul_dl_ratio  tests_per_1000_pop
+       An Giang        Mekong Delta              1 101.403844     0.286420            1.359788
+Bà Rịa–Vũng Tàu           Southeast              1  97.001316     0.311111            2.890253
+     Bình Dương           Southeast              2  92.194859     0.285012            3.562988
+     Bình Phước           Southeast              2  91.221848     0.301174            1.867289
+     Bình Thuận South Central Coast              2  85.473722     0.324204            1.465899

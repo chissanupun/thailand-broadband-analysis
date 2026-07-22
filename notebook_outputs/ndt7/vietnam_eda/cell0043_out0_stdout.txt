@@ -1,0 +1,1 @@
+Provinces with reliable data in BOTH 2023-Q1 and 2025-Q4: 5 (of 42 provinces with any reliable data) — small n here because reliable NDT7 coverage decays sharply toward 2025.

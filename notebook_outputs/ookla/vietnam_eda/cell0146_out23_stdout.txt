@@ -1,0 +1,6 @@
+Provinces: 64
+Score range: 1.22 – 22.44
+|z|>2 in any dim: 11
+|z|>3 in any dim: 2
+Unremarkable: 25
+Saved: ../../outputs/ookla/vietnam/mobile/28_divergence_table.html

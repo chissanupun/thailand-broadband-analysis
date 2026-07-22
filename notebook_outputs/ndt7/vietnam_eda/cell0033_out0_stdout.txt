@@ -1,0 +1,39 @@
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                mean_dl   R-squared:                       0.597
+Model:                            OLS   Adj. R-squared:                  0.430
+Method:                 Least Squares   F-statistic:                     3.581
+Date:                Tue, 14 Jul 2026   Prob (F-statistic):            0.00243
+Time:                        08:15:37   Log-Likelihood:                -150.16
+No. Observations:                  42   AIC:                             326.3
+Df Residuals:                      29   BIC:                             348.9
+Df Model:                          12                                         
+Covariance Type:            nonrobust                                         
+====================================================================================================
+                                       coef    std err          t      P>|t|      [0.025      0.975]
+----------------------------------------------------------------------------------------------------
+Intercept                          -26.8582     71.627     -0.375      0.710    -173.351     119.635
+C(internet_tier)[T.2]               -1.7645      6.425     -0.275      0.786     -14.904      11.375
+C(internet_tier)[T.3]               -6.2653      6.355     -0.986      0.332     -19.263       6.732
+C(internet_tier)[T.4]               -2.0653      7.600     -0.272      0.788     -17.609      13.479
+C(region)[T.Mekong Delta]           -5.1225      8.323     -0.615      0.543     -22.145      11.900
+C(region)[T.North Central Coast]    -3.4074      8.720     -0.391      0.699     -21.241      14.426
+C(region)[T.Northeast]              -8.9589      8.962     -1.000      0.326     -27.287       9.370
+C(region)[T.Northwest]               9.1810     10.891      0.843      0.406     -13.093      31.455
+C(region)[T.Red River Delta]       -14.0648     10.191     -1.380      0.178     -34.907       6.778
+C(region)[T.South Central Coast]     6.4129      8.087      0.793      0.434     -10.127      22.953
+C(region)[T.Southeast]              10.7083      9.083      1.179      0.248      -7.870      29.286
+log_gdp                              2.0568      5.334      0.386      0.703      -8.853      12.966
+log_density                          7.0896      3.082      2.300      0.029       0.786      13.393
+==============================================================================
+Omnibus:                        0.677   Durbin-Watson:                   1.264
+Prob(Omnibus):                  0.713   Jarque-Bera (JB):                0.777
+Skew:                           0.199   Prob(JB):                        0.678
+Kurtosis:                       2.465   Cond. No.                         631.
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+
+Multivariate R² = 0.597  (bivariate GDP-only r² = 0.164)
+Adjusted R² = 0.430

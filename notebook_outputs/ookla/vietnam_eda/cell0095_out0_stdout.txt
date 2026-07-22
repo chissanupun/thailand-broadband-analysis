@@ -1,0 +1,16 @@
+Reliable province-quarters per label:
+label
+2023-Q1    63
+2023-Q2    63
+2023-Q3    64
+2023-Q4    63
+2024-Q1    63
+2024-Q2    63
+2024-Q3    63
+2024-Q4    63
+2025-Q1    63
+2025-Q2    63
+2025-Q3    63
+2025-Q4    63
+
+Overall reliable: 757 / 768 (98.6%)

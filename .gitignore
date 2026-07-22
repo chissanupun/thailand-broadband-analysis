@@ -12,6 +12,8 @@ data/ndt7/raw/
 data/ookla/processed/
 data/ndt7/processed/
 data/ndt7/vn/*.parquet
+data/ndt7/th/*.parquet
+data/ndt7/kh/*.parquet
 
 # Jupyter checkpoints
 .ipynb_checkpoints/

@@ -1,0 +1,4 @@
+Provinces ratio > 0.90: 5 (near-perfect fiber)
+Provinces ratio > 0.80: 59 out of 64
+Southeast min ratio: 0.797
+Northwest max ratio: 0.883

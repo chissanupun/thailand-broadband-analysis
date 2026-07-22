@@ -1,0 +1,65 @@
+           name              region  internet_tier  mean_dl  mean_ul  mean_lat  ul_dl_ratio  mean_tests  gdp_per_capita_thb_2021
+    Ho Chi Minh           Southeast              1   178.16   141.25      4.65         0.80   475320.45                638474.09
+        Đà Nẵng South Central Coast              1   165.27   130.59      4.82         0.79    65179.64                429834.96
+     Bình Dương           Southeast              2   164.48   134.32      5.14         0.82    61850.09                327276.61
+        Cần Thơ        Mekong Delta              1   160.11   136.76      6.17         0.86    32243.09                559273.75
+       Lâm Đồng   Central Highlands              2   158.42   128.11     12.44         0.81    32938.73                297641.14
+       Đồng Nai           Southeast              2   157.45   129.33      5.81         0.83    77776.73                311341.31
+       Tây Ninh           Southeast              1   155.74   133.35      6.51         0.86    19157.73                362573.14
+         Hà Nội     Red River Delta              1   153.10   122.10      4.93         0.80   386241.00                350473.82
+Bà Rịa–Vũng Tàu           Southeast              1   152.06   124.55      6.26         0.82    35741.18               3286254.54
+      Vĩnh Long        Mekong Delta              2   151.85   128.64      6.64         0.86    12899.91                300161.23
+         Cà Mau        Mekong Delta              2   149.40   134.10      8.80         0.90    10885.73                278868.61
+        Bến Tre        Mekong Delta              2   146.30   122.36      6.32         0.84    16637.91                266077.85
+       Bạc Liêu        Mekong Delta              2   145.88   127.02      7.65         0.87     7564.55                330710.59
+       An Giang        Mekong Delta              1   145.13   130.76      7.37         0.91    21953.18                338704.14
+      Khánh Hòa South Central Coast              1   144.82   119.50     12.33         0.83    36910.45                373474.50
+      Đồng Tháp        Mekong Delta              3   144.37   126.78      7.12         0.88    15066.18                200156.92
+        Long An        Mekong Delta              1   143.70   123.28      5.75         0.86    27503.91                358440.58
+      Bình Định South Central Coast              2   142.91   122.96      9.77         0.86    26474.73                275959.91
+     Ninh Thuận South Central Coast              3   142.37   120.26     11.19         0.85     7583.18                214609.28
+        Đắk Lắk   Central Highlands              3   142.23   124.95     14.19         0.88    21484.09                228316.60
+     Bình Phước           Southeast              2   141.61   123.00      6.62         0.87    15355.82                322186.39
+     Tiền Giang        Mekong Delta              1   141.23   124.43      5.49         0.88    21286.91                337838.50
+      Sóc Trăng        Mekong Delta              3   140.96   125.44      6.99         0.89    13740.91                253301.38
+      Hậu Giang        Mekong Delta              2   140.47   123.27      6.92         0.88     5566.91                262983.34
+        Gia Lai   Central Highlands              2   140.07   115.34      9.96         0.82    13829.73                270072.84
+     Bình Thuận South Central Coast              2   138.85   113.39     12.30         0.82    18515.09                276055.50
+      Hải Phòng     Red River Delta              1   137.98   107.01      5.37         0.78    52804.18                343860.47
+     Quảng Ngãi South Central Coast              2   135.91   117.39      8.19         0.86    12901.18                314135.66
+    Thái Nguyên           Northeast              3   135.86   113.85      6.21         0.84    26030.09                227542.08
+        Phú Yên South Central Coast              3   133.29   115.62     10.61         0.87     9416.27                227067.72
+ Thừa Thiên Huế North Central Coast              2   133.19   112.30      7.39         0.84    21978.55                274484.12
+      Quảng Nam South Central Coast              2   132.53   116.25      7.09         0.87    20815.09                285182.69
+     Kiên Giang        Mekong Delta              1   132.13   117.26      9.26         0.89    14620.45                387388.18
+       Bắc Ninh     Red River Delta              1   131.62   108.22      5.62         0.83    29725.36                397659.74
+       Lạng Sơn           Northeast              4   130.96   111.73      7.70         0.86     9677.55                196710.43
+     Quảng Ninh           Northeast              1   130.29   104.18      7.88         0.80    21302.55                699887.25
+        Kon Tum   Central Highlands              4   128.45   110.15      9.51         0.86     5132.45                185404.40
+      Hải Dương     Red River Delta              3   128.40   102.55      5.84         0.80    39682.27                224577.11
+    Tuyên Quang           Northeast              4   127.62   111.35      6.73         0.88     9477.64                174037.61
+       Hưng Yên     Red River Delta              3   127.24   106.66      6.17         0.85    20297.45                223672.16
+       Đắk Nông   Central Highlands              2   127.00   113.95     17.49         0.90     7441.91                268062.84
+       Trà Vinh        Mekong Delta              3   125.74   109.82      6.76         0.88     9815.55                237885.11
+        Lào Cai           Northwest              3   125.54   106.95      9.70         0.86    12418.27                247234.74
+      Bắc Giang           Northeast              4   125.52   104.15      6.56         0.83    19042.00                170576.83
+      Điện Biên           Northwest              4   124.59   105.94     11.79         0.85     6100.27                141953.51
+       Cao Bằng           Northeast              4   124.06   108.54      8.44         0.88     6629.00                139741.61
+      Vĩnh Phúc     Red River Delta              1   123.64   105.55      5.51         0.86    30138.64                356494.89
+      Quảng Trị North Central Coast              3   122.29   104.26      7.20         0.84     7030.18                238707.87
+        Phú Thọ           Northeast              4   122.11   105.37      6.31         0.87    30032.73                171183.41
+       Hòa Bình           Northwest              3   121.86   102.36      6.45         0.84    13557.36                209319.85
+         Hà Nam     Red River Delta              4   121.41   104.54      6.12         0.87    18704.73                190452.63
+         Sơn La           Northwest              4   120.94   102.78      9.13         0.85    11303.82                158468.58
+        Nghệ An North Central Coast              3   119.90   101.84      9.72         0.85    34995.18                212576.95
+        Yên Bái           Northwest              4   119.68   104.19      7.56         0.87    10022.82                164865.75
+        Bắc Kạn           Northeast              4   119.08   104.13      7.58         0.87     3649.09                157823.59
+      Thái Bình     Red River Delta              4   118.32   100.45      6.55         0.85    21913.82                186783.70
+      Ninh Bình     Red River Delta              3   118.09   108.90      6.70         0.92    16348.91                221438.82
+       Lai Châu           Northwest              4   118.06   104.11     11.32         0.88     2782.55                 96644.48
+       Hà Giang           Northeast              4   117.99   101.85      9.90         0.87     6591.55                 96812.43
+       Nam Định     Red River Delta              4   117.77    98.57      7.09         0.84    27613.09                170177.51
+      Thanh Hóa North Central Coast              3   114.97    99.05      8.21         0.87    34850.09                217499.22
+        Hà Tĩnh North Central Coast              4   112.71    99.13     10.92         0.88    10651.18                189147.47
+        Côn Đảo           Southeast              1   112.55   102.72      9.42         0.92      465.00               3286254.54
+     Quảng Bình North Central Coast              3   109.34    94.85      9.99         0.87     9717.55                196802.45

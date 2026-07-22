@@ -4,11 +4,12 @@ Modeled on outputs/build_slides.py (same dark deck engine); reference kept as-is
 import base64, pathlib
 
 OUTDIR = pathlib.Path(__file__).parent / 'ookla'
+NDT7_OUTDIR = pathlib.Path(__file__).parent / 'ndt7'
 OUT_HTML = pathlib.Path(__file__).parent / 'slides_all_countries.html'
 
 
-def img_b64(rel_path):
-    p = OUTDIR / rel_path
+def img_b64(rel_path, base=OUTDIR):
+    p = base / rel_path
     if not p.exists():
         return None
     data = base64.b64encode(p.read_bytes()).decode()
@@ -17,19 +18,111 @@ def img_b64(rel_path):
 
 # country stats pulled directly from data/exports/*.csv (see conversation) -- not fabricated
 COUNTRY_STATS = {
-    'Thailand':    dict(n=77, mean=244, top='Nonthaburi (317 Mbps)', bottom='Mae Hong Son (137 Mbps)'),
-    'Singapore':   dict(n=5,  mean=376, top='North Region (389 Mbps)', bottom='Central Region (341 Mbps)'),
-    'Malaysia':    dict(n=16, mean=178, top='Kuala Lumpur (210 Mbps)', bottom='Kelantan (155 Mbps)'),
-    'Vietnam':     dict(n=64, mean=135, top='Ho Chi Minh (178 Mbps)', bottom='Quảng Bình (109 Mbps)'),
-    'Philippines': dict(n=17, mean=106, top='NCR (159 Mbps)', bottom='ARMM (48 Mbps)'),
-    'Laos':        dict(n=18, mean=45,  top='Bokeo (60 Mbps)', bottom='Salavan (33 Mbps)'),
-    'Cambodia':    dict(n=25, mean=44,  top='Svay Rieng (55 Mbps)', bottom='Stung Treng (36 Mbps)'),
-    'Myanmar':     dict(n=14, mean=29,  top='Kayin (41 Mbps)', bottom='Rakhine (17 Mbps)'),
+    'Thailand':    dict(n=77, mean=244, top='Nonthaburi (317 Mbps)', bottom='Mae Hong Son (137 Mbps)',
+                         mmean=72, mtop='Nakhon Ratchasima (125 Mbps)', mbottom='Phichit (54 Mbps)'),
+    'Singapore':   dict(n=5,  mean=376, top='North Region (389 Mbps)', bottom='Central Region (341 Mbps)',
+                         mmean=194, mtop='North-East Region (212 Mbps)', mbottom='Central Region (172 Mbps)'),
+    'Malaysia':    dict(n=16, mean=178, top='Kuala Lumpur (210 Mbps)', bottom='Kelantan (155 Mbps)',
+                         mmean=171, mtop='Putrajaya (248 Mbps)', mbottom='Perlis (141 Mbps)'),
+    'Vietnam':     dict(n=64, mean=135, top='Ho Chi Minh (178 Mbps)', bottom='Quảng Bình (109 Mbps)',
+                         mmean=90, mtop='Đà Nẵng (133 Mbps)', mbottom='Côn Đảo (42 Mbps)'),
+    'Philippines': dict(n=17, mean=106, top='NCR (159 Mbps)', bottom='ARMM (48 Mbps)',
+                         mmean=57, mtop='NCR (101 Mbps)', mbottom='ARMM (23 Mbps)'),
+    'Laos':        dict(n=18, mean=45,  top='Bokeo (60 Mbps)', bottom='Salavan (33 Mbps)',
+                         mmean=39, mtop='Bokeo (72 Mbps)', mbottom='Houaphan (31 Mbps)'),
+    'Cambodia':    dict(n=25, mean=44,  top='Svay Rieng (55 Mbps)', bottom='Stung Treng (36 Mbps)',
+                         mmean=33, mtop='Phnom Penh (46 Mbps)', mbottom='Svay Rieng (25 Mbps)'),
+    'Myanmar':     dict(n=14, mean=29,  top='Kayin (41 Mbps)', bottom='Rakhine (17 Mbps)',
+                         mmean=27, mtop='Mandalay (36 Mbps)', mbottom='Rakhine (19 Mbps)'),
 }
 
 COUNTRY_ORDER = ['Thailand', 'Singapore', 'Malaysia', 'Vietnam', 'Philippines', 'Laos', 'Cambodia', 'Myanmar']
 SLUGS = {'Thailand': 'thailand', 'Singapore': 'singapore', 'Malaysia': 'malaysia', 'Vietnam': 'vietnam',
          'Philippines': 'philippines', 'Laos': 'laos', 'Cambodia': 'cambodia', 'Myanmar': 'myanmar'}
+
+
+# NDT7 stats pulled directly from the executed notebooks (describe()/summary-table output,
+# see conversation) -- not fabricated. Cambodia has 0% reliable coverage under the same
+# total_tests>=100 & n_tiles>=5 threshold used everywhere else in this study, so it has no
+# numeric stats here -- see cambodia_slides_ndt7() below, which is text-only.
+NDT7_STATS = {
+    'Thailand': dict(
+        n_ref=77, n_fixed=72, n_mobile=25,
+        mean=83.17, top='Samut Sakhon (131.6 Mbps)', bottom='Chiang Rai (51.3 Mbps)', reliable_pct=57.0, reliable_n='517/907',
+        mmean=43.12, mtop='Rayong (106.5 Mbps)', mbottom='Surin (9.6 Mbps)', mreliable_pct=15.4, mreliable_n='81/526',
+    ),
+    'Vietnam': dict(
+        n_ref=64, n_fixed=42, n_mobile=1,
+        mean=42.17, top='Đà Nẵng (68.9 Mbps)', bottom='Quảng Ninh (18.6 Mbps)', reliable_pct=28.6, reliable_n='210/733',
+        mmean=39.29, mtop='Ho Chi Minh (39.3 Mbps)', mbottom='Ho Chi Minh (39.3 Mbps)', mreliable_pct=1.0, mreliable_n='4/396',
+    ),
+}
+NDT7_ORDER = ['Thailand', 'Vietnam']
+NDT7_SLUGS = {'Thailand': 'thailand', 'Vietnam': 'vietnam', 'Cambodia': 'cambodia'}
+
+
+def ndt7_country_slides(country):
+    slug = NDT7_SLUGS[country]
+    s = NDT7_STATS[country]
+    slides = []
+    slides.append({
+        'type': 'text',
+        'title': f'{country} — NDT7 Broadband & Mobile Overview',
+        'bullets': [
+            f'<b>{s["n_ref"]} provinces in reference</b>, but reliability (total_tests≥100 & n_tiles≥5 — same bar as Ookla) only clears for '
+            f'<b>{s["n_fixed"]} fixed</b> / <b>{s["n_mobile"]} mobile</b>',
+            f'Fixed — {s["reliable_n"]} province-quarters reliable (<b>{s["reliable_pct"]}%</b>) · mean <b>{s["mean"]:.0f} Mbps</b> · fastest: <b>{s["top"]}</b> · slowest: <b>{s["bottom"]}</b>',
+            f'Mobile — {s["mreliable_n"]} province-quarters reliable (<b>{s["mreliable_pct"]}%</b>) · mean <b>{s["mmean"]:.0f} Mbps</b> · fastest: <b>{s["mtop"]}</b> · slowest: <b>{s["mbottom"]}</b>',
+        ] + ([f'<b>Mobile caveat:</b> only 1 province ({s["mtop"].split(" (")[0]}) clears the reliability bar at all — top/bottom are the same province, not a real ranking'] if s['n_mobile'] <= 1 else []),
+    })
+    slides.append({
+        'type': 'image2',
+        'base': NDT7_OUTDIR,
+        'title': f'{country} — NDT7 Province Ranking, Fixed vs Mobile (Mean Download Speed)',
+        'images': [
+            ('Fixed Broadband', f'{slug}/12_province_ranking_mean.png'),
+            ('Mobile/Cellular', f'{slug}/mobile/12_province_ranking_mean.png'),
+        ],
+        'metric': f'Weighted average download speed per reliable province-quarter (2023 Q1 - 2025 Q4). Fixed mean: {s["mean"]:.0f} Mbps ({s["n_fixed"]} provinces) · Mobile mean: {s["mmean"]:.0f} Mbps ({s["n_mobile"]} province{"s" if s["n_mobile"]!=1 else ""}).',
+        'findings': [
+            f'Fixed — fastest: {s["top"]} · slowest: {s["bottom"]}',
+            f'Mobile — fastest: {s["mtop"]} · slowest: {s["mbottom"]}',
+            'Only reliability-filtered province-quarters shown — bar chart is shorter than the Ookla equivalent since most provinces never clear the threshold',
+        ],
+    })
+    slides.append({
+        'type': 'image2',
+        'base': NDT7_OUTDIR,
+        'title': f'{country} — NDT7 GDP per Capita vs Download Speed, Fixed vs Mobile',
+        'images': [
+            ('Fixed Broadband', f'{slug}/16_gdp_speed_scatter.png'),
+            ('Mobile/Cellular', f'{slug}/mobile/16_gdp_speed_scatter.png'),
+        ],
+        'metric': 'OLS regression of province mean download speed against GDP per capita and population density, fixed and mobile separately, reliability-filtered.',
+        'findings': [
+            'Bubble size = population',
+            'Dashed line = OLS fit (r and p-value shown on chart)',
+            'Cross-validates against the equivalent Ookla slide for the same country — same direction/strength expected if both platforms measure real signal',
+        ],
+    })
+    return slides
+
+
+def cambodia_slides_ndt7():
+    """Cambodia NDT7: 0% of province-quarters clear the n_tiles>=5 reliability bar for both
+    Fixed and Mobile (see cambodia_eda.ipynb intro) -- a structural volume/geolocation-coarseness
+    problem, not a bug. No per-province numbers exist to show; this is a text-only finding slide."""
+    return [{
+        'type': 'text',
+        'title': 'Cambodia — NDT7 Broadband & Mobile: 0% Reliable',
+        'bullets': [
+            '<b>0 of 151</b> Fixed and <b>0 of 43</b> Mobile province-quarters clear the same <b>total_tests≥100 & n_tiles≥5</b> bar used everywhere else in this study',
+            'Not a bug: NDT7 geolocation here is <b>city-level</b> (one lat/lon per city, not per device) — raw points collapse into very few zoom-16 tiles regardless of test volume',
+            'Cambodia has 750K raw NDT7 records but only <b>47 distinct tiles nationwide</b> across all 3 years (~2/province)',
+            'Compare Vietnam: 22M raw records → 856 tiles — 48x Cambodia\'s volume — which is what let it clear the bar at all (28.6% fixed, 1.0% mobile)',
+            'Threshold kept identical to every other country/source in this study rather than loosened for Cambodia alone — the 0% result is itself the finding',
+        ],
+    }]
 
 
 def country_slides(country):
@@ -38,44 +131,39 @@ def country_slides(country):
     slides = []
     slides.append({
         'type': 'text',
-        'title': f'{country} — Fixed Broadband Overview',
+        'title': f'{country} — Fixed & Mobile Overview',
         'bullets': [
-            f'<b>{s["n"]} provinces/states</b> covered, Ookla Fixed Broadband, 2023 Q1 – 2025 Q4 (12 quarters)',
-            f'National mean download speed: <b>{s["mean"]} Mbps</b>',
-            f'Fastest: <b>{s["top"]}</b>',
-            f'Slowest: <b>{s["bottom"]}</b>',
+            f'<b>{s["n"]} provinces/states</b> covered, Ookla Fixed + Mobile, 2023 Q1 – 2025 Q4 (12 quarters)',
+            f'Fixed — national mean: <b>{s["mean"]} Mbps</b> · fastest: <b>{s["top"]}</b> · slowest: <b>{s["bottom"]}</b>',
+            f'Mobile — national mean: <b>{s["mmean"]} Mbps</b> · fastest: <b>{s["mtop"]}</b> · slowest: <b>{s["mbottom"]}</b>',
         ],
     })
     slides.append({
-        'type': 'image',
-        'title': f'{country} — Province Ranking (Mean Download Speed)',
-        'image': f'{slug}/12_province_ranking_mean.png',
-        'metric': f'Weighted average download speed per province, averaged across 12 quarters (2023 Q1 - 2025 Q4). National mean: {s["mean"]} Mbps.',
+        'type': 'image2',
+        'title': f'{country} — Province Ranking, Fixed vs Mobile (Mean Download Speed)',
+        'images': [
+            ('Fixed Broadband', f'{slug}/12_province_ranking_mean.png'),
+            ('Mobile/Cellular', f'{slug}/mobile/12_province_ranking_mean.png'),
+        ],
+        'metric': f'Weighted average download speed per province, averaged across 12 quarters (2023 Q1 - 2025 Q4). Fixed mean: {s["mean"]} Mbps · Mobile mean: {s["mmean"]} Mbps.',
         'findings': [
-            f'Fastest: {s["top"]}',
-            f'Slowest: {s["bottom"]}',
+            f'Fixed — fastest: {s["top"]} · slowest: {s["bottom"]}',
+            f'Mobile — fastest: {s["mtop"]} · slowest: {s["mbottom"]}',
             'Color = region grouping (see legend on chart)',
         ],
     })
     slides.append({
-        'type': 'image',
-        'title': f'{country} — GDP per Capita vs Download Speed',
-        'image': f'{slug}/16_gdp_speed_scatter.png',
-        'metric': 'OLS regression of province mean download speed against GDP per capita and population density.',
+        'type': 'image2',
+        'title': f'{country} — GDP per Capita vs Download Speed, Fixed vs Mobile',
+        'images': [
+            ('Fixed Broadband', f'{slug}/16_gdp_speed_scatter.png'),
+            ('Mobile/Cellular', f'{slug}/mobile/16_gdp_speed_scatter.png'),
+        ],
+        'metric': 'OLS regression of province mean download speed against GDP per capita and population density, fixed and mobile separately.',
         'findings': [
             'Bubble size = population',
             'Dashed line = OLS fit (r and p-value shown on chart)',
             'See notebook for full multivariate model (GDP + density + tier + region)',
-        ],
-    })
-    slides.append({
-        'type': 'image',
-        'title': f'{country} — Composite Divergence Map',
-        'image': f'{slug}/27_divergence_map.png',
-        'metric': 'Composite divergence score: sum of |z-scores| across 7 dimensions (tier gap, GDP gap, density gap, regional, UL/DL ratio, latency, coverage).',
-        'findings': [
-            'Left: divergence score choropleth (darker = more anomalous)',
-            'Right: mean download speed choropleth with Tier 1 (red) / Tier 4 (dashed orange) borders',
         ],
     })
     return slides
@@ -103,6 +191,20 @@ SLIDES = [
 
 for c in COUNTRY_ORDER:
     SLIDES.extend(country_slides(c))
+
+# ── NDT7 (M-Lab) cross-validation section ────────────────────────────────────
+SLIDES.append({
+    'type': 'text',
+    'title': 'NDT7 (M-Lab) Cross-Validation',
+    'bullets': [
+        'Independent second data source — M-Lab NDT7 speed tests, same province x quarter methodology, same reliability threshold (total_tests≥100 & n_tiles≥5)',
+        'Currently covers <b>Thailand, Vietnam, Cambodia</b> — Philippines pending a collaborator delivery, Singapore/Malaysia/Myanmar/Laos not yet started',
+        'NDT7 reliability varies hugely by country: it tracks raw test volume, not just country size — Thailand 57.0% reliable, Vietnam 28.6%, Cambodia 0%',
+    ],
+})
+for c in NDT7_ORDER:
+    SLIDES.extend(ndt7_country_slides(c))
+SLIDES.extend(cambodia_slides_ndt7())
 
 # ── Comparison section 1: every-country comparison ──────────────────────────
 SLIDES.append({
@@ -198,7 +300,7 @@ def build_slide_html(s, idx):
 </section>"""
 
     if t == 'image':
-        img_src = img_b64(s['image'])
+        img_src = img_b64(s['image'], base=s.get('base', OUTDIR))
         img_tag = f'<img src="{img_src}" alt="{s["title"]}">' if img_src else '<div class="img-missing">image not found</div>'
         items = ''.join(f'<li>{b}</li>' for b in s['findings'])
         return f"""
@@ -206,6 +308,25 @@ def build_slide_html(s, idx):
   <h2>{s['title']}</h2>
   <div class="slide-body">
     <div class="img-col">{img_tag}</div>
+    <div class="text-col">
+      <div class="metric-badge">{s['metric']}</div>
+      <ul class="findings">{items}</ul>
+    </div>
+  </div>
+</section>"""
+
+    if t == 'image2':
+        panels = []
+        for label, rel in s['images']:
+            src = img_b64(rel, base=s.get('base', OUTDIR))
+            tag = f'<img src="{src}" alt="{label}">' if src else '<div class="img-missing">image not found</div>'
+            panels.append(f'<div class="img-panel"><div class="img-panel-label">{label}</div>{tag}</div>')
+        items = ''.join(f'<li>{b}</li>' for b in s['findings'])
+        return f"""
+<section class="slide image-slide" id="slide-{idx}">
+  <h2>{s['title']}</h2>
+  <div class="slide-body">
+    <div class="img-col img-col-dual">{''.join(panels)}</div>
     <div class="text-col">
       <div class="metric-badge">{s['metric']}</div>
       <ul class="findings">{items}</ul>
@@ -268,6 +389,10 @@ body {{
 .img-col {{ flex: 1.6; min-width: 0; display: flex; align-items: center; justify-content: center; }}
 .img-col img {{ max-width: 100%; max-height: calc(100vh - 200px); object-fit: contain; border-radius: 6px; border: 1px solid #21262d; }}
 .img-missing {{ color: #484f58; font-size: 1rem; }}
+.img-col-dual {{ gap: 16px; }}
+.img-panel {{ flex: 1; min-width: 0; display: flex; flex-direction: column; align-items: center; gap: 8px; }}
+.img-panel img {{ max-width: 100%; max-height: calc(100vh - 230px); object-fit: contain; border-radius: 6px; border: 1px solid #21262d; }}
+.img-panel-label {{ font-size: 0.8rem; color: #8b949e; font-family: 'IBM Plex Mono', monospace; letter-spacing: 0.5px; text-transform: uppercase; }}
 .text-col {{ flex: 1; display: flex; flex-direction: column; gap: 16px; justify-content: flex-start; }}
 .metric-badge {{ background: #161b22; border: 1px solid #30363d; border-left: 3px solid #58a6ff; border-radius: 0 6px 6px 0; padding: 12px 16px; font-size: 0.82rem; color: #8b949e; line-height: 1.6; font-family: 'IBM Plex Mono', monospace; }}
 .findings {{ list-style: none; display: flex; flex-direction: column; gap: 10px; }}

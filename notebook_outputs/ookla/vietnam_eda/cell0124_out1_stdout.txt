@@ -1,0 +1,20 @@
+Top 10 fastest growing provinces:
+      name              region  internet_tier  pct_growth
+   Đà Nẵng South Central Coast              1  652.641770
+  Lai Châu           Northwest              4  467.592898
+Quảng Ngãi South Central Coast              2  388.507879
+ Hải Phòng     Red River Delta              1  369.510503
+  Lạng Sơn           Northeast              4  335.973204
+  Bạc Liêu        Mekong Delta              2  326.394031
+  Nam Định     Red River Delta              4  293.799065
+   Kon Tum   Central Highlands              4  283.522388
+Quảng Bình North Central Coast              3  283.514088
+  Đồng Nai           Southeast              2  280.496116
+
+Bottom 5 (slowest growth or decline):
+     name              region  internet_tier  pct_growth
+ Hòa Bình           Northwest              3   55.242628
+  Phú Thọ           Northeast              4   72.353637
+ Cao Bằng           Northeast              4   96.771357
+Quảng Nam South Central Coast              2   98.382353
+Vĩnh Phúc     Red River Delta              1  111.914574

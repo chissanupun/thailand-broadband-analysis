@@ -1,0 +1,19 @@
+<class 'pandas.DataFrame'>
+RangeIndex: 6336489 entries, 0 to 6336488
+Data columns (total 11 columns):
+ #   Column           Dtype  
+---  ------           -----  
+ 0   quadkey          str    
+ 1   tile             str    
+ 2   tile_x           float64
+ 3   tile_y           float64
+ 4   avg_d_kbps       int64  
+ 5   avg_u_kbps       int64  
+ 6   avg_lat_ms       int64  
+ 7   avg_lat_down_ms  float64
+ 8   avg_lat_up_ms    float64
+ 9   tests            int64  
+ 10  devices          int64  
+dtypes: float64(4), int64(5), str(2)
+memory usage: 1.7 GB
+None

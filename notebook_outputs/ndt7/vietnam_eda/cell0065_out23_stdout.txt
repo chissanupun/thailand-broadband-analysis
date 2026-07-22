@@ -1,0 +1,6 @@
+Provinces: 42
+Score range: 2.08 – 14.05
+|z|>2 in any dim: 8
+|z|>3 in any dim: 3
+Unremarkable: 6
+Saved: ../../outputs/ndt7/vietnam/28_divergence_table.html

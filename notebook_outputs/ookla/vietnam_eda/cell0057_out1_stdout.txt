@@ -1,0 +1,61 @@
+Provinces with UL/DL ratio > 0.8 (59):
+           name              region  ul_dl_ratio
+      Ninh Bình     Red River Delta     0.921448
+        Côn Đảo           Southeast     0.919739
+       An Giang        Mekong Delta     0.908746
+         Cà Mau        Mekong Delta     0.904941
+       Đắk Nông   Central Highlands     0.901805
+      Sóc Trăng        Mekong Delta     0.890303
+     Kiên Giang        Mekong Delta     0.886256
+      Hậu Giang        Mekong Delta     0.885371
+     Tiền Giang        Mekong Delta     0.884255
+      Đồng Tháp        Mekong Delta     0.883018
+       Lai Châu           Northwest     0.882927
+        Hà Tĩnh North Central Coast     0.879890
+       Trà Vinh        Mekong Delta     0.878449
+        Đắk Lắk   Central Highlands     0.878305
+    Tuyên Quang           Northeast     0.875961
+       Cao Bằng           Northeast     0.875634
+       Bạc Liêu        Mekong Delta     0.874037
+      Quảng Nam South Central Coast     0.871997
+        Yên Bái           Northwest     0.870854
+        Bắc Kạn           Northeast     0.870307
+        Phú Yên South Central Coast     0.868801
+         Hà Nam     Red River Delta     0.868571
+     Bình Phước           Southeast     0.867967
+      Thanh Hóa North Central Coast     0.867475
+        Phú Thọ           Northeast     0.867409
+       Hà Giang           Northeast     0.867119
+     Quảng Bình North Central Coast     0.866225
+     Quảng Ngãi South Central Coast     0.860956
+        Long An        Mekong Delta     0.860860
+        Lào Cai           Northwest     0.860313
+       Lạng Sơn           Northeast     0.860291
+       Tây Ninh           Southeast     0.859845
+      Bình Định South Central Coast     0.859338
+        Cần Thơ        Mekong Delta     0.859045
+        Kon Tum   Central Highlands     0.857081
+      Vĩnh Phúc     Red River Delta     0.856428
+      Vĩnh Long        Mekong Delta     0.855392
+      Điện Biên           Northwest     0.853739
+         Sơn La           Northwest     0.853233
+      Thái Bình     Red River Delta     0.851628
+        Nghệ An North Central Coast     0.850311
+     Ninh Thuận South Central Coast     0.849878
+       Hưng Yên     Red River Delta     0.847276
+      Quảng Trị North Central Coast     0.844701
+    Thái Nguyên           Northeast     0.844099
+       Hòa Bình           Northwest     0.840491
+ Thừa Thiên Huế North Central Coast     0.838142
+       Nam Định     Red River Delta     0.837141
+        Bến Tre        Mekong Delta     0.836219
+      Bắc Giang           Northeast     0.833660
+       Bắc Ninh     Red River Delta     0.831368
+      Khánh Hòa South Central Coast     0.829033
+       Đồng Nai           Southeast     0.827152
+     Bình Dương           Southeast     0.821539
+        Gia Lai   Central Highlands     0.820210
+Bà Rịa–Vũng Tàu           Southeast     0.819231
+     Bình Thuận South Central Coast     0.816839
+       Lâm Đồng   Central Highlands     0.809030
+         Hà Nội     Red River Delta     0.800901

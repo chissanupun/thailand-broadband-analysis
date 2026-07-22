@@ -1,0 +1,68 @@
+Provinces loaded: 64
+Regions: ['Central Highlands', 'Mekong Delta', 'North Central Coast', 'Northeast', 'Northwest', 'Red River Delta', 'South Central Coast', 'Southeast']
+
+    province_en              region  pop_2024  density_per_km2  gdp_per_capita_thb_2021  internet_tier
+       An Giang        Mekong Delta   2057000              540                338704.14              1
+Bà Rịa–Vũng Tàu           Southeast   1303000              580               3286254.54              1
+     Bình Dương           Southeast   2564000              901                327276.61              2
+     Bình Phước           Southeast   1313000              145                322186.39              2
+     Bình Thuận South Central Coast   1498000              155                276055.50              2
+      Bình Định South Central Coast   1679000              245                275959.91              2
+       Bạc Liêu        Mekong Delta   1105000              340                330710.59              2
+      Bắc Giang           Northeast   1884000              463                170576.83              4
+        Bắc Kạn           Northeast    338000               65                157823.59              4
+       Bắc Ninh     Red River Delta   1447000             1664                397659.74              1
+        Bến Tre        Mekong Delta   1331000              538                266077.85              2
+       Cao Bằng           Northeast    576000               79                139741.61              4
+         Cà Mau        Mekong Delta   1369000              229                278868.61              2
+        Côn Đảo           Southeast   1303000              580               3286254.54              1
+        Cần Thơ        Mekong Delta   1456000              858                559273.75              1
+        Gia Lai   Central Highlands   1586000               98                270072.84              2
+    Ho Chi Minh           Southeast   9125000             4363                638474.09              1
+       Hà Giang           Northeast    910000              108                 96812.43              4
+         Hà Nam     Red River Delta    945000              989                190452.63              4
+         Hà Nội     Red River Delta   8146000             2398                350473.82              1
+        Hà Tĩnh North Central Coast   1402000              215                189147.47              4
+       Hòa Bình           Northwest    979000              186                209319.85              3
+       Hưng Yên     Red River Delta   1340000             1347                223672.16              3
+      Hải Dương     Red River Delta   2003000             1134                224577.11              3
+      Hải Phòng     Red River Delta   2138000             1299                343860.47              1
+      Hậu Giang        Mekong Delta    853000              452                262983.34              2
+      Khánh Hòa South Central Coast   1371000              240                373474.50              1
+     Kiên Giang        Mekong Delta   1789000              271                387388.18              1
+        Kon Tum   Central Highlands    589000               56                185404.40              4
+       Lai Châu           Northwest    527000               51                 96644.48              4
+        Long An        Mekong Delta   1730000              376                358440.58              1
+        Lào Cai           Northwest    898000              115                247234.74              3
+       Lâm Đồng   Central Highlands   1390000              133                297641.14              2
+       Lạng Sơn           Northeast    828000               94                196710.43              4
+       Nam Định     Red River Delta   1852000             1067                170177.51              4
+        Nghệ An North Central Coast   3399000              202                212576.95              3
+      Ninh Bình     Red River Delta   1102000              708                221438.82              3
+     Ninh Thuận South Central Coast    720000              176                214609.28              3
+        Phú Thọ           Northeast   1515000              414                171183.41              4
+        Phú Yên South Central Coast   1056000              174                227067.72              3
+     Quảng Bình North Central Coast    992000              112                196802.45              3
+      Quảng Nam South Central Coast   1697000              141                285182.69              2
+     Quảng Ngãi South Central Coast   1355000              239                314135.66              2
+     Quảng Ninh           Northeast   1387000              214                699887.25              1
+      Quảng Trị North Central Coast    687000              137                238707.87              3
+      Sóc Trăng        Mekong Delta   1256000              362                253301.38              3
+         Sơn La           Northwest   1356000               88                158468.58              4
+      Thanh Hóa North Central Coast   3689000              328                217499.22              3
+      Thái Bình     Red River Delta   1934000             1173                186783.70              4
+    Thái Nguyên           Northeast   1356000              365                227542.08              3
+ Thừa Thiên Huế North Central Coast   1257000              230                274484.12              2
+     Tiền Giang        Mekong Delta   1898000              703                337838.50              1
+       Trà Vinh        Mekong Delta   1067000              428                237885.11              3
+    Tuyên Quang           Northeast   1056000              134                174037.61              4
+       Tây Ninh           Southeast   1207000              289                362573.14              1
+      Vĩnh Long        Mekong Delta   1100000              670                300161.23              2
+      Vĩnh Phúc     Red River Delta   1296000              932                356494.89              1
+        Yên Bái           Northwest    950000              119                164865.75              4
+      Điện Biên           Northwest    705000               63                141953.51              4
+        Đà Nẵng South Central Coast   1294000              883                429834.96              1
+        Đắk Lắk   Central Highlands   2016000              143                228316.60              3
+       Đắk Nông   Central Highlands    670000               96                268062.84              2
+       Đồng Nai           Southeast   3227000              528                311341.31              2
+      Đồng Tháp        Mekong Delta   1838000              473                200156.92              3

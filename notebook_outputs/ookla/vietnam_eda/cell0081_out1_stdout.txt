@@ -1,0 +1,23 @@
+Top coverage (tests per 1000 pop):
+           name              region  internet_tier  tests_per_1000_pop    mean_tests  pop_2024
+    Ho Chi Minh           Southeast              1           52.089913 475320.454545   9125000
+        Đà Nẵng South Central Coast              1           50.370662  65179.636364   1294000
+         Hà Nội     Red River Delta              1           47.414805 386241.000000   8146000
+Bà Rịa–Vũng Tàu           Southeast              1           27.429917  35741.181818   1303000
+      Khánh Hòa South Central Coast              1           26.922286  36910.454545   1371000
+      Hải Phòng     Red River Delta              1           24.697933  52804.181818   2138000
+     Bình Dương           Southeast              2           24.122500  61850.090909   2564000
+       Đồng Nai           Southeast              2           24.101868  77776.727273   3227000
+
+Bottom coverage:
+      name              region  internet_tier  tests_per_1000_pop   mean_tests  pop_2024
+   Côn Đảo           Southeast              1            0.356869   465.000000   1303000
+  Lai Châu           Northwest              4            5.279972  2782.545455    527000
+ Hậu Giang        Mekong Delta              2            6.526271  5566.909091    853000
+  Bạc Liêu        Mekong Delta              2            6.845742  7564.545455   1105000
+  Hà Giang           Northeast              4            7.243457  6591.545455    910000
+   Hà Tĩnh North Central Coast              4            7.597134 10651.181818   1402000
+    Cà Mau        Mekong Delta              2            7.951590 10885.727273   1369000
+Kiên Giang        Mekong Delta              1            8.172417 14620.454545   1789000
+ Đồng Tháp        Mekong Delta              3            8.197052 15066.181818   1838000
+    Sơn La           Northwest              4            8.336149 11303.818182   1356000

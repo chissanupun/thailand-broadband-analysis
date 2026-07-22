@@ -1,0 +1,20 @@
+Top 10 fastest growing provinces:
+      name              region  internet_tier  pct_growth
+  Đắk Nông   Central Highlands              2  171.771852
+  Cao Bằng           Northeast              4  160.315148
+ Ninh Bình     Red River Delta              3  158.788652
+   Đắk Lắk   Central Highlands              3  158.098960
+ Hậu Giang        Mekong Delta              2  152.492535
+Ninh Thuận South Central Coast              3  150.522101
+ Hải Phòng     Red River Delta              1  148.248855
+   Bắc Kạn           Northeast              4  144.731457
+  An Giang        Mekong Delta              1  144.613240
+ Vĩnh Long        Mekong Delta              2  144.088437
+
+Bottom 5 (slowest growth or decline):
+      name              region  internet_tier  pct_growth
+  Bạc Liêu        Mekong Delta              2   95.966942
+   Bến Tre        Mekong Delta              2   99.187613
+Bình Phước           Southeast              2  102.078209
+ Quảng Nam South Central Coast              2  102.383779
+    Hà Nội     Red River Delta              1  104.809789

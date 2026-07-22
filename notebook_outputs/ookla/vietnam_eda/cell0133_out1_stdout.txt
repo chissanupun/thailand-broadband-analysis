@@ -1,0 +1,21 @@
+Biggest underperformers vs tier expectation:
+      name  internet_tier   mean_dl  tier_expected  tier_residual
+   Côn Đảo              1 42.245413      92.875453      -0.545139
+  Hưng Yên              3 58.806809      85.368869      -0.311145
+  Cao Bằng              4 61.764033      88.997831      -0.306005
+ Vĩnh Phúc              1 67.060545      92.875453      -0.277952
+Quảng Ninh              1 69.325164      92.875453      -0.253568
+ Hải Dương              3 67.236781      85.368869      -0.212397
+ Quảng Nam              2 73.757837      93.242367      -0.208966
+  Lạng Sơn              4 71.146335      88.997831      -0.200583
+
+Biggest overperformers vs tier expectation:
+     name  internet_tier    mean_dl  tier_expected  tier_residual
+  Đà Nẵng              1 133.293121      92.875453       0.435181
+ Bạc Liêu              2 128.029794      93.242367       0.373086
+  Kon Tum              4 119.535056      88.997831       0.343123
+Sóc Trăng              3 106.846474      85.368869       0.251586
+Quảng Trị              3 104.918926      85.368869       0.229007
+  Đắk Lắk              3 103.713283      85.368869       0.214884
+Hậu Giang              2 112.547507      93.242367       0.207043
+  Cần Thơ              1 110.403585      92.875453       0.188727

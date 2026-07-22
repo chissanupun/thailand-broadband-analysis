@@ -1,0 +1,36 @@
+Provinces with UL/DL ratio > 0.8 (34):
+       name              region  ul_dl_ratio
+ Quảng Ninh           Northeast     1.357625
+    Lào Cai           Northwest     1.129445
+  Thái Bình     Red River Delta     1.084913
+   Nam Định     Red River Delta     1.082755
+  Thanh Hóa North Central Coast     1.032222
+  Khánh Hòa South Central Coast     1.029464
+  Hậu Giang        Mekong Delta     1.018295
+    Hà Tĩnh North Central Coast     1.014670
+  Đồng Tháp        Mekong Delta     0.984370
+    Long An        Mekong Delta     0.984282
+    Phú Thọ           Northeast     0.965586
+     Hà Nam     Red River Delta     0.963573
+  Hải Dương     Red River Delta     0.962717
+ Bình Thuận South Central Coast     0.955306
+  Quảng Nam South Central Coast     0.948909
+  Vĩnh Phúc     Red River Delta     0.947309
+   An Giang        Mekong Delta     0.918386
+    Đắk Lắk   Central Highlands     0.908638
+ Bình Phước           Southeast     0.905416
+ Quảng Bình North Central Coast     0.902030
+    Nghệ An North Central Coast     0.898206
+   Lai Châu           Northwest     0.877446
+  Quảng Trị North Central Coast     0.872494
+ Kiên Giang        Mekong Delta     0.866316
+  Bắc Giang           Northeast     0.865169
+   Đồng Nai           Southeast     0.861214
+   Đắk Nông   Central Highlands     0.856123
+  Bình Định South Central Coast     0.851574
+   Lâm Đồng   Central Highlands     0.847414
+Thái Nguyên           Northeast     0.842619
+  Hải Phòng     Red River Delta     0.834925
+    Cần Thơ        Mekong Delta     0.831171
+   Trà Vinh        Mekong Delta     0.827036
+ Tiền Giang        Mekong Delta     0.820689

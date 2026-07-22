@@ -1,0 +1,10 @@
+                     provinces  total_pop_M  avg_density  avg_gdp_per_cap_thb  avg_gdp_per_cap_usd
+region                                                                                            
+Southeast                    7        20.04       1055.0            1219194.0            1219194.0
+Mekong Delta                13        18.85        480.0             316292.0             316292.0
+South Central Coast          8        10.67        282.0             299540.0             299540.0
+Red River Delta             10        22.20       1271.0             266559.0             266559.0
+Central Highlands            5         6.25        105.0             249900.0             249900.0
+Northeast                    9         9.85        215.0             226035.0             226035.0
+North Central Coast          6        11.43        204.0             221536.0             221536.0
+Northwest                    6         5.42        104.0             169748.0             169748.0

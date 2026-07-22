@@ -1,0 +1,6 @@
+           name              region  internet_tier  pct_growth
+      Quảng Nam South Central Coast              2  223.669634
+Bà Rịa–Vũng Tàu           Southeast              1  193.379077
+         Hà Nội     Red River Delta              1  155.003034
+    Ho Chi Minh           Southeast              1  141.393599
+       Đồng Nai           Southeast              2  131.997605

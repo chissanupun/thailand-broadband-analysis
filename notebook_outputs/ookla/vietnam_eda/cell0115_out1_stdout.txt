@@ -1,0 +1,3 @@
+Provinces with UL/DL ratio > 0.5 (1):
+   name    region  ul_dl_ratio
+Côn Đảo Southeast     0.671438

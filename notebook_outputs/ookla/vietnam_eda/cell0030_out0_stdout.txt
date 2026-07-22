@@ -1,0 +1,25 @@
+=== TOP 10 by GDP per Capita ===
+    province_en              region  pop_2024  gdp_per_capita_thb_2021  internet_tier
+Bà Rịa–Vũng Tàu           Southeast   1303000               3286254.54              1
+        Côn Đảo           Southeast   1303000               3286254.54              1
+     Quảng Ninh           Northeast   1387000                699887.25              1
+    Ho Chi Minh           Southeast   9125000                638474.09              1
+        Cần Thơ        Mekong Delta   1456000                559273.75              1
+        Đà Nẵng South Central Coast   1294000                429834.96              1
+       Bắc Ninh     Red River Delta   1447000                397659.74              1
+     Kiên Giang        Mekong Delta   1789000                387388.18              1
+      Khánh Hòa South Central Coast   1371000                373474.50              1
+       Tây Ninh           Southeast   1207000                362573.14              1
+
+=== BOTTOM 10 by GDP per Capita ===
+province_en          region  pop_2024  gdp_per_capita_thb_2021  internet_tier
+   Lai Châu       Northwest    527000                 96644.48              4
+   Hà Giang       Northeast    910000                 96812.43              4
+   Cao Bằng       Northeast    576000                139741.61              4
+  Điện Biên       Northwest    705000                141953.51              4
+    Bắc Kạn       Northeast    338000                157823.59              4
+     Sơn La       Northwest   1356000                158468.58              4
+    Yên Bái       Northwest    950000                164865.75              4
+   Nam Định Red River Delta   1852000                170177.51              4
+  Bắc Giang       Northeast   1884000                170576.83              4
+    Phú Thọ       Northeast   1515000                171183.41              4

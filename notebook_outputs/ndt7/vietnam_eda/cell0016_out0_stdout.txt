@@ -1,0 +1,21 @@
+Expected rows (if every province had every quarter): 768 | Actual: 733 | Missing: 35
+
+Provinces with ZERO NDT7 test volume in any quarter (1): ['Côn Đảo']
+
+Low-test quarters (< 100 tests) — 48 of 733 province-quarter rows
+      name   label  total_tests  n_tiles
+   Bắc Kạn 2025-Q3          3.0      1.0
+  Hưng Yên 2023-Q3          4.0      1.0
+Ninh Thuận 2023-Q3          4.0      1.0
+ Hậu Giang 2025-Q2          6.0      1.0
+   Bắc Kạn 2024-Q4         13.0      1.0
+   Bắc Kạn 2025-Q2         13.0      1.0
+Ninh Thuận 2024-Q3         13.0      1.0
+  Hưng Yên 2024-Q1         13.0      1.0
+Bình Thuận 2024-Q4         14.0      1.0
+Bình Thuận 2025-Q4         15.0      1.0
+Ninh Thuận 2023-Q2         15.0      1.0
+Bình Thuận 2024-Q3         15.0      2.0
+   Bắc Kạn 2024-Q1         20.0      1.0
+Quảng Ninh 2025-Q2         24.0      1.0
+ Điện Biên 2023-Q4         28.0      1.0

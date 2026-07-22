@@ -1,0 +1,3 @@
+Provinces ratio > 0.5 (relatively symmetric mobile): 1 out of 64
+Southeast mean ratio: 0.402
+Northwest mean ratio: 0.328

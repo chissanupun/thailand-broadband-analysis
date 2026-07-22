@@ -1,0 +1,5 @@
+Exported 757 rows → ../../data/exports/ookla_mobile_vietnam_province_quarterly.csv
+          province  quarter  year  quarter  avg_d_mbps  avg_u_mbps  avg_lat_ms_wt  total_tests  n_tiles  is_reliable        region  internet_tier  pop_2024  gdp_per_capita_thb_2021  density_per_km2
+0         An Giang  2023-Q1  2023        1   47.876128   25.244840      30.916264       3929.0    804.0         True  Mekong Delta              1   2057000                338704.14              540
+1  Bà Rịa–Vũng Tàu  2023-Q1  2023        1   48.886630   24.925304      28.251210       5374.0    716.0         True     Southeast              1   1303000               3286254.54              580
+2       Bình Dương  2023-Q1  2023        1   46.291335   23.906777      28.603969      11085.0   1255.0         True     Southeast              2   2564000                327276.61              901

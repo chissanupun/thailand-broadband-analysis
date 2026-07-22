@@ -29,6 +29,13 @@ This research has four main objectives:
 3. Cross-validate results between Ookla and NDT7 data, wherever both sources overlap, to confirm the reliability of conclusions and explain any gap between the two using contextual factors such as latency, test density, and measurement methodology (active vs. passive).
 4. Answer the question "is [Southeast Asian] internet good or bad" by comparing real measured results against international rankings (Speedtest Global Index), explaining the apparent contradiction between national-level statistics and user perception, and identifying provinces/regions with anomalous behavior to inform policy recommendations.
 
+**Contributions.**
+
+- **A public-perception/national-statistic gap, quantified.** We document a concrete contradiction between Thailand's #13-globally fixed-broadband ranking and real-user annoyance/outage data (Section 1), and treat closing that gap empirically — rather than resolving it rhetorically — as the paper's central problem.
+- **Cross-platform validation at province granularity.** We cross-validate Ookla Open Data against M-Lab NDT7 at the province × quarter level for Thailand and Vietnam, an approach not previously applied in a Thai context (Section 3.3), following MacMillan et al. (2023)'s US-based comparative framework.
+- **An eight-country Southeast Asian comparison on one consistent pipeline.** The same tile-to-province methodology (Section 3.1) is applied unmodified across Thailand, Vietnam, the Philippines, Singapore, Cambodia, Myanmar, Laos, and Malaysia, so cross-country differences reflect measured variation rather than differing methodology per country.
+- **A reliability threshold applied consistently, not just computed.** `is_reliable` (`total_tests>=100 & n_tiles>=5`) is enforced identically across both data sources and all eight countries before any downstream statistic is computed (Section 3.1, Step 5), rather than left as an unused diagnostic column.
+
 ### 1.2 Research Hypotheses
 
 This study hypothesizes that Thai internet is not uniformly "good" or "bad" nationwide, but varies significantly in quality by area and network type: fixed broadband in urban areas and economically stronger provinces will show world-class quality consistent with Ookla's reported ranking, while mobile internet and rural or economically weaker provinces will show significantly lower quality. This spatial and network-type variation is expected to explain why public perception conflicts with national-aggregate statistics.
@@ -186,9 +193,9 @@ The upload-to-download speed ratio (UL/DL ratio) is used as an indirect indicato
 
 A national average ratio close to 1.0 is taken as evidence of widespread fiber (FTTH) deployment.
 
-### 3.6 Anomaly/Divergence Detection
+### 3.6 Anomaly/Divergence Detection (dropped, 2026-07-20)
 
-Rather than the seven independent binary flags originally proposed (low coverage, tier under/over-performance, quarter-on-quarter spikes, UL/DL ratio outliers, regional outliers, ultra-low latency), the implemented approach computes a **composite divergence score**: seven z-scored dimensions (tier-expectation residual, GDP-expectation residual, density-expectation residual, regional deviation, UL/DL ratio deviation, latency regional deviation, and coverage deviation) are combined per province, and the top-20 highest-scoring provinces are surfaced as a "divergence leaderboard" for qualitative deep-dive rather than a fixed set of binary alarms. This method is implemented and executed in each country's Ookla EDA notebook; the original seven-flag table above should be treated as superseded by this composite approach, and `paper.tex`'s existing methodology text (which still describes the seven-flag version) needs reconciling against this once the LaTeX manuscript is revisited.
+An earlier iteration of this pipeline computed a composite per-province "divergence score" — seven z-scored dimensions (tier-expectation residual, GDP-expectation residual, density-expectation residual, regional deviation, UL/DL ratio deviation, latency regional deviation, and coverage deviation) summed to surface a "divergence leaderboard" of the most anomalous provinces. This was removed from all eight Ookla EDA notebooks as no longer a necessary part of the analysis. `paper.tex`'s existing methodology text (which still describes an even older seven-flag version of this idea) should likewise be treated as superseded and dropped rather than reconciled, once the LaTeX manuscript is revisited. Tier, GDP, and density are still analyzed directly (Sections 3.2 and 3.4) — only the composite anomaly-scoring layer on top of them was cut.
 
 ### 3.7 Tools and Software
 
@@ -202,6 +209,24 @@ All analysis is performed in Python 3.12, in an isolated virtual environment (`d
 | `scipy.stats` | statistical analysis (Pearson/Spearman correlation, Kruskal-Wallis, Mann-Whitney, Wilcoxon, z-scores) |
 | `statsmodels` | OLS regression, including multivariate and cross-country fixed-effects models |
 | `matplotlib` | data visualization |
+
+---
+
+## 4. Limitations and Future Directions
+
+This study's cross-country, cross-platform design surfaces several limitations worth stating plainly rather than glossing over, since they bound how far the eventual results can be generalized.
+
+**GDP identification is degenerate for four of eight countries.** Singapore, Cambodia, Myanmar, and Laos have no official sub-national GDP series, so national GDP per capita is repeated across every province within each of those countries (Section 2.4). Any regression term for GDP (Sections 3.2 item 4, 3.4) has zero within-country variance for these four — the coefficient is identified almost entirely off Thailand, Vietnam, the Philippines, and Malaysia's within-country spread. Country fixed effects for the zero-variance countries should be read as absorbing GDP's effect rather than isolating a genuinely GDP-independent residual.
+
+**NDT7 cross-validation covers only 2 of 8 countries, and coverage is not stable over time.** Ookla-vs-NDT7 comparison (Section 3.3) is currently limited to Thailand and Vietnam; the Philippines is pending a collaborator delivery, and Singapore/Cambodia/Myanmar/Laos/Malaysia have no NDT7 cross-validation planned yet. Even within Vietnam, NDT7's reliable-province coverage decays sharply over the study period (~48% of provinces reliable in Q1 2023 down to ~11% by Q4 2025, with volume heavily concentrated in one quarter) — later-period Ookla-vs-NDT7 comparisons rest on a shrinking, non-random subset of provinces.
+
+**No ground truth exists for the Ookla-vs-NDT7 gap.** Because the two platforms sample different users at different times through different mechanisms (active/user-initiated vs. passive/background), any measured gap is confounded between genuine network differences and methodology differences (Section 3.3). We do not have — and this design cannot produce — a way to attribute a given gap to one cause over the other; MacMillan et al. (2023)'s finding that NDT7 underreports speed by 12–56% relative to Ookla in a US context is used as prior context, not as a correction applied to our numbers.
+
+**One administrative unit is coarsened by a source-data gap.** geoBoundaries' Myanmar ADM1 layer does not delineate Naypyidaw separately from Mandalay Region; its population/area are folded into Mandalay for this study (Section 2.3), so any Myanmar province-level result should be read with that one unit understood as a merged aggregate, not a genuine administrative boundary.
+
+**The composite divergence-scoring layer was cut mid-project (Section 3.6) rather than completed.** An earlier per-province anomaly score across seven z-scored dimensions was implemented in all eight Ookla notebooks and then removed as not necessary for the analysis; tier, GDP, and density are still analyzed directly, but a synthesized "which provinces break the pattern" view is not part of the current results.
+
+**Future work.** Extending NDT7 cross-validation to the remaining six countries (contingent on data availability), revisiting whether a lighter-weight anomaly/outlier flag is worth reintroducing now that the composite-score approach has been dropped, and reconciling `paper.tex`'s older methodology text (which still describes a superseded seven-flag anomaly framework) once the LaTeX manuscript is revisited, are the most immediate next steps.
 
 ---
 
