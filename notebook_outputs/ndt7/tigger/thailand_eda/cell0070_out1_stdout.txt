@@ -1,0 +1,21 @@
+Provinces with UL/DL ratio > 0.5 (19):
+                    name             region  ul_dl_ratio
+            Sakon Nakhon       Northeastern     0.876088
+               Si Sa Ket       Northeastern     0.788228
+               Khon Kaen       Northeastern     0.776104
+                  Rayong            Eastern     0.732265
+              Chiang Mai           Northern     0.699242
+                Buri Ram       Northeastern     0.697333
+            Samut Prakan Bangkok & Vicinity     0.697209
+                 Lampang           Northern     0.690214
+       Nakhon Ratchasima       Northeastern     0.689661
+                Saraburi            Central     0.685071
+               Chon Buri            Eastern     0.664800
+            Pathum Thani Bangkok & Vicinity     0.651609
+        Ubon Ratchathani       Northeastern     0.640307
+                   Surin       Northeastern     0.638280
+Phra Nakhon Si Ayutthaya            Central     0.626061
+              Phetchabun           Northern     0.614942
+            Prachin Buri            Eastern     0.559318
+              Chiang Rai           Northern     0.527033
+              Nonthaburi Bangkok & Vicinity     0.515861

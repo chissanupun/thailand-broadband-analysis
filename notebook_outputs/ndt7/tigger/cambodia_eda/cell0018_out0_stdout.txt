@@ -1,0 +1,3 @@
+Filtered to reliable province-quarters: 0 rows kept
+
+No province-quarters clear the reliability threshold — sections 3-14 below will report 'no reliable data' instead of plotting.

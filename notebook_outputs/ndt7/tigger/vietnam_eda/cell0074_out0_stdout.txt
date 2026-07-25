@@ -1,0 +1,2 @@
+       name    region  internet_tier  mean_dl  mean_ul  mean_lat  ul_dl_ratio  mean_tests  gdp_per_capita_thb_2021
+Ho Chi Minh Southeast              1    39.29     17.2    122.73         0.46     14946.0                638474.09

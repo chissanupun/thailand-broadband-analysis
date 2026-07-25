@@ -1,0 +1,25 @@
+=== TOP 10 by GDP per Capita ===
+    province_en    region  pop_2024  gdp_per_capita_thb_2021  internet_tier
+Bantey Meanchey Northwest    898484                199216.96              1
+     Battambang Northwest   1132017                199216.96              2
+   Kampong Cham      East   1062914                199216.96              4
+Kampong Chhnang    Center    604895                199216.96              1
+   Kampong Speu Southwest    924175                199216.96              4
+   Kampong Thom    Center    807254                199216.96              3
+         Kampot Southwest    682987                199216.96              2
+         Kandal    Center   1352198                199216.96              2
+            Kep     South     48772                199216.96              2
+       Koh Kong Southwest    140962                199216.96              3
+
+=== BOTTOM 10 by GDP per Capita ===
+    province_en    region  pop_2024  gdp_per_capita_thb_2021  internet_tier
+Bantey Meanchey Northwest    898484                199216.96              1
+     Battambang Northwest   1132017                199216.96              2
+   Kampong Cham      East   1062914                199216.96              4
+Kampong Chhnang    Center    604895                199216.96              1
+   Kampong Speu Southwest    924175                199216.96              4
+   Kampong Thom    Center    807254                199216.96              3
+         Kampot Southwest    682987                199216.96              2
+         Kandal    Center   1352198                199216.96              2
+            Kep     South     48772                199216.96              2
+       Koh Kong Southwest    140962                199216.96              3

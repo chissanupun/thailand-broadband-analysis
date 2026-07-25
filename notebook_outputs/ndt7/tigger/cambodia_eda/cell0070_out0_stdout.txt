@@ -1,0 +1,1 @@
+No reliable data for Mobile/Cellular — skipping UL/DL ratio plot.

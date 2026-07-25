@@ -32,6 +32,11 @@
 
 **เป้าหมาย:** เปรียบเทียบ Ookla และ NDT7 ทางสถิติครบ + เขียนบท Results และ Discussion
 
+- [x] RQ1 — "อินเทอร์เน็ตไทยดีหรือแย่?" เทียบกับ app-requirement thresholds (Ookla + NDT7) —
+      `notebooks/comparison/rq1_thresholds_ookla.ipynb`, `rq1_thresholds_ndt7.ipynb`
+- [x] RQ2 — เทรนด์รายไตรมาส (2023Q1-2025Q4), download/upload/latency, Ookla vs NDT7 fixed/mobile —
+      `notebooks/comparison/rq2_trends.ipynb`. Headline: ทุก segment โต ไม่มีตัวไหนแย่ลง;
+      Bangkok metro mobile ที่ RQ1 พบว่าแย่ (55-67% pooled) จริงๆ เป็นปัญหาปี 2023 (0-7%) ที่หายไปแล้วตั้งแต่ 2024-Q1 (100% ทุกไตรมาส)
 - [ ] วิเคราะห์และเปรียบเทียบผลระหว่าง Ookla กับ NDT7 ในแต่ละจังหวัด/ภูมิภาค
 - [ ] ทดสอบทางสถิติ (Correlation, ANOVA, OLS) และสรุปนัยสำคัญ
 - [ ] ระบุจังหวัดที่มีพฤติกรรมผิดปกติ และอธิบายสาเหตุ

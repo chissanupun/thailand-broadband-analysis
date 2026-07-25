@@ -1,0 +1,26 @@
+                    name             region  internet_tier  mean_dl  mean_ul  mean_lat  ul_dl_ratio  mean_tests  gdp_per_capita_thb_2021
+                  Rayong            Eastern              1   106.50    77.98     68.18         0.73     4737.00               3147422.75
+               Chon Buri            Eastern              1    89.23    59.45     68.60         0.66    13288.67               1726754.27
+                Saraburi            Central              1    66.87    45.58     71.38         0.68      695.50               1066220.56
+            Prachin Buri            Eastern              1    62.76    35.10     74.45         0.56      231.00               1616351.17
+        Ubon Ratchathani       Northeastern              4    57.39    36.75     97.19         0.64      949.00                257941.17
+               Khon Kaen       Northeastern              3    57.19    44.38    111.83         0.78     6095.00                410231.09
+               Si Sa Ket       Northeastern              4    55.74    47.45    102.92         0.79     1188.00                274605.61
+       Nakhon Ratchasima       Northeastern              3    53.29    36.74     83.99         0.69     6368.00                415602.46
+            Samut Prakan Bangkok & Vicinity              1    48.02    36.23     73.44         0.70    30442.57                933102.81
+            Pathum Thani Bangkok & Vicinity              1    44.00    28.96     91.88         0.65     4931.75                759245.02
+Phra Nakhon Si Ayutthaya            Central              1    43.30    27.33     79.11         0.63     1274.75               1544117.75
+                Buri Ram       Northeastern              4    41.69    29.07    102.97         0.70      475.00                265879.60
+              Chiang Mai           Northern              2    38.95    27.16    109.02         0.70    30801.44                439285.93
+             Surat Thani           Southern              2    35.14    16.43     63.78         0.47     6423.00                510230.87
+              Nonthaburi Bangkok & Vicinity              1    29.04    15.19     75.84         0.52    48324.86                638109.06
+              Chiang Rai           Northern              3    28.03    14.77    120.56         0.53      272.00                297247.75
+      Bangkok Metropolis Bangkok & Vicinity              1    27.11    12.97     66.80         0.48  1282633.25               1957179.52
+                 Lampang           Northern              3    26.24    18.11    126.69         0.69     1312.00                345197.95
+            Sakon Nakhon       Northeastern              4    23.45    20.55    101.34         0.88      440.00                237648.59
+                Songkhla           Southern              2    20.81     9.01     86.03         0.44     4837.33                478226.73
+                  Phuket           Southern              1    20.46     9.60    103.76         0.47    18102.00                544858.10
+             Suphan Buri            Western              3    19.70     5.90     85.02         0.30     1181.00                355209.13
+                  Roi Et       Northeastern              4    18.32     6.51    123.99         0.36     2198.00                259302.14
+              Phetchabun           Northern              3    16.12     9.91    142.58         0.62     1577.00                291586.39
+                   Surin       Northeastern              4     9.60     6.12    138.83         0.64      629.00                269145.26

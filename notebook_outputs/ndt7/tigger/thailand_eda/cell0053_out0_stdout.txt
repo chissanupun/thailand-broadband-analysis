@@ -1,0 +1,21 @@
+Expected rows (if every province had every quarter): 924 | Actual: 526 | Missing: 398
+
+Provinces with ZERO NDT7 test volume in any quarter (3): ['Mae Hong Son', 'Phangnga', 'Trat']
+
+Low-test quarters (< 100 tests) — 130 of 526 province-quarter rows
+                    name   label  total_tests  n_tiles
+               Sing Buri 2023-Q2          3.0      1.0
+                Chai Nat 2024-Q1          3.0      1.0
+          Kamphaeng Phet 2025-Q4          3.0      1.0
+          Kamphaeng Phet 2023-Q4          4.0      1.0
+                  Rayong 2025-Q4          4.0      1.0
+               Nong Khai 2025-Q4          4.0      1.0
+                Mukdahan 2023-Q4          5.0      1.0
+            Samut Sakhon 2024-Q3          5.0      1.0
+Phra Nakhon Si Ayutthaya 2025-Q2          5.0      1.0
+     Nakhon Si Thammarat 2024-Q1          6.0      1.0
+                 Kalasin 2024-Q1          6.0      1.0
+         Samut Songkhram 2023-Q3          6.0      1.0
+               Sukhothai 2024-Q1          6.0      1.0
+               Ang Thong 2023-Q1          7.0      2.0
+         Samut Songkhram 2023-Q2          7.0      2.0

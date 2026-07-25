@@ -1,0 +1,5 @@
+Exported 210 rows (reliable-only) -> ../../../data/exports/ndt7_broadband_vietnam_reliable_province_quarterly.csv
+          province  quarter  year  quarter  avg_d_mbps  avg_u_mbps  avg_lat_ms_wt  total_tests  n_tiles  is_reliable        region  internet_tier  pop_2024  gdp_per_capita_thb_2021  density_per_km2
+0         An Giang  2023-Q1  2023        1   29.349034   31.547373     112.389486        759.0     10.0         True  Mekong Delta              1   2057000                338704.14              540
+1  Bà Rịa–Vũng Tàu  2023-Q1  2023        1   35.333411   28.657948     112.670980       1558.0      7.0         True     Southeast              1   1303000               3286254.54              580
+2       Bình Dương  2023-Q1  2023        1   31.278105   25.175450     107.479716        747.0     11.0         True     Southeast              2   2564000                327276.61              901

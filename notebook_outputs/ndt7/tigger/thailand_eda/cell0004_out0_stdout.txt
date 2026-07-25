@@ -1,0 +1,9 @@
+                    provinces  total_pop_M  avg_density  avg_gdp_per_cap_thb  avg_gdp_per_cap_usd
+region                                                                                           
+Eastern                     8         5.24        147.0            1220404.0              39368.0
+Bangkok & Vicinity          6        10.91       1490.0            1093207.0              35265.0
+Central                     6         2.97        212.0             744085.0              24002.0
+Western                     6         3.81        163.0             523585.0              16890.0
+Southern                   14         9.52        182.0             439166.0              14167.0
+Northern                   17        11.89         72.0             356387.0              11496.0
+Northeastern               20        21.62        129.0             280136.0               9037.0

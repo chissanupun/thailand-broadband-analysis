@@ -1,0 +1,1 @@
+Filtered to reliable province-quarters: 210 rows kept

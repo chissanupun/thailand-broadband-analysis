@@ -1,0 +1,18 @@
+Reliable province-quarters per label:
+label
+2023-Q1    67
+2023-Q2    68
+2023-Q3    65
+2023-Q4    66
+2024-Q1    63
+2024-Q2    36
+2024-Q3    24
+2024-Q4    29
+2025-Q1    27
+2025-Q2    22
+2025-Q3    26
+2025-Q4    24
+
+Overall reliable: 517 / 907 (57.0%)
+
+57.0% of province-quarters reliable overall — the strongest NDT7 coverage of the three countries in this study, thanks to 60.2M raw records.

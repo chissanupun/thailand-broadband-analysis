@@ -1,0 +1,18 @@
+Reliable province-quarters per label:
+label
+2023-Q1    17
+2023-Q2    12
+2023-Q3    12
+2023-Q4    15
+2024-Q1     9
+2024-Q2     2
+2024-Q3     2
+2024-Q4     3
+2025-Q1     3
+2025-Q2     2
+2025-Q3     2
+2025-Q4     2
+
+Overall reliable: 81 / 526 (15.4%)
+
+15.4% of province-quarters reliable overall — thinner than Broadband but far denser than Vietnam's 1.0% Mobile coverage.

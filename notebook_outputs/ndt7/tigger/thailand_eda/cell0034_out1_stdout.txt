@@ -1,0 +1,27 @@
+Provinces with UL/DL ratio > 0.8 (25):
+               name       region  ul_dl_ratio
+Nakhon Si Thammarat     Southern     0.985381
+        Phatthalung     Southern     0.955920
+           Chumphon     Southern     0.905723
+      Maha Sarakham Northeastern     0.902035
+              Krabi     Southern     0.878214
+   Nong Bua Lam Phu Northeastern     0.874581
+       Nakhon Sawan     Northern     0.871341
+         Chiang Rai     Northern     0.861358
+               Yala     Southern     0.859922
+  Nakhon Ratchasima Northeastern     0.855710
+         Chiang Mai     Northern     0.852828
+         Narathiwat     Southern     0.845036
+          Si Sa Ket Northeastern     0.843550
+           Phangnga     Southern     0.836709
+           Chai Nat      Central     0.832593
+               Loei Northeastern     0.829527
+   Ubon Ratchathani Northeastern     0.820988
+     Kamphaeng Phet     Northern     0.820341
+            Pattani     Southern     0.816460
+          Khon Kaen Northeastern     0.815693
+              Satun     Southern     0.815115
+        Suphan Buri      Western     0.812528
+         Phetchabun     Northern     0.811892
+       Prachin Buri      Eastern     0.807373
+            Phichit     Northern     0.805162

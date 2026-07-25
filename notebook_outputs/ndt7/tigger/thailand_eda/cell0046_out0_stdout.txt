@@ -1,0 +1,5 @@
+Exported 517 rows (reliable-only) -> ../../../data/exports/ndt7_broadband_thailand_reliable_province_quarterly.csv
+             province  quarter  year  quarter  avg_d_mbps  avg_u_mbps  avg_lat_ms_wt  total_tests  n_tiles  is_reliable              region  internet_tier  pop_2024  gdp_per_capita_thb_2021  density_per_km2
+0       Amnat Charoen  2023-Q1  2023        1   64.426268   35.014625     162.273822        822.0      5.0         True        Northeastern              4    372000                253897.82              113
+1           Ang Thong  2023-Q1  2023        1   77.277077   43.559386     114.275989       3236.0      7.0         True             Central              3    269000                468881.20              283
+2  Bangkok Metropolis  2023-Q1  2023        1   98.387089   64.833579     107.896122     643576.0     49.0         True  Bangkok & Vicinity              1   5456000               1957179.52             3488

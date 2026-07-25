@@ -1,0 +1,12 @@
+           provinces  total_pop_M  avg_density  avg_gdp_per_cap_thb  avg_gdp_per_cap_usd
+region                                                                                  
+Capital            1         2.35       3465.0             199217.0             199217.0
+Center             3         2.76        198.0             199217.0             199217.0
+East               5         3.77        143.0             199217.0             199217.0
+North              2         0.52         30.0             199217.0             199217.0
+Northeast          2         0.41         19.0             199217.0             199217.0
+Northwest          3         3.13        113.0             199217.0             199217.0
+South              3         1.38        191.0             199217.0             199217.0
+Southeast          1         0.61        207.0             199217.0             199217.0
+Southwest          3         1.75         95.0             199217.0             199217.0
+West               2         0.60         70.0             199217.0             199217.0

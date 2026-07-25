@@ -1,0 +1,25 @@
+=== TOP 10 by GDP per Capita ===
+             province_en             region  pop_2024  gdp_per_capita_thb_2021  internet_tier
+                  Rayong            Eastern    782000               3147422.75              1
+      Bangkok Metropolis Bangkok & Vicinity   5456000               1957179.52              1
+               Chon Buri            Eastern   1636000               1726754.27              1
+            Prachin Buri            Eastern    501000               1616351.17              1
+Phra Nakhon Si Ayutthaya            Central    823000               1544117.75              1
+            Chachoengsao            Eastern    733000               1319396.70              2
+            Samut Sakhon Bangkok & Vicinity    591000               1289926.65              1
+                Saraburi            Central    639000               1066220.56              1
+           Nakhon Pathom Bangkok & Vicinity    926000                981679.12              2
+            Samut Prakan Bangkok & Vicinity   1381000                933102.81              1
+
+=== BOTTOM 10 by GDP per Capita ===
+     province_en       region  pop_2024  gdp_per_capita_thb_2021  internet_tier
+      Narathiwat     Southern    824000                203607.94              4
+Nong Bua Lam Phu Northeastern    504000                209476.90              4
+    Mae Hong Son     Northern    288000                216347.64              4
+        Mukdahan Northeastern    351000                221455.39              4
+        Yasothon Northeastern    525000                231749.97              4
+    Sakon Nakhon Northeastern   1138000                237648.59              4
+      Chaiyaphum Northeastern   1106000                240999.93              4
+         Sa Kaeo      Eastern    562000                243010.08              4
+   Amnat Charoen Northeastern    372000                253897.82              4
+         Kalasin Northeastern    962000                255047.88              4

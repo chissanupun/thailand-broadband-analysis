@@ -1,0 +1,18 @@
+Reliable province-quarters per label:
+label
+2023-Q1    1
+2023-Q2    1
+2023-Q3    0
+2023-Q4    0
+2024-Q1    0
+2024-Q2    0
+2024-Q3    0
+2024-Q4    0
+2025-Q1    0
+2025-Q2    1
+2025-Q3    1
+2025-Q4    0
+
+Overall reliable: 4 / 396 (1.0%)
+
+Mobile is a much smaller slice of raw NDT7 volume than broadband (1.27M of 24.7M rows) — expect very few reliable province-quarters.

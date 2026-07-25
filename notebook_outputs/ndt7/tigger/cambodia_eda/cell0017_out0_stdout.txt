@@ -1,0 +1,21 @@
+Expected rows (if every province had every quarter): 300 | Actual: 151 | Missing: 149
+
+Provinces with ZERO NDT7 test volume in any quarter (3): ['Kratie', 'Oddar Meanchey', 'Stung Treng']
+
+Low-test quarters (< 100 tests) — 114 of 151 province-quarter rows
+           name   label  total_tests  n_tiles
+         Kandal 2023-Q4          3.0      1.0
+      Prey Veng 2024-Q2          3.0      1.0
+     Mondulkiri 2024-Q1          3.0      1.0
+Bantey Meanchey 2024-Q2          3.0      1.0
+   Kampong Cham 2025-Q1          3.0      1.0
+       Koh Kong 2024-Q4          3.0      1.0
+   Kampong Cham 2024-Q4          3.0      1.0
+   Kampong Speu 2024-Q4          3.0      1.0
+   Kampong Speu 2025-Q3          3.0      1.0
+ Preah Sihanouk 2025-Q1          3.0      1.0
+         Pursat 2023-Q3          4.0      1.0
+         Pursat 2025-Q3          4.0      1.0
+   Kampong Cham 2023-Q4          4.0      1.0
+       Koh Kong 2023-Q1          4.0      1.0
+     Svay Rieng 2023-Q3          4.0      1.0

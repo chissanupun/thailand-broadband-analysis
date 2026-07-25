@@ -1,0 +1,18 @@
+Reliable province-quarters per label:
+label
+2023-Q1    0
+2023-Q2    0
+2023-Q3    0
+2023-Q4    0
+2024-Q1    0
+2024-Q2    0
+2024-Q3    0
+2024-Q4    0
+2025-Q1    0
+2025-Q2    0
+2025-Q3    0
+2025-Q4    0
+
+Overall reliable: 0 / 43 (0.0%)
+
+Unlike Vietnam (28.6% overall), Cambodia clears n_tiles>=5 in ZERO quarters — see notebook intro for why (city-level geolocation + ~48x less raw volume than Vietnam caps distinct tiles at 47 nationwide).

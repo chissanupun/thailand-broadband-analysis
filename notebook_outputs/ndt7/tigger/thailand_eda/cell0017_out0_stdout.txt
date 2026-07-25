@@ -1,0 +1,21 @@
+Expected rows (if every province had every quarter): 924 | Actual: 907 | Missing: 17
+
+Every province has at least some NDT7 data in at least one quarter.
+
+Low-test quarters (< 100 tests) — 31 of 907 province-quarter rows
+            name   label  total_tests  n_tiles
+        Yasothon 2025-Q1          3.0      1.0
+           Phrae 2024-Q2          4.0      1.0
+        Phangnga 2025-Q3         10.0      1.0
+        Chumphon 2025-Q2         10.0      1.0
+   Amnat Charoen 2025-Q2         11.0      1.0
+        Yasothon 2025-Q4         11.0      1.0
+    Mae Hong Son 2025-Q3         20.0      1.0
+    Mae Hong Son 2024-Q2         25.0      1.0
+     Phatthalung 2025-Q4         25.0      1.0
+       Bueng Kan 2025-Q4         26.0      1.0
+       Bueng Kan 2025-Q1         29.0      1.0
+Nong Bua Lam Phu 2024-Q4         30.0      1.0
+        Phangnga 2024-Q2         31.0      1.0
+       Nong Khai 2024-Q3         37.0      1.0
+      Phetchabun 2024-Q3         38.0      1.0

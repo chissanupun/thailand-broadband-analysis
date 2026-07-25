@@ -1,0 +1,38 @@
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                mean_dl   R-squared:                       0.759
+Model:                            OLS   Adj. R-squared:                  0.714
+Method:                 Least Squares   F-statistic:                     17.15
+Date:                Sat, 25 Jul 2026   Prob (F-statistic):           1.13e-14
+Time:                        22:53:59   Log-Likelihood:                -274.92
+No. Observations:                  72   AIC:                             573.8
+Df Residuals:                      60   BIC:                             601.2
+Df Model:                          11                                         
+Covariance Type:            nonrobust                                         
+=============================================================================================
+                                coef    std err          t      P>|t|      [0.025      0.975]
+---------------------------------------------------------------------------------------------
+Intercept                   -25.6974     93.671     -0.274      0.785    -213.068     161.673
+C(internet_tier)[T.2]         2.2740      7.534      0.302      0.764     -12.796      17.344
+C(internet_tier)[T.3]        -4.8887      9.362     -0.522      0.603     -23.615      13.837
+C(internet_tier)[T.4]         0.3783     11.832      0.032      0.975     -23.289      24.046
+C(region)[T.Central]         -6.4292      9.222     -0.697      0.488     -24.875      12.017
+C(region)[T.Eastern]        -17.1506      9.703     -1.768      0.082     -36.559       2.258
+C(region)[T.Northeastern]   -39.4618     10.034     -3.933      0.000     -59.532     -19.392
+C(region)[T.Northern]       -32.8852     10.762     -3.056      0.003     -54.412     -11.358
+C(region)[T.Southern]       -25.0974      9.009     -2.786      0.007     -43.119      -7.076
+C(region)[T.Western]        -10.1540     10.759     -0.944      0.349     -31.676      11.368
+log_gdp                       8.7102      6.372      1.367      0.177      -4.036      21.456
+log_density                   3.7396      3.542      1.056      0.295      -3.345      10.824
+==============================================================================
+Omnibus:                        2.537   Durbin-Watson:                   1.730
+Prob(Omnibus):                  0.281   Jarque-Bera (JB):                1.997
+Skew:                           0.133   Prob(JB):                        0.369
+Kurtosis:                       3.771   Cond. No.                         933.
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+
+Multivariate R² = 0.759  (bivariate GDP-only r² = 0.386)
+Adjusted R² = 0.714

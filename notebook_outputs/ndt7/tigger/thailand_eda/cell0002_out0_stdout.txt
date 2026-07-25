@@ -1,0 +1,81 @@
+Provinces loaded: 77
+Regions: ['Bangkok & Vicinity', 'Central', 'Eastern', 'Northeastern', 'Northern', 'Southern', 'Western']
+
+             province_en             region  pop_2024  density_per_km2  gdp_per_capita_thb_2021  internet_tier
+      Bangkok Metropolis Bangkok & Vicinity   5456000             3488               1957179.52              1
+           Amnat Charoen       Northeastern    372000              113                253897.82              4
+               Ang Thong            Central    269000              283                468881.20              3
+               Bueng Kan       Northeastern    419000              105                264149.56              4
+                Buri Ram       Northeastern   1566000              155                265879.60              4
+            Chachoengsao            Eastern    733000              142               1319396.70              2
+                Chai Nat            Central    314000              131                447066.18              3
+              Chaiyaphum       Northeastern   1106000               88                240999.93              4
+             Chanthaburi            Eastern    536000               83                801807.38              2
+              Chiang Mai           Northern   1799000               79                439285.93              2
+              Chiang Rai           Northern   1298000              112                297247.75              3
+               Chon Buri            Eastern   1636000              363               1726754.27              1
+                Chumphon           Southern    508000               84                856298.79              2
+                 Kalasin       Northeastern    962000              139                255047.88              4
+          Kamphaeng Phet           Northern    701000               82                467892.60              3
+            Kanchanaburi            Western    896000               46                419708.43              3
+               Khon Kaen       Northeastern   1772000              166                410231.09              3
+                   Krabi           Southern    484000               91                555432.78              2
+                 Lampang           Northern    704000               56                345197.95              3
+                 Lamphun           Northern    397000               89                746271.35              2
+                    Loei       Northeastern    632000               60                346684.14              4
+                Lop Buri            Central    725000              111                468881.20              3
+            Mae Hong Son           Northern    288000               23                216347.64              4
+           Maha Sarakham       Northeastern    930000              165                280853.53              4
+                Mukdahan       Northeastern    351000               85                221455.39              4
+            Nakhon Nayok            Eastern    260000              121                381156.48              3
+           Nakhon Pathom Bangkok & Vicinity    926000              432                981679.12              2
+           Nakhon Phanom       Northeastern    711000              125                287094.87              4
+       Nakhon Ratchasima       Northeastern   2620000              126                415602.46              3
+            Nakhon Sawan           Northern   1014000              106                394963.87              3
+     Nakhon Si Thammarat           Southern   1535000              154                403656.93              3
+                     Nan           Northern    471000               39                267688.73              4
+              Narathiwat           Southern    824000              183                203607.94              4
+        Nong Bua Lam Phu       Northeastern    504000              123                209476.90              4
+               Nong Khai       Northeastern    512000              156                321679.25              4
+              Nonthaburi Bangkok & Vicinity   1318000             2069                638109.06              1
+            Pathum Thani Bangkok & Vicinity   1236000              813                759245.02              1
+                 Pattani           Southern    741000              375                257466.65              4
+                Phangnga           Southern    266000               49                640221.36              2
+             Phatthalung           Southern    519000              135                268664.14              3
+                  Phayao           Northern    455000               74                318163.15              3
+              Phetchabun           Northern    961000               75                291586.39              3
+             Phetchaburi            Western    484100               76                475745.35              3
+                 Phichit           Northern    517000              120                309595.31              3
+             Phitsanulok           Northern    839000               78                372414.00              3
+Phra Nakhon Si Ayutthaya            Central    823000              323               1544117.75              1
+                   Phrae           Northern    422000               65                272704.21              3
+                  Phuket           Southern    430000              786                544858.10              1
+            Prachin Buri            Eastern    501000              100               1616351.17              1
+     Prachuap Khiri Khan            Western    552000               87                633775.72              2
+                  Ranong           Southern    193000               59                346852.20              3
+              Ratchaburi            Western    864000              167                729527.83              2
+                  Rayong            Eastern    782000              213               3147422.75              1
+                  Roi Et       Northeastern   1276000              162                259302.14              4
+                 Sa Kaeo            Eastern    562000               80                243010.08              4
+            Sakon Nakhon       Northeastern   1138000              118                237648.59              4
+            Samut Prakan Bangkok & Vicinity   1381000             1458                933102.81              1
+            Samut Sakhon Bangkok & Vicinity    591000              682               1289926.65              1
+         Samut Songkhram            Western    187000              452                527544.48              2
+                Saraburi            Central    639000              182               1066220.56              1
+                   Satun           Southern    325000              108                373956.21              3
+               Sing Buri            Central    200000              245                469345.84              3
+               Si Sa Ket       Northeastern   1442000              161                274605.61              4
+                Songkhla           Southern   1431000              185                478226.73              2
+               Sukhothai           Northern    573000               86                264185.80              3
+             Suphan Buri            Western    822000              152                355209.13              3
+             Surat Thani           Southern   1077000               81                510230.87              2
+                   Surin       Northeastern   1360000              153                269145.26              4
+                     Tak           Northern    699000               40                378803.63              3
+                   Trang           Southern    635000              134                361351.61              3
+                    Trat            Eastern    227000               77                527333.58              2
+        Ubon Ratchathani       Northeastern   1868000              119                257941.17              4
+              Udon Thani       Northeastern   1552000              140                299274.37              4
+             Uthai Thani           Northern    320000               48                334936.33              3
+               Uttaradit           Northern    436000               55                341286.41              3
+                    Yala           Southern    553000              124                347501.38              4
+                Yasothon       Northeastern    525000              127                231749.97              4

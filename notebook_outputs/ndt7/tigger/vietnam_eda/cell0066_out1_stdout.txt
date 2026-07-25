@@ -1,0 +1,2 @@
+Pearson r (GDP vs download):     nan  p=nan
+Pearson r (log density vs download): nan  p=nan

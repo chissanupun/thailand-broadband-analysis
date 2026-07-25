@@ -1,0 +1,73 @@
+                    name             region  internet_tier  mean_dl  mean_ul  mean_lat  ul_dl_ratio  mean_tests  gdp_per_capita_thb_2021
+            Samut Sakhon Bangkok & Vicinity              1   131.62    88.31     80.80         0.67     9650.60               1289926.65
+            Pathum Thani Bangkok & Vicinity              1   129.59    92.28     67.59         0.72    26018.10                759245.02
+               Ang Thong            Central              3   124.99    46.18     94.25         0.50     2446.33                468881.20
+            Chachoengsao            Eastern              2   124.24    86.57     68.89         0.70    12658.09               1319396.70
+                Lop Buri            Central              3   122.97    75.81     75.27         0.62     8341.29                468881.20
+           Nakhon Pathom Bangkok & Vicinity              2   121.89    83.21     85.86         0.68    38772.33                981679.12
+Phra Nakhon Si Ayutthaya            Central              1   121.52    87.01     73.84         0.73    35971.67               1544117.75
+            Samut Prakan Bangkok & Vicinity              1   117.99    85.20     72.70         0.73    74311.82                933102.81
+      Bangkok Metropolis Bangkok & Vicinity              1   115.03    83.89     73.35         0.73   647627.25               1957179.52
+                  Rayong            Eastern              1   113.68    78.75     72.41         0.69    13325.58               3147422.75
+     Prachuap Khiri Khan            Western              2   113.61    82.90     67.47         0.72     7977.56                633775.72
+              Nonthaburi Bangkok & Vicinity              1   113.44    83.13     67.35         0.74    74728.33                638109.06
+               Chon Buri            Eastern              1   110.97    79.66     77.72         0.72   117416.92               1726754.27
+                  Phuket           Southern              1   102.10    75.82     80.93         0.74    49303.40                544858.10
+                Songkhla           Southern              2    98.62    72.07     84.95         0.73    32801.92                478226.73
+              Ratchaburi            Western              2    97.24    75.19     77.02         0.77     2517.22                729527.83
+             Surat Thani           Southern              2    95.99    72.18     74.75         0.75    16814.08                510230.87
+                Saraburi            Central              1    92.44    69.36     82.48         0.76     5675.55               1066220.56
+             Chanthaburi            Eastern              2    91.66    71.68     83.01         0.78     2844.75                801807.38
+             Phetchaburi            Western              3    89.84    67.53     78.72         0.76     2031.60                475745.35
+            Kanchanaburi            Western              3    88.03    59.94     79.76         0.68     2600.00                419708.43
+                   Krabi           Southern              2    83.63    72.27     73.55         0.88     3070.00                555432.78
+            Prachin Buri            Eastern              1    83.56    67.45     86.36         0.81     1927.10               1616351.17
+                     Nan           Northern              4    83.13    58.41    108.93         0.74     5524.20                267688.73
+               Sing Buri            Central              3    81.75    59.60     87.79         0.73     1259.33                469345.84
+               Bueng Kan       Northeastern              4    80.44    65.70    137.52         0.80     1470.50                264149.56
+                    Yala           Southern              4    79.92    68.68     64.02         0.86     1118.50                347501.38
+                   Trang           Southern              3    79.59    62.51     79.46         0.79     5787.50                361351.61
+             Suphan Buri            Western              3    79.17    63.69     85.58         0.81     6884.50                355209.13
+                 Pattani           Southern              4    78.25    63.66     76.29         0.82     2783.12                257466.65
+        Nong Bua Lam Phu       Northeastern              4    76.96    67.25    155.81         0.88     1892.00                209476.90
+                   Satun           Southern              3    76.42    62.21     85.16         0.82      761.60                373956.21
+                 Sa Kaeo            Eastern              4    76.19    59.36     97.73         0.78      920.25                243010.08
+              Phetchabun           Northern              3    74.85    60.55    118.22         0.81     3685.40                291586.39
+             Phatthalung           Southern              3    73.17    69.60     80.57         0.96      868.33                268664.14
+                    Loei       Northeastern              4    72.21    59.94    122.89         0.83     2541.00                346684.14
+                Chumphon           Southern              2    72.09    65.39     84.95         0.91     2457.00                856298.79
+     Nakhon Si Thammarat           Southern              3    71.81    70.46     72.37         0.98     3345.00                403656.93
+              Narathiwat           Southern              4    71.09    58.54     80.47         0.84     2093.00                203607.94
+             Phitsanulok           Northern              3    70.57    55.32    134.10         0.78    12394.17                372414.00
+            Nakhon Nayok            Eastern              3    69.76    45.21     61.23         0.63     1546.50                381156.48
+       Nakhon Ratchasima       Northeastern              3    67.98    57.91    165.56         0.86    52584.67                415602.46
+          Kamphaeng Phet           Northern              3    67.96    55.71    134.25         0.82     3881.67                467892.60
+                 Lamphun           Northern              2    67.91    47.09    119.01         0.70     2234.67                746271.35
+                 Phichit           Northern              3    67.68    54.48    149.13         0.80     2415.80                309595.31
+               Si Sa Ket       Northeastern              4    65.89    55.82    163.38         0.84     7041.55                274605.61
+              Chiang Mai           Northern              2    65.89    56.52    153.43         0.85    86545.42                439285.93
+              Udon Thani       Northeastern              4    63.74    50.52    138.17         0.79    17602.80                299274.37
+            Nakhon Sawan           Northern              3    63.60    55.20    163.15         0.87     8318.80                394963.87
+                     Tak           Northern              3    63.53    50.00    153.04         0.78     2768.20                378803.63
+                   Phrae           Northern              3    62.94    46.28    145.09         0.74     1313.40                272704.21
+                   Surin       Northeastern              4    62.52    44.06    132.70         0.71     4619.60                269145.26
+                Chai Nat            Central              3    62.30    52.10    119.05         0.83      909.50                447066.18
+               Khon Kaen       Northeastern              3    61.99    50.53    172.35         0.82    48234.36                410231.09
+                 Kalasin       Northeastern              4    60.94    44.99    130.11         0.74     2207.20                255047.88
+                 Lampang           Northern              3    60.89    47.24    148.00         0.78     4500.86                345197.95
+               Sukhothai           Northern              3    60.00    46.85    138.22         0.78     1135.56                264185.80
+            Sakon Nakhon       Northeastern              4    59.76    47.40    145.58         0.79     3227.50                237648.59
+                  Phayao           Northern              3    59.31    45.87    157.59         0.77     1763.40                318163.15
+                  Roi Et       Northeastern              4    58.95    45.02    150.58         0.76     1422.29                259302.14
+               Uttaradit           Northern              3    58.79    45.69    163.89         0.78     1517.00                341286.41
+                Mukdahan       Northeastern              4    58.38    39.74    111.32         0.68      801.00                221455.39
+           Nakhon Phanom       Northeastern              4    58.13    44.80    147.84         0.78     2368.14                287094.87
+           Maha Sarakham       Northeastern              4    57.11    49.74    145.00         0.90     2784.50                280853.53
+                Yasothon       Northeastern              4    57.08    41.56    157.38         0.72     1727.00                231749.97
+                Phangnga           Southern              2    56.68    47.33     88.59         0.84     1128.40                640221.36
+              Chaiyaphum       Northeastern              4    56.47    38.89    166.51         0.70     1357.71                240999.93
+               Nong Khai       Northeastern              4    55.56    42.65    147.45         0.77      936.60                321679.25
+           Amnat Charoen       Northeastern              4    55.51    34.21    146.03         0.63      610.67                253897.82
+        Ubon Ratchathani       Northeastern              4    55.42    44.26    149.12         0.82     5727.17                257941.17
+                Buri Ram       Northeastern              4    53.01    41.75    146.71         0.80     3105.33                265879.60
+              Chiang Rai           Northern              3    51.25    44.01    171.68         0.86     7623.08                297247.75

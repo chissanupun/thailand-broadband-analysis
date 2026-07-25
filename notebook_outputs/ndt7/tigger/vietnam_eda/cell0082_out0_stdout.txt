@@ -1,0 +1,5 @@
+Exported 4 rows (reliable-only) -> ../../../data/exports/ndt7_mobile_vietnam_reliable_province_quarterly.csv
+        province  quarter  year  quarter  avg_d_mbps  avg_u_mbps  avg_lat_ms_wt  total_tests  n_tiles  is_reliable     region  internet_tier  pop_2024  gdp_per_capita_thb_2021  density_per_km2
+12   Ho Chi Minh  2023-Q1  2023        1   23.900437   13.218081     152.599480       4279.0      5.0         True  Southeast              1   9125000                638474.09             4363
+49   Ho Chi Minh  2023-Q2  2023        2   25.318512   13.080329     128.779561       6684.0      5.0         True  Southeast              1   9125000                638474.09             4363
+320  Ho Chi Minh  2025-Q2  2025        2   51.671501   22.868547     109.753264      18978.0      7.0         True  Southeast              1   9125000                638474.09             4363

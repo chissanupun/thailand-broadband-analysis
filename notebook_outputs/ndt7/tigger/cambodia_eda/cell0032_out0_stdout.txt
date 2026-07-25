@@ -1,0 +1,1 @@
+No reliable data for Broadband — skipping multivariate model (need >=5 observations to fit).

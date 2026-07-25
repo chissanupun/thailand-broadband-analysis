@@ -1,0 +1,4 @@
+Provinces with UL/DL ratio > 0.5 (0):
+Empty DataFrame
+Columns: [name, region, ul_dl_ratio]
+Index: []

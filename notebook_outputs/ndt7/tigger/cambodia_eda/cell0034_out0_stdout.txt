@@ -1,0 +1,1 @@
+No reliable data for Broadband — skipping UL/DL ratio plot.

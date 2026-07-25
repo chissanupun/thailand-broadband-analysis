@@ -1,0 +1,2 @@
+Pearson r (GDP vs download):     0.405  p=0.0078
+Pearson r (log density vs download): 0.360  p=0.0193
