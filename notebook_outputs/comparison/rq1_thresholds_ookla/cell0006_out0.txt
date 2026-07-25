@@ -1,0 +1,5 @@
+HD (5 Mbps)                        1.000
+UHD (25 Mbps)                      0.957
+Cloud gaming (44 Mbps + <=25ms)    0.818
+Voice latency (<=200ms)            0.999
+dtype: float64

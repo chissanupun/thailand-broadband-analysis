@@ -1,0 +1,21 @@
+country      is_reliable
+Cambodia     True           275
+Laos         True           198
+Malaysia     True           176
+Myanmar      True           139
+Philippines  True           187
+Singapore    True            55
+Thailand     True           847
+Vietnam      True           704
+Name: count, dtype: int64
+
+country
+Cambodia       275
+Laos           198
+Malaysia       176
+Myanmar        139
+Philippines    187
+Singapore       55
+Thailand       847
+Vietnam        704
+Name: province_quarter_rows, dtype: int64

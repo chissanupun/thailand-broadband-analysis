@@ -1,0 +1,13 @@
+segment                 is_reliable
+Thailand — NDT7 fixed   True           517
+Thailand — NDT7 mobile  True            81
+Vietnam — NDT7 fixed    True           210
+Vietnam — NDT7 mobile   True             4
+Name: count, dtype: int64
+
+segment
+Thailand — NDT7 fixed      5404.0
+Thailand — NDT7 mobile     8758.0
+Vietnam — NDT7 fixed       1770.5
+Vietnam — NDT7 mobile     12831.0
+Name: median_total_tests_per_row, dtype: float64

@@ -1,0 +1,6 @@
+Thailand — NDT7 fixed: 517 rows
+Thailand — NDT7 mobile: 81 rows
+Vietnam — NDT7 fixed: 210 rows
+Vietnam — NDT7 mobile: 4 rows
+Cambodia — NDT7 fixed: 0 rows (excluded from analysis)
+Cambodia — NDT7 mobile: 0 rows (excluded from analysis)

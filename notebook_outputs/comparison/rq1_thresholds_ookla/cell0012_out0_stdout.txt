@@ -1,0 +1,1 @@
+18 / 847 province-quarters exceed 25ms latency (speed is a non-issue in all of them)
