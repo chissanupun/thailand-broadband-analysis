@@ -14,9 +14,9 @@ On one side, national-level statistics suggest Thai internet is "good": the Spee
 
 On the other side, real-user perception data and news coverage suggest Thai internet is "bad": Thailand's Electronic Transactions Development Agency (ETDA) found that 64.65% of Thai internet users cited "slow internet speed" as their top annoyance (ETDA, 2024). Following the True–dtac telecom merger, the Foundation for Consumers found that 81% of users experienced network problems (dropped connections/outages) in the preceding 6 months, and complaints to the NBTC (National Broadcasting and Telecommunications Commission) surged from under 1,000 to nearly 3,000 in the first 7 months of 2025 — including a nationwide True network outage in May 2025 that caused significant economic damage to businesses (Nation Thailand, 2025b). Notably, Thailand's mobile internet ranks only 39th in the world (Nation Thailand, 2025a) — a stark contrast to its fixed-broadband ranking, suggesting the answer to "is Thai internet good or bad" may depend heavily on which network type and which area is being discussed, rather than having one single national answer.
 
-This contradiction between national-aggregate statistics and real user experience is the gap this research aims to close. Rather than relying on subjective opinion from news or social media, this study uses real network-quality measurement data at the tile/test level from two independent sources — Ookla Open Data (covering both fixed and mobile broadband) and M-Lab NDT7 — to cross-validate results between the two platforms, an approach that has not previously been applied in a Thai context, following the comparative framework of MacMillan et al. (2023), who compared Ookla and NDT7 in a US context.
+This contradiction between national-aggregate statistics and real user experience is the gap this research aims to close. Rather than relying on subjective opinion from news or social media, this study uses real network-quality measurement data at the tile/test level from two independent sources — Ookla Open Data (covering both fixed and mobile broadband) and M-Lab NDT7 — comparing results between the two platforms descriptively (trend direction, threshold pass rates), following the comparative framework of MacMillan et al. (2023), who compared Ookla and NDT7 in a US context.
 
-**Scope note (revised from the original single-country framing):** the original version of this study asked only whether *Thailand's* internet is good or bad. The current version extends the same question regionally: is Thailand's broadband quality good or bad *relative to its Southeast Asian neighbors* — Vietnam, the Philippines, Singapore, Cambodia, Myanmar, Laos, and Malaysia — using the same Ookla methodology across all eight countries, plus an Ookla-vs-NDT7 cross-validation wherever NDT7 data exists per country (currently Thailand and Vietnam only; Philippines pending delivery from a collaborator; Singapore's NDT7 scope is still unconfirmed; Cambodia/Myanmar/Laos/Malaysia are Ookla-only as of this draft, with no NDT7 cross-validation planned yet).
+**Scope note (revised from the original single-country framing):** the original version of this study asked only whether *Thailand's* internet is good or bad. The current version extends the same question regionally: is Thailand's broadband quality good or bad *relative to its Southeast Asian neighbors* — Vietnam, the Philippines, Singapore, Cambodia, Myanmar, Laos, and Malaysia — using the same Ookla methodology across all eight countries. NDT7 data is used where it exists (currently Thailand and Vietnam only; Philippines pending delivery from a collaborator; Singapore's NDT7 scope is still unconfirmed; Cambodia/Myanmar/Laos/Malaysia are Ookla-only as of this draft) as a descriptive side-by-side comparison, not a formal cross-validation study.
 
 This research therefore aims to answer: what is the real quality of Thai internet, as measured empirically — both in absolute terms, at province level nationwide (77 provinces) and district level in 8 sample provinces, and in relative terms, against seven other Southeast Asian countries (Vietnam, the Philippines, Singapore, Cambodia, Myanmar, Laos, and Malaysia) — covering both fixed and mobile broadband? The study uses Ookla Open Data covering Q1 2023 through Q4 2025 (11–12 quarters depending on country) and M-Lab NDT7 data for the overlapping period where available (currently Thailand: Q4 2023–Q1 2025; Vietnam: Q1 2023–Q4 2025).
 
@@ -25,14 +25,13 @@ This research therefore aims to answer: what is the real quality of Thai interne
 This research has four main objectives:
 
 1. Measure and compare internet quality (download speed, upload speed, and latency) for both fixed and mobile broadband, at the province and district level across Thailand, in both spatial and temporal dimensions.
-2. Compare Thailand's broadband quality against seven other Southeast Asian countries (Vietnam, the Philippines, Singapore, Cambodia, Myanmar, Laos, and Malaysia) on the same Ookla metrics, and test whether cross-country differences are explained by socioeconomic context (GDP per capita, population density) or persist as a country-specific effect after controlling for that context.
-3. Cross-validate results between Ookla and NDT7 data, wherever both sources overlap, to confirm the reliability of conclusions and explain any gap between the two using contextual factors such as latency, test density, and measurement methodology (active vs. passive).
-4. Answer the question "is [Southeast Asian] internet good or bad" by comparing real measured results against international rankings (Speedtest Global Index), explaining the apparent contradiction between national-level statistics and user perception, and identifying provinces/regions with anomalous behavior to inform policy recommendations.
+2. Compare Thailand's broadband quality against seven other Southeast Asian countries (Vietnam, the Philippines, Singapore, Cambodia, Myanmar, Laos, and Malaysia) on the same Ookla metrics.
+3. Compare Ookla and NDT7 results descriptively wherever both sources overlap, noting any gap between the two and contextual factors (latency, test density, measurement methodology — active vs. passive) that may explain it.
+4. Answer the question "is [Southeast Asian] internet good or bad" by comparing real measured results against international rankings (Speedtest Global Index) and explaining the apparent contradiction between national-level statistics and user perception.
 
 **Contributions.**
 
 - **A public-perception/national-statistic gap, quantified.** We document a concrete contradiction between Thailand's #13-globally fixed-broadband ranking and real-user annoyance/outage data (Section 1), and treat closing that gap empirically — rather than resolving it rhetorically — as the paper's central problem.
-- **Cross-platform validation at province granularity.** We cross-validate Ookla Open Data against M-Lab NDT7 at the province × quarter level for Thailand and Vietnam, an approach not previously applied in a Thai context (Section 3.3), following MacMillan et al. (2023)'s US-based comparative framework.
 - **An eight-country Southeast Asian comparison on one consistent pipeline.** The same tile-to-province methodology (Section 3.1) is applied unmodified across Thailand, Vietnam, the Philippines, Singapore, Cambodia, Myanmar, Laos, and Malaysia, so cross-country differences reflect measured variation rather than differing methodology per country.
 - **A reliability threshold applied consistently, not just computed.** `is_reliable` (`total_tests>=100 & n_tiles>=5`) is enforced identically across both data sources and all eight countries before any downstream statistic is computed (Section 3.1, Step 5), rather than left as an unused diagnostic column.
 
@@ -40,9 +39,9 @@ This research has four main objectives:
 
 This study hypothesizes that Thai internet is not uniformly "good" or "bad" nationwide, but varies significantly in quality by area and network type: fixed broadband in urban areas and economically stronger provinces will show world-class quality consistent with Ookla's reported ranking, while mobile internet and rural or economically weaker provinces will show significantly lower quality. This spatial and network-type variation is expected to explain why public perception conflicts with national-aggregate statistics.
 
-Regionally, we hypothesize that Thailand sits toward the upper end of the Southeast Asian pack on fixed broadband — behind Singapore, but ahead of the other six countries in this study (Vietnam, the Philippines, Cambodia, Myanmar, Laos, and Malaysia; Malaysia's ranking relative to Thailand is treated as an open question rather than assumed) — and that this ranking is **not** fully explained by GDP or population density alone; a country-specific residual effect (infrastructure investment, ISP market structure, regulatory environment) is expected to remain significant even after controlling for socioeconomic context.
+Regionally, we hypothesize that Thailand sits toward the upper end of the Southeast Asian pack on fixed broadband — behind Singapore, but ahead of the other six countries in this study (Vietnam, the Philippines, Cambodia, Myanmar, Laos, and Malaysia; Malaysia's ranking relative to Thailand is treated as an open question rather than assumed).
 
-We also expect Ookla and NDT7 results to be **directionally consistent** (positive correlation in relative province rankings) even though the **absolute magnitudes measured may differ substantially**, given the two platforms' different measurement methodologies (active/user-initiated vs. passive/background) and different user populations.
+We also expect Ookla and NDT7 results to be **directionally consistent** (both trending the same way over time) even though the **absolute magnitudes measured may differ substantially**, given the two platforms' different measurement methodologies (active/user-initiated vs. passive/background) and different user populations.
 
 ### 1.3 Research Scope
 
@@ -59,7 +58,7 @@ The research covers both fixed (wired) and mobile (cellular) broadband from Ookl
 | Malaysia | 16 (13 states + 3 federal territories) |
 | Myanmar | 14 (Naypyidaw union territory not separately delineated in the source boundary data; folded into Mandalay Region — see 2.3) |
 
-The Ookla study period is Q1 2023 through Q4 2025 for all eight countries (some countries have a few missing quarters depending on data availability). M-Lab NDT7 data is used for cross-validation currently for Thailand (Q4 2023–Q1 2025 overlap) and Vietnam (Q1 2023–Q4 2025 overlap); Philippines NDT7 is being collected by a research collaborator and not yet available; Singapore, Cambodia, Myanmar, Laos, and Malaysia NDT7 are not yet in scope.
+The Ookla study period is Q1 2023 through Q4 2025 for all eight countries (some countries have a few missing quarters depending on data availability). M-Lab NDT7 data is used for descriptive comparison currently for Thailand (Q4 2023–Q1 2025 overlap) and Vietnam (Q1 2023–Q4 2025 overlap); Philippines NDT7 is being collected by a research collaborator and not yet available; Singapore, Cambodia, Myanmar, Laos, and Malaysia NDT7 are not yet in scope.
 
 ---
 
@@ -212,7 +211,32 @@ All analysis is performed in Python 3.12, in an isolated virtual environment (`d
 
 ---
 
-## 4. Limitations and Future Directions
+## 4. Preliminary Results
+
+*Full Results/Discussion write-up is still pending completion of Section 3.2's cross-country statistical tests (Kruskal-Wallis/Mann-Whitney/OLS with country fixed effects) and Section 3.3's Ookla-vs-NDT7 agreement tests, neither of which has a notebook yet as of this draft. The finding below is posted early because the analysis (`notebooks/comparison/rq2_trends.ipynb`) is already complete.*
+
+### 5.1 Thailand's download growth is regionally slow in relative terms, but not in absolute terms
+
+Extending RQ2's quarterly trend method across all eight countries (Ookla fixed, median download per quarter) shows Thailand's Q1-2023-to-Q4-2025 growth (+42.0%, 207.1 → 294.0 Mbps) is the **second-slowest of the eight countries** — only the Philippines grows slower (+23.6%):
+
+| Country | 2023-Q1 (Mbps) | 2025-Q4 (Mbps) | % growth |
+|---|---|---|---|
+| Myanmar | 20.3 | 53.6 | +163.8% |
+| Cambodia | 25.3 | 61.7 | +144.1% |
+| Vietnam | 92.4 | 209.2 | +126.4% |
+| Singapore | 282.0 | 553.8 | +96.4% |
+| Laos | 32.0 | 62.2 | +94.4% |
+| Malaysia | 124.6 | 223.6 | +79.5% |
+| **Thailand** | **207.1** | **294.0** | **+42.0%** |
+| Philippines | 96.4 | 119.1 | +23.6% |
+
+Read alongside RQ1's snapshot finding (Thailand clears every app-requirement threshold in all 77 provinces every quarter, with no headroom to gain from), this is best read as a **high-base/catch-up effect rather than stagnation**: the four fastest-growing countries (Myanmar, Cambodia, Vietnam, Laos) all start from a much lower 2023 base (20–92 Mbps), consistent with catch-up growth, and Thailand's absolute download level stays **second-highest of the eight countries throughout the entire period**, behind only Singapore.
+
+One comparison does not fit that base-effect story cleanly and is flagged for the Discussion section rather than resolved here: Singapore, the only country starting *above* Thailand (282 Mbps), still posts +96.4% growth — more than double Thailand's rate — showing a high base does not mechanically cap growth. Malaysia (+79.5% from a lower 2023 base of 124.6 Mbps than Thailand's) growing nearly twice as fast as Thailand from a lower starting point is the sharpest open question, plausibly pointing to a difference in infrastructure-investment cycle timing rather than pure diminishing-returns economics — worth investigating once the cross-country regression (Section 3.2) is run.
+
+---
+
+## 5. Limitations and Future Directions
 
 This study's cross-country, cross-platform design surfaces several limitations worth stating plainly rather than glossing over, since they bound how far the eventual results can be generalized.
 
