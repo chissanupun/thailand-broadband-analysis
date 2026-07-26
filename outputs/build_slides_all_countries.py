@@ -406,6 +406,19 @@ SLIDES.append({
     ],
 })
 SLIDES.append({
+    'type': 'image',
+    'base': COMPARISON_OUTDIR,
+    'title': 'RQ2 — SEA Context: Thailand\'s Download Growth vs 7 Neighbors (Ookla Fixed)',
+    'image': 'rq2_trends/cell0020_out0.png',
+    'metric': 'Median download (Mbps) per quarter, 8 countries, Thailand highlighted.',
+    'findings': [
+        'Thailand +42.0% (207 → 294 Mbps) is the <b>2nd-slowest</b> of 8 countries -- only the Philippines (+23.6%) grows slower',
+        'Myanmar/Cambodia/Vietnam/Laos post +94-164% growth, but off a much lower 2023 base (20-92 Mbps) -- classic catch-up growth',
+        'Thailand\'s <b>absolute level stays 2nd-highest of 8 throughout</b>, behind only Singapore -- slower %growth reflects a high starting point, not stagnation',
+        'Open question for Discussion: Singapore (+96.4%) and Malaysia (+79.5% from a lower base than Thailand) both outgrow Thailand despite starting higher or comparable -- base effect alone doesn\'t fully explain it',
+    ],
+})
+SLIDES.append({
     'type': 'text',
     'title': 'RQ2 — Key Findings',
     'bullets': [
