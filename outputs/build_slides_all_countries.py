@@ -5,6 +5,7 @@ import base64, pathlib
 
 OUTDIR = pathlib.Path(__file__).parent / 'ookla'
 NDT7_OUTDIR = pathlib.Path(__file__).parent / 'ndt7'
+COMPARISON_OUTDIR = pathlib.Path(__file__).parent.parent / 'notebook_outputs' / 'comparison'
 OUT_HTML = pathlib.Path(__file__).parent / 'slides_all_countries.html'
 
 
@@ -273,6 +274,146 @@ SLIDES.append({
         '<b>Fixed vs mobile ranking flips</b> for several countries -- infrastructure investment strategy differs by country',
         '<b>The fastest province is not always the capital</b> -- secondary economic hubs often lead',
         '<b>Data quality caveat:</b> Cambodia/Laos/Myanmar have no official sub-national GDP; national GDP repeated as approximation',
+    ],
+})
+
+# ── RQ1 / RQ2 deep dive — Thailand-focused, from notebooks/comparison/ ──────
+SLIDES.append({
+    'type': 'text',
+    'title': 'RQ1 — Is Thai Internet Good or Bad?',
+    'bullets': [
+        'Ookla Global Index ranks Thailand fixed broadband <b>#13 worldwide</b> (looks good) -- but ETDA / consumer-complaint surveys report frequent slow/dropped connections (looks bad)',
+        'Instead of arguing from opinion: cross-validate <b>Ookla</b> (8-country SEA context) and <b>NDT7/M-Lab</b> (independent second data source) against real app-requirement thresholds',
+        'Thresholds from Lübben &amp; Misfeld (2022), Table 5 -- Voice 64 kbps/200ms · HD 5 Mbps · UHD 25 Mbps · Cloud gaming 44 Mbps + ≤25ms',
+        'Both platforms measure <b>province-quarter averages</b> -- a structural limitation kept in mind throughout (see Key Findings)',
+    ],
+})
+SLIDES.append({
+    'type': 'image',
+    'base': COMPARISON_OUTDIR,
+    'title': 'RQ1 — Threshold Pass Rate, 8-Country SEA Context (Ookla Fixed)',
+    'image': 'rq1_thresholds_ookla/cell0010_out0.png',
+    'metric': 'Test-weighted % of province-quarters clearing each app-requirement threshold, per country, Thailand highlighted.',
+    'findings': [
+        'HD (5 Mbps) is a non-issue everywhere -- all 8 countries at 100%, Thailand min province-quarter average ~157 Mbps (31x the bar)',
+        'UHD (25 Mbps) is where cross-country variance shows up: Myanmar drops to 20.6%; Thailand stays 100% in every province/quarter',
+        'Cloud-gaming latency is the only threshold with real within-Thailand variance',
+    ],
+})
+SLIDES.append({
+    'type': 'image',
+    'base': COMPARISON_OUTDIR,
+    'title': 'RQ1 — Thailand Cloud-Gaming Latency Failures by Province (Ookla Fixed)',
+    'image': 'rq1_thresholds_ookla/cell0013_out0.png',
+    'metric': '# of quarters (of 11) each province exceeds the 25ms cloud-gaming latency bar. Speed is never the bottleneck in any of these rows.',
+    'findings': [
+        '<b>Mae Hong Son</b> exceeds 25ms in 10/11 quarters (up to 219ms in 2024-Q2) -- a chronic outlier, not a blip',
+        '<b>Nan</b> joins it in 6/11 quarters; Phrae and Phangnga each show one one-off quarter',
+        'Reads as remote/upland last-mile geography (far from IX/server infra), not a broad national problem -- these 4 provinces account for ~all of Thailand\'s ~0.5% national gaming-threshold failure',
+    ],
+})
+SLIDES.append({
+    'type': 'image',
+    'base': COMPARISON_OUTDIR,
+    'title': 'RQ1 — Ookla Fixed vs NDT7 Fixed vs NDT7 Mobile, Thailand',
+    'image': 'rq1_thresholds_ndt7/cell0010_out0.png',
+    'metric': 'Same threshold rubric applied to NDT7 (M-Lab), cross-validated against the Ookla Thailand-fixed result.',
+    'findings': [
+        'NDT7 fixed looks almost as uniformly "good" as Ookla fixed -- HD and UHD both 100% across all 517 province-quarters',
+        'NDT7 mobile is where the ETDA-complaint side of RQ1 finally becomes visible in the data',
+        'Every NDT7 measurement (fixed and mobile) fails the 25ms cloud-gaming bar -- reads as an M-Lab server-placement artifact, not a real Thailand latency problem',
+    ],
+})
+SLIDES.append({
+    'type': 'image',
+    'base': COMPARISON_OUTDIR,
+    'title': 'RQ1 — NDT7 Mobile UHD Pass Rate by Province (Where Mobile Actually Degrades)',
+    'image': 'rq1_thresholds_ndt7/cell0015_out0.png',
+    'metric': '% of province-quarters clearing the 25 Mbps UHD threshold, NDT7 mobile, ranked by test volume.',
+    'findings': [
+        '<b>Bangkok metro cluster underperforms</b>: Bangkok Metropolis, Nonthaburi, Samut Prakan, Pathum Thani clear UHD only 55-67% of the time -- each on a solid multi-quarter sample',
+        'Chiang Mai and Chon Buri (comparably large samples) sit at 100% -- inverts the usual "rural underserved" framing; the capital metro is where mobile degrades, plausibly congestion',
+        'First result across both platforms that plausibly supports the "internet feels bad" side of the RQ1 tension',
+    ],
+})
+SLIDES.append({
+    'type': 'text',
+    'title': 'RQ1 — Key Findings',
+    'bullets': [
+        '<b>Fixed broadband is genuinely good</b> on both Ookla and NDT7, by every speed threshold -- Ookla\'s "#13 worldwide" framing holds at province-average granularity',
+        '<b>Mobile is where the two datasets start explaining the ETDA-complaint side</b> -- Bangkok metro mobile UHD pass rate (55-67%) is the strongest lead so far for resolving the Ookla-vs-ETDA tension',
+        '<b>Methodological finding, not just a Thailand result:</b> province-quarter <i>averages</i> cannot see complaint-survey behavior at all -- a metric with zero variance across 847 province-quarters cannot explain "slow/dropped" complaints, which are almost certainly tail behavior or reliability/uptime, not average-quarter speed',
+        '<b>NDT7 latency floor (34-40ms) is an infrastructure artifact</b> -- no in-country M-Lab server, unlike Ookla\'s ISP-hosted servers -- do not read as "Thailand fails gaming latency"',
+        'Next step: per-test/percentile-level analysis (p10/p25 download, not mean) to resolve what province-quarter averages structurally cannot see',
+    ],
+})
+
+SLIDES.append({
+    'type': 'text',
+    'title': 'RQ2 — What\'s the Trend?',
+    'bullets': [
+        'RQ1 is a snapshot; RQ2 asks the time dimension -- is it getting <b>better, worse, or flat</b> over 2023-Q1 to 2025-Q4 (12 quarters)?',
+        'Method follows the <b>Fig. 7 template from Lübben &amp; Misfeld (2022)</b> -- median line with 25th/75th percentile band per quarter, per segment',
+        'Four segments, Thailand only: Ookla fixed, Ookla mobile, NDT7 fixed (reliable), NDT7 mobile (reliable)',
+        '<b>Coverage caveat:</b> Ookla fixed is missing 2025-Q3 (export gap); NDT7 mobile province coverage collapses from ~15/quarter in 2023 to 2-3/quarter from 2024-Q2 on -- read that line as indicative past 2024-Q1, not a population estimate',
+    ],
+})
+SLIDES.append({
+    'type': 'image',
+    'base': COMPARISON_OUTDIR,
+    'title': 'RQ2 — Quarterly Download Trend, Thailand 2023Q1-2025Q4',
+    'image': 'rq2_trends/cell0007_out0.png',
+    'metric': 'Median download (Mbps) per quarter, IQR shaded, 4 segments.',
+    'findings': [
+        'Ookla fixed: steady near-linear growth, 207 → 294 Mbps (+42%) -- the least-noisy series here',
+        'Ookla mobile: flat through 2023 (~55-60), then a real inflection from 2024-Q2, reaching 91-104 Mbps by 2025 -- consistent with a 5G-rollout story',
+        'NDT7 fixed tracks the same upward direction (+56%) despite a ~3x lower absolute level (single-TCP-stream, lower-bound methodology)',
+    ],
+})
+SLIDES.append({
+    'type': 'image',
+    'base': COMPARISON_OUTDIR,
+    'title': 'RQ2 — Quarterly Upload Trend, Thailand 2023Q1-2025Q4',
+    'image': 'rq2_trends/cell0010_out0.png',
+    'metric': 'Median upload (Mbps) per quarter, IQR shaded, 4 segments.',
+    'findings': [
+        'Same shape as download, smaller magnitude -- Ookla fixed +35%, NDT7 fixed +63%, both monotonically up',
+        'Ookla mobile flat at ~17 Mbps through 2023-2024, then rises to 23-25 Mbps in 2025 -- echoes the download inflection, supports the 5G read',
+        'NDT7 mobile upload is noisy with no trend (thin-sample segment)',
+    ],
+})
+SLIDES.append({
+    'type': 'image',
+    'base': COMPARISON_OUTDIR,
+    'title': 'RQ2 — Quarterly Latency Trend, Thailand 2023Q1-2025Q4',
+    'image': 'rq2_trends/cell0013_out0.png',
+    'metric': 'Median latency (ms) per quarter, IQR shaded, 25ms cloud-gaming ceiling marked.',
+    'findings': [
+        'Ookla fixed flat at 8-10ms the entire 3 years -- already far under the ceiling, nothing to improve',
+        'Ookla mobile holds 30-36ms, hovering just above the ceiling, at most a marginal dip late 2025',
+        'NDT7 (fixed and mobile) stays 60-120ms for all 12 quarters, <b>never once approaching 25ms</b> -- confirms RQ1\'s latency floor is a persistent M-Lab server-placement artifact, not a transient or improving last-mile issue',
+    ],
+})
+SLIDES.append({
+    'type': 'text',
+    'title': 'RQ2 — Bangkok Metro Mobile: A 2023 Problem That Resolved',
+    'bullets': [
+        'RQ1\'s pooled 2023-2025 average (55-67% UHD pass rate for Bangkok metro) hid a sharp step change',
+        '<b>2023 (all 4 quarters): 0-7%</b> UHD pass rate for Bangkok metro, on a solid 4-province sample, while the rest of Thailand was already at 65-100%',
+        '<b>2024-Q1 onward: 100%</b> every single quarter through 2025-Q4 -- a clean, sudden recovery, not a gradual close',
+        'RQ1\'s "Bangkok metro underperforms" framing is therefore a <b>resolved 2023 story</b>, not an ongoing problem, as of mid-2025',
+        'Caveat: from 2024-Q3 on, both groups run on 1-3 provinces/quarter -- the 2023→2024-Q1 transition itself (4 vs 8-13 provinces) is the reliable part of this finding',
+    ],
+})
+SLIDES.append({
+    'type': 'text',
+    'title': 'RQ2 — Key Findings',
+    'bullets': [
+        '<b>Getting better, on every metric with a usable sample</b> -- no segment shows a worsening trend anywhere in the 12 quarters',
+        '<b>Download/upload:</b> monotonic growth on both fixed platforms and Ookla mobile (real 2024-2025 speed jump); NDT7 mobile too thin post-2024-Q1 to confirm independently',
+        '<b>Latency:</b> Ookla stays flat and well under the 25ms ceiling throughout; NDT7\'s 60-120ms floor shows no convergence toward 25ms across 3 years -- structural, not transient',
+        '<b>Bangkok metro mobile (RQ1 follow-up):</b> the underperformance RQ1 found was a resolved 2023 problem, not an ongoing one -- the single most important qualifier to add to the RQ1 write-up',
+        'Open question: whether NDT7 mobile\'s sample recovers enough post-2024 to say anything with confidence at province level again',
     ],
 })
 
