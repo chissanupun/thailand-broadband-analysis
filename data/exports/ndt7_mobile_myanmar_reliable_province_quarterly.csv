@@ -1,0 +1,2 @@
+province,quarter,year,quarter,avg_d_mbps,avg_u_mbps,avg_lat_ms_wt,total_tests,n_tiles,is_reliable,region,internet_tier,pop_2024,gdp_per_capita_thb_2021,density_per_km2
+Mandalay,2023-Q2,2023,2,8.486051816397222,4.67930890227193,204.3616066889632,1495.0,6.0,True,Central Dry Zone,1,7325965,165710.4,163

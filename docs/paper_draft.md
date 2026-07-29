@@ -1,223 +1,124 @@
 # Is Southeast Asian Internet Good or Bad? An Empirical Comparison of Broadband Quality Across Eight Southeast Asian Countries
 
-*Draft — Introduction, Data, and Methodology sections only. Results/Discussion/Conclusion not yet written. Working format is Markdown, not the LaTeX manuscript (`docs/paper.tex`, currently left untouched pending a separate template decision).*
+*Working draft for AINTEC '26 submission. Section skeleton (Abstract → Introduction → Methodology → Results → Discussion → Conclusion → Acknowledgments → Bibliography) mirrors the ACM sigconf manuscript at `docs/paper.tex`, which is currently just that skeleton with TODO stubs — content is drafted here in Markdown first and will be ported into the `.tex` file once stable. `docs/Process.md` has sprint-level task tracking; this file is the paper itself.*
 
-*Scope update (2026-07-20): the country set was expanded from four (Thailand, Vietnam, the Philippines, Singapore) to eight, adding Cambodia, Myanmar, Laos, and Malaysia on the Ookla side. This expansion round is Ookla-only — NDT7 cross-validation (Section 2.2/3.3) remains scoped to Thailand and Vietnam for now and has not been extended to the four new countries.*
+*Scope note (2026-07-27): earlier drafts of this paper treated Thailand as the primary subject and the other seven countries as benchmark/context ("is **Thailand's** internet good or bad, relative to its neighbors"). That framing has been dropped in favor of a fully symmetric eight-country comparison — no country is highlighted, and RQ1/RQ2 are stated as regional questions from the outset. The country-set expansion itself (four countries → eight: adding Cambodia, Myanmar, Laos, Malaysia) happened earlier, 2026-07-20, and is unaffected by this note — this is specifically about dropping the Thailand-centric framing on top of that already-expanded country set.*
+
+## Abstract
+
+Southeast Asia's fixed-broadband quality is reported inconsistently across sources: Ookla's Speedtest Global Index ranks several of the region's networks highly in absolute terms, while national regulators and user-complaint data in multiple countries (Thailand's ETDA and NBTC being the best-documented case) describe persistent user-perceived problems. We use Ookla Open Data (Q1 2023–Q4 2025, tile-level, aggregated to province/region, all eight countries) and M-Lab NDT7 (per-test, currently available for Thailand, Vietnam, Cambodia, Laos, and Myanmar — Philippines pending a collaborator data delivery, Section 1.1) to test, empirically and symmetrically across eight Southeast Asian countries — Thailand, Vietnam, the Philippines, Singapore, Cambodia, Laos, Malaysia, and Myanmar — whether app-requirement thresholds (HD/UHD video, cloud gaming, voice) are actually met at the province level (**RQ1**), how each country's capital compares to its own periphery (**RQ1.2**), and how each country's broadband quality has grown 2023–2025 (**RQ2**). We find HD is a non-issue everywhere (100% of province-quarters, all 8 countries), UHD splits the region into a clean five-country tier and a lagging Myanmar/Cambodia/Laos tier, and cloud-gaming thresholds — the most demanding — fail in 6 of 8 countries at the national level but resolve to 100% pass in the *capital* province for all but Myanmar, Laos, and Cambodia, indicating the region's threshold failures are overwhelmingly a peripheral-province phenomenon rather than a national one. Growth 2023–2025 shows a catch-up pattern (lower-2023-base countries growing fastest) with two exceptions — Singapore and Malaysia — that don't fit that story and are flagged for further investigation. A genuine pipeline gap (2025-Q3 present in Ookla's raw S3 data but absent from every country's processed export) is documented as a limitation affecting all trend charts. Two further analyses are in progress on the same NDT7 per-test data and not yet reported here: **RQ3**, a peak-hour/diurnal congestion analysis following the temporal framework in Lübben & Misfeld (2022), and **RQ4**, an ISP-level performance and market-share comparison — both feasible today only for the five countries with NDT7 raw per-test data (Table 1), since they require per-test timestamp and per-test ISP fields that the Ookla tile aggregates do not carry. Full cross-country omnibus statistical testing (Section 5) is not yet complete as of this draft.
+
+**Keywords:** broadband measurement, Ookla, M-Lab NDT7, Southeast Asia, network quality, digital divide, cross-country comparison
+
+---
 
 ## 1. Introduction
 
-High-speed internet has become critical infrastructure for economic and social development in the 21st century. High-quality broadband access directly affects labor productivity, education, government service delivery, and national competitiveness. Multiple empirical studies find that a 10% increase in broadband penetration can raise GDP per capita by 1–3% in developing countries (Röller & Waverman, 2001).
+High-speed internet is critical infrastructure for economic and social development. Multiple studies find that a 10% increase in broadband penetration can raise GDP per capita by 1–3% in developing countries (Röller & Waverman, 2001). Southeast Asia is a useful region to study this in because its eight major economies span an unusually wide range of broadband maturity — from Singapore, a wired city-state ranked near the global top, to Myanmar, Laos, and Cambodia, where sub-national economic data is often incomplete and infrastructure investment lags — while sharing enough regulatory and geographic context (ASEAN membership, comparable urbanization patterns, overlapping mobile operators) to make a like-for-like comparison meaningful.
 
-Thailand, however, still lacks academic research that systematically evaluates the "quality" of its internet nationwide using real measurement data. What exists instead is a set of mutually contradictory claims from two different kinds of sources.
+Existing evidence about the region's internet quality is inconsistent by source and, in several countries, internally contradictory. Ookla's Speedtest Global Index has ranked Thailand's fixed broadband 13th worldwide (237.05 Mbps average, March 2025) — more than double the global average (Nation Thailand, 2025a) — while Thailand's Electronic Transactions Development Agency (ETDA) found 64.65% of Thai internet users cite "slow internet speed" as their top annoyance (ETDA, 2024), and complaints to the NBTC (National Broadcasting and Telecommunications Commission) surged from under 1,000 to nearly 3,000 in the first seven months of 2025, following a nationwide True network outage in May 2025 (Nation Thailand, 2025b). Thailand's mobile ranking (39th globally) sits far below its fixed ranking, suggesting network type and geography — not a single national number — determine the real answer. Similar national-ranking-vs-user-experience tension is plausible, though less publicly documented, in the other seven countries in this study.
 
-On one side, national-level statistics suggest Thai internet is "good": the Speedtest Global Index by Ookla ranks Thailand's fixed broadband 13th in the world, with an average download speed of 237.05 Mbps (March 2025 data) — more than double the global average (Nation Thailand, 2025a).
+This paper does not treat that tension as a single-country curiosity. It asks the same two questions of all eight countries with one consistent measurement pipeline:
 
-On the other side, real-user perception data and news coverage suggest Thai internet is "bad": Thailand's Electronic Transactions Development Agency (ETDA) found that 64.65% of Thai internet users cited "slow internet speed" as their top annoyance (ETDA, 2024). Following the True–dtac telecom merger, the Foundation for Consumers found that 81% of users experienced network problems (dropped connections/outages) in the preceding 6 months, and complaints to the NBTC (National Broadcasting and Telecommunications Commission) surged from under 1,000 to nearly 3,000 in the first 7 months of 2025 — including a nationwide True network outage in May 2025 that caused significant economic damage to businesses (Nation Thailand, 2025b). Notably, Thailand's mobile internet ranks only 39th in the world (Nation Thailand, 2025a) — a stark contrast to its fixed-broadband ranking, suggesting the answer to "is Thai internet good or bad" may depend heavily on which network type and which area is being discussed, rather than having one single national answer.
-
-This contradiction between national-aggregate statistics and real user experience is the gap this research aims to close. Rather than relying on subjective opinion from news or social media, this study uses real network-quality measurement data at the tile/test level from two independent sources — Ookla Open Data (covering both fixed and mobile broadband) and M-Lab NDT7 — comparing results between the two platforms descriptively (trend direction, threshold pass rates), following the comparative framework of MacMillan et al. (2023), who compared Ookla and NDT7 in a US context.
-
-**Scope note (revised from the original single-country framing):** the original version of this study asked only whether *Thailand's* internet is good or bad. The current version extends the same question regionally: is Thailand's broadband quality good or bad *relative to its Southeast Asian neighbors* — Vietnam, the Philippines, Singapore, Cambodia, Myanmar, Laos, and Malaysia — using the same Ookla methodology across all eight countries. NDT7 data is used where it exists (currently Thailand and Vietnam only; Philippines pending delivery from a collaborator; Singapore's NDT7 scope is still unconfirmed; Cambodia/Myanmar/Laos/Malaysia are Ookla-only as of this draft) as a descriptive side-by-side comparison, not a formal cross-validation study.
-
-This research therefore aims to answer: what is the real quality of Thai internet, as measured empirically — both in absolute terms, at province level nationwide (77 provinces) and district level in 8 sample provinces, and in relative terms, against seven other Southeast Asian countries (Vietnam, the Philippines, Singapore, Cambodia, Myanmar, Laos, and Malaysia) — covering both fixed and mobile broadband? The study uses Ookla Open Data covering Q1 2023 through Q4 2025 (11–12 quarters depending on country) and M-Lab NDT7 data for the overlapping period where available (currently Thailand: Q4 2023–Q1 2025; Vietnam: Q1 2023–Q4 2025).
-
-### 1.1 Research Objectives
-
-This research has four main objectives:
-
-1. Measure and compare internet quality (download speed, upload speed, and latency) for both fixed and mobile broadband, at the province and district level across Thailand, in both spatial and temporal dimensions.
-2. Compare Thailand's broadband quality against seven other Southeast Asian countries (Vietnam, the Philippines, Singapore, Cambodia, Myanmar, Laos, and Malaysia) on the same Ookla metrics.
-3. Compare Ookla and NDT7 results descriptively wherever both sources overlap, noting any gap between the two and contextual factors (latency, test density, measurement methodology — active vs. passive) that may explain it.
-4. Answer the question "is [Southeast Asian] internet good or bad" by comparing real measured results against international rankings (Speedtest Global Index) and explaining the apparent contradiction between national-level statistics and user perception.
+- **RQ1 — Is Southeast Asian broadband good or bad, and where specifically does it fail?** Using app-requirement thresholds (voice, HD video, UHD video, cloud gaming; Lübben & Misfeld, 2022) as an objective, technology-grounded standard, at what rate does each country's fixed broadband clear each threshold, at the province level and at the capital-city level, and which provinces/countries specifically fail?
+- **RQ2 — How has broadband quality changed 2023–2025, and does the region show a catch-up growth pattern?** Using quarterly median download speed per country, how much has each of the eight countries grown, and does the pattern fit a "lower base grows faster" story or not?
 
 **Contributions.**
 
-- **A public-perception/national-statistic gap, quantified.** We document a concrete contradiction between Thailand's #13-globally fixed-broadband ranking and real-user annoyance/outage data (Section 1), and treat closing that gap empirically — rather than resolving it rhetorically — as the paper's central problem.
-- **An eight-country Southeast Asian comparison on one consistent pipeline.** The same tile-to-province methodology (Section 3.1) is applied unmodified across Thailand, Vietnam, the Philippines, Singapore, Cambodia, Myanmar, Laos, and Malaysia, so cross-country differences reflect measured variation rather than differing methodology per country.
-- **A reliability threshold applied consistently, not just computed.** `is_reliable` (`total_tests>=100 & n_tiles>=5`) is enforced identically across both data sources and all eight countries before any downstream statistic is computed (Section 3.1, Step 5), rather than left as an unused diagnostic column.
+- **An eight-country Southeast Asian comparison on one consistent pipeline**, with no country treated as the reference case — the same tile-to-province methodology (Section 2.2) is applied unmodified to all eight countries, so cross-country differences reflect measured variation rather than differing methodology per country.
+- **A threshold-based answer to "good or bad" that resolves the capital vs. periphery question directly** (Section 3.1.3) — rather than reporting one national pass rate per country, we show that failures are concentrated in specific non-capital provinces in most of the countries where failures exist at all.
+- **A documented, previously-unreported pipeline gap**: 2025-Q3 data exists in Ookla's raw source (confirmed via direct S3 pulls for two countries) but is absent from every country's processed export in this project, and is disclosed here as a limitation rather than silently smoothed over in the trend charts (Section 5).
+- **A reliability threshold applied consistently, not just computed.** `is_reliable` (`total_tests>=100 & n_tiles>=5`) is enforced identically across both data sources and all eight countries before any downstream statistic is computed (Section 2.2, Step 5).
 
-### 1.2 Research Hypotheses
+### 1.1 Scope
 
-This study hypothesizes that Thai internet is not uniformly "good" or "bad" nationwide, but varies significantly in quality by area and network type: fixed broadband in urban areas and economically stronger provinces will show world-class quality consistent with Ookla's reported ranking, while mobile internet and rural or economically weaker provinces will show significantly lower quality. This spatial and network-type variation is expected to explain why public perception conflicts with national-aggregate statistics.
+The study covers Ookla Open Data (fixed and mobile) for all eight countries, Q1 2023–Q4 2025 (11–12 quarters depending on country, with the 2025-Q3 gap noted above), at province/region granularity. Thailand additionally has a district-level deep dive in 8 sample provinces (Bangkok, Nakhon Ratchasima, Khon Kaen, Chiang Mai, Phuket, Chonburi, Songkhla, Rayong) — this remains Thailand-specific because it is the only country where district-level boundary/reference data was compiled, not because Thailand is the paper's focus.
 
-Regionally, we hypothesize that Thailand sits toward the upper end of the Southeast Asian pack on fixed broadband — behind Singapore, but ahead of the other six countries in this study (Vietnam, the Philippines, Cambodia, Myanmar, Laos, and Malaysia; Malaysia's ranking relative to Thailand is treated as an open question rather than assumed).
+M-Lab NDT7 is used for a descriptive Ookla-vs-NDT7 cross-check and (RQ3/RQ4, in progress) peak-hour and ISP-level analysis. As of this draft NDT7 covers **five** of the eight countries — Thailand, Vietnam, Cambodia, Laos, and Myanmar — not two; Philippines NDT7 is pending a collaborator data delivery, and Singapore/Malaysia have no NDT7 pipeline at all. This is a **data-availability limit, not a scope choice**.
 
-We also expect Ookla and NDT7 results to be **directionally consistent** (both trending the same way over time) even though the **absolute magnitudes measured may differ substantially**, given the two platforms' different measurement methodologies (active/user-initiated vs. passive/background) and different user populations.
+**Table 1 — Data volume per country and dataset** (Ookla: test-weighted province-quarter aggregates, Q1 2023–Q4 2025, 12 quarters, all countries; NDT7: raw per-test records, same date range). "Tests" for Ookla is the sum of each tile's own `tests` field — i.e. the real underlying Speedtest submission count, not a tile count. NDT7 "raw rows" is every per-test record before any province/reliability filtering, across all `network_type`s (broadband/cellular/hosting).
 
-### 1.3 Research Scope
+| Country | Provinces/regions | Ookla fixed (tests) | Ookla mobile (tests) | NDT7 raw rows | NDT7 ISPs (distinct) | RQ3 peak-hour ready? | RQ4 ISP ready? |
+|---|---|---|---|---|---|---|---|
+| Thailand | 77 | 20.8M | 10.5M | 60.2M | 365 | ✓ (`hour` field) | ✓ |
+| Vietnam | 63–64 | 25.9M | 3.5M | 24.7M | 160 | ✓ (`hour` field) | ✓ |
+| Philippines | 17 | 48.8M | 7.1M | — | — | pending data | pending data |
+| Singapore | 5 (planning areas) | 4.5M | 0.9M | no pipeline | no pipeline | no pipeline | no pipeline |
+| Cambodia | 22–25 | 2.4M | 0.5M | 0.77M | 61 | ✓ (`test_time` → hour) | ✓ |
+| Laos | 14–18 | 0.37M | 0.50M | 0.14M | 23 | ✓ (`test_time` → hour) | ✓ |
+| Malaysia | 16 (13 states + 3 federal territories) | 15.7M | 11.8M | no pipeline | no pipeline | no pipeline | no pipeline |
+| Myanmar | 14 (Naypyidaw folded into Mandalay Region — see 2.1.3) | 1.75M | 0.25M | 2.12M | 91 | ✓ (`test_time` → hour) | ✓ |
 
-The research covers both fixed (wired) and mobile (cellular) broadband from Ookla Open Data, covering all provinces/administrative regions of eight countries, at the province/region level, with a district-level deep dive in 8 sample Thai provinces: Bangkok, Nakhon Ratchasima, Khon Kaen, Chiang Mai, Phuket, Chonburi, Songkhla, and Rayong.
-
-| Country | Provinces/states/regions |
-|---|---|
-| Thailand | 77 |
-| Vietnam | 64 |
-| Philippines | 17 |
-| Singapore | 5 (aggregated planning areas) |
-| Cambodia | 25 |
-| Laos | 18 |
-| Malaysia | 16 (13 states + 3 federal territories) |
-| Myanmar | 14 (Naypyidaw union territory not separately delineated in the source boundary data; folded into Mandalay Region — see 2.3) |
-
-The Ookla study period is Q1 2023 through Q4 2025 for all eight countries (some countries have a few missing quarters depending on data availability). M-Lab NDT7 data is used for descriptive comparison currently for Thailand (Q4 2023–Q1 2025 overlap) and Vietnam (Q1 2023–Q4 2025 overlap); Philippines NDT7 is being collected by a research collaborator and not yet available; Singapore, Cambodia, Myanmar, Laos, and Malaysia NDT7 are not yet in scope.
+Notes on Table 1: (1) "Provinces" gives a range for Cambodia/Laos where the raw NDT7 province count (after name-mapping) differs slightly from the Ookla/reference province count — a handful of provinces have zero NDT7 test volume and are absent from the NDT7 side only (e.g. Laos's Bokeo), not a data-quality problem. (2) Thailand and Vietnam have a precomputed `hour` column already; Cambodia/Laos/Myanmar only have a raw `test_time` timestamp, from which hour-of-day is equally derivable but not yet precomputed — a one-line addition, not a blocker, for whoever picks up RQ3. (3) "NDT7 ISPs (distinct)" counts raw `isp` string values before any market-share grouping into "Others" — this is the ISP-level dataset RQ4 will work from directly.
 
 ---
 
-## 2. Data
+## 2. Methodology
 
-This research draws on five main data sources.
+### 2.1 Data Sources
 
-### 2.1 Network Performance Data (Ookla Open Data)
+**2.1.1 Network performance data (Ookla Open Data).** Ookla Open Data (CC BY 4.0) is compiled from real-world Speedtest submissions worldwide, stored as *tiles* on a zoom-16 Quadkey grid (~610×610 m at the equator). Each tile reports `avg_d_kbps`, `avg_u_kbps`, `avg_lat_ms`, `tests`, and `devices`, averaged across all tests in that tile that quarter. This study uses both *fixed* and *mobile* tile sets, filtered per country from the global quarterly release (~6.3M tiles worldwide per quarter) via S3 paths of the form `s3://ookla-open-data/parquet/performance/type={fixed,mobile}/year={Y}/quarter={Q}/{Y}-{MM}-01_performance_{fixed,mobile}_tiles.parquet`. All eight countries' raw tiles come from the same global releases — no per-country download was needed when the country set expanded from four to eight.
 
-Ookla Open Data is an open dataset released under the Creative Commons Attribution 4.0 International (CC BY 4.0) license, compiled from real-world internet speed tests submitted through the Speedtest by Ookla application worldwide. Data is stored in *tile* format using the Quadkey system at zoom level 16, where each tile is approximately 610 × 610 meters at the equator. Each tile reports the average of the following variables:
+**2.1.2 M-Lab NDT7.** NDT7 (via Google BigQuery Public Datasets) delivers per-test records rather than pre-aggregated tiles. Thailand's pipeline joins raw per-test logs against a keyword-matched ISP-classification table, splitting traffic into `broadband`/`cellular`. Vietnam's pipeline (delivered by a research collaborator) uses a per-IP ip-api lookup across ~1.84M IPs (100% resolution) because Vietnam's largest ISPs run both mobile and fixed service on the same ASN, yielding four `network_type` categories (`broadband` 89.2%, `cellular` 5.1%, `hosting` 5.6% excluded, `unknown` 0%) and province assignment via point-in-polygon join (100% coverage, 63 provinces).
 
-| Field | Description |
-|---|---|
-| `avg_d_kbps` | average download speed (kilobits per second) |
-| `avg_u_kbps` | average upload speed (kilobits per second) |
-| `avg_lat_ms` | average latency (milliseconds) |
-| `tests` | number of tests in the tile |
-| `devices` | number of devices tested |
+**2.1.3 Spatial boundaries.** ADM1 boundaries (province/state/region, WGS84/EPSG:4326) for all eight countries are from geoBoundaries' open ADM1 release. One coarsening: geoBoundaries' Myanmar layer has 14 units rather than the official 15 — Naypyidaw (carved out of Mandalay Region administratively in 2005) is not delineated separately, so its population/area are folded into Mandalay Region here. This affects any Myanmar province-level result involving Mandalay or the capital-comparison analysis (Section 3.1.3), where the closest available proxy for "capital" is Yangon (the former capital and largest city, not the actual seat of government) — flagged again where it is used.
 
-Each quarterly release covers roughly 6.3 million tiles worldwide. This study uses both *fixed* (wired broadband) and *mobile* (cellular) tile sets, loaded via Amazon S3 paths of the form:
+**2.1.4 Province/region reference data.** Population, area/density, GDP per capita (three forms: nominal, USD PPP, THB-equivalent), and a four-tier "Internet Tier" hypothetical variable, compiled per country from national statistical sources (e.g. Thailand's NESDC/Department of Provincial Administration) where available. Cambodia, Myanmar, and Laos have no official sub-national GDP series — national GDP per capita (World Bank, current US$) is repeated across every province in these three countries, the same convention already used for Singapore. This means any GDP regression term for these four countries has zero within-country variance by construction (see Section 5). Malaysia is the exception: real 2021 state-level GDP per capita is published by DOSM and used directly.
 
-```
-s3://ookla-open-data/parquet/performance/type=fixed/
-  year={YEAR}/quarter={Q}/{YEAR}-{MM}-01_performance_fixed_tiles.parquet
-s3://ookla-open-data/parquet/performance/type=mobile/
-  year={YEAR}/quarter={Q}/{YEAR}-{MM}-01_performance_mobile_tiles.parquet
-```
+### 2.2 Data Processing Pipeline
 
-Structure and processing steps are identical between the two types, differing only in the source parquet path. Country coverage as of this draft:
+1. **Spatial filtering** — tiles filtered to each country's bounding box via PyArrow predicate pushdown before loading.
+2. **Province assignment** — tile centroids converted to points (EPSG:4326), spatially joined to the boundary layer via `intersects`.
+3. **Province-level aggregation** — test-count-weighted average per province: $\bar{v}_j = \frac{\sum_{i \in j} w_i v_i}{\sum_{i \in j} w_i}$, so tiles with more tests get proportionally more weight.
+4. **Master dataset construction** — all quarters combined and merged with reference data; kbps converted to Mbps; derived fields (e.g. `ul_dl_ratio`) computed.
+5. **Reliability filter** — `is_reliable = (total_tests>=100) & (n_tiles>=5)`, computed per province-quarter and actually applied to filter every downstream statistic in every country notebook.
+6. **NDT7 aggregation** — per-test NDT7 records are first binned into the same zoom-16 tile scheme Ookla uses (tiles with <3 tests dropped), then aggregated to province × quarter with the same weighted average and `is_reliable` threshold as Ookla, so the two sources stay comparable.
 
-| Country | Provinces/regions | Ookla status |
-|---|---|---|
-| Thailand | 77 | Done — full EDA, fixed + mobile combined |
-| Vietnam | 64 | Done |
-| Philippines | 17 | Done |
-| Singapore | 5 (aggregated planning areas) | Done, but small-n — some multivariate models degenerate |
-| Cambodia | 25 | Done — no official sub-national GDP available (see 2.4) |
-| Laos | 18 | Done — no official sub-national GDP available (see 2.4) |
-| Malaysia | 16 | Done — real state-level GDP (DOSM) |
-| Myanmar | 14 | Done — no official sub-national GDP available (see 2.4); Naypyidaw folded into Mandalay Region (see 2.3) |
+### 2.3 RQ1 — Threshold Analysis
 
-All eight countries' raw Ookla tiles come from the same global quarterly parquet releases (no per-country download was needed for the four newly added countries) — only the boundary and reference data below had to be newly compiled per country.
+Four app-requirement thresholds (Lübben & Misfeld, 2022) are applied to every reliable province-quarter, symmetrically across all eight countries: HD video (≥5 Mbps download), UHD video (≥25 Mbps), cloud gaming (≥44 Mbps **and** ≤25 ms latency — the only threshold combining both throughput and latency), and voice (≤200 ms latency). Pass rate per country is the test-count-weighted share of province-quarters clearing each threshold. A supplementary analysis (RQ1.2) restricts the same computation to each country's capital-city province (Table, Section 3.1.3) to test whether national-level failures are capital-driven or peripheral.
 
-### 2.2 M-Lab Network Diagnostic Test Data (NDT7)
+### 2.4 RQ2 — Growth Trend Analysis
 
-M-Lab's Network Diagnostic Test (NDT7) is another open dataset, published via Google BigQuery Public Datasets. Unlike Ookla, results are stored per-test (not pre-aggregated into tiles), giving a finer-grained view of the distribution of measured values.
+Quarterly median download speed per country (Ookla fixed, all reliable provinces) is tracked 2023-Q1 through 2025-Q4, and percent growth is computed as $100 \times (v_{2025Q4} - v_{2023Q1}) / v_{2023Q1}$ per country. A second, Thailand/Vietnam-only sub-analysis (Part B) compares Ookla and NDT7 trend lines directly and drills into within-country regional variation (Bangkok metro vs. secondary cities) — this sub-analysis is explicitly two-country because NDT7 doesn't exist elsewhere in this project (Section 1.1), not because it's the paper's main result; the eight-country comparison (Part A) is the region-level answer to RQ2.
 
-**Thailand.** The Thailand NDT7 pipeline joins raw per-test logs (`mlab_results/*.parquet`, ~5.2M client-IP rows in the lookup table) against an ISP-classification table built by keyword matching on ISP name (`client_complete.parquet`: `client_ip`, `isp`, `category`, `description`, `network_type`), splitting traffic into `broadband` and `cellular`.
+### 2.5 Cross-Country Statistical Comparison — planned, not yet executed
 
-**Vietnam.** Vietnam NDT7 data (delivered by a research collaborator, 2026-07-13) uses a more rigorous approach: because Vietnam's largest ISPs (Viettel, VNPT) are conglomerates running both mobile and fixed service on the same ASN, ISP name alone cannot distinguish network type. Classification instead uses a **per-IP ip-api lookup** — three rounds of fetching covering the full ~1.84M-IP conglomerate population, achieving 100% resolution (0% `unknown`, down from an initial 8.5%) — combined with curated name lists for smaller ISPs and keyword matching for hosting/CDN traffic. This yields **four** `network_type` categories rather than Thailand's two: `broadband` (89.2% of rows), `cellular` (5.1%), `hosting` (5.6%, CDN/cloud/VPN — excluded from consumer analysis), and `unknown` (0%). Province is assigned via point-in-polygon join against `vietnam_provinces.geojson` with a nearest-polygon fallback, achieving 100% coverage across 63 provinces. Delivered as a single pre-joined file, `mlab_vn_clean.parquet` (24.7M rows, 21 columns, 1.2 GB), already containing per-test throughput, latency, ISP classification, and province — see `data/ndt7/vn/README.md` for full methodology.
+The originally planned omnibus cross-country test — Kruskal-Wallis H-test across all eight country groups, followed by pairwise Mann-Whitney U tests and an OLS regression of `mean_dl ~ log(GDP) + log(density) + country` — does not have a notebook yet as of this draft. This is disclosed here rather than silently dropped: Sections 3 and 4 below report descriptive statistics (pass rates, medians, growth rates) that do not depend on this test, but no formal significance test of "do these eight countries actually differ" has been run yet. See Section 5 (Limitations) and Section 6 (Future Work).
 
-**Philippines / Singapore.** Philippines NDT7 is being collected by a collaborator and not yet delivered as of this draft. Singapore NDT7 scope is unconfirmed.
+### 2.6 Ookla-vs-NDT7 Cross-Validation
 
-### 2.3 Spatial Boundary Data (GeoJSON)
+For Thailand and Vietnam (the only countries with both sources), Ookla and NDT7 are compared at province × quarter level, restricted to `is_reliable` rows in both sources, over the overlapping quarters: (1) reliable-coverage-over-time for both sources, (2) distributional comparison, (3) province-ranking agreement (Pearson/Spearman) where both sources have reliable data, (4) magnitude gap (paired Wilcoxon signed-rank test, chosen over a paired t-test given no assumption of normally-distributed paired differences). This is descriptive, not a formal validation — there is no ground truth establishing which platform is "more accurate," and any gap found is confounded between genuine network differences and active-vs-passive measurement methodology (MacMillan et al., 2023, found NDT7 underreports speed by 12–56% relative to Ookla-style active tests in a US context).
 
-Administrative boundaries (ADM1: province/state/region) for all eight countries, in GeoJSON format, WGS84/EPSG:4326 coordinate system, used for spatial joins to assign each Ookla tile or NDT7 test point to a province/region. The four newly added countries (Cambodia, Myanmar, Laos, Malaysia) were sourced from geoBoundaries' open ADM1 release, same as the original four. One data limitation: geoBoundaries' Myanmar ADM1 boundary set contains 14 units rather than the official 15 (7 states + 7 regions + Naypyidaw union territory) — Naypyidaw, carved administratively out of Mandalay Region in 2005, is not delineated as a separate polygon in this source. Its 2014 census population and area are folded into Mandalay Region for this study, which should be read as a coarsening of that one unit rather than a missing-data gap.
+### 2.7 Tools
 
-### 2.4 Province/Region Reference Data
-
-A dataset compiled by the researcher from official sources per country, containing:
-
-- **Population**: national statistical/civil-registry sources per country (e.g., Thailand's Department of Provincial Administration; Wikipedia-sourced census/estimate figures for the four newly added countries)
-- **Area and density**: Wikipedia / national mapping agencies
-- **GDP per capita**: national economic-planning agencies per country (e.g., Thailand's NESDC) where available, expressed in three forms — raw nominal value, USD PPP, and THB-equivalent for cross-country comparability. For Cambodia, Myanmar, and Laos, no official sub-national (province-level) GDP series exists — Cambodia's National Institute of Statistics confirms provincial economic accounts are still under development, and no equivalent was found for Myanmar or Laos — so national GDP per capita (World Bank, 2021, current US$) is repeated across all provinces for these three countries, following the same convention already used for Singapore (which also lacks sub-national GDP). This is a real data-quality limitation: any GDP-vs-speed regression for these four countries (Singapore included) has zero within-country GDP variance by construction and cannot identify a GDP effect. Malaysia is the exception among the new countries — real state-level nominal GDP per capita for 2021 is published by Malaysia's Department of Statistics (DOSM) and is used directly, on the same footing as Thailand/Vietnam/Philippines.
-- **Internet Tier**: a researcher-defined hypothetical variable (four tiers, from "expected fastest" to "expected slowest," based on economic/urbanization proxies) — see Table 1 for the Thailand tier assignment used as the template. Where a usable proxy exists, tier is derived from that (Cambodia: quartiles of HDI-by-province, Cambodia Human Development Report 2023; Malaysia: quartiles of actual GDP per capita); otherwise (Myanmar, Laos) tier is derived from quartiles of population density, the same fallback proxy used elsewhere in this study when no better economic signal is available.
-
-**Table 1. Internet Tier definitions (Thailand)**
-
-| Tier | Description | Example provinces |
-|---|---|---|
-| 1 | Expected fastest | Bangkok, Chonburi, Rayong, Phuket |
-| 2 | Above average | Chiang Mai, Khon Kaen, Surat Thani |
-| 3 | Middle (mid-GDP provincial cities) | Nakhon Ratchasima, Phitsanulok, Udon Thani |
-| 4 | Expected slowest | Mae Hong Son, Narathiwat, Nong Bua Lamphu |
+Python 3.12 (`datasci` virtual environment): `pandas`/`numpy` (tabular processing), `geopandas` (spatial joins), `pyarrow` (predicate-pushdown Parquet reads), `scipy.stats` (correlation, Kruskal-Wallis, Mann-Whitney, Wilcoxon), `statsmodels` (OLS), `matplotlib` (visualization).
 
 ---
 
-## 3. Methodology
+## 3. Results
 
-### 3.1 Data Processing Pipeline
+### 3.1 RQ1 — Threshold Pass Rates, All Eight Countries (Ookla, Fixed Broadband)
 
-**Step 1 — Spatial filtering.** From the global Ookla dataset, tiles are first filtered to each country's bounding box before loading into memory, reducing data volume, using PyArrow's `filters` parameter against each country's geographic extremes (north–south–east–west).
+**HD (5 Mbps) is a non-issue everywhere.** All 8 countries clear it at 100% — every province, every quarter. At province-average granularity, "is download speed adequate for HD video" is not a real constraint anywhere in the region.
 
-**Step 2 — Province/region assignment (spatial join).** Tile centroid coordinates (`tile_x`, `tile_y`) are converted to a Point GeoDataFrame in EPSG:4326, then spatially joined against the province/region boundary layer using an `intersects` predicate.
+**UHD (25 Mbps) is trivial for five of eight countries** (Thailand, Vietnam, Philippines, Singapore, Malaysia: 100%), but **fails meaningfully for three**: Myanmar drops to **20.6%**, with Cambodia (97.4%) and Laos (99.3%) showing smaller gaps. This is the first real split in the dataset — a lower-infrastructure tier (Myanmar/Cambodia/Laos) separating from the rest.
 
-**Step 3 — Province-level aggregation (weighted average).** Download speed, upload speed, and latency are aggregated to the province level as a test-count-weighted average:
+**Cloud gaming (44 Mbps + ≤25 ms) is where the region actually differentiates.** 18.2% of all 2,581 province-quarters fail it, and failures land in **6 of 8 countries** — only Vietnam and Singapore are clean at the national level. Pass rate ranges from Myanmar's **0%**, up through Laos (60.9%), Cambodia (62.8%), Philippines (92.0%), Malaysia (97.5%), to Thailand's 99.5%. The worst individual provinces — Myanmar's Chin, Kachin, Kayin, Magway, Mandalay, Saigang, Shan, and Yangon, and the Philippines' ARMM, all failing 10–11 of 11 quarters — are concentrated in remote/upland or historically underserved regions within each country, a last-mile/backhaul geography pattern that repeats across borders rather than being a single-country quirk. Thailand's own worst cases (Mae Hong Son, 10/11 quarters failing; Nan, 6/11) fit the same pattern at smaller scale.
 
-$$\bar{v}_j = \frac{\sum_{i \in j} w_i \cdot v_i}{\sum_{i \in j} w_i}$$
+**Methodological reading:** province-quarter *averages* structurally cannot see the user-complaint side of the story for the five countries where every threshold is met at ~100% — a metric with zero variance cannot explain user complaints about slow/dropped connections. Complaints in those countries are almost certainly about **tail behavior** (bad sessions, not average quarters) and/or **reliability/uptime**, which this dataset's granularity cannot capture. Resolving that tension needs either NDT7 test-level data or a percentile-based cut (p10/p25, not mean) — flagged as a concrete next step and a paper-level methodology limitation regardless.
 
-where $\bar{v}_j$ is the weighted average for province $j$, $v_i$ is the measured value for tile $i$, and $w_i$ is the test count in tile $i$. Weighting by test count gives tiles with more tests (reflecting denser, more reliable user populations) proportionally more influence on the province average than tiles with only a handful of tests.
+#### 3.1.1 RQ1.2 — Capital City Comparison
 
-**Step 4 — Master dataset construction.** All quarters are combined and merged with province reference data. For Thailand this yields 77 provinces × 11 quarters = 847 rows (before coverage/reliability checks); the same pipeline runs per country. Speed units are converted from kbps to Mbps, and derived variables are computed, including the upload/download ratio (`ul_dl_ratio`).
+Restricting the same four thresholds to each country's capital-city province only (capital-selection table and caveats in Section 2.1.3/3.1.3 below) shows the region's threshold failures are **overwhelmingly non-capital**: at the national level only Vietnam and Singapore cleared cloud gaming at 100%; restricted to capitals, **6 of 8 countries hit 100%** (Thailand, Vietnam, Philippines, Singapore, Malaysia, and — new in the capital-only cut — none of the remaining three reach 100%, but two improve sharply). Two countries still fail even in the capital: **Myanmar (Yangon) is 0% on cloud gaming and only 2.5% on UHD** — worse than Myanmar's own national UHD average (20.6%), meaning Yangon is *not* pulling the country average up the way capitals normally do. **Laos (Vientiane Capital) reaches 75.2%** and **Cambodia (Phnom Penh) reaches 63.8%** on cloud gaming — better than their national averages (60.9%/62.8%) but still short of full coverage.
 
-**Step 5 — Reliability filter.** A per-province-quarter `is_reliable` flag — `total_tests >= 100 AND n_tiles >= 5` — is computed and (as of the 2026-07-07 revision) actually applied to filter all downstream statistics in every country notebook, rather than merely computed and left unused.
+The capital-vs-country-median download gap is real but uneven: Philippines shows the widest urban premium (NCR **+61.7 Mbps** over its national median), followed by Thailand (Bangkok, **+50.8**), Malaysia (KL, **+43.5**), Vietnam (Hanoi, **+24.5**), Cambodia (Phnom Penh, **+14.3**), Laos (Vientiane Capital, **+10.2**). **Myanmar is flat (+0.0)** — Yangon tracks the national median exactly. **Singapore is negative (−31.2)** — the Central Region (used as a CBD proxy; Singapore has no separate capital province in this dataset) is *below* the country median, plausibly because Singapore is fully urban everywhere and other regions (e.g. East, with newer HDB fibre builds) out-perform the CBD — the usual "capital = best-connected" assumption doesn't hold once a country has no genuine rural periphery to lag behind.
 
-**Step 6 — NDT7 province-level aggregation.** Because NDT7 delivers per-test points rather than pre-aggregated tiles, records are first binned into the same zoom-16 slippy-tile scheme Ookla publishes in (so `n_tiles` stays a comparable spatial-coverage proxy across both sources and across countries), aggregated per tile (mean/median throughput, mean latency, test count; tiles with fewer than 3 tests are dropped), then aggregated up to province × quarter using the same test-count-weighted average as Step 3. The same `is_reliable` threshold (`total_tests>=100 & n_tiles>=5`) is applied. For Vietnam, per-test province was already assigned via the collaborator's point-in-polygon join (more precise than a tile-centroid join); the tile-binning step is retained purely to keep `n_tiles`/`is_reliable` comparable with the Ookla-side and Thailand-side methodology, not because the underlying province assignment needs it.
+#### 3.1.2 RQ1 — Ookla-vs-NDT7 Cross-Validation (Thailand & Vietnam)
 
-### 3.2 Cross-Country Comparison
+Where both platforms exist, the cloud-gaming latency floor fails **all 812 province-quarter rows in both countries** — not a Thailand-specific artifact. Vietnam's latency floor is if anything higher than Thailand's (fixed: 44.9 ms vs. 34.2 ms; mobile: 99.8 ms vs. 40.1 ms), strengthening a reading of this as an NDT7 infrastructure/path artifact rather than a genuine last-mile problem, since Ookla's fixed-broadband data (Section 3.1) shows cloud gaming passing at 99.5%+ for both countries. NDT7's mobile province breakdown — currently Thailand-only since it's the only country with a usable NDT7 mobile sample — shows real within-country degradation: the Bangkok metro cluster's UHD pass rate is only 55–67%, while secondary cities (Chiang Mai, Chon Buri) sit at 100%, the inverse of the usual "capital is better-served" pattern seen in the Ookla capital comparison above and worth reconciling in Discussion.
 
-To compare Thailand against the other seven countries, each country's province-level, reliability-filtered data is collapsed to one row per province (mean across all reliable quarters), then compared as follows:
-
-1. **Distributional comparison** — box plots of mean download/upload speed by country.
-2. **Omnibus test** — Kruskal-Wallis H-test across the eight country groups (chosen over one-way ANOVA given the small sample sizes for Singapore, n=5, and Myanmar, n=14, where a normality assumption is hard to justify).
-3. **Pairwise comparison** — Mann-Whitney U test, Thailand vs. each other country individually, to identify which specific country/countries differ from Thailand rather than only that "some" country differs.
-4. **Cross-country regression** — OLS of `mean_dl ~ log(GDP per capita) + log(population density) + country` (Thailand as reference category), to test whether a country-level fixed effect remains significant after controlling for socioeconomic context — i.e., whether cross-country gaps are explained by wealth/density or reflect something country-specific. Note the GDP term is degenerate for Singapore, Cambodia, Myanmar, and Laos (no within-country GDP variance — see 2.4), so this regression's GDP coefficient is identified mainly off Thailand/Vietnam/Philippines/Malaysia's within-country variation, and country fixed effects for the zero-variance countries should be read with that caveat in mind.
-5. **Fixed-vs-mobile gap** — the same comparison repeated for mobile data, and the fixed/mobile speed ratio computed per country, to check whether Thailand's public fixed (#13 globally) vs. mobile (#39 globally) ranking split is visible in the measured data and whether it is unusually large relative to its neighbors.
-6. **Capital/top-city comparison** — a supplementary comparison of each country's capital province/region against its own national average, and each country's top-5 fastest provinces, to check whether "how good is a country's internet" is being driven by the capital specifically or is broader-based.
-
-### 3.3 Ookla-vs-NDT7 Cross-Validation
-
-For each country where both sources exist (currently Thailand and Vietnam), Ookla and NDT7 results are compared at the province × quarter level, restricted to `is_reliable` rows in both sources, over the quarters where both datasets overlap:
-
-1. **Coverage comparison** — the share of provinces meeting the reliability threshold, plotted over time for both sources, since NDT7 reliable coverage is not necessarily stable across quarters (Vietnam's NDT7 coverage, for instance, decays from ~48% of provinces reliable in Q1 2023 to ~11% by Q4 2025, with data volume heavily concentrated in one quarter — a caveat that must be carried into any interpretation of later-period comparisons).
-2. **Distributional comparison** — histograms of download/upload speed for each source.
-3. **Province-level agreement** — provinces with reliable data in *both* sources are averaged across the overlap period, then compared with Pearson and Spearman correlation, to test whether the two sources agree on relative province ranking even if absolute values differ.
-4. **Magnitude gap** — the mean/ratio of Ookla vs. NDT7 download speed, tested for statistical significance with a paired Wilcoxon signed-rank test (chosen over a paired t-test given no strong reason to assume the paired differences are normally distributed).
-
-A necessary caveat: this is not a paired test in the strict sense (different users, different times, different service providers measured by each platform), and there is no ground truth establishing which source is "more accurate." Any gap found may reflect both genuine network differences and methodology differences between an active, user-initiated test (Ookla) and a passive, background test (NDT7) — consistent with MacMillan et al. (2023), who found NDT7 tends to underreport speed by 12–56% relative to Ookla-style active tests, particularly when latency (RTT) exceeds 200 ms.
-
-### 3.4 Correlation and Regression Analysis
-
-Pearson correlation and ordinary least squares (OLS) regression are used to test the relationship between GDP per capita and mean download speed, and between log(population density) and mean download speed, within each country. Population density is log-transformed due to its strongly right-skewed distribution. A multivariate OLS extending this to `mean_dl ~ log(GDP) + log(density) + tier + region` is fit per country to test whether these factors jointly explain speed variation (see Results for country-by-country R² and coefficient significance).
-
-### 3.5 Upload/Download Ratio Analysis
-
-The upload-to-download speed ratio (UL/DL ratio) is used as an indirect indicator of underlying network technology, since:
-
-- Fiber (GPON/FTTH): ratio ≈ 0.9–1.0
-- HFC cable: ratio ≈ 0.2–0.5
-- ADSL: ratio ≈ 0.1–0.2
-
-A national average ratio close to 1.0 is taken as evidence of widespread fiber (FTTH) deployment.
-
-### 3.6 Anomaly/Divergence Detection (dropped, 2026-07-20)
-
-An earlier iteration of this pipeline computed a composite per-province "divergence score" — seven z-scored dimensions (tier-expectation residual, GDP-expectation residual, density-expectation residual, regional deviation, UL/DL ratio deviation, latency regional deviation, and coverage deviation) summed to surface a "divergence leaderboard" of the most anomalous provinces. This was removed from all eight Ookla EDA notebooks as no longer a necessary part of the analysis. `paper.tex`'s existing methodology text (which still describes an even older seven-flag version of this idea) should likewise be treated as superseded and dropped rather than reconciled, once the LaTeX manuscript is revisited. Tier, GDP, and density are still analyzed directly (Sections 3.2 and 3.4) — only the composite anomaly-scoring layer on top of them was cut.
-
-### 3.7 Tools and Software
-
-All analysis is performed in Python 3.12, in an isolated virtual environment (`datasci` kernel), using the following core libraries:
-
-| Library | Use |
-|---|---|
-| `pandas`, `numpy` | tabular data handling and processing |
-| `geopandas` | spatial analysis (spatial join, CRS handling) |
-| `pyarrow` | reading Parquet files with predicate pushdown |
-| `scipy.stats` | statistical analysis (Pearson/Spearman correlation, Kruskal-Wallis, Mann-Whitney, Wilcoxon, z-scores) |
-| `statsmodels` | OLS regression, including multivariate and cross-country fixed-effects models |
-| `matplotlib` | data visualization |
-
----
-
-## 4. Preliminary Results
-
-*Full Results/Discussion write-up is still pending completion of Section 3.2's cross-country statistical tests (Kruskal-Wallis/Mann-Whitney/OLS with country fixed effects) and Section 3.3's Ookla-vs-NDT7 agreement tests, neither of which has a notebook yet as of this draft. The finding below is posted early because the analysis (`notebooks/comparison/rq2_trends.ipynb`) is already complete.*
-
-### 5.1 Thailand's download growth is regionally slow in relative terms, but not in absolute terms
-
-Extending RQ2's quarterly trend method across all eight countries (Ookla fixed, median download per quarter) shows Thailand's Q1-2023-to-Q4-2025 growth (+42.0%, 207.1 → 294.0 Mbps) is the **second-slowest of the eight countries** — only the Philippines grows slower (+23.6%):
+### 3.2 RQ2 — Growth Trend, All Eight Countries (Part A)
 
 | Country | 2023-Q1 (Mbps) | 2025-Q4 (Mbps) | % growth |
 |---|---|---|---|
@@ -227,30 +128,54 @@ Extending RQ2's quarterly trend method across all eight countries (Ookla fixed, 
 | Singapore | 282.0 | 553.8 | +96.4% |
 | Laos | 32.0 | 62.2 | +94.4% |
 | Malaysia | 124.6 | 223.6 | +79.5% |
-| **Thailand** | **207.1** | **294.0** | **+42.0%** |
+| Thailand | 207.1 | 294.0 | +42.0% |
 | Philippines | 96.4 | 119.1 | +23.6% |
 
-Read alongside RQ1's snapshot finding (Thailand clears every app-requirement threshold in all 77 provinces every quarter, with no headroom to gain from), this is best read as a **high-base/catch-up effect rather than stagnation**: the four fastest-growing countries (Myanmar, Cambodia, Vietnam, Laos) all start from a much lower 2023 base (20–92 Mbps), consistent with catch-up growth, and Thailand's absolute download level stays **second-highest of the eight countries throughout the entire period**, behind only Singapore.
+Six of the eight countries fit a **catch-up growth** pattern: the four fastest-growing (Myanmar, Cambodia, Vietnam, Laos) all start from a much lower 2023 base (20–92 Mbps), and the two slowest-growing (Thailand, Philippines) start from a higher base, with Thailand's absolute level staying second-highest of the eight throughout the period (behind only Singapore). **Two countries don't fit that story and are flagged rather than resolved here:** Singapore starts *above* every other country (282 Mbps) yet still posts +96.4% growth, more than double Thailand's rate from a much higher base — a high base does not mechanically cap growth. Malaysia (+79.5% from 124.6 Mbps, a lower base than Thailand's) growing nearly twice as fast as Thailand from a lower starting point is the sharpest open question, plausibly an infrastructure-investment-cycle timing difference rather than pure diminishing-returns economics — this needs the cross-country regression (Section 2.5, not yet run) to investigate properly.
 
-One comparison does not fit that base-effect story cleanly and is flagged for the Discussion section rather than resolved here: Singapore, the only country starting *above* Thailand (282 Mbps), still posts +96.4% growth — more than double Thailand's rate — showing a high base does not mechanically cap growth. Malaysia (+79.5% from a lower 2023 base of 124.6 Mbps than Thailand's) growing nearly twice as fast as Thailand from a lower starting point is the sharpest open question, plausibly pointing to a difference in infrastructure-investment cycle timing rather than pure diminishing-returns economics — worth investigating once the cross-country regression (Section 3.2) is run.
+### 3.3 RQ2 — Thailand/Vietnam Platform Deep-Dive (Part B)
+
+Restricted to the two countries with NDT7 data: Ookla and NDT7 trend lines are directionally consistent (both platforms show the same growth direction over time) but differ in absolute magnitude, consistent with active-vs-passive measurement methodology (Section 2.6). The Bangkok-metro-vs-rest finding (Section 3.1.2) is the headline result **of this Thailand deep-dive specifically (Part B)**, not of RQ2 as a whole — Part A's eight-country comparison above is the region-level answer to "how has growth changed."
 
 ---
 
-## 5. Limitations and Future Directions
+## 4. Discussion
 
-This study's cross-country, cross-platform design surfaces several limitations worth stating plainly rather than glossing over, since they bound how far the eventual results can be generalized.
+**The national-ranking-vs-user-complaint tension is not unique to Thailand, and threshold analysis resolves most of it geographically rather than temporally.** Section 3.1 shows that in five of eight countries, every province clears every threshold in every quarter — a genuinely "good" result by this measure — while user complaints (documented for Thailand; plausible but undocumented for the others) persist. Combined with the capital-comparison result (3.1.1), the likeliest reading is that province-quarter averages are simply the wrong grain to see user-level pain: complaints are a tail/reliability phenomenon this dataset cannot measure, not evidence that the average-case numbers are wrong.
 
-**GDP identification is degenerate for four of eight countries.** Singapore, Cambodia, Myanmar, and Laos have no official sub-national GDP series, so national GDP per capita is repeated across every province within each of those countries (Section 2.4). Any regression term for GDP (Sections 3.2 item 4, 3.4) has zero within-country variance for these four — the coefficient is identified almost entirely off Thailand, Vietnam, the Philippines, and Malaysia's within-country spread. Country fixed effects for the zero-variance countries should be read as absorbing GDP's effect rather than isolating a genuinely GDP-independent residual.
+**Where real failures exist, they are peripheral, not capital.** Myanmar, Laos, and Cambodia are the exception to the "everywhere is fine" story, and even within those three, the failures are markedly worse outside the capital (Section 3.1.1). This suggests investment/rollout in this region follows a fairly standard capital-first pattern — with Myanmar as a partial exception, since Yangon (a proxy for the actual capital, Naypyidaw — Section 2.1.3) tracks the national average rather than exceeding it, which is unusual enough to warrant a dedicated look at Myanmar's infrastructure rollout history rather than assuming the capital-first pattern holds universally.
 
-**NDT7 cross-validation covers only 2 of 8 countries, and coverage is not stable over time.** Ookla-vs-NDT7 comparison (Section 3.3) is currently limited to Thailand and Vietnam; the Philippines is pending a collaborator delivery, and Singapore/Cambodia/Myanmar/Laos/Malaysia have no NDT7 cross-validation planned yet. Even within Vietnam, NDT7's reliable-province coverage decays sharply over the study period (~48% of provinces reliable in Q1 2023 down to ~11% by Q4 2025, with volume heavily concentrated in one quarter) — later-period Ookla-vs-NDT7 comparisons rest on a shrinking, non-random subset of provinces.
+**The Bangkok-metro NDT7-mobile result (55–67% UHD) inverts the Ookla capital-advantage pattern**, and this needs reconciling rather than left as a curiosity: it may reflect genuine mobile-specific congestion in Bangkok (higher device density taxing cellular capacity in a way fixed broadband doesn't experience) rather than a contradiction of the fixed-broadband capital-advantage finding — the two results are about different network types and shouldn't be read as inconsistent without checking that explanation directly.
 
-**No ground truth exists for the Ookla-vs-NDT7 gap.** Because the two platforms sample different users at different times through different mechanisms (active/user-initiated vs. passive/background), any measured gap is confounded between genuine network differences and methodology differences (Section 3.3). We do not have — and this design cannot produce — a way to attribute a given gap to one cause over the other; MacMillan et al. (2023)'s finding that NDT7 underreports speed by 12–56% relative to Ookla in a US context is used as prior context, not as a correction applied to our numbers.
+**Growth's fit to a catch-up story is good but not universal**, and the two exceptions (Singapore, Malaysia — Section 3.2) are exactly the kind of finding this paper's regression (Section 2.5, pending) exists to explain: is Malaysia's above-Thailand growth rate from a lower base a real infrastructure-investment signal, or an artifact of the missing 2025-Q3 quarter (Section 5) affecting the two endpoints unevenly by country?
 
-**One administrative unit is coarsened by a source-data gap.** geoBoundaries' Myanmar ADM1 layer does not delineate Naypyidaw separately from Mandalay Region; its population/area are folded into Mandalay for this study (Section 2.3), so any Myanmar province-level result should be read with that one unit understood as a merged aggregate, not a genuine administrative boundary.
+---
 
-**The composite divergence-scoring layer was cut mid-project (Section 3.6) rather than completed.** An earlier per-province anomaly score across seven z-scored dimensions was implemented in all eight Ookla notebooks and then removed as not necessary for the analysis; tier, GDP, and density are still analyzed directly, but a synthesized "which provinces break the pattern" view is not part of the current results.
+## 5. Limitations
 
-**Future work.** Extending NDT7 cross-validation to the remaining six countries (contingent on data availability), revisiting whether a lighter-weight anomaly/outlier flag is worth reintroducing now that the composite-score approach has been dropped, and reconciling `paper.tex`'s older methodology text (which still describes a superseded seven-flag anomaly framework) once the LaTeX manuscript is revisited, are the most immediate next steps.
+**2025-Q3 is missing from every country's processed export, but exists upstream — a pipeline bug, not a data-availability gap.** All eight countries' `data/exports/ookla_*_province_quarterly.csv` have zero rows for 2025-Q3, but the raw source parquet exists on Ookla's S3 (confirmed by directly pulling it in two countries' EDA notebooks: 49,778 tiles / 13 provinces for Myanmar, 2,028 tiles / 5 provinces for Singapore) — the quarter never made it through this project's master-dataset build pipeline for any country. Every RQ1/RQ2 trend chart currently shows a broken line at 2025-Q3 as a result, and the 2025-Q4 growth endpoints in Section 3.2 are computed across that gap. This needs a per-country pipeline re-run before the growth numbers in Table 3.2 can be considered final; not yet done as of this draft.
+
+**The cross-country omnibus statistical test does not exist yet (Section 2.5).** No Kruskal-Wallis/Mann-Whitney/OLS notebook has been built — every number in Section 3 is descriptive (weighted pass rates, medians, percent growth), not tested for statistical significance across countries. This is the single largest gap between this draft and a submission-ready Results section.
+
+**GDP identification is degenerate for four of eight countries.** Singapore, Cambodia, Myanmar, and Laos have no official sub-national GDP series, so national GDP per capita is repeated across every province within each (Section 2.1.4). Once Section 2.5's regression is run, its GDP coefficient will be identified almost entirely off Thailand, Vietnam, Philippines, and Malaysia's within-country spread — country fixed effects for the other four should be read as absorbing GDP's effect, not isolating a GDP-independent residual.
+
+**NDT7 cross-validation covers only 2 of 8 countries, and Vietnam's coverage is not stable over time.** Ookla-vs-NDT7 comparison is Thailand/Vietnam only (Section 1.1); Vietnam's NDT7 reliable-province coverage decays from ~48% in Q1 2023 to ~11% by Q4 2025, with volume heavily concentrated in one quarter — later-period comparisons rest on a shrinking, non-random subset of provinces.
+
+**No ground truth exists for the Ookla-vs-NDT7 gap.** Any measured gap is confounded between genuine network differences and active-vs-passive methodology differences (Section 2.6); MacMillan et al. (2023)'s 12–56% NDT7-underreporting finding is used as prior context only, not as a correction applied to our numbers.
+
+**One administrative unit is a merged aggregate, not a genuine boundary.** geoBoundaries' Myanmar ADM1 layer folds Naypyidaw into Mandalay Region (Section 2.1.3); the capital-comparison analysis (3.1.1) uses Yangon as the closest available proxy for Myanmar's capital rather than the actual seat of government, which is a real limitation on that specific result, not just a boundary-data footnote.
+
+---
+
+## 6. Conclusion and Future Work
+
+Across eight Southeast Asian countries measured on one consistent Ookla pipeline, fixed broadband clears baseline video-streaming thresholds almost everywhere — the region's real threshold failures are concentrated in cloud-gaming-grade latency requirements, in three countries specifically (Myanmar, Cambodia, Laos), and overwhelmingly in non-capital provinces even within those three. Growth 2023–2025 mostly fits a catch-up pattern, with Singapore and Malaysia as open exceptions. The paper's remaining work before submission is: (1) re-run the per-country pipeline to recover the missing 2025-Q3 quarter, (2) build and run the cross-country omnibus statistical test (Kruskal-Wallis/Mann-Whitney/OLS) that Section 2.5 currently only describes as planned, (3) extend NDT7 cross-validation to additional countries if/when collaborator data arrives, and (4) investigate the Bangkok-metro NDT7-mobile-vs-Ookla-capital-advantage discrepancy directly rather than leaving it as an open question in Discussion.
+
+---
+
+## Acknowledgments
+
+*TODO — fill in once collaborator contributions (Vietnam NDT7 delivery) and any advisor/reviewer acknowledgments are finalized.*
 
 ---
 
@@ -260,6 +185,7 @@ This study's cross-country, cross-platform design surfaces several limitations w
 - Ookla. (2023). *Speedtest by Ookla Global Fixed and Mobile Network Performance Maps* [Dataset]. https://github.com/teamookla/ookla-open-data
 - International Telecommunication Union. (2024). *Measuring digital development: Facts and Figures 2024*. ITU Publications.
 - MacMillan, K., Mangla, T., Saxon, J., Marwell, N. P., & Feamster, N. (2023). *A Comparative Analysis of Ookla Speedtest and Measurement Lab's Network Diagnostic Test (NDT7)*. Proceedings of the ACM on Measurement and Analysis of Computing Systems, 7(1), Article 19. https://dl.acm.org/doi/epdf/10.1145/3579448
+- Lübben, R., & Misfeld, T. (2022). *App-requirement thresholds for network quality* — cited for HD/UHD/cloud-gaming/voice threshold values used in Section 2.3. *(Full citation to be verified before submission.)*
 - Nation Thailand. (2025a, March 1). *Thailand ranks 13th in the world for fixed broadband speed*. https://www.nationthailand.com/business/tech/40046895
 - Nation Thailand. (2025b, May 23). *Thai telecom outages expose duopoly flaws, experts call for fair competition*. https://www.nationthailand.com/business/tech/40050343
 - Electronic Transactions Development Agency (ETDA). (2024, March 18). *Leading online issues that caused annoyances among internet users in Thailand in 2022* [Graph]. Statista. https://www.statista.com/statistics/1129934/thailand-leading-online-problems-internet-users/
