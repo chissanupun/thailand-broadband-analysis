@@ -1,0 +1,35 @@
+province_en,province_th,region,area_km2,pop_2024,density_per_km2,internet_tier,gdp_per_capita_raw_2021,gdp_per_capita_usd_ppp_2021,gdp_per_capita_thb_2021
+Aceh,Aceh,Sumatra,56835.02,5626000,99,4,2423.0,7298.0,233536.0
+Bali,Bali,Lesser Sunda Islands,5582.83,4461300,799,3,3521.0,10605.0,339360.0
+Bangka Belitung,Bangka Belitung,Sumatra,16690.23,1550800,93,2,4077.0,12280.0,392960.0
+Banten,Banten,Java,9355.88,12537400,1340,2,3859.0,11623.0,371936.0
+Bengkulu,Bengkulu,Sumatra,20122.21,2138000,106,4,2736.0,8241.0,263712.0
+Central Java,Jawa Tengah,Java,34347.43,38233900,1113,4,2703.0,8141.0,260512.0
+Central Kalimantan,Kalimantan Tengah,Kalimantan,153430.36,2845000,19,1,4397.0,13243.0,423776.0
+Central Sulawesi,Sulawesi Tengah,Sulawesi,61496.98,3156100,51,1,5712.0,16907.0,541024.0
+East Java,Jawa Timur,Java,48055.88,42089300,876,2,4196.0,12638.0,404416.0
+East Kalimantan,Kalimantan Timur,Kalimantan,126951.76,4267600,34,1,12757.0,38423.0,1229536.0
+East Nusa Tenggara,Nusa Tenggara Timur,Lesser Sunda Islands,46378.11,5742600,124,4,1438.0,4331.0,138592.0
+Gorontalo,Gorontalo,Sulawesi,12024.98,1242200,103,4,2598.0,7825.0,250400.0
+Jakarta,Jakarta Raya,Java,661.53,10678000,16141,1,19199.0,57826.0,1850432.0
+Jambi,Jambi,Sumatra,49023.04,3768500,77,1,4556.0,13723.0,439136.0
+Lampung,Lampung,Sumatra,33570.76,9522900,284,3,2862.0,8620.0,275840.0
+Maluku,Maluku,Maluku Islands,46133.83,1970600,43,4,1822.0,5488.0,175616.0
+North Kalimantan,Kalimantan Utara,Kalimantan,69900.89,749400,11,1,10838.0,32643.0,1044576.0
+North Maluku,Maluku Utara,Maluku Islands,31465.98,1373800,44,3,2817.0,8485.0,271520.0
+North Sulawesi,Sulawesi Utara,Sulawesi,14488.43,2721400,188,2,3777.0,11376.0,364032.0
+North Sumatra,Sumatera Utara,Sumatra,72437.76,15785800,218,2,4023.0,12117.0,387744.0
+Papua,Papua,Western New Guinea,312830.54000000004,4600500,15,2,3776.0,11373.0,363936.0
+Riau,Riau,Sumatra,89900.78,6811200,76,1,9075.0,27334.0,874688.0
+Riau Islands,Kepulauan Riau,Sumatra,8170.38,2213500,271,1,9094.0,27390.0,876480.0
+South Kalimantan,Kalimantan Selatan,Kalimantan,37125.43,4323300,116,3,3265.0,9834.0,314688.0
+South Sulawesi,Sulawesi Selatan,Sulawesi,45323.98,9563100,211,2,4169.0,12557.0,401824.0
+South Sumatra,Sumatera Selatan,Sumatra,86771.92,8928500,103,2,4018.0,12102.0,387264.0
+Southeast Sulawesi,Sulawesi Tenggara,Sulawesi,36139.3,2836700,78,3,3655.0,11009.0,352288.0
+West Java,Jawa Barat,Java,37053.33,50759000,1370,3,3166.0,9536.0,305152.0
+West Kalimantan,Kalimantan Barat,Kalimantan,147018.06,5766000,39,3,2955.0,8900.0,284800.0
+West Nusa Tenggara,Nusa Tenggara Barat,Lesser Sunda Islands,19631.99,5731100,292,4,1817.0,5473.0,175136.0
+West Papua,Papua Barat,Western New Guinea,99411.65,1224000,12,1,5139.0,17204.0,550528.0
+West Sulawesi,Sulawesi Barat,Sulawesi,16590.67,1525300,92,4,2449.0,7376.0,236032.0
+West Sumatra,Sumatera Barat,Sumatra,42107.67,5914300,140,3,3165.0,9533.0,305056.0
+Yogyakarta,Yogyakarta,Java,3170.36,3781500,1193,4,2812.0,8470.0,271040.0
