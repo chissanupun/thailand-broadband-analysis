@@ -11,9 +11,10 @@ data/ndt7/raw/
 # Processed parquet (regenerate from notebooks)
 data/ookla/processed/
 data/ndt7/processed/
-data/ndt7/vn/*.parquet
-data/ndt7/th/*.parquet
-data/ndt7/kh/*.parquet
+
+# Clean NDT7 parquet — copied in from E:/ndt7/data, never committed (~40 GB)
+# Markdown/CSV under data/ndt7/ is still tracked.
+data/ndt7/**/*.parquet
 
 # Jupyter checkpoints
 .ipynb_checkpoints/
@@ -34,3 +35,10 @@ docs/*.log
 docs/*.toc
 docs/*.out
 docs/*.pdf
+
+# DuckDB spill
+.tmp/
+
+# GADM geometry — ฟรีสำหรับงานวิชาการ แต่ห้ามแจกต่อ (ต่างจาก geoBoundaries ที่เป็น ODbL)
+# ไฟล์นี้ copy มาจาก E:/ndt7/data/ph/ ใช้ในเครื่องได้ แต่ห้าม commit
+data/geo/gadm41_*.geojson
