@@ -164,3 +164,54 @@ Wikipedia was used during initial exploration only. For publication, all data tr
 - **Ookla** (speed measurement data — primary dataset)
 
 Wikipedia is not cited in the final paper. Use the primary government sources above.
+
+---
+
+## 9. Eight-Country Expansion — Additional Sources (2026-07-27 scope shift)
+
+Project scope moved from Thailand-primary to an equal 8-country comparison (§2.1 of
+`paper_draft.md`). Sections 1–8 above cover Thailand-specific sources only; this section
+covers the sources added for the other seven countries. All four already appear in
+`paper_draft.md`'s own References list — reproduced here so `citations.md` stays the
+single place that documents dataset provenance/license per project convention.
+
+**9a. Spatial boundaries — geoBoundaries (all 8 countries, ADM1):**
+> geoBoundaries. (2023). *geoBoundaries Global Database of Political Administrative Boundaries* [Dataset]. https://www.geoboundaries.org
+
+**Used for:** Province/state/region (ADM1) boundaries for all eight countries, WGS84/EPSG:4326.
+**License:** Open (see site for per-boundary attribution terms).
+**Known limitation:** Myanmar layer has 14 units, not the official 15 — Naypyidaw (split from
+Mandalay Region in 2005) is not delineated separately; its population/area are folded into
+Mandalay Region. Flagged in `paper_draft.md` §2.1.3 and §5 wherever it affects a result.
+
+**9b. GDP per capita — World Bank (Cambodia, Myanmar, Laos, Singapore):**
+> World Bank. (2026). *GDP per capita (current US$) and GDP per capita, PPP (current international $)* [Dataset]. World Bank Open Data. https://data.worldbank.org
+
+**Used for:** National GDP per capita, repeated across every province for the four countries
+with no official sub-national GDP series (Cambodia, Myanmar, Laos, Singapore). Any GDP
+regression term for these countries has zero within-country variance by construction — see
+`paper_draft.md` §5 (Limitations).
+
+**9c. GDP by state — Department of Statistics Malaysia (DOSM):**
+> Department of Statistics Malaysia (DOSM). (2022). *Gross Domestic Product (GDP) by State, 2021*. https://www.dosm.gov.my
+
+**Used for:** `gdp_per_capita` column for Malaysia — the one non-Thailand country with a real
+state-level GDP series (used directly, not a repeated national figure).
+
+**9d. Cambodia — National Institute of Statistics (confirms no sub-national series):**
+> National Institute of Statistics, Ministry of Planning, Cambodia. *Statistical Yearbook* [confirms no province-level GRDP series currently published]. https://www.nis.gov.kh
+
+**Used for:** Documents the absence of a Cambodian province-level GDP series — justifies why
+Cambodia falls back to the World Bank national figure (9b) rather than a real sub-national one.
+
+### 9e. Summary Table Addendum — Non-Thailand Countries
+
+| Data | Column in CSV | Primary Source | Countries |
+|------|---------------|-----------------|-----------|
+| Province/state/region boundaries | (GeoJSON, ADM1) | geoBoundaries | Indonesia, Philippines, Vietnam, Malaysia, Myanmar, Cambodia, Laos, Singapore |
+| GDP per capita (national, repeated per province) | `gdp_per_capita_*` | World Bank Open Data | Cambodia, Myanmar, Laos, Singapore |
+| GDP per capita (real state-level) | `gdp_per_capita_*` | DOSM Malaysia | Malaysia |
+| Sub-national GDP availability check | — | Cambodia NIS Statistical Yearbook | Cambodia |
+
+**Still open (per `docs/Process.md`):** VN NDT7 collaborator data source needs its own
+citation entry once confirmed; not yet documented here.

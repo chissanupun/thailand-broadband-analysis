@@ -1,6 +1,8 @@
 # Southeast Asian Broadband Analysis
 
-Province/region-level broadband performance analysis across **8 Southeast Asian countries** — Thailand, Vietnam, the Philippines, Singapore, Cambodia, Laos, Malaysia, and Myanmar — comparing **Ookla Open Data** (fixed + mobile) against **NDT7 (M-Lab)** across Q1/2023 – Q4/2025. Thailand is the primary focus (77 provinces, plus an 8-province district-level deep dive); the other 7 countries serve as regional benchmark/context, following the same pipeline unmodified.
+Province/region-level broadband performance analysis across Southeast Asia, comparing **Ookla Open Data** (fixed + mobile) against **NDT7 (M-Lab)** across Q1/2023 – Q4/2025. The paper's core comparison (`docs/paper_draft.md`) is a fully symmetric **8-country** analysis — Thailand, Vietnam, the Philippines, Singapore, Cambodia, Laos, Malaysia, and Myanmar — no country treated as the reference case, same pipeline applied unmodified to all eight. Thailand additionally has an 8-province district-level deep dive, purely because that's the only country with district-level reference data compiled, not because it's the paper's focus.
+
+**Indonesia was added as a 9th country (2026-07-30)** — Ookla + NDT7 raw data and exports exist, but it is not yet reflected in the paper's Results/Discussion (see `docs/paper_draft.md`'s 2026-07-30 data-coverage note).
 
 ---
 
@@ -8,15 +10,15 @@ Province/region-level broadband performance analysis across **8 Southeast Asian 
 
 ### Ookla Open Data
 - Fixed + mobile broadband performance tiles (Quadkey zoom 16, ~610×610m)
-- Up to 11 quarters per country: Q1/2023 – Q4/2025 (missing 2025-Q3 export, all countries alike)
+- 12 complete quarters per country: Q1/2023 – Q4/2025 (2025-Q3 gap fixed — see `docs/paper_draft.md` Contributions)
 - Metrics: Download speed, Upload speed, Latency, Test count
-- Coverage: all 8 countries, both fixed and mobile
+- Coverage: all 9 countries (8 in the paper's core comparison + Indonesia, added 2026-07-30), both fixed and mobile
 - License: CC BY-NC-SA 4.0
 - Source: [ookla-open-data](https://github.com/teamookla/ookla-open-data)
 
 ### NDT7 (M-Lab)
 - Passive background measurement (differs from Ookla which requires user-initiated tests)
-- Coverage: **Thailand and Vietnam only** (Cambodia partially collected, not yet reliable at province level; Philippines pending a collaborator delivery; Singapore/Laos/Malaysia/Myanmar not in scope)
+- Coverage: **all 9 countries** as of 2026-07-30 — the paper's original 8 (Thailand, Vietnam, Philippines, Singapore, Cambodia, Laos, Malaysia, Myanmar) are now all covered: Philippines and Malaysia were the last two to land, via a collaborator's ip-api ASN relabel (`HANDOFF.md`, 2026-07-29); Singapore's NDT7 pipeline was added 2026-07-30. Indonesia was also added 2026-07-30 as a 9th country (Ookla + NDT7 both new). **Singapore predates the ASN-relabel methodology** (no `asn` column) — its ISP/market-share sections are skipped rather than shown with unreliable name-based grouping (see `docs/paper_draft.md` Table 1).
 - Source: [M-Lab BigQuery](https://www.measurementlab.net/data/docs/bq/quickstart/)
 
 > Raw data is not included in this repo (too large) — see download instructions below.
@@ -35,10 +37,10 @@ Province/region-level broadband performance analysis across **8 Southeast Asian 
 │   └── ndt7/
 │       ├── raw/
 │       ├── processed/
-│       ├── th/ vn/ kh/        # Per-country NDT7 pipelines
+│       └── {id,kh,la,mm,my,ph,sg,th,vn}/   # Per-country clean parquet + README (9 countries)
 ├── notebooks/
-│   ├── ookla/                # Per-country EDA + analysis notebooks (all 8 countries)
-│   ├── ndt7/                 # NDT7 pipelines (th/vn/kh under ndt7/tigger/)
+│   ├── ookla/                # Per-country EDA + analysis notebooks (9 countries)
+│   ├── ndt7/main/             # Per-country prep + EDA notebook pairs (9 countries)
 │   └── comparison/           # Cross-country / cross-platform RQ notebooks (RQ1, RQ2, ...)
 ├── outputs/
 │   ├── ookla/                # Figures and maps
@@ -96,7 +98,7 @@ done
 - Slowest province: Mae Hong Son (137 Mbps) — mountainous, border region
 - Fastest province: Nonthaburi (317 Mbps)
 
-**Regional (Ookla fixed, 8-country context):**
+**Regional (Ookla fixed, 8-country context — the paper's original scope; excludes Indonesia, added 2026-07-30 and not yet analyzed):**
 - Thailand clears every app-requirement download threshold (HD/UHD/cloud-gaming) in all 77 provinces, every quarter — Myanmar is the outlier, dropping to 20.6% UHD (25 Mbps) pass rate
 - Thailand's absolute download speed stays **2nd-highest of 8 countries** (behind only Singapore) throughout 2023–2025, despite posting the 2nd-*slowest* % growth (+42%, vs. Myanmar/Cambodia/Vietnam's 126–164% catch-up growth from a much lower base)
 - Cross-platform check (Ookla vs. NDT7, Thailand + Vietnam only): the two sources broadly agree in direction — both show fixed broadband growing steadily over the 3-year period — though absolute levels differ substantially (NDT7 runs ~3x lower than Ookla, consistent with MacMillan et al. 2023's finding that NDT7 underreports relative to active-test platforms)

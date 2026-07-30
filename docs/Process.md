@@ -33,6 +33,25 @@
 
 ---
 
+### หมายเหตุ — NDT7 v2 rerun + เพิ่ม 2 ประเทศ (29-30 ก.ค.)
+
+**อัปเดตสำคัญที่ไฟล์นี้ยังไม่เคยพูดถึง:** ดูรายละเอียดเต็มที่ `HANDOFF.md` (root ของ repo)
+
+- **29 ก.ค.:** เพื่อนร่วมทีม re-query ip-api label ใหม่ทั้งหมด (ASN-based) ให้ NDT7 ครบทั้ง 8 ประเทศเดิม
+  ของเปเปอร์ — **ฟิลิปปินส์กับมาเลเซียที่บรรทัด 28 ด้านล่างบอกว่า "ไม่อยู่ใน scope/รอ collaborator"
+  ตอนนี้มีข้อมูลแล้ว** ตัวเลข cellular/broadband เปลี่ยนทุกประเทศ (สัดส่วน cellular ลดลงทุกที่, อันดับ
+  ประเทศสลับ) เพราะ methodology ใหม่แม่นกว่าเดิม ไม่ใช่แค่ข้อมูลเพิ่ม
+- **30 ก.ค.:** เพิ่ม **อินโดนีเซีย** เป็นประเทศที่ 9 (ทั้ง Ookla + NDT7) และเพิ่ม **สิงคโปร์** เข้า NDT7
+  (Ookla สิงคโปร์มีอยู่แล้วเป็น 1 ใน 8 เดิม) — สิงคโปร์ข้อมูลมาจากก่อนยุค ASN relabel เลยไม่มีคอลัมน์
+  `asn`, ส่วน ISP/market-share เลยข้ามไปตั้งใจ ไม่ใช่บั๊ก
+- **30 ก.ค.: Cross-country stat test (บรรทัด 62-65 ด้านล่าง) เสร็จแล้ว** —
+  `notebooks/comparison/rq_stats_crosscountry.ipynb` มีอยู่จริงและรันผ่านแล้ว (Kruskal-Wallis +
+  Holm-corrected Mann-Whitney + OLS พร้อม country fixed-effect) เช็คบ็อกซ์ด้านล่างยังไม่ได้แก้ตาม
+- `docs/paper_draft.md` มี data-coverage note ละเอียดกว่านี้ (2026-07-30) — Results/Discussion **ยังไม่ได้
+  รวมอินโดนีเซียหรือ NDT7 ที่ขยายใหม่** เป็นแค่ data พร้อมใช้ ไม่ใช่ผลวิเคราะห์ที่เขียนแล้ว
+
+---
+
 ###  Sprint 1: เตรียมข้อมูลและขึ้นโครงสร้าง (8 - 14 มิ.ย.)
 
 **เป้าหมาย:** ข้อมูลทั้ง Ookla และ NDT7 พร้อมวิเคราะห์ + โครงกระดูก Paper ครบ
@@ -59,10 +78,9 @@
 - [ ] Ookla vs NDT7 province/quarter agreement (ไทย+เวียดนามเท่านั้น) — coverage comparison,
       Pearson/Spearman ranking agreement, Wilcoxon signed-rank magnitude gap (ดู `paper_draft.md`
       §3.3) — **ยังไม่มี notebook ทำเรื่องนี้เลย ณ วันนี้ (26 ก.ค.)**
-- [ ] Cross-country stat tests (8 ประเทศ, Ookla): Kruskal-Wallis omnibus + Mann-Whitney pairwise
-      (ไทย vs. แต่ละประเทศ) + OLS พร้อม country fixed-effect (ดู `paper_draft.md` §3.2 ข้อ 2-4) —
-      notebook เก่า (`ookla_cross_country.ipynb`) ถูกลบไปแล้ว (คิดว่า superseded แต่จริงๆ ยังไม่มีอะไร
-      มาแทน) **เป็นช่องว่างจริง ไม่ใช่แค่ยังไม่ tick checkbox**
+- [x] Cross-country stat tests (Ookla): Kruskal-Wallis omnibus + Holm-corrected Mann-Whitney pairwise
+      + OLS พร้อม country fixed-effect — **เสร็จแล้ว 30 ก.ค.**, `notebooks/comparison/rq_stats_crosscountry.ipynb`
+      รันผ่านแล้ว (ดูหมายเหตุด้านบน) ผลลัพธ์ยังไม่ได้ port เข้า `paper_draft.md` §3/§5/§6
 - [ ] Within-country GDP/density correlation + OLS (ต่อประเทศ) — ทำแล้วบางส่วนใน
       `notebooks/ookla/*_eda.ipynb` (เช่น thailand_eda.ipynb มี `smf.ols` แล้ว) เช็คให้ครบทุกประเทศ
 - ~~[ ] ระบุจังหวัดที่มีพฤติกรรมผิดปกติ และอธิบายสาเหตุ~~ — **drop แล้ว (20 ก.ค., ดูหมายเหตุด้านบน)**
