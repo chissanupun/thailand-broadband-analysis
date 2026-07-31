@@ -15,8 +15,10 @@ RQ3 — Peak-hour / diurnal profile (กรอบ Lübben & Misfeld 2022)
   * ตัด hosting: network_type IN ('broadband','cellular')
   * ตัด throughput <= 0 (โหลดไม่สำเร็จ)
   * latency ตัด sentinel: CASE WHEN min_rtt < 2000 (NDT7 มีค่า 4,294,967 ms)
-  * ใช้ approx_quantile (t-digest, memory-safe) เพราะ id 367M / ph 262M แถว
-    ถ้า group แล้ว median แบบ exact เสี่ยง OOM · คลาดเคลื่อนเชิงพรรณนา ~1% รับได้
+  * quantile: ประเทศใหญ่ใช้ approx_quantile (t-digest, memory-safe) เพราะ id 367M / ph 262M แถว
+    ถ้า group แล้ว exact เสี่ยง OOM · median คลาด <1% รับได้
+    แต่ kh/la/mm ใช้ quantile_cont แบบ exact (ดู EXACT_Q) เพราะ p10 คลาดได้ถึง 7.94%
+    เมื่อ cell เล็ก และ p10 คือตัวเลข tail degradation ที่เปเปอร์ใช้
   * แต่ละแถว = ทิศทางเดียว -> เก็บ type (download/upload) แยกเป็นมิติ
 
 group: network_type x type x hour_local(0-23) x is_weekend  (= 192 แถว/ประเทศ)
@@ -37,6 +39,18 @@ TZ_MIN = {"th": 420, "vn": 420, "kh": 420, "la": 420,   # UTC+7
           "ph": 480, "sg": 480, "my": 480,              # UTC+8
           "mm": 390,                                     # UTC+6:30
           "id": 420}                                     # WIB (majority)
+
+# ประเทศเล็ก -> ใช้ quantile แบบ exact (parquet เล็ก ไม่เสี่ยง OOM)
+# เหตุผล: ตรวจกับ exact บนลาวแล้ว median คลาด 0.80% (รับได้) แต่ p10 คลาดถึง 7.94%
+# เพราะ t-digest ไม่แม่นที่หางเมื่อ cell เล็ก · ลาวมี 152/192 cell ที่ test < 1000 (ต่ำสุด 69)
+# p10 เป็นตัวเลขที่เปเปอร์ใช้ (tail degradation) จึงต้องแม่น -> 3 ประเทศนี้ใช้ exact
+EXACT_Q = {"kh", "la", "mm"}
+
+
+def qfunc(code):
+    """ชื่อฟังก์ชัน quantile ที่ใช้กับประเทศนั้น (signature เหมือนกัน สลับได้ตรงๆ)"""
+    return "quantile_cont" if code in EXACT_Q else "approx_quantile"
+
 
 # เมืองหลวง/เขตนครหลวง (ยืนยันจาก parquet) — โหมด --capital ทำเฉพาะ 5 ประเทศใหญ่
 # ที่เมืองหลวงมี test ต่อชั่วโมงพอ · (column, value)
@@ -61,11 +75,11 @@ SELECT
     network_type, type, hour_local, is_weekend,
     COUNT(*)                                                        AS n_tests,
     approx_count_distinct(client_ip)                               AS n_ips,
-    approx_quantile(mean_throughput_mbps, 0.5)                     AS med_mbps,
-    approx_quantile(mean_throughput_mbps, 0.25)                    AS p25_mbps,
-    approx_quantile(mean_throughput_mbps, 0.10)                    AS p10_mbps,
+    {q}(mean_throughput_mbps, 0.5)                     AS med_mbps,
+    {q}(mean_throughput_mbps, 0.25)                    AS p25_mbps,
+    {q}(mean_throughput_mbps, 0.10)                    AS p10_mbps,
     AVG(mean_throughput_mbps)                                      AS mean_mbps,
-    approx_quantile(CASE WHEN min_rtt < 2000 THEN min_rtt END, 0.5) AS med_rtt,
+    {q}(CASE WHEN min_rtt < 2000 THEN min_rtt END, 0.5) AS med_rtt,
     AVG(CASE WHEN min_rtt < 2000 THEN min_rtt END)                 AS mean_rtt,
     AVG(loss_rate)                                                 AS mean_loss
 FROM f
@@ -91,11 +105,11 @@ SELECT
     area, network_type, type, hour_local, is_weekend,
     COUNT(*)                                                        AS n_tests,
     approx_count_distinct(client_ip)                               AS n_ips,
-    approx_quantile(mean_throughput_mbps, 0.5)                     AS med_mbps,
-    approx_quantile(mean_throughput_mbps, 0.25)                    AS p25_mbps,
-    approx_quantile(mean_throughput_mbps, 0.10)                    AS p10_mbps,
+    {q}(mean_throughput_mbps, 0.5)                     AS med_mbps,
+    {q}(mean_throughput_mbps, 0.25)                    AS p25_mbps,
+    {q}(mean_throughput_mbps, 0.10)                    AS p10_mbps,
     AVG(mean_throughput_mbps)                                      AS mean_mbps,
-    approx_quantile(CASE WHEN min_rtt < 2000 THEN min_rtt END, 0.5) AS med_rtt,
+    {q}(CASE WHEN min_rtt < 2000 THEN min_rtt END, 0.5) AS med_rtt,
     AVG(CASE WHEN min_rtt < 2000 THEN min_rtt END)                 AS mean_rtt,
     AVG(loss_rate)                                                 AS mean_loss
 FROM f
@@ -118,7 +132,7 @@ def build(code):
     parq = f"{ROOT}/data/ndt7/{code}/mlab_{code}_clean.parquet".replace("\\", "/")
     out = f"{ROOT}/data/exports/ndt7_peakhour_{COUNTRIES[code]}.csv"
     con = _connect()
-    df = con.execute(SQL.format(parq=parq, off=TZ_MIN[code])).df()
+    df = con.execute(SQL.format(parq=parq, off=TZ_MIN[code], q=qfunc(code))).df()
     df.to_csv(out, index=False)
     con.close()
     # sanity: busy hour by volume (download, weekday, ทั้ง broadband+cellular)
@@ -134,7 +148,7 @@ def build_capital(code):
     out = f"{ROOT}/data/exports/ndt7_peakhour_capital_{COUNTRIES[code]}.csv"
     col, val = CAPITAL[code]
     con = _connect()
-    df = con.execute(SQL_CAPITAL.format(parq=parq, off=TZ_MIN[code],
+    df = con.execute(SQL_CAPITAL.format(parq=parq, off=TZ_MIN[code], q=qfunc(code),
                                         col=col, val=val.replace("'", "''"))).df()
     df.to_csv(out, index=False)
     con.close()

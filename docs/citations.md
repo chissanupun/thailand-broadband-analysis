@@ -136,6 +136,56 @@ s3://ookla-open-data/parquet/performance/type=fixed/year={YEAR}/quarter={Q}/{YEA
 
 **Used for:** Cross-validation methodology between Ookla and NDT7 (see `comparison-research.md`); also already the source PDF at `docs/macmillan2023_ndt7_vs_ookla.pdf`.
 
+**6e. Application-requirement thresholds + busy-hour method (RQ1 and RQ4):**
+> Lübben, R., & Misfeld, N. (2022). *Exploring the Measurement Lab Open Dataset for Internet Performance Evaluation: The German Internet Landscape*. Electronics, 11(1), 162. https://doi.org/10.3390/electronics11010162
+
+**Verified against the published paper 2026-07-30.** Earlier drafts of this project cited this work with
+the wrong author initial ("Misfeld, T.") and a placeholder title ("App-requirement thresholds for
+network quality") that does not exist. Both are corrected above.
+
+**Key content used — Table 5, "Exemplary application requirements":**
+
+| Application | Data rate | Latency |
+|---|---|---|
+| Voice | 64 kbps | 200 ms |
+| Video streaming (HD) | 5 Mbps | few seconds |
+| Video streaming (UHD) | 25 Mbps | few seconds |
+| Cloud gaming | 44 Mbps | 25 ms |
+
+All four RQ1 thresholds in `paper_draft.md` match this table exactly. We apply the voice row's latency
+criterion only, not its 64 kbps rate.
+
+**6f. Primary sources behind the thresholds** — Lübben & Misfeld's table is a compilation, so these are
+the sources that actually establish each number. Traced from their reference list, 2026-07-30.
+
+> **Voice, 200 ms** — International Telecommunication Union. (2003). *ITU-T Recommendation G.114:
+> One-Way Transmission Time*. https://www.itu.int/rec/T-REC-G.114-200305-I/en
+
+> **Cloud gaming, 44 Mbps** — Di Domenico, A., Perna, G., Trevisan, M., Vassio, L., & Giordano, D.
+> (2021). *A Network Analysis on Cloud Gaming: Stadia, GeForce Now and PSNow*. Network, 1(3), 247–260.
+> https://doi.org/10.3390/network1030015
+
+> **Cloud gaming, 25 ms** — Flinck Lindström, S., Wetterberg, M., & Carlsson, N. (2020). *Cloud Gaming:
+> A QoE Study of Fast-paced Single-player and Multiplayer Gaming*. IEEE/ACM UCC 2020, Leicester, UK,
+> pp. 34–45.
+
+> **HD 5 Mbps and UHD 25 Mbps** — Netflix Help Center, *Netflix-recommended internet speeds*.
+> https://help.netflix.com/en/node/306 — note Lübben & Misfeld assert this in prose with **no numbered
+> citation**, the only threshold in their table lacking one.
+
+⚠️ **Netflix has since revised its UHD figure.** The help page now publishes **15 Mbps** for Ultra HD,
+not the 25 Mbps in force when Lübben & Misfeld compiled Table 5 (verified by direct fetch 2026-07-30).
+This matters: at 15 Mbps every country in our study clears UHD at ≥98.5%, and the Myanmar (22.1%) and
+Indonesia (88.1%) UHD shortfalls we report at 25 Mbps disappear entirely. `paper_draft.md` §3.4 now
+carries a sensitivity table and states that UHD is a descriptive tier boundary only — **cloud gaming
+carries the RQ1 argument**, and both of its criteria rest on peer-reviewed measurement rather than
+vendor guidance.
+
+**Also used for RQ4:** their §4.2 "Busy Hours and Days" is the method our peak-hour analysis follows —
+identify busy hours from measurement volume, then test whether achievable throughput falls during them.
+Their paper is an M-Lab NDT study of Germany, i.e. the same dataset family we use, which makes it the
+closest antecedent to this study rather than merely a source of numbers.
+
 ---
 
 ## 7. Summary Table — Source vs. Use
