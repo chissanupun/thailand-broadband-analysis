@@ -42,3 +42,6 @@ docs/*.pdf
 # GADM geometry — ฟรีสำหรับงานวิชาการ แต่ห้ามแจกต่อ (ต่างจาก geoBoundaries ที่เป็น ODbL)
 # ไฟล์นี้ copy มาจาก E:/ndt7/data/ph/ ใช้ในเครื่องได้ แต่ห้าม commit
 data/geo/gadm41_*.geojson
+
+# Generated slide decks (rebuild: python scripts/build_slides*.py)
+slides/

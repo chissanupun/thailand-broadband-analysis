@@ -1,12 +1,14 @@
 """Generate HTML slide deck covering all 8 Ookla country EDAs + cross-country comparison.
-Modeled on outputs/build_slides.py (same dark deck engine); reference kept as-is for Thailand-only Thai deck.
+Modeled on scripts/build_slides.py (same dark deck engine); reference kept as-is for Thailand-only Thai deck.
 """
 import base64, pathlib
 
-OUTDIR = pathlib.Path(__file__).parent / 'ookla'
-NDT7_OUTDIR = pathlib.Path(__file__).parent / 'ndt7'
-COMPARISON_OUTDIR = pathlib.Path(__file__).parent.parent / 'notebook_outputs' / 'comparison'
-OUT_HTML = pathlib.Path(__file__).parent / 'slides_all_countries.html'
+ROOT = pathlib.Path(__file__).parent.parent
+OUTDIR = ROOT / 'outputs' / 'ookla'
+NDT7_OUTDIR = ROOT / 'outputs' / 'ndt7'
+COMPARISON_OUTDIR = ROOT / 'notebook_outputs' / 'comparison'
+OUT_HTML = ROOT / 'slides' / 'slides_all_countries.html'
+OUT_HTML.parent.mkdir(parents=True, exist_ok=True)
 
 
 def img_b64(rel_path, base=OUTDIR):

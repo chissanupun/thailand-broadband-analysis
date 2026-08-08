@@ -1,8 +1,10 @@
 """Generate HTML slide deck from Ookla EDA outputs."""
 import base64, pathlib
 
-OUTDIR = pathlib.Path(__file__).parent / 'ookla'
-OUT_HTML = pathlib.Path(__file__).parent / 'slides.html'
+ROOT = pathlib.Path(__file__).parent.parent
+OUTDIR = ROOT / 'outputs' / 'ookla'
+OUT_HTML = ROOT / 'slides' / 'slides.html'
+OUT_HTML.parent.mkdir(parents=True, exist_ok=True)
 
 def img_b64(name):
     p = OUTDIR / name
