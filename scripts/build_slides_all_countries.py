@@ -1,5 +1,8 @@
 """Generate HTML slide deck covering all 8 Ookla country EDAs + cross-country comparison.
-Modeled on scripts/build_slides.py (same dark deck engine); reference kept as-is for Thailand-only Thai deck.
+
+Dark deck engine originally shared with build_slides.py (Thailand-only Thai deck),
+removed 2026-08-08 — its numbered inputs stopped existing after the NDT7 refactor,
+and a Thailand-only deck conflicts with the paper's equal-scope rule.
 """
 import base64, pathlib
 
