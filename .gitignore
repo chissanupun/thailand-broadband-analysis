@@ -45,3 +45,6 @@ data/geo/gadm41_*.geojson
 
 # Generated slide decks (rebuild: python scripts/build_slides*.py)
 slides/
+
+# Generated review documents (rebuild with pandoc, see docs/results_for_advisor_th.md)
+docs/*.docx

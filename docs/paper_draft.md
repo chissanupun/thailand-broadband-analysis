@@ -1,17 +1,21 @@
-# Is Southeast Asian Broadband Good or Bad? A Nine-Country Assessment of Thresholds, Growth, and Market Structure
+# Is Southeast Asian Broadband Good or Bad? An Eight-Country Assessment of Thresholds, Growth, and Market Structure
 
 *Working draft for AINTEC '26. Structure and voice follow Rauf et al., "Ten Years of Event-Driven BGP Evolution in India and Bangladesh" (AINTEC '25) — see `docs/writing-style-refs/`. Section skeleton mirrors the ACM sigconf manuscript at `docs/paper.tex`, which is still a stub; content is drafted here first and ported once stable. `docs/Process.md` tracks sprint-level tasks.*
 
 *Research-question numbering (settled 2026-07-30). **RQ3 = peak-hour/diurnal**, **RQ4 = ISP market structure** — both complete. An intermediate revision had these reversed, on the assumption that peak-hour would not be delivered; it since was, and the numbering reverted to the original plan, which also matches the analysis filenames (`rq3_peakhour.ipynb`, `rq4_isp.ipynb`). The ordering is deliberate: RQ2 measures change across years, RQ3 change within the day, and RQ4 closes on market structure, the paper's most novel claim.*
 
 
-*Number provenance: every figure in Sections 4–7 was re-verified on 2026-07-30 against the current exports and notebook outputs, after the 2025-Q3 pipeline recovery and the addition of Indonesia as a ninth country. Numbers in earlier revisions of this draft predate both and should not be reused. Two open items are flagged inline: the Lübben & Misfeld citation (Section 3.4) and the Vietnam NDT7 reference-data join (Section 7.3).*
+*Number provenance: every figure in Sections 4–7 was re-verified on 2026-07-30 against the current exports and notebook outputs, after the 2025-Q3 pipeline recovery and the addition of Indonesia. Numbers in earlier revisions of this draft predate both and should not be reused. Two open items are flagged inline: the Lübben & Misfeld citation (Section 3.4) and the Vietnam NDT7 reference-data join (Section 7.3).*
+
+***Revision 2026-08-13 — Singapore removed, and cloud-gaming latency restricted to Ookla.** The study now covers **eight** countries. Singapore is excluded for three converging reasons: it is the only country whose NDT7 tests reach an in-country server (`sin01`), while every other country reaches that same server cross-border, so its latency advantage is partly an artefact of server placement rather than access quality; its NDT7 delivery predates the ASN relabelling and carries no `asn` column, so it was already absent from RQ4; and it is the extreme point on both GDP and throughput, such that the NDT7 model's explanatory power was largely carried by it alone (Section 8). Pooled statistics were **re-run, not edited** — see `docs/sg-cut-numbers-delta.md`. Separately, cloud-gaming latency is now sourced from Ookla only; Section 3.3 gives the physical argument.*
+
+*⚠️ **Counting trap for anyone editing this draft.** RQ4 covered eight countries *before* the cut, because Singapore was already excluded from it. After the cut RQ4 still covers eight — that is now every country, not eight of nine. Do not decrement it to seven.*
 
 ## Abstract
 
 *Submission version, 188 words — inside acmart's 150–200 range with headroom. Self-contained: no section cross-references, no figure or table references, safe to paste into a submission form. Every number is verified against the current exports (2026-07-30). The longer exploratory abstract from earlier revisions is superseded.*
 
-National broadband rankings are read as summaries of user experience. In Southeast Asia they contradict it: Ookla ranked Thai fixed broadband 13th worldwide in early 2025, while consumer-advocacy surveys and regulator records document persistent dissatisfaction. We test this tension across nine Southeast Asian countries over Q1 2023–Q4 2025, using province-aggregated Ookla Open Data and 760 million per-test M-Lab NDT7 records, judged against application-requirement thresholds rather than throughput alone. By those thresholds the region looks adequate: HD video is universally met and six of nine capitals pass everything. But a national average conceals three things at once. *Where*: failures fall almost entirely outside capital provinces. *When*: at the busy hour — evening in eight of nine countries — mobile throughput falls to between 0.23 and 0.73 of its overnight level, and the slowest tenth of sessions falls as low as 0.12, while fixed broadband degrades far less. *Whose*: in six of eight countries the highest-volume broadband operator is not the fastest major and in three it is the slowest, so test-weighted averages track a market's busiest networks rather than its best. Each axis is invisible in the statistic policy cites; together they account for the dissatisfaction rankings cannot.
+National broadband rankings are read as summaries of user experience. In Southeast Asia they contradict it: Ookla ranked Thai fixed broadband 12th worldwide as of August 2026, while consumer-advocacy surveys and regulator records document persistent dissatisfaction. We test this tension across eight Southeast Asian countries over Q1 2023–Q4 2025, using province-aggregated Ookla Open Data and 760 million per-test M-Lab NDT7 records, judged against application-requirement thresholds rather than throughput alone. By those thresholds the region looks adequate: HD video is universally met and five of eight capitals pass everything. But a national average conceals three things at once. *Where*: failures fall almost entirely outside capital provinces. *When*: at the busy hour — evening in seven of eight countries — mobile throughput falls to between 0.23 and 0.56 of its overnight level, and the slowest tenth of sessions falls as low as 0.12, while fixed broadband degrades far less. *Whose*: in six of eight countries the highest-volume broadband operator is not the fastest major and in three it is the slowest, so test-weighted averages track a market's busiest networks rather than its best. Each axis is invisible in the statistic policy cites; together they account for the dissatisfaction rankings cannot.
 
 **CCS Concepts:** • Networks → Network measurement; Public Internet • Social and professional topics → Regulation.
 
@@ -31,12 +35,14 @@ reading is an empirical question, and in Southeast Asia the answer appears to be
 
 The clearest documented case is Thailand, which serves as a motivating example rather than a subject of
 deeper analysis — every country here receives identical treatment throughout. Ookla's Speedtest Global
-Index placed Thai fixed broadband 13th worldwide in early 2025 at 237.05 Mbps, roughly double the global
-figure, while placing Thai mobile 39th (Nation Thailand, 2025a; the index is revised monthly, so this is
-a snapshot rather than a standing position). The gap between those two ranks is itself informative: the
+Index placed Thai fixed broadband 12th worldwide at 290.47 Mbps as of August 2026, while placing Thai
+mobile 35th at 137.04 Mbps (Ookla, 2026; the index is revised monthly, so this is a snapshot rather than
+a standing position). Both ranks have risen since early 2025, when the same index reported 13th at
+237.05 Mbps on fixed and 39th at 101.56 Mbps on mobile (Nation Thailand, 2025a) — the ordering is
+moving upward on both technologies rather than fluctuating. The gap between those two ranks is itself informative: the
 answer already depends on access technology. Against that, a 2023 Foundation for Consumers survey of
 2,924 respondents found **over 81% had encountered usage problems in the preceding six months**, mostly
-slow speeds and dropped connections. The two figures are not strictly commensurable — a 2025 platform
+slow speeds and dropped connections. The two figures are not strictly commensurable — a 2026 platform
 ranking against a 2023 self-selected survey — and we do not treat their juxtaposition as a measurement.
 What it establishes is weaker but sufficient: a high ranking and widespread dissatisfaction can coexist,
 so the ranking is not by itself a description of what users experience. Explaining how both can be true
@@ -71,7 +77,7 @@ the most traffic the one performing best?
 
 Our contributions are:
 
-1. **A symmetric nine-country comparison on one pipeline**, with no country treated as the reference
+1. **A symmetric eight-country comparison on one pipeline**, with no country treated as the reference
    case, so cross-country differences reflect measured variation rather than differing methodology.
 
 2. **A decomposition of the ranking-versus-sentiment gap into three independent margins** — *where* a
@@ -82,7 +88,7 @@ Our contributions are:
 
 3. **A screening test for demand-driven congestion.** Peak-hour degradation is only evidence of
    congestion if throughput falls *and* latency rises during a genuinely human busy hour; applying all
-   three conditions qualifies 13 of 18 country-segments and excludes one country whose diurnal profile
+   three conditions qualifies 13 of 16 country-segments and excludes one country whose diurnal profile
    is systematic but not demand-driven.
 
 4. **A reliability threshold reported honestly, including where it does not bind.** We apply an explicit
@@ -103,9 +109,9 @@ A substantial literature measures broadband performance at national scale, and a
 
 **Application-requirement thresholds, and the closest antecedent to this study.** Absolute speed figures are difficult to interpret without a reference point, and percentile comparisons against other countries simply relocate the problem. Lübben and Misfeld ground assessment in what applications actually require, tabulating throughput and latency floors for voice, HD video, UHD video, and cloud gaming (their Table 5). This converts "is 60 Mbps good?" into "does 60 Mbps support the applications people use?", which is answerable, and we adopt their table as our RQ1 standard.
 
-Their paper is more than a source of numbers for us: it is a study of the German Internet built on the same M-Lab NDT dataset we use, and it supplies the method for our RQ3 as well. Their Section 4.2 identifies *busy hours and days* from measurement volume and then asks whether achievable throughput falls during them — precisely the design we apply in Section 7, including their diagnostic for distinguishing automated test traffic from human usage. This paper can therefore be read as extending their single-country, single-source analysis in three directions: to nine countries rather than one, to a second measurement platform (Ookla) whose disagreement with NDT7 we can then quantify, and to sub-national geography and ISP market structure, neither of which their national-level treatment addresses.
+Their paper is more than a source of numbers for us: it is a study of the German Internet built on the same M-Lab NDT dataset we use, and it supplies the method for our RQ3 as well. Their Section 4.2 identifies *busy hours and days* from measurement volume and then asks whether achievable throughput falls during them — precisely the design we apply in Section 7, including their diagnostic for distinguishing automated test traffic from human usage. This paper can therefore be read as extending their single-country, single-source analysis in three directions: to eight countries rather than one, to a second measurement platform (Ookla) whose disagreement with NDT7 we can then quantify, and to sub-national geography and ISP market structure, neither of which their national-level treatment addresses.
 
-**Sub-national divides.** Work on the digital divide has consistently found that national aggregates conceal internal variation, and that infrastructure investment tends to follow a capital-first pattern. This motivates our capital-versus-periphery decomposition in Section 4.2, but it also sets up a prediction that our data does not always confirm — Myanmar's and Singapore's capitals do not lead their countries, for different reasons.
+**Sub-national divides.** Work on the digital divide has consistently found that national aggregates conceal internal variation, and that infrastructure investment tends to follow a capital-first pattern. This motivates our capital-versus-periphery decomposition in Section 4.2, but it also sets up a prediction that our data does not always confirm — Myanmar's capital does not lead its country.
 
 **Market concentration.** Concentration is well studied in telecommunications economics, usually with price or investment as the outcome variable. It is less often connected to measured technical performance, and to our knowledge it has not been used to explain divergence between national broadband averages and user sentiment. Our RQ4 makes that connection: if a market's dominant operator is also a slower operator, then a test-weighted national average describes the market's better networks rather than its busiest ones. Ookla's own aggregates are test-weighted, so this bias is built into the statistic that policy cites.
 
@@ -119,14 +125,14 @@ Our work builds on these strands and extends them to a regional, structurally-or
 
 **Ookla Open Data** supplies quarterly fixed and mobile performance tiles (Quadkey zoom 16, ~610×610 m),
 each carrying mean download, upload, latency, and its underlying Speedtest submission count — twelve
-complete quarters, Q1 2023–Q4 2025, all nine countries, both products, CC BY-NC-SA 4.0. An earlier
+complete quarters, Q1 2023–Q4 2025, all eight countries, both products, CC BY-NC-SA 4.0. An earlier
 build of our pipeline dropped 2025-Q3 from every processed export although the quarter was present in
 Ookla's raw source; the rebuild recovered it, and every figure here postdates that fix.
 
 **M-Lab NDT7** supplies per-test records over the same range, retaining the timestamps and ISP
 attribution that Ookla's tile aggregates discard — what makes RQ3 and RQ4 possible at all. NDT7 does
 not distinguish fixed from mobile natively; network type is assigned by joining client IP against
-ip-api's `mobile` flag, resolved per IP block. All nine countries were re-queried inside a single
+ip-api's `mobile` flag, resolved per IP block. All countries were re-queried inside a single
 11.49-hour window so the labels form one consistent snapshot, replacing an earlier labelling spread
 across twelve days, which is not a defensible basis for cross-country comparison. Section 9.1 bounds
 what this supports.
@@ -137,9 +143,8 @@ Bank national figures where they do not — Cambodia's National Institute of Sta
 province-level GRDP, so one national value repeats across its provinces (Section 9.1). Boundaries are
 geoBoundaries ADM1, except Thailand's national 77-province layer. Three boundary artefacts affect
 specific results: geoBoundaries folds Naypyidaw into Mandalay Region, so Myanmar has no separate capital
-province and we substitute Yangon; GADM 4.1 reflects 2022 boundaries, giving Indonesia 34 provinces
-rather than today's 38; and Singapore has no capital province, so Central Region serves as a
-central-business-district proxy.
+province and we substitute Yangon; and GADM 4.1 reflects 2022 boundaries, giving Indonesia 34 provinces
+rather than today's 38.
 
 **Table 1 — Data volume and coverage. Ookla figures are summed Speedtest submissions; NDT7 rows are
 per-test records before filtering; reliable p-q is province-quarters passing the Section 3.2 gate.**
@@ -151,16 +156,14 @@ per-test records before filtering; reliable p-q is province-quarters passing the
 | Vietnam | 63–64 | 25.9M | 3.5M | 24.7M | 698 | ✓ |
 | Thailand | 77 | 20.8M | 10.5M | 60.2M | 872 | ✓ |
 | Malaysia | 16 | 15.7M | 11.8M | 6.6M | 165 | ✓ |
-| Singapore | 5 regions | 4.5M | 0.9M | 36.1M | 52 | ✗ no `asn` |
 | Cambodia | 22–25 | 2.4M | 0.5M | 0.77M | 33 | ✓ |
 | Myanmar | 14 | 1.75M | 0.25M | 2.12M | 76 | ✓ |
 | Laos | 14–18 | 0.37M | 0.50M | 0.14M | 37 | ✓ |
 
 NDT7 sample sizes are very uneven — Cambodia and Laos rest on 33 and 37 reliable province-quarters
-against Thailand's 872 — which qualifies every NDT7 result reported later. Singapore's delivery predates
-the ASN relabelling and has no `asn` column; rather than group its ISPs by name we exclude it from RQ4
-wherever an RQ4 result appears. Province ranges reflect provinces with zero NDT7 volume being absent
-from the NDT7 side only.
+against Thailand's 872 — which qualifies every NDT7 result reported later. Every country in this table
+carries an ASN column, so **RQ4 covers all eight**. Province ranges reflect provinces with zero NDT7
+volume being absent from the NDT7 side only.
 
 ### 3.2 Aggregation and filtering
 
@@ -174,7 +177,7 @@ twelve decimal places on Malaysia).
 Latency needs one asymmetric step. NDT7 carries sentinel round-trip values of 4,294,967 ms (2³²/1000)
 that the cleaning stage missed because it filtered only negative values; twenty-one such rows inflate
 Vientiane's mean latency from 116 to 539 ms. We discard `min_rtt ≥ 2000 ms` rather than clamping to it,
-uniformly across all nine countries. **Ookla has no equivalent outlier step**, so the sources are not
+uniformly across all eight countries. **Ookla has no equivalent outlier step**, so the sources are not
 perfectly symmetric here, which we note rather than conceal.
 
 Every province-quarter is gated on measurement sufficiency before any statistic is computed:
@@ -184,8 +187,8 @@ one tile and `n_tiles` counts MaxMind cities per province rather than spatial sp
 rows at 33 distinct coordinates and a national maximum `n_tiles` of 3, making a `≥5` gate unsatisfiable
 in principle rather than for want of data. Applying the Ookla gate unchanged would zero out Laos and
 Cambodia entirely and cut Thailand from 1,225 reliable province-quarters to 564. We also report what
-such studies usually leave unstated: **on the Ookla side the gate excludes nothing** — 3,222
-province-quarters enter and 3,222 pass, on both fixed and mobile. It is a real constraint on NDT7 and a
+such studies usually leave unstated: **on the Ookla side the gate excludes nothing** — 3,162
+province-quarters enter and 3,162 pass, on both fixed and mobile. It is a real constraint on NDT7 and a
 formality on Ookla, and we claim it only where it binds.
 
 ### 3.3 Analysis methods
@@ -225,6 +228,19 @@ Misfeld's German results and treat UHD as a descriptive tier boundary. **Cloud g
 instead** — both criteria are peer-reviewed, it is the only threshold combining a throughput floor with
 a latency ceiling, and Section 4 shows it is the only one that discriminates among these countries.
 
+**Cloud-gaming latency is measured on Ookla only.** The 25 ms ceiling cannot be evaluated on NDT7 for
+most of these countries, because their NDT7 tests do not terminate in-country. Thailand's tests reach
+`sin01` in Singapore 52.9% of the time with no `bkk01` server in its top ten; Malaysia (68.0%) and
+Cambodia (66.2%) also reach Singapore, Laos (58.3%) and Vietnam (47.4%) reach Hong Kong, and Myanmar
+reaches Chennai (62.2% across servers). The speed-of-light round trip to Singapore alone is roughly
+20 ms, so a 25 ms threshold measured this way records distance to a foreign server rather than domestic
+access quality. Ookla selects servers by proximity and is not subject to this, so **every cloud-gaming
+figure in this paper is Ookla-sourced**; no reported number changes as a result, only its justification.
+The Philippines is the one country whose NDT7 tests are predominantly domestic (`mnl01`+`mnl02` = 94.6%),
+which makes it a useful control. Section 6 retains NDT7 because it reports busy-hour/quiet-hour
+*ratios* along a fixed path, where the constant propagation term cancels; absolute RTT there should not
+be read as domestic latency. Server shares are computed in `notebooks/ndt7/mlab_server.ipynb`.
+
 **Growth (RQ2)** is the percentage change in a country's median province download from 2023-Q1 to
 2025-Q4, using the median across provinces rather than a test-weighted mean so growth is not dominated
 by the capital, which would confound RQ2 with RQ1's geographic question. **Peak hour (RQ3)** is defined
@@ -260,7 +276,6 @@ decompose it geographically and by access technology, which is where it breaks.
 | Country | HD | UHD | Cloud gaming | Voice | Tests |
 |---|---|---|---|---|---|
 | Vietnam | 100.0 | 100.0 | 100.0 | 100.0 | 25.9M |
-| Singapore | 100.0 | 100.0 | 100.0 | 100.0 | 4.5M |
 | Thailand | 100.0 | 100.0 | 99.5 | 100.0 | 20.8M |
 | Malaysia | 100.0 | 100.0 | 97.6 | 100.0 | 15.7M |
 | Philippines | 100.0 | 100.0 | 92.6 | 100.0 | 48.8M |
@@ -271,10 +286,16 @@ decompose it geographically and by access technology, which is where it breaks.
 
 **HD video is not a constraint anywhere** — every province-quarter in every country clears 5 Mbps — and
 **voice latency is effectively universal**, failing only marginally in Myanmar. Cloud gaming is the
-discriminating threshold, pooling to 74.6% across the region, and it fails to reach 100% in **seven of
-nine countries**.
+discriminating threshold, pooling to 75.5% across the region, and it fails to reach 100% in **seven of
+eight countries** — only Vietnam clears it entirely.
 
-The failures form a gradient rather than a tier. Five countries sit at or near ceiling (100% down to
+> *Editorial note, to resolve before submission: earlier revisions reported this pooled figure as 74.6%,
+> which is the **unweighted** mean over province-quarters and is inconsistent with this table's
+> test-weighted caption. The test-weighted value is 76.1% over nine countries and **75.5% over eight**;
+> the unweighted equivalents are 74.6% and 74.1%. We report the test-weighted figure for consistency
+> with every other percentage in the paper.*
+
+The failures form a gradient rather than a tier. Four countries sit at or near ceiling (100% down to
 Philippines at 92.6%), Cambodia and Laos form a middle band near 64%, Indonesia at 35.6% is a distinct
 step below, and Myanmar at 0.0% stands alone — no Myanmar province-quarter in three years met 44 Mbps
 and 25 ms simultaneously. UHD reproduces this ordering but does not establish it: as Section 3.3 sets
@@ -306,23 +327,18 @@ country, fixed broadband. UHD is 100% in every capital except Yangon (3.2%).**
 | Cambodia | Phnom Penh | 66.8 | 60.5 | 45.3 | +15.2 |
 | Laos | Vientiane | 77.6 | 54.4 | 43.0 | +11.4 |
 | Myanmar | Yangon | 0.0 | 24.2 | 24.6 | **−0.4** |
-| Singapore | Central Region | 100.0 | 320.5 | 366.1 | **−45.6** |
 
-**Six of nine capitals clear every threshold at 100%.** Indonesia is the sharpest transition: a country
+**Five of eight capitals clear every threshold at 100%.** Indonesia is the sharpest transition: a country
 failing cloud gaming at 35.6% nationally passes at 100% in Jakarta. Laos and Cambodia improve on their
 national figures without reaching full coverage. Only Myanmar fails in its capital, and it inverts the
 expected pattern — Yangon's 3.2% UHD rate is *worse* than Myanmar's national 22.1%.
 
-Seven of nine show the expected urban premium, from +11.4 Mbps in Laos to +62.2 in the Philippines. The
-two exceptions are informative rather than anomalous. **Myanmar is flat**: Yangon tracks the national
-median, so investment has not produced the capital-first concentration seen everywhere else.
-**Singapore is negative**: its central-business-district proxy sits below every other planning region,
-which is what one expects of a fully urban city-state whose newer residential fibre builds outperform
-the commercial core. The "capital is best-connected" assumption requires a periphery to be true, and
-Singapore has none.
+Seven of eight show the expected urban premium, from +11.4 Mbps in Laos to +62.2 in the Philippines.
+**Myanmar is the sole exception, and it is informative rather than anomalous**: Yangon tracks the
+national median, so investment has not produced the capital-first concentration seen everywhere else.
 
 Sections 4.1 and 4.2 together establish that threshold failures, where they exist, are overwhelmingly
-peripheral. Note what this does *not* explain. Only Vietnam and Singapore clear every threshold
+peripheral. Note what this does *not* explain. Only Vietnam clears every threshold
 nationally, but Thailand and Malaysia miss by 0.5 and 2.4 percentage points, and Thailand's capital
 passes everything — shortfalls far too small to account for the dissatisfaction that motivated this
 study. Geography leaves a residual, which is what RQ3 and RQ4 take up.
@@ -335,16 +351,21 @@ Mobile is the access technology most users touch most often, and it behaves very
 
 | Country | UHD | Cloud gaming | Fixed CG | Gap (pp) | | Country | UHD | Cloud gaming | Fixed CG | Gap (pp) |
 |---|---|---|---|---|---|---|---|---|---|---|
-| Thailand | 100.0 | 21.6 | 99.5 | **77.9** | | Singapore | 100.0 | 48.8 | 100.0 | 51.2 |
-| Vietnam | 100.0 | 27.9 | 100.0 | 72.1 | | Philippines | 99.6 | 43.2 | 92.6 | 49.4 |
-| Malaysia | 100.0 | 33.5 | 97.6 | 64.1 | | Indonesia | 90.5 | 13.9 | 35.6 | 21.7 |
-| Laos | 98.6 | 1.4 | 64.2 | 62.8 | | Myanmar | 68.8 | 0.0 | 0.0 | 0.0 |
+| Thailand | 100.0 | 21.6 | 99.5 | **77.9** | | Philippines | 99.6 | 43.2 | 92.6 | 49.4 |
+| Vietnam | 100.0 | 27.9 | 100.0 | 72.1 | | Indonesia | 90.5 | 13.9 | 35.6 | 21.7 |
+| Malaysia | 100.0 | 33.5 | 97.6 | 64.1 | | Myanmar | 68.8 | 0.0 | 0.0 | 0.0 |
+| Laos | 98.6 | 1.4 | 64.2 | 62.8 | | | | | | |
 | Cambodia | 87.7 | 10.5 | 64.9 | 54.4 | | | | | | |
 
-**Mobile cloud gaming fails everywhere** — the region's best is Singapore at 48.8%, and Thailand reaches
-only 21.6% despite a 99.5% fixed rate. The fixed–mobile gap exceeds 50 points in seven of nine
+**Mobile cloud gaming fails everywhere** — the region's best is the Philippines at 43.2%, and Thailand
+reaches only 21.6% despite a 99.5% fixed rate. The fixed–mobile gap exceeds 50 points in five of eight
 countries. Since cloud gaming is the only threshold pairing a throughput floor with a latency ceiling,
-and mobile UHD passes at 100% in five countries, the binding constraint is latency.
+and mobile UHD passes at 100% in three countries, the binding constraint is latency.
+
+> *Editorial note: earlier revisions stated "seven of nine" for the >50-point gap and "five countries"
+> for mobile UHD at 100%. Both were miscounts independent of the Singapore cut — Table 5 shows six of
+> nine above 50 points (Philippines at 49.4 falls short) and four of nine at exactly 100% UHD. The
+> eight-country figures above are counted directly from the table.*
 
 Two countries invert the ordering: Myanmar's mobile UHD (68.8%) far exceeds its fixed rate (22.1%), and
 Indonesia's is modestly above. Where fixed infrastructure is weakest mobile is not a substitute but the
@@ -352,7 +373,7 @@ better network, with direct implications for investment priority.
 
 The capital-level mobile picture disrupts the geography of Section 4.2. Only the Philippines and
 Malaysia reach 100% mobile cloud gaming in their capitals; Indonesia manages 58.9%, Thailand 51.3%,
-Vietnam 38.1%, Cambodia 25.6%, Laos 7.4%, and **Singapore's Central Region reaches 0.0%**. Capital
+Vietnam 38.1%, Cambodia 25.6%, and Laos 7.4%. Capital
 status confers a large fixed-line advantage and very little mobile advantage — dense urban cores tax
 cellular capacity in a way they do not tax fibre, which Section 6.4 takes up directly.
 
@@ -368,14 +389,11 @@ cellular capacity in a way they do not tax fibre, which Section 6.4 takes up dir
 | Cambodia | 25.3 | 61.7 | +144.1% | | Malaysia | 124.6 | 223.6 | +79.5% |
 | Vietnam | 92.4 | 209.2 | +126.4% | | Thailand | 207.1 | 294.0 | +42.0% |
 | Indonesia | 24.2 | 53.8 | +122.7% | | Philippines | 96.4 | 119.1 | +23.6% |
-| Singapore | 282.0 | 553.8 | +96.4% | | | | | |
 
-**Every country grew and no segment declined.** Seven of nine fit a catch-up pattern: the four
-fastest-growing all start from a base of 20–92 Mbps, and the two slowest start high. Two do not fit,
-and we flag rather than resolve them. Singapore starts above every other country at 282.0 Mbps and
-still grows 96.4%, faster than five countries with far lower bases, so a high base does not
-mechanically cap growth. Malaysia is the sharper case: at 124.6 Mbps it starts below Thailand's
-207.1 Mbps yet grows nearly twice as fast, inverting the catch-up ordering for that pair. Both are
+**Every country grew and no segment declined.** Seven of eight fit a catch-up pattern: the four
+fastest-growing all start from a base of 20–92 Mbps, and the two slowest start high. One does not fit,
+and we flag rather than resolve it. Malaysia at 124.6 Mbps starts below Thailand's
+207.1 Mbps yet grows nearly twice as fast, inverting the catch-up ordering for that pair. This is
 plausibly investment-cycle timing rather than diminishing returns, which Section 8's regression is
 where to test. Mobile growth is faster throughout and reorders the table (Vietnam +209.1% to Myanmar
 +13.8%), with Myanmar the reversal — fastest fixed growth in the region, slowest mobile.
@@ -386,7 +404,7 @@ distribution, 294.0 against 119.1 Mbps. **The result that matters for this paper
 country's quality fell over three years, so a trend argument cannot account for dissatisfaction
 anywhere in the region, and one candidate explanation is closed off before Sections 6 and 7 take up the
 others. Within countries the same catch-up appears — peripheral regions outgrow capital regions in
-most of the nine — but Section 4.2 showed the absolute gaps remain large, so convergence is real,
+most of the eight — but Section 4.2 showed the absolute gaps remain large, so convergence is real,
 incomplete, and slow enough that today's peripheral failures will persist for years.
 
 NDT7 corroborates the direction but not the magnitude, agreeing that every country grew and on the
@@ -397,7 +415,7 @@ middle ordering. Its per-country samples are very uneven (Table 1), so we read i
 
 ## 6 RQ3: Peak-Hour Congestion
 
-Sections 4 and 5 measure quality as if it were a property of a place. It is also a property of a time. A province-quarter average pools every hour of every day, so a network that is comfortable at 04:00 and saturated at 20:00 appears in Table 2 as its mean — adequate, and describing no hour anyone actually uses. This section asks whether that averaging conceals a systematic within-day pattern, following the busy-hour framework of Lübben and Misfeld (Section 2), whose German analysis this extends to nine countries.
+Sections 4 and 5 measure quality as if it were a property of a place. It is also a property of a time. A province-quarter average pools every hour of every day, so a network that is comfortable at 04:00 and saturated at 20:00 appears in Table 2 as its mean — adequate, and describing no hour anyone actually uses. This section asks whether that averaging conceals a systematic within-day pattern, following the busy-hour framework of Lübben and Misfeld (Section 2), whose German analysis this extends to eight countries.
 
 We work from the per-test NDT7 records, which retain timestamps that the Ookla tile aggregates do not. Each test is converted to local time using a per-country offset, restricted to weekdays, and grouped by hour. Degradation is the ratio of throughput in a fixed evening busy window (19:00–22:00) to a fixed overnight quiet window (03:00–05:00); a ratio below 1 means the network is slower when more people use it. We report the ratio of hourly medians weighted by test count, which is a summary of the busy window rather than the median of the pooled window.
 
@@ -405,7 +423,7 @@ We work from the per-test NDT7 records, which retain timestamps that the Ookla t
 
 A diurnal pattern is evidence of demand-driven congestion only if the demand is human, and measurement
 platforms attract automated and repeat testing, so we screen before interpreting. On mobile the busiest
-hour falls in the evening (20:00–22:00 local) in **eight of nine countries**, the exception being
+hour falls in the evening (20:00–22:00 local) in **seven of eight countries**, the exception being
 Vietnam at 10:00, and between 30% and 41% of each country's tests fall in the six evening hours against
 the 25% a flat distribution would give. Tests per unique IP per hour sit between 1.4 and 6.3 with
 peak-to-median ratios of 1.15–1.51, so no hour shows a small set of addresses generating
@@ -414,16 +432,17 @@ disproportionate volume — the signature of scripted testing.
 We then require three conditions jointly: an evening busy hour, throughput that falls, **and latency
 that rises**. The third does the real work, because falling throughput alone is explicable by a changing
 mix of users or operators across the day, whereas throughput falling *while* latency rises is queueing
-at a bottleneck, which a compositional shift does not produce. **Thirteen of eighteen country-segments
-satisfy all three.**
+at a bottleneck, which a compositional shift does not produce. **Thirteen of sixteen country-segments
+satisfy all three.** The count of qualifying segments is unchanged from the nine-country framing:
+Singapore contributed two segments and both had already failed the screen.
 
-The five that do not are excluded below and are informative in themselves. **Vietnam** fails on both
+The three that do not are excluded below and are informative in themselves. **Vietnam** fails on both
 segments: a 10:00–11:00 busy hour, the region's lowest evening concentration (22.9% of broadband tests),
-and broadband latency that *falls* under load (0.58) — whatever drives its diurnal profile is not
-consumer demand, and we do not interpret it. **Cambodia's** broadband peaks at midday though its mobile
-segment behaves normally. **Singapore** fails in the opposite direction: broadband *faster* in the
-evening (1.25) with latency falling (0.83), i.e. no congestion at all, which for a fully-fibred
-city-state is a plausible result rather than a defect.
+and broadband latency that *falls* under load (0.58). Section 3.3 supplies the likely mechanism: 47.4%
+of Vietnam's NDT7 tests terminate in Hong Kong and a further 20.7% in Singapore, so the diurnal profile
+being measured is that of international transit rather than Vietnamese consumer demand. We therefore
+treat it as a measurement artefact and do not interpret it as congestion. **Cambodia's** broadband peaks
+at midday though its mobile segment behaves normally.
 
 ### 6.2 Mobile networks degrade severely; fixed networks much less
 
@@ -439,11 +458,12 @@ city-state is a plausible result rather than a defect.
 | Malaysia | 0.420 | 0.190 | 0.673 | 0.397 | 1.12× |
 | Vietnam† | 0.469 | 0.307 | 0.617† | 0.279† | 1.10× |
 | Thailand | 0.556 | 0.543 | 0.893 | 0.544 | 1.09× |
-| Singapore† | 0.729† | 0.346† | 1.253† | 0.514† | 0.99× |
 
-The asymmetry between access technologies is the clearest result in this section. **Mobile throughput at the busy hour falls to between 0.23 and 0.73 of its overnight level; fixed broadband falls only to between 0.46 and 1.25.** In Cambodia a mobile connection delivers less than a quarter of its overnight throughput during the evening; in Myanmar and the Philippines, under a third. Every country degrades more on mobile than on fixed.
+The asymmetry between access technologies is the clearest result in this section. **Mobile throughput at the busy hour falls to between 0.23 and 0.56 of its overnight level; fixed broadband falls only to between 0.46 and 0.89.** In Cambodia a mobile connection delivers less than a quarter of its overnight throughput during the evening; in Myanmar and the Philippines, under a third. Every country degrades more on mobile than on fixed.
 
-Latency corroborates this independently of throughput. Median round-trip time rises at the busy hour in eight of nine countries on mobile and six of nine on fixed, with the Philippines showing the largest fixed-line increase at 43%. Two measurements that would not move together under a compositional explanation move together here.
+Latency corroborates this independently of throughput. Round-trip time rises at the busy hour in **all eight countries** on mobile and seven of eight on fixed, the sole fixed-line exception being Vietnam (0.55), whose profile Section 6.1 attributes to international transit rather than domestic demand. The Philippines shows the largest fixed-line increase at 43%, and is also the one country whose NDT7 tests are predominantly in-country (94.6%, Section 3.3), so its rise is the least likely in the set to reflect anything other than domestic congestion. The mobile count is unanimous partly because Singapore, the single exception (0.99×) under the nine-country framing, is no longer in the set.
+
+> *Editorial note: recomputed on the eight-country data using the same test-weighted median-RTT method as the rest of Section 6 (busy 19–22h vs overnight 03–05h, weekday). Fixed-line ratios are Philippines 1.433, Myanmar 1.098, Indonesia 1.088, Laos 1.070, Cambodia 1.051, Thailand 1.021, Malaysia 1.015, Vietnam 0.584. Earlier revisions reported "six of nine" on fixed; under this method the nine-country count is seven (Singapore and Vietnam being the two that fall), so that figure appears to have been off by one independently of the Singapore cut.* The Philippines is also the one country whose NDT7 tests are predominantly in-country (94.6%, Section 3.3), so its rise is the least likely in the set to reflect anything other than domestic congestion. Two measurements that would not move together under a compositional explanation move together here.
 
 This finding also reframes Section 4.3, which reported that mobile cloud gaming fails almost everywhere while mobile UHD largely passes. That was measured on pooled data. The pooled figure understates the evening case: the same mobile networks that clear a 25 Mbps throughput bar on average are delivering a third or less of their capacity precisely when demand peaks.
 
@@ -457,7 +477,7 @@ This bears directly on the question in Section 1. A province-quarter average can
 
 ### 6.4 Capital cities degrade more, not less
 
-Section 4.2 found that capital provinces clear application thresholds at higher rates than peripheries — six of nine capitals pass everything. Restricting the peak-hour analysis to the five countries with sufficient capital-level volume inverts that picture.
+Section 4.2 found that capital provinces clear application thresholds at higher rates than peripheries — five of eight capitals pass everything. Restricting the peak-hour analysis to the five countries with sufficient capital-level volume inverts that picture.
 
 **Table 8 — Peak-hour degradation, capital versus rest of country, weekday download.**
 
@@ -493,8 +513,7 @@ to be uniform across operators, which we cannot verify and have reason to doubt:
 compresses users behind addresses at operator-specific rates, and dissatisfied customers plausibly test
 more often than satisfied ones — a bias running *against* our conclusion, since it would inflate a slow
 incumbent's apparent share. We therefore frame everything in terms of measured traffic and the networks
-carrying it. All results cover **eight countries; Singapore is excluded** for lack of ASN attribution
-(Section 3.3).
+carrying it. All results cover **all eight countries** in the study.
 
 ### 7.1 Market concentration
 
@@ -585,14 +604,13 @@ province-level average can show, because both operators serve the same provinces
 operator choice are separate axes, and only the first is visible in province aggregates.
 
 Vietnam is where every indicator lines up: the dominant operator is also the fastest, the operator gap
-is the region's narrowest, and it is one of only two countries clearing every threshold nationally.
+is the region's narrowest, and it is the only country clearing every threshold nationally.
 That is exactly what the mechanism predicts — where the leader performs well and operators differ
 little, a test-weighted average is a fair summary and measured quality should not diverge from
 sentiment. Laos also has a leader that is its fastest operator but a mid-range 1.69× gap, so leader
-quality and market uniformity are separable properties rather than one underlying factor. The other
-country clearing every threshold, Singapore, cannot be tested this way at all — it is the one country
-without ASN attribution, so whether its market is uniform is unknown, and that gap is the most useful
-target for future work.
+quality and market uniformity are separable properties rather than one underlying factor. Vietnam being
+the single case where all three indicators align is a weaker basis than two would be, and we mark it as
+a pattern consistent with the mechanism rather than a test of it.
 
 ---
 
@@ -604,11 +622,11 @@ on an independent platform.
 
 ### 8.1 Omnibus and pairwise tests
 
-Kruskal-Wallis on province-quarter download across the nine Ookla country groups rejects equal
-distributions (H = 2810.07, p < 10⁻¹⁵, n = 3222), and Holm-corrected pairwise Mann-Whitney tests find
-**35 of 36 country pairs differ significantly**. The sole exception is **Cambodia–Laos** (p = 0.82),
+Kruskal-Wallis on province-quarter download across the eight Ookla country groups rejects equal
+distributions (H = 2738.48, p < 10⁻¹⁵, n = 3162), and Holm-corrected pairwise Mann-Whitney tests find
+**27 of 28 country pairs differ significantly**. The sole exception is **Cambodia–Laos** (p = 0.82),
 which Tables 3 and 6 anticipate: near-identical pass rates, near-identical growth, adjacent levels.
-NDT7 reproduces the structure independently (H = 1605.25, n = 2539), again 35 of 36, again with
+NDT7 reproduces the structure independently (H = 1525.89, n = 2487), again 27 of 28, again with
 Cambodia–Laos the only exception (p = 0.19). Two platforms with different methodologies, different
 sampling, and a known 12–56% magnitude offset agree on which single pair in the region is
 indistinguishable.
@@ -617,23 +635,36 @@ indistinguishable.
 
 Each province contributes twelve province-quarter rows, so the tests above treat repeated measurements
 of the same province as independent, inflating effective sample size roughly twelvefold; the OLS
-Durbin-Watson of 0.613 confirms substantial positive autocorrelation. Collapsing to one row per province
-reduces n from 3222 to 270, and Kruskal-Wallis remains decisive (H = 248.83, p = 3.1 × 10⁻⁴⁹) with
-**35 of 36 pairs still significant and none lost**. Re-estimating with standard errors clustered by
-province inflates them by 0.83–2.68× (log-GDP 1.30 → 3.42; Singapore's fixed effect 6.30 → 13.74) while
-**every coefficient retains its sign and significance**. The conclusions are robust to
+Durbin-Watson of 0.683 confirms substantial positive autocorrelation. Collapsing to one row per province
+reduces n from 3162 to 265, and Kruskal-Wallis remains decisive with
+**27 of 28 pairs still significant and none lost**. Re-estimating with standard errors clustered by
+province inflates them by 0.88–2.79× (log-GDP 1.22 → 3.41; log-density 0.56 → 1.10) while
+**every coefficient retains its sign and significance**.
+
+> *⚠️ To re-run before submission: only the **collapsed-to-one-row-per-province** check (its H statistic
+> and p-value) is still outstanding — it was computed under the nine-country model, so its H statistic is
+> deliberately omitted here rather than carried over stale, and n = 265 is adjusted arithmetically
+> (Singapore contributed 5 provinces). The clustered and unclustered standard errors and the
+> 0.88–2.79× inflation range above are all from the eight-country re-run.* The conclusions are robust to
 pseudo-replication; only the precision of the p-values was overstated. We report clustered standard
 errors throughout and avoid quoting p-values below 10⁻¹⁵.
 
 ### 8.3 Regression and cross-source ranking agreement
 
 Modelling province download on log GDP per capita, log density, and country fixed effects gives
-R² = 0.870 on Ookla (n = 3222). Both covariates are positive and significant: **+15.51 Mbps per log-unit
-of GDP per capita** (SE 3.42) and **+4.93 per log-unit of density** (SE 1.10). Country effects relative
-to Cambodia are Singapore +275.3, Thailand +188.9, Malaysia +106.6, Vietnam +83.8, Philippines +55.0,
-Laos +2.9 (n.s.), Myanmar −9.8, Indonesia −18.8. NDT7 gives the same qualitative picture independently
-(n = 2539, R² = 0.653): log GDP +14.22, log density +3.39, Singapore +126.6, Malaysia +56.2, Thailand
-+46.5, Philippines +28.9, Vietnam +19.4, Laos +2.4 (n.s.), Myanmar −4.6 (n.s.), Indonesia −12.4.
+R² = 0.869 on Ookla (n = 3162). Both covariates are positive and significant: **+15.47 Mbps per log-unit
+of GDP per capita** (SE 3.41) and **+4.98 per log-unit of density** (SE 1.10). Country effects relative
+to Cambodia are Thailand +188.9, Malaysia +106.6, Vietnam +83.7, Philippines +55.0,
+Laos +3.0 (n.s.), Myanmar −9.8, Indonesia −18.8. NDT7 gives the same qualitative picture independently
+(n = 2487, R² = 0.568): log GDP +14.27, log density +3.32, Malaysia +56.2, Thailand
++46.4, Philippines +28.9, Vietnam +19.4, Laos +2.3 (n.s.), Myanmar −4.6 (n.s.), Indonesia −12.5.
+
+**The NDT7 fit is materially weaker without Singapore, and this is a result rather than a defect.**
+R² falls from 0.653 to 0.568 when Singapore is dropped, while the Ookla fit is essentially unchanged
+(0.870 → 0.869). Singapore was the extreme observation on both GDP per capita and throughput, so a
+large share of the GDP-throughput association previously visible in NDT7 was carried by that one
+country; the Ookla relationship never depended on it. This asymmetry is a third, independent argument
+for the exclusion, alongside the server-placement artefact and the missing ASN attribution.
 
 That GDP and density remain significant *after* absorbing country fixed effects means within-country
 economic geography predicts broadband quality independently of national context. The coefficient is
@@ -668,10 +699,10 @@ than obviously broken.
 **A national average conceals three different things, and they act on different margins.** Our reading
 of the ranking-versus-sentiment gap requires all three findings, not any one of them.
 
-*Where.* Threshold failures concentrate in peripheral provinces, and six of nine capitals clear every
-threshold (Section 4.2). Real but incomplete: only two countries fail to clear every threshold
-nationally, and dissatisfaction is reported where the measured shortfall is a fraction of a percentage
-point. Geography cannot carry that alone.
+*Where.* Threshold failures concentrate in peripheral provinces, and five of eight capitals clear every
+threshold (Section 4.2). Real but incomplete: Thailand and Malaysia miss clearing every threshold
+nationally by fractions of a percentage point, yet dissatisfaction is reported there all the same.
+Geography cannot carry that alone.
 
 *When.* The same networks that clear thresholds on pooled data lose most of their capacity in the
 evening (Section 6). Mobile throughput falls to between 0.23 and 0.73 of its overnight level, latency
@@ -695,7 +726,7 @@ under-invest in the other two.
 
 **Three narrower findings follow.** Latency rather than bandwidth is the binding constraint on demanding
 applications: mobile cloud gaming — the only threshold pairing a throughput floor with a latency ceiling
-— fails everywhere, peaking at 48.8% in Singapore, so further investment in headline download speed will
+— fails everywhere, peaking at 43.2% in the Philippines, so further investment in headline download speed will
 not move it. Where fixed infrastructure is weakest, mobile is the better network: Myanmar's mobile UHD
 pass rate (68.8%) far exceeds its fixed rate (22.1%), inverting the usual investment ordering. And
 convergence is real but slow — peripheral regions outgrow cores in most countries while absolute gaps
@@ -726,7 +757,7 @@ since it would inflate a slow incumbent's apparent share — the direction that 
 result. We therefore claim only what test-weighting supports. Converting it to a per-subscriber claim
 needs operator subscriber counts, unavailable for most of these markets.
 
-**GDP identification is degenerate for four countries.** Singapore, Cambodia, Myanmar, and Laos publish
+**GDP identification is degenerate for three countries.** Cambodia, Myanmar, and Laos publish
 no sub-national GDP series, so the regression's GDP coefficient is identified off the other five
 (Section 8.3).
 
@@ -734,11 +765,15 @@ no sub-national GDP series, so the regression's GDP coefficient is identified of
 province-quarters against Thailand's 872 (Table 1), and Vietnam's coverage decays from roughly 48% of
 provinces in 2023-Q1 to 11% by 2025-Q4, so its later comparisons rest on a shrinking, non-random subset.
 
-**Two structural gaps.** geoBoundaries folds Naypyidaw into Mandalay Region, so Myanmar's capital
-analysis substitutes Yangon for the actual seat of government. And Singapore is absent from RQ4 entirely
-for want of ASN attribution (Section 3.3) — the most consequential omission, since the mechanism in
-Section 7.3 predicts that a market with a well-performing incumbent should show little
-ranking-sentiment divergence, and Singapore is exactly that test case.
+**One structural gap.** geoBoundaries folds Naypyidaw into Mandalay Region, so Myanmar's capital
+analysis substitutes Yangon for the actual seat of government.
+
+**NDT7 measures paths, not access networks, outside the Philippines.** Only Philippine tests
+predominantly terminate in-country; every other country's reach servers in Singapore, Hong Kong, or
+Chennai (Section 3.3). This is why cloud-gaming latency is Ookla-sourced and why Section 6 reports
+busy/quiet ratios rather than absolute RTT. It also bounds Section 6 more generally: the ratios are
+defensible because the propagation term is common to both windows, but any reading of NDT7 latency as
+a domestic access measurement would not be.
 
 ### 9.2 Future work
 
@@ -751,23 +786,23 @@ server or client population, or a genuinely different usage profile. Distinguish
 per-server and per-ASN decomposition of the Vietnamese sample, which the current aggregation does not
 support.
 
-Three further extensions follow directly. Restoring Singapore to RQ4 would require ASN attribution for its NDT7 data and would test Section 7.3's mechanism on the region's strongest market. A dedicated study of Myanmar's rollout history would address the two anomalies it produces here — a capital that does not lead, and the region's least concentrated market coinciding with its worst performance. Finally, the methodology transfers to any region with tile-level Ookla coverage and per-test NDT7 data, and the market-structure result in particular is worth testing where incumbent dominance and measured performance can be jointly observed.
+Three further extensions follow directly. Extending the study to markets served by in-country NDT7 infrastructure would let peak-hour latency be read absolutely rather than only as a ratio, and would restore the cases this paper has to exclude. A dedicated study of Myanmar's rollout history would address the two anomalies it produces here — a capital that does not lead, and the region's least concentrated market coinciding with its worst performance. Finally, the methodology transfers to any region with tile-level Ookla coverage and per-test NDT7 data, and the market-structure result in particular is worth testing where incumbent dominance and measured performance can be jointly observed.
 
 ---
 
 ## 10 Conclusion
 
-Across nine Southeast Asian countries measured on one consistent pipeline, fixed broadband clears
+Across eight Southeast Asian countries measured on one consistent pipeline, fixed broadband clears
 baseline video thresholds almost everywhere. The region's real failures are concentrated in
-cloud-gaming-grade requirements — met fully only by Vietnam and Singapore, and missed substantially by
+cloud-gaming-grade requirements — met fully only by Vietnam, and missed substantially by
 Cambodia, Laos, Indonesia, and Myanmar — and they fall overwhelmingly outside capital cities. Growth
 over 2023–2025 was universal, so no country's quality declined and a trend argument cannot account for
 dissatisfaction anywhere in the region.
 
 Explaining why high national rankings coexist with widespread complaint requires three findings
-together, not one. Failures are geographically concentrated in peripheries, yet six of nine capitals
+together, not one. Failures are geographically concentrated in peripheries, yet five of eight capitals
 clear every threshold and complaints persist there too. Measured quality is strongly time-dependent:
-mobile throughput at the evening busy hour falls to between 0.23 and 0.73 of its overnight level, the
+mobile throughput at the evening busy hour falls to between 0.23 and 0.56 of its overnight level, the
 slowest tenth of sessions falls as far as 0.12, and latency rises alongside — a pattern averaging
 erases entirely. And in six of eight countries the operator carrying the most traffic is not the fastest
 major, so a test-weighted average describes a market's busiest networks rather than its best.
@@ -801,7 +836,8 @@ to explain.
 - Di Domenico, A., Perna, G., Trevisan, M., Vassio, L., & Giordano, D. (2021). *A Network Analysis on Cloud Gaming: Stadia, GeForce Now and PSNow*. Network, 1(3), 247–260. https://doi.org/10.3390/network1030015 — primary source for the 44 Mbps cloud-gaming throughput requirement.
 - Flinck Lindström, S., Wetterberg, M., & Carlsson, N. (2020). *Cloud Gaming: A QoE Study of Fast-paced Single-player and Multiplayer Gaming*. In Proceedings of the 2020 IEEE/ACM 13th International Conference on Utility and Cloud Computing (UCC), Leicester, UK, 7–10 December 2020, pp. 34–45. — primary source for the 25 ms cloud-gaming latency threshold.
 - Netflix. *Netflix-recommended internet speeds* [Help Center]. https://help.netflix.com/en/node/306 — original source of the 5 Mbps HD and (at the time of Lübben & Misfeld's compilation) 25 Mbps UHD figures; now published as 15 Mbps for Ultra HD. See Section 3.4 and Table 2.
-- Nation Thailand. (2025a, March 1). *Thailand ranks 13th in the world for fixed broadband speed*. https://www.nationthailand.com/business/tech/40046895
+- Ookla. (2026). *Speedtest Global Index*. https://www.speedtest.net/global-index — accessed 2 August 2026; source of the 12th / 290.47 Mbps fixed and 35th / 137.04 Mbps mobile figures in Section 1. The index is revised monthly and reports a rolling snapshot; the capture does not record which month's data the table reflects.
+- Nation Thailand. (2025a, March 1). *Thailand ranks 13th in the world for fixed broadband speed*. https://www.nationthailand.com/business/tech/40046895 — earlier snapshot of the same index, retained to show the direction of movement.
 - Nation Thailand. (2025b, May 23). *Thai telecom outages expose duopoly flaws, experts call for fair competition*. https://www.nationthailand.com/business/tech/40050343
 - Foundation for Consumers (มูลนิธิเพื่อผู้บริโภค). (2023). *Consumer impact survey following the True–dtac merger* (n = 2,924). Reported in Thai PBS, https://www.thaipbs.or.th/news/content/334937, and Thailand Consumers Council, https://www.tcc.or.th/true-dtac-merger-consumer/ — source of the 81% figure in Section 1. Self-selected respondents; not a representative national sample.
 - geoBoundaries. (2023). *geoBoundaries Global Database of Political Administrative Boundaries* [Dataset]. https://www.geoboundaries.org
@@ -827,7 +863,9 @@ to explain.
 | Port this draft into `docs/paper.tex` (title, authors, abstract, sections, bibliography) | Camera-ready | `paper.tex` still a skeleton |
 | Update `docs/citations.md` with non-Thai sources | Full paper | Not started |
 | Update `docs/Process.md` — still has RQ4/RQ3 in the old order | Nothing | Not started |
-| Add ASN attribution for Singapore NDT7 | §6 completeness | Blocked on data |
+| ~~Add ASN attribution for Singapore NDT7~~ | — | **Moot — Singapore removed from the study 2026-08-13** |
+| Re-run the collapsed-one-row-per-province robustness check on 8 countries | §8.2 | Stale H statistic removed, not yet recomputed |
+| Regenerate remaining 9-country figures if any are reused | Figures | Figs 1–4 regenerated; 5–6 never contained Singapore |
 | ~~Integrate RQ3 peak-hour into the body~~ | — | **Done — Section 6 written; Discussion rebuilt around three mechanisms** |
 | **Rename `rq3_peakhour.ipynb` → `rq3_peakhour.ipynb`** and relabel its `rq3_*` exports/figures | Consistency | Collaborator used the pre-swap numbering |
 
