@@ -11,7 +11,7 @@ import matplotlib.pyplot as plt
 from pathlib import Path
 
 EXPORTS = Path(__file__).resolve().parent.parent / 'data' / 'exports'
-OUT = Path(__file__).resolve().parent.parent / 'outputs' / 'ookla' / 'cross_country_8c'
+OUT = Path(__file__).resolve().parent.parent / 'outputs' / 'ookla' / 'cross_country'
 OUT.mkdir(parents=True, exist_ok=True)
 
 FILES = {

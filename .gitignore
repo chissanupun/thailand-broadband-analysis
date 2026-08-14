@@ -48,3 +48,10 @@ slides/
 
 # Generated review documents (rebuild with pandoc, see docs/results_for_advisor_th.md)
 docs/*.docx
+
+# LibreOffice lock files
+.~lock.*#
+
+# Agent tooling
+.agents/
+skills-lock.json
