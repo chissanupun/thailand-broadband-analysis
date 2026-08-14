@@ -52,13 +52,18 @@ def qfunc(code):
     return "quantile_cont" if code in EXACT_Q else "approx_quantile"
 
 
-# เมืองหลวง/เขตนครหลวง (ยืนยันจาก parquet) — โหมด --capital ทำเฉพาะ 5 ประเทศใหญ่
-# ที่เมืองหลวงมี test ต่อชั่วโมงพอ · (column, value)
+# เมืองหลวง/เขตนครหลวง (ยืนยันจาก parquet) — โหมด --capital ครบ 8 ประเทศ (ไม่รวม sg
+# ซึ่งไม่มี periphery ให้เทียบ, ดู README) · (column, value)
+# kh/la/mm เพิ่ม 08-14 แก้ equal-scope violation — เดิมเข้าใจผิดว่าข้อมูลไม่พอ
+# ที่จริง PhnomPenh 77.3%, Vientiane[prefecture] 72.0%, Yangon 46.3% ของ test ในประเทศ (data-thick)
 CAPITAL = {"th": ("province", "Bangkok Metropolis"),
            "vn": ("province", "HàNội"),
            "id": ("province", "JakartaRaya"),
            "my": ("province", "KualaLumpur"),
-           "ph": ("region", "NCR")}
+           "ph": ("region", "NCR"),
+           "kh": ("province", "PhnomPenh"),
+           "la": ("province", "Vientiane[prefecture]"),
+           "mm": ("province", "Yangon")}
 
 SQL = """
 WITH f AS (

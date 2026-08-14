@@ -1,4 +1,4 @@
-"""สร้างรูปเพิ่มสำหรับ RQ1 กับ RQ2 — 8 ประเทศ ตัดสิงคโปร์ รวมอินโดนีเซีย
+"""สร้างรูปเพิ่มสำหรับ RQ1 กับ RQ2 — 9 ประเทศ (สิงคโปร์กลับมาแล้ว 14 ส.ค.)
 
 ต่อจาก build_cross_country_figs_8c.py ซึ่งสร้างรูปที่ 1 กับ 2 ของ results_th.md
 ตัวนี้เติมรูปที่ยังขาด อ่านจาก data/exports จริงทั้งหมด ไม่ hardcode ตัวเลข
@@ -10,9 +10,12 @@
   07_growth_trajectory.png      เส้นการเติบโตรายไตรมาส 2023-Q1 ถึง 2025-Q4 (RQ2)
   08_growth_vs_base.png         โตเร็วแค่ไหน เทียบกับฐานที่เริ่ม (RQ2)
   09_capital_vs_top5.png        เมืองหลวงเทียบ 5 จังหวัดที่เร็วสุด (RQ1)
+  04_top5_provinces_per_country.png  ค่าย 5 จังหวัดเร็วสุดรายประเทศ (RQ1)
 
-หมายเหตุ capital_top5_comparison.csv ใน data/exports ใช้ไม่ได้ — เป็นไฟล์ยุค 9 ประเทศ
-มีสิงคโปร์และไม่มีอินโดนีเซีย รูปที่ 09 จึงคำนวณใหม่จาก province_quarterly โดยตรง
+08-14: ตอน 8c ตัวนี้ไม่รวมสิงคโปร์ — landmine ที่ revert ตอน 08-14 (คืน SG กลับ paper_draft.md)
+ไม่ได้ตามมาแก้ตรงนี้ เพราะรันจาก data/exports ไม่ได้อยู่ใน git diff ของ revert commit
+ตอนนี้เติมสิงคโปร์กลับเข้า FIXED/MOBILE/CAPITALS แล้ว ใช้ Central Region เป็นตัวแทนเมืองหลวง
+ตามที่ paper_draft.md ใช้ (สิงคโปร์ไม่มีจังหวัดเมืองหลวงจริง)
 """
 import pandas as pd
 import matplotlib
@@ -34,6 +37,7 @@ FIXED = {
     'Malaysia':    'ookla_malaysia_province_quarterly.csv',
     'Myanmar':     'ookla_myanmar_province_quarterly.csv',
     'Indonesia':   'ookla_indonesia_province_quarterly.csv',
+    'Singapore':   'ookla_singapore_province_quarterly.csv',
 }
 
 MOBILE = {
@@ -45,6 +49,7 @@ MOBILE = {
     'Malaysia':    'ookla_mobile_malaysia_province_quarterly.csv',
     'Myanmar':     'ookla_mobile_myanmar_province_quarterly.csv',
     'Indonesia':   'ookla_mobile_indonesia_province_quarterly.csv',
+    'Singapore':   'ookla_mobile_singapore_province_quarterly.csv',
 }
 
 CAPITALS = {
@@ -56,6 +61,7 @@ CAPITALS = {
     'Malaysia':    'Kuala Lumpur',
     'Myanmar':     'Yangon',
     'Indonesia':   'Jakarta',
+    'Singapore':   'Central Region',
 }
 
 BLUE, ORANGE, GREY = '#0072B2', '#D55E00', '#999999'
@@ -89,7 +95,7 @@ bars = ax.bar(mb_sorted.index, mb_sorted.values, color=ORANGE)
 for b, v in zip(bars, mb_sorted.values):
     ax.text(b.get_x() + b.get_width() / 2, v + 1, f'{v:.0f}', ha='center', fontsize=9)
 ax.set_ylabel('Mean download (Mbps), test-weighted')
-ax.set_title('Mobile mean download by country — 8 countries, Q1 2023–Q4 2025',
+ax.set_title('Mobile mean download by country — 9 countries, Q1 2023–Q4 2025',
              fontsize=12, fontweight='bold')
 ax.set_ylim(0, mb_sorted.max() * 1.15)
 ax.spines[['top', 'right']].set_visible(False)
@@ -112,7 +118,7 @@ for i, c in enumerate(order):
 ax.set_xticks(list(x))
 ax.set_xticklabels(order, rotation=30, ha='right')
 ax.set_ylabel('Mean download (Mbps), test-weighted')
-ax.set_title('Fixed vs mobile mean download — 8 countries (label = fixed/mobile ratio)',
+ax.set_title('Fixed vs mobile mean download — 9 countries (label = fixed/mobile ratio)',
              fontsize=12, fontweight='bold')
 ax.spines[['top', 'right']].set_visible(False)
 ax.legend()
@@ -144,7 +150,7 @@ for i, c in enumerate(order):
                label='National mean (test-weighted)' if i == 0 else None)
 ax.set_yscale('log')
 ax.set_ylabel('Province mean download (Mbps), log scale')
-ax.set_title('Within-country spread of provincial fixed download — 8 countries',
+ax.set_title('Within-country spread of provincial fixed download — 9 countries',
              fontsize=12, fontweight='bold')
 ax.spines[['top', 'right']].set_visible(False)
 ax.legend()
@@ -205,7 +211,7 @@ for c, r in g.iterrows():
                 textcoords='offset points', fontsize=9)
 ax.set_xlabel(f'Median provincial download at {first} (Mbps)')
 ax.set_ylabel(f'Growth to {last} (%)')
-ax.set_title('Catch-up: starting level vs growth — 8 countries',
+ax.set_title('Catch-up: starting level vs growth — 9 countries',
              fontsize=12, fontweight='bold')
 ax.spines[['top', 'right']].set_visible(False)
 ax.grid(alpha=0.25)
@@ -244,7 +250,7 @@ ax.set_xticklabels(order, rotation=30, ha='right')
 ax.set_yscale('log')
 ax.set_ylim(top=ax.get_ylim()[1] * 1.6)
 ax.set_ylabel('Province mean download (Mbps), log scale')
-ax.set_title('Capital vs the five fastest provinces — 8 countries (label = capital rank)',
+ax.set_title('Capital vs the five fastest provinces — 9 countries (label = capital rank)',
              fontsize=12, fontweight='bold')
 ax.spines[['top', 'right']].set_visible(False)
 ax.legend(loc='lower left', fontsize=8)
@@ -273,9 +279,9 @@ for c in order:
 # ซึ่งเป็นไฟล์ยุค 9 ประเทศ ตัวนี้อ่านจาก province_quarterly โดยตรง
 # แท่งลายทางคือจังหวัดที่ถือทราฟฟิกน้อยกว่า THIN ของประเทศ อันดับเชื่อไม่ได้
 PALETTE = ['#E63946', '#F4A261', '#2A9D8F', '#457B9D', '#E9C46A',
-           '#6D6875', '#8D99AE', '#B5838D']
+           '#6D6875', '#8D99AE', '#B5838D', '#4A5759']
 
-fig, axes = plt.subplots(2, 4, figsize=(19, 8.5))
+fig, axes = plt.subplots(3, 3, figsize=(15, 12.5))
 for ax, (i, c) in zip(axes.ravel(), enumerate(order)):
     v = prov[prov['country'] == c].sort_values('mean_dl', ascending=False).head(5)
     y = range(len(v))[::-1]
@@ -292,7 +298,7 @@ for ax, (i, c) in zip(axes.ravel(), enumerate(order)):
     ax.set_title(c, fontsize=12, fontweight='bold')
     ax.set_xlabel('Mbps', fontsize=9)
     ax.spines[['top', 'right']].set_visible(False)
-fig.suptitle('Top 5 Fastest Provinces/Regions per Country — Fixed Broadband (8 countries)\n'
+fig.suptitle('Top 5 Fastest Provinces/Regions per Country — Fixed Broadband (9 countries)\n'
              f'hatched = province carries <{THIN:.0%} of national tests; its rank is not reliable',
              fontsize=13, fontweight='bold')
 plt.tight_layout(rect=[0, 0, 1, 0.94])

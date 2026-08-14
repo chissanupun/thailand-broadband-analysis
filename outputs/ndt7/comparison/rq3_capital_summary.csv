@@ -19,3 +19,15 @@ Malaysia,capital,broadband,40.5,0.581
 Malaysia,capital,cellular,9.6,0.428
 Malaysia,rest,broadband,43.0,0.774
 Malaysia,rest,cellular,8.5,0.404
+Cambodia,capital,broadband,15.8,0.77
+Cambodia,capital,cellular,7.6,0.277
+Cambodia,rest,broadband,14.1,1.219
+Cambodia,rest,cellular,3.3,0.144
+Laos,capital,broadband,18.8,0.63
+Laos,capital,cellular,5.8,0.351
+Laos,rest,broadband,11.3,0.921
+Laos,rest,cellular,5.8,0.251
+Myanmar,capital,broadband,8.7,0.611
+Myanmar,capital,cellular,7.0,0.283
+Myanmar,rest,broadband,9.3,0.568
+Myanmar,rest,cellular,4.5,0.222

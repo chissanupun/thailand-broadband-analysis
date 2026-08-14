@@ -284,7 +284,7 @@ decompose it geographically and by access technology, which is where it breaks.
 
 **HD video is not a constraint anywhere** — every province-quarter in every country clears 5 Mbps — and
 **voice latency is effectively universal**, failing only marginally in Myanmar. Cloud gaming is the
-discriminating threshold, pooling to 74.6% across the region, and it fails to reach 100% in **seven of
+discriminating threshold, pooling to 76.1% across the region, and it fails to reach 100% in **seven of
 nine countries**.
 
 The failures form a gradient rather than a tier. Five countries sit at or near ceiling (100% down to
@@ -355,9 +355,9 @@ Mobile is the access technology most users touch most often, and it behaves very
 | Cambodia | 87.7 | 10.5 | 64.9 | 54.4 | | | | | | |
 
 **Mobile cloud gaming fails everywhere** — the region's best is Singapore at 48.8%, and Thailand reaches
-only 21.6% despite a 99.5% fixed rate. The fixed–mobile gap exceeds 50 points in seven of nine
+only 21.6% despite a 99.5% fixed rate. The fixed–mobile gap exceeds 50 points in six of nine
 countries. Since cloud gaming is the only threshold pairing a throughput floor with a latency ceiling,
-and mobile UHD passes at 100% in five countries, the binding constraint is latency.
+and mobile UHD passes at 100% in four of nine countries, the binding constraint is latency.
 
 Two countries invert the ordering: Myanmar's mobile UHD (68.8%) far exceeds its fixed rate (22.1%), and
 Indonesia's is modestly above. Where fixed infrastructure is weakest mobile is not a substitute but the
@@ -456,7 +456,7 @@ city-state is a plausible result rather than a defect.
 
 The asymmetry between access technologies is the clearest result in this section. **Mobile throughput at the busy hour falls to between 0.23 and 0.73 of its overnight level; fixed broadband falls only to between 0.46 and 1.25.** In Cambodia a mobile connection delivers less than a quarter of its overnight throughput during the evening; in Myanmar and the Philippines, under a third. Every country degrades more on mobile than on fixed.
 
-Latency corroborates this independently of throughput. Median round-trip time rises at the busy hour in eight of nine countries on mobile and six of nine on fixed, with the Philippines showing the largest fixed-line increase at 43%. Two measurements that would not move together under a compositional explanation move together here.
+Latency corroborates this independently of throughput. Median round-trip time rises at the busy hour in eight of nine countries on mobile and seven of nine on fixed, with the Philippines showing the largest fixed-line increase at 43%. Two measurements that would not move together under a compositional explanation move together here.
 
 This finding also reframes Section 4.3, which reported that mobile cloud gaming fails almost everywhere while mobile UHD largely passes. That was measured on pooled data. The pooled figure understates the evening case: the same mobile networks that clear a 25 Mbps throughput bar on average are delivering a third or less of their capacity precisely when demand peaks.
 
