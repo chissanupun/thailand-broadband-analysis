@@ -22,7 +22,8 @@ import duckdb
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 COUNTRIES = {"kh": "cambodia", "la": "laos", "mm": "myanmar", "my": "malaysia",
-             "th": "thailand", "vn": "vietnam", "ph": "philippines", "id": "indonesia"}
+             "th": "thailand", "vn": "vietnam", "ph": "philippines", "id": "indonesia",
+             "sg": "singapore"}
 
 SQL = """
 WITH f AS (
