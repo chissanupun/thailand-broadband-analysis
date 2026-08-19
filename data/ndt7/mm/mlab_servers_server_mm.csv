@@ -1,0 +1,220 @@
+server_site,server_city,server_latitude,server_longitude
+ams03,Amsterdam,52.3086,4.7639
+ams04,Amsterdam,52.3086,4.7639
+ams05,Amsterdam,52.3086,4.76389
+ams08,Amsterdam,52.3086,4.7639
+ams09,Amsterdam,52.3086,4.7639
+ams10,Amsterdam,52.3086,4.7639
+ams11,Amsterdam,52.3086,4.76389
+arn02,Stockholm,59.6519,17.9186
+arn03,Stockholm,59.6519,17.9186
+arn04,Stockholm,59.6519,17.9186
+arn06,Stockholm,59.6519,17.9186
+ath03,Athens,37.9364,23.9444
+atl02,Atlanta,33.6367,-84.4281
+atl04,Atlanta,33.6367,-84.4281
+atl08,Atlanta,33.6367,-84.4281
+beg01,Belgrade,44.8216,20.2921
+bog02,Bogota,4.70159,-74.1469
+bog03,Bogota,4.69715,-74.14329
+bog05,Bogota,4.70159,-74.1469
+bom01,Mumbai,20.600792,78.96156
+bom02,Mumbai,20.600792,78.96156
+bom03,Mumbai,20.600792,78.96156
+bom04,Mumbai,19.0887,72.8679
+bom05,Mumbai,19.0886,72.8681
+bom06,Mumbai,19.0887,72.8679
+bru01,Brussels,50.9014,4.48444
+bru02,Brussels,50.9014,4.48444
+bru04,Brussels,50.9014,4.48444
+bru07,Brussels,50.9014,4.48444
+cgk01,Jakarta,-6.1256,106.6558
+cgk02,Jakarta,-6.12556,106.656
+chs01,Charleston,32.8986,-80.0406
+chs02,Charleston,32.8986,-80.0406
+cmh01,Columbus,39.9981,-82.8919
+cmh02,Columbus,39.998,-82.8919
+del01,New Delhi,20.600792,78.96156
+del02,New Delhi,28.5562,77.1
+del03,New Delhi,20.600792,78.96156
+del04,New Delhi,28.5562,77.1
+del05,New Delhi,28.5665,77.1031
+den02,Denver,39.8561,-104.6737
+den04,Denver,39.8561,-104.6737
+den05,Denver,39.8561,-104.6737
+den06,Denver,39.8561,-104.6737
+dfw02,Dallas,32.8968,-97.038
+dfw03,Dallas,32.8968,-97.038
+dfw05,Dallas,32.8969,-97.0381
+dfw07,Dallas,32.8969,-97.0381
+dfw08,Dallas,32.8969,-97.0381
+dfw09,Dallas,32.8969,-97.0381
+dfw12,Dallas,32.8968,-97.038
+doh01,Doha,25.2731,51.6081
+doh02,Doha,25.2731,51.6081
+dub01,Dublin,53.4333,-6.25
+fln01,Florianopolis,-27.6685,-48.546
+fra01,Frankfurt,50.0379,8.5622
+fra02,Frankfurt,50.0379,8.5622
+fra03,Frankfurt,50.0379,8.5622
+fra04,Frankfurt,50.0333,8.57056
+fra05,Frankfurt,50.0379,8.5622
+fra06,Frankfurt,50.0379,8.5622
+fra07,Frankfurt,50.0379,8.5622
+fra08,Frankfurt,50.0333,8.57056
+gru02,Sao Paulo,-23.4322,-46.4692
+gru03,Sao Paulo,-23.4305,-46.473
+gru06,Sao Paulo,-23.4305,-46.473
+ham02,Hamburg,53.6304,9.98823
+hel01,Helsinki,60.3172,24.9633
+hel02,Helsinki,60.3172,24.9633
+hkg01,Hong Kong,22.3089,113.9144
+hkg02,Hong Kong,22.3089,113.9144
+hkg03,Hong Kong,22.3089,113.9144
+hkg04,Hong Kong,22.3089,113.9144
+hkg05,Hong Kong,22.3089,113.915
+hnd02,Tokyo,35.5533,139.781
+hnd04,Tokyo,35.5522,139.78
+hnd05,Tokyo,35.5522,139.78
+hnd06,Tokyo,35.5522,139.78
+hnd07,Tokyo,35.5533,139.781
+hnl02,Honolulu,21.3206,-157.924
+iad02,Washington,38.9445,-77.4558
+iad03,Washington,38.9445,-77.4558
+iad04,Washington,38.9445,-77.4558
+iad05,Washington,38.9444,-77.4558
+iad07,Washington,38.9444,-77.4558
+iad09,Washington,38.9445,-77.4558
+icn01,Seoul,37.4633,126.44
+icn02,Seoul,37.4633,126.44
+jnb01,Johannesburg,-26.2035,28.1335
+kix01,Osaka,34.4342,135.2328
+kix02,Osaka,34.4305,135.23
+las01,Las Vegas,36.08,-115.1522
+las02,Las Vegas,36.0801,-115.152
+lax02,Los Angeles,33.9425,-118.4072
+lax03,Los Angeles,33.9425,-118.4072
+lax04,Los Angeles,33.9425,-118.4072
+lax05,Los Angeles,33.9425,-118.4072
+lax06,Los Angeles,33.9425,-118.4072
+lax07,Los Angeles,33.9425,-118.4072
+lax10,Los Angeles,33.9425,-118.4072
+lga04,New York,40.7667,-73.8667
+lga05,New York,40.7667,-73.8667
+lga06,New York,40.775,-73.875
+lga08,New York,40.775,-73.875
+lga09,New York,40.7667,-73.8667
+lhr02,London,51.4697,-0.4514
+lhr03,London,51.4697,-0.4514
+lhr04,London,51.4775,-0.461389
+lhr05,London,51.4697,-0.4514
+lhr07,London,51.4775,-0.461389
+lhr08,London,51.4697,-0.4514
+lhr09,London,51.4697,-0.4514
+lhr10,London,51.4697,-0.4514
+lim01,Lima,-12.0219,-77.1143
+lim02,Lima,-12.0219,-77.1143
+lis02,Lisbon,38.7756,-9.1354
+lis03,Lisbon,38.7813,-9.13592
+maa01,Chennai,20.600792,78.96156
+maa02,Chennai,20.600792,78.96156
+maa03,Chennai,12.9941,80.1709
+mad04,Madrid,40.4719,-3.56264
+mad06,Madrid,40.4719,-3.56264
+mad08,Madrid,40.4719,-3.56264
+mel01,Melbourne,-37.6733,144.8433
+mel02,Melbourne,-37.6733,144.8433
+mex01,Mexico City,19.4361,-99.0719
+mex02,Mexico City,19.4361,-99.0719
+mex03,Mexico City,19.4361,-99.0719
+mex04,Mexico City,19.4361,-99.0719
+mia02,Miami,25.7833,-80.2667
+mia03,Miami,25.7833,-80.2667
+mia04,Miami,25.7932,-80.2906
+mia05,Miami,25.7833,-80.2667
+mia06,Miami,25.7833,-80.2667
+mil02,Milan,45.464,9.1916
+mil04,Milan,45.464,9.1916
+mil05,Milan,45.464,9.1916
+mil06,Milan,45.464,9.1916
+mil07,Milan,45.464,9.1916
+mil08,Milan,45.464,9.1916
+mil09,Milan,45.4494,9.2783
+mnl01,Manila,14.5086,121.0194
+mnl02,Manila,14.5086,121.0194
+mrs01,Marseille,43.4366,5.215
+mrs02,Marseille,43.4393,5.22142
+mrs04,Marseille,43.4393,5.22142
+mty01,Monterrey,25.7783,-100.1063
+nbo01,Nairobi,-1.3192,36.9258
+nuq02,San Francisco Bay Area,37.3833,-122.0667
+nuq03,San Francisco Bay Area,37.4161,-122.049
+nuq04,San Francisco Bay Area,37.4161,-122.049
+nuq06,San Francisco Bay Area,37.4161,-122.049
+nuq07,San Francisco Bay Area,37.3833,-122.0667
+nuq08,San Francisco Bay Area,37.3833,-122.0667
+oma01,Omaha,41.3,-95.895
+oma02,Omaha,41.3,-95.895
+ord02,Chicago,41.9786,-87.9047
+ord03,Chicago,41.9786,-87.9047
+ord04,Chicago,41.9786,-87.9047
+ord06,Chicago,41.9786,-87.9047
+par02,Paris,48.8584,2.349
+par03,Paris,48.8584,2.349
+par04,Paris,48.8584,2.349
+par05,Paris,49.0097,2.54778
+par06,Paris,48.8584,2.349
+par07,Paris,48.8584,2.349
+par08,Paris,49.0097,2.54778
+par09,Paris,49.0097,2.54778
+pdx01,Portland,45.5886,-122.5975
+pdx03,Portland,45.5886,-122.5975
+per01,Perth,-31.9403,115.9669
+per02,Perth,-31.9403,115.9669
+prg03,Prague,50.0833,14.4167
+prg04,Prague,50.1008,14.26
+prg05,Prague,50.1008,14.26
+prg06,Prague,50.0833,14.4167
+sea03,Seattle,47.4489,-122.3094
+sea04,Seattle,47.449,-122.309
+sea08,Seattle,47.449,-122.309
+sin01,Singapore,1.355,103.988
+sin02,Singapore,1.355,103.988
+sin03,Singapore,1.35019,103.994
+slc02,Salt Lake City,40.7884,-111.978
+sof01,Sofia,42.6967,23.4114
+sof02,Sofia,42.695,23.4083
+svg01,Stavanger,58.8767,5.6378
+syd03,Sydney,-33.9461,151.177
+syd04,Sydney,-33.9461,151.177
+syd05,Sydney,-33.9461,151.177
+syd06,Sydney,-33.9461,151.177
+syd08,Sydney,-33.9461,151.177
+tgd01,Podgorica,42.1078,18.7616
+tlv01,Tel Aviv,32.0094,34.8828
+tlv02,Tel Aviv,32.0094,34.8828
+tnr01,Antananarivo,-18.7969,47.4788
+tpe01,Taipei,25.0777,121.233
+tpe02,Taipei,25.0778,121.224
+tpe03,Taipei,25.0777,121.233
+trn02,Turin,45.2008,7.64963
+trn04,Turin,45.2008,7.64963
+tun01,Tunis,36.8516,10.2291
+waw01,Warsaw,52.1658,20.9672
+waw02,Warsaw,52.1657,20.9671
+yul03,Montreal,45.4657,-73.7455
+yul06,Montreal,45.4657,-73.7455
+yul07,Montreal,45.4576,-73.7497
+yul08,Montreal,45.4657,-73.7455
+yvr02,Vancouver,49.1902,-123.1837
+yvr03,Vancouver,49.1902,-123.1837
+yvr04,Vancouver,49.1902,-123.1837
+ywg02,Winnipeg,49.906,-97.2373
+yyc03,Calgary,51.1315,-114.0106
+yyz03,Toronto,43.6797,-79.6227
+yyz04,Toronto,43.6767,-79.6306
+yyz06,Toronto,43.6797,-79.6227
+yyz07,Toronto,43.6767,-79.6306
+yyz08,Toronto,43.6797,-79.6227
+zrh01,Zurich,47.4647,8.5492
+zrh02,Zurich,47.4647,8.54917
