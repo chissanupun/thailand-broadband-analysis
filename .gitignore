@@ -30,11 +30,16 @@ __pycache__/
 Thumbs.db
 
 # LaTeX build artifacts
-docs/*.aux
-docs/*.log
-docs/*.toc
-docs/*.out
-docs/*.pdf
+docs/paper/*.aux
+docs/paper/*.log
+docs/paper/*.toc
+docs/paper/*.out
+docs/paper/*.pdf
+
+# Draft/reference PDFs not meant for the repo (thai draft, collab draft, misc thesis)
+docs/th/*.pdf
+docs/collab/*.pdf
+docs/misc/*.pdf
 
 # DuckDB spill
 .tmp/
@@ -48,6 +53,7 @@ slides/
 
 # Generated review documents (rebuild with pandoc, see docs/results_for_advisor_th.md)
 docs/*.docx
+docs/th/*.docx
 
 # LibreOffice lock files
 .~lock.*#

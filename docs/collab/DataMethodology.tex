@@ -1,0 +1,131 @@
+% !TEX program = pdflatex
+% Standalone "Data and Methodology" section -- this is the piece we're responsible for
+% (data collection / filtering / preparation); a collaborator assembles the other
+% sections separately, so this must not depend on section numbers or content that
+% live outside this file.
+%
+% REBUILT to use DataCollection_EN.md / DataPrep_EN.md (the faithful English translations
+% of the original Thai working notes DataCollection.md / DataPrep.md) as the PRIMARY
+% source, not docs/paper_draft.md. The previous version leaned on paper_draft.md's prose
+% and was missing real content that only exists in the Thai originals: the actual
+% block-sampling mechanism (not just its validation numbers), the Vietnam/Cambodia/Myanmar
+% coverage gaps, and explicit total test counts.
+%
+% Content pulled from paper_draft.md but NOT verifiable against DataCollection.md/
+% DataPrep.md or the raw pipeline was DROPPED rather than carried over unverified:
+% the Vientiane latency-sentinel bug (116->539ms), the specific Laos n_tiles reasoning
+% (139,693 rows / 33 coordinates / max n_tiles=3), Thailand's 1,225->564 count, and the
+% population/GDP/GRDP sourcing narrative. The one exception: the Ookla-side
+% province-quarter counts (3,162 fixed / 3,124 mobile) were independently re-derived by
+% querying data/exports/ookla_*_province_quarterly.csv directly, so they're kept.
+%
+% NOT the full reproducibility-doc version (see DataCollection.tex / DataPrep.tex for
+% that) -- schema tables, raw SQL, and tool inventory belong in the repo/artifact, not
+% the paper body.
+\documentclass[sigconf]{acmart}
+
+\usepackage{booktabs}
+\usepackage{tabularx}
+
+\settopmatter{printacmref=false}
+\renewcommand\footnotetextcopyrightpermission[1]{}
+\pagestyle{plain}
+
+\begin{document}
+
+\title{Data and Methodology --- Draft Section for Review}
+\author{Draft}
+\affiliation{%
+  \institution{Working draft --- not for distribution}
+}
+
+\begin{abstract}
+Draft of the Data and Methodology section (Datasets; Aggregation and filtering) as it is
+intended to appear in the paper, for review before merging into the full paper source.
+\end{abstract}
+
+\maketitle
+
+\section{Data and Methodology}
+
+\subsection{Datasets}
+
+\textbf{Ookla Open Data} supplies quarterly internet-performance tiles split by connection
+type (fixed, mobile) at Quadkey zoom 16 ($\sim$610$\times$610~m), each carrying mean
+download, upload, latency, and the underlying Speedtest submission count, delivered as
+global Parquet files on Amazon S3 that we filter down to our eight countries ourselves.
+Across twelve quarters (Q1~2023--Q4~2025) and both products this totals 224{,}024{,}732
+tests, with Indonesia largest at 74.2~million and Laos smallest at 875{,}799.
+
+\textbf{M-Lab NDT7} supplies per-test records over the same range via BigQuery, retaining
+per-test timestamps and raw ISP attribution that Ookla's tiles discard --- what makes RQ3
+and RQ4 possible at all. Total volume across the eight countries is 723{,}938{,}064 tests,
+with Indonesia largest at 367.2~million and Laos smallest at 139{,}693. NDT7 does not
+distinguish fixed from mobile natively: client IPs are grouped into /24 (IPv4) or /48
+(IPv6) blocks, five IPs per block are queried against ip-api's \texttt{mobile} flag, and the
+majority result is applied to the whole block; when the five samples disagree, every IP in
+that block is checked individually. This sample-and-escalate design cuts total query time
+from 27~days to a few hours. Operators are grouped by \textbf{ASN} rather than by M-Lab's
+raw ISP-name field, which is unreliable at scale. Validated against 5.24~million
+individually-labelled IPs from earlier fetch rounds (84{,}137 blocks), the method
+reproduces ip-api's own per-IP answer at least 99.15\% of the time, with truly mixed blocks
+estimated at only 0.45\% --- though a unanimous 5-of-5 sample is only a lower bound on a
+block's homogeneity, not proof of it, since the check has no ground truth independent of
+ip-api itself.
+
+\textbf{Boundaries and reference data.} Country-level bounding boxes come from geoBoundaries
+ADM1; province assignment uses GADM~4.1 point-in-polygon, except Thailand, which uses the
+project's own 77-province geojson because GADM's administrative levels there were not
+granular enough. Each province-quarter row also carries population, density, GDP per
+capita, and an internet-infrastructure tier from a project reference table.
+
+\begin{table*}
+  \caption{Data volume and coverage. Ookla figures are summed Speedtest submissions; NDT7
+    rows are per-test records before filtering.}
+  \label{tab:data-volume}
+  \begin{tabularx}{\textwidth}{@{}l l r r r@{}}
+    \toprule
+    Country & Prov. & Ookla fixed & Ookla mobile & NDT7 rows \\
+    \midrule
+    Indonesia    & 34      & 54.2M & 20.1M & 367.2M \\
+    Philippines  & 17      & 48.8M & 7.1M  & 262.1M \\
+    Vietnam      & 63--64  & 25.9M & 3.5M  & 24.7M  \\
+    Thailand     & 77      & 20.8M & 10.5M & 60.2M  \\
+    Malaysia     & 16      & 15.7M & 11.8M & 6.6M   \\
+    Cambodia     & 22--25  & 2.4M  & 0.5M  & 0.77M  \\
+    Myanmar      & 14      & 1.75M & 0.25M & 2.12M  \\
+    Laos         & 14--18  & 0.37M & 0.50M & 0.14M  \\
+    \bottomrule
+  \end{tabularx}
+\end{table*}
+
+Coverage is not uniform even before the reliability gate. Vietnam and Cambodia are missing
+mobile-side data for some provinces in some quarters, reflecting small geographic areas
+with low test volume; Myanmar's gap is substantial, missing on both fixed (10.7\%) and
+mobile (22\%), concentrated mostly after 2024. None of this is an artefact of our
+filtering --- it was never collected in the first place.
+
+\subsection{Aggregation and filtering}
+
+Ookla tiles are assigned to provinces by point-in-polygon against each country's geojson
+and aggregated to province-quarter as a weighted average of each tile's mean value by its
+own test count. The weighting is not optional: tile submission counts differ by orders of
+magnitude, and an unweighted mean would let a sparsely-tested tile distort a province's
+figure as much as a heavily-tested one. NDT7 provinces are assigned the same way against
+GADM~4.1 boundaries, aggregating directly from per-test records.
+
+Every province-quarter is filtered on measurement sufficiency before any statistic is
+computed: \texttt{total\_tests} $\geq$ 100 \textbf{AND} \texttt{n\_tiles} $\geq$ 5 for
+Ookla, \texttt{total\_tests} $\geq$ 100 alone for NDT7. The criterion removes nothing that
+was not already missing --- on the Ookla side it excludes no rows at all: across the eight
+countries, 3{,}162 fixed province-quarters enter and 3{,}162 pass, and 3{,}124 mobile
+province-quarters enter and 3{,}124 pass. Its effect on NDT7 is not uniform: cellular test
+counts drop in every country under this gate, most severely in Vietnam, and Cambodia and
+Laos --- already the two lowest-volume countries in the study --- lose a large share of
+both fixed and mobile data. It is a real constraint on NDT7 and a formality on Ookla.
+
+Raw records are cleaned before aggregation: implausible rows (\texttt{throughput} $\leq$ 0,
+\texttt{duration} $\leq$ 0, and similar) are filtered out ahead of any statistic being
+computed, on both sources.
+
+\end{document}
