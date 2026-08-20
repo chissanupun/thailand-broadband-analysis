@@ -53,13 +53,13 @@ intended to appear in the paper, for review before merging into the full paper s
 \textbf{Ookla Open Data} supplies quarterly internet-performance tiles split by connection
 type (fixed, mobile) at Quadkey zoom 16 ($\sim$610$\times$610~m), each carrying mean
 download, upload, latency, and the underlying Speedtest submission count, delivered as
-global Parquet files on Amazon S3 that we filter down to our eight countries ourselves.
-Across twelve quarters (Q1~2023--Q4~2025) and both products this totals 224{,}024{,}732
+global Parquet files on Amazon S3 that we filter down to our nine countries ourselves.
+Across twelve quarters (Q1~2023--Q4~2025) and both products this totals 229{,}367{,}221
 tests, with Indonesia largest at 74.2~million and Laos smallest at 875{,}799.
 
 \textbf{M-Lab NDT7} supplies per-test records over the same range via BigQuery, retaining
 per-test timestamps and raw ISP attribution that Ookla's tiles discard --- what makes RQ3
-and RQ4 possible at all. Total volume across the eight countries is 723{,}938{,}064 tests,
+and RQ4 possible at all. Total volume across the nine countries is 760{,}607{,}387 tests,
 with Indonesia largest at 367.2~million and Laos smallest at 139{,}693. NDT7 does not
 distinguish fixed from mobile natively: client IPs are grouped into /24 (IPv4) or /48
 (IPv6) blocks, five IPs per block are queried against ip-api's \texttt{mobile} flag, and the
@@ -76,8 +76,10 @@ ip-api itself.
 \textbf{Boundaries and reference data.} Country-level bounding boxes come from geoBoundaries
 ADM1; province assignment uses GADM~4.1 point-in-polygon, except Thailand, which uses the
 project's own 77-province geojson because GADM's administrative levels there were not
-granular enough. Each province-quarter row also carries population, density, GDP per
-capita, and an internet-infrastructure tier from a project reference table.
+granular enough, and Singapore, which uses the project's own 5-planning-region geojson
+because GADM carries no ADM1 level at all for a city-state. Each province-quarter row also
+carries population, density, GDP per capita, and an internet-infrastructure tier from a
+project reference table.
 
 \begin{table*}
   \caption{Data volume and coverage. Ookla figures are summed Speedtest submissions; NDT7
@@ -92,6 +94,7 @@ capita, and an internet-infrastructure tier from a project reference table.
     Vietnam      & 63--64  & 25.9M & 3.5M  & 24.7M  \\
     Thailand     & 77      & 20.8M & 10.5M & 60.2M  \\
     Malaysia     & 16      & 15.7M & 11.8M & 6.6M   \\
+    Singapore    & 5       & 4.5M  & 0.87M & 36.7M  \\
     Cambodia     & 22--25  & 2.4M  & 0.5M  & 0.77M  \\
     Myanmar      & 14      & 1.75M & 0.25M & 2.12M  \\
     Laos         & 14--18  & 0.37M & 0.50M & 0.14M  \\
@@ -117,9 +120,9 @@ GADM~4.1 boundaries, aggregating directly from per-test records.
 Every province-quarter is filtered on measurement sufficiency before any statistic is
 computed: \texttt{total\_tests} $\geq$ 100 \textbf{AND} \texttt{n\_tiles} $\geq$ 5 for
 Ookla, \texttt{total\_tests} $\geq$ 100 alone for NDT7. The criterion removes nothing that
-was not already missing --- on the Ookla side it excludes no rows at all: across the eight
-countries, 3{,}162 fixed province-quarters enter and 3{,}162 pass, and 3{,}124 mobile
-province-quarters enter and 3{,}124 pass. Its effect on NDT7 is not uniform: cellular test
+was not already missing --- on the Ookla side it excludes no rows at all: across the nine
+countries, 3{,}222 fixed province-quarters enter and 3{,}222 pass, and 3{,}184 mobile
+province-quarters enter and 3{,}184 pass. Its effect on NDT7 is not uniform: cellular test
 counts drop in every country under this gate, most severely in Vietnam, and Cambodia and
 Laos --- already the two lowest-volume countries in the study --- lose a large share of
 both fixed and mobile data. It is a real constraint on NDT7 and a formality on Ookla.

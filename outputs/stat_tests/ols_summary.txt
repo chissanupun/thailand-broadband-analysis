@@ -1,0 +1,34 @@
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                mean_dl   R-squared:                       0.966
+Model:                            OLS   Adj. R-squared:                  0.965
+Method:                 Least Squares   F-statistic:                     880.1
+Date:                Thu, 20 Aug 2026   Prob (F-statistic):          4.13e-199
+Time:                        19:34:42   Log-Likelihood:                -1144.5
+No. Observations:                 270   AIC:                             2311.
+Df Residuals:                     259   BIC:                             2351.
+Df Model:                          10                                         
+Covariance Type:              cluster                                         
+=============================================================================================
+                                coef    std err          z      P>|z|      [0.025      0.975]
+---------------------------------------------------------------------------------------------
+Intercept                  -166.8277     41.896     -3.982      0.000    -248.943     -84.712
+C(country)[T.Indonesia]     -18.8458      3.011     -6.259      0.000     -24.747     -12.944
+C(country)[T.Laos]            2.8554      2.711      1.053      0.292      -2.458       8.168
+C(country)[T.Malaysia]      106.6040      6.229     17.114      0.000      94.396     118.812
+C(country)[T.Myanmar]       -10.6219      3.283     -3.235      0.001     -17.057      -4.186
+C(country)[T.Philippines]    55.0683      4.397     12.525      0.000      46.451      63.685
+C(country)[T.Singapore]     275.3534     13.980     19.696      0.000     247.953     302.753
+C(country)[T.Thailand]      188.8949      4.213     44.837      0.000     180.638     197.152
+C(country)[T.Vietnam]        83.8179      2.398     34.950      0.000      79.117      88.518
+log_gdp                      15.5401      3.478      4.469      0.000       8.724      22.356
+log_density                   4.8850      1.118      4.370      0.000       2.694       7.076
+==============================================================================
+Omnibus:                       80.560   Durbin-Watson:                   1.979
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):              391.046
+Skew:                          -1.118   Prob(JB):                     1.22e-85
+Kurtosis:                       8.455   Cond. No.                         360.
+==============================================================================
+
+Notes:
+[1] Standard Errors are robust to cluster correlation (cluster)

@@ -1,0 +1,32 @@
+{
+  "kruskal_wallis": {
+    "H": 2810.074509758386,
+    "p": 0.0,
+    "n": 3222,
+    "k": 9
+  },
+  "ols": {
+    "n": 270,
+    "r2": 0.9664021269143289,
+    "coef_log_gdp": 15.540067452742369,
+    "p_log_gdp": 7.871604425779482e-06,
+    "coef_log_density": 4.885027566049055,
+    "p_log_density": 1.2396318154749986e-05
+  },
+  "spearman": {
+    "rho": 0.8946135105917714,
+    "p": 0.001127007333019042,
+    "n": 9,
+    "countries": [
+      "Cambodia",
+      "Indonesia",
+      "Laos",
+      "Malaysia",
+      "Myanmar",
+      "Philippines",
+      "Singapore",
+      "Thailand",
+      "Vietnam"
+    ]
+  }
+}
