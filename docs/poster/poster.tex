@@ -1,0 +1,196 @@
+% AINTEC 2026 Poster
+% Author list is real names (user call 2026-09-21) — unlike paper.tex's \author{Anonymous}.
+%
+% Number provenance: body text quotes docs/paper/paper.tex; figures marked "paper" are
+% docs/paper/figures/imageN.png (identical to the paper). Figures 01 and 03 come from
+% scripts/build_cross_country_figs_8c.py, regenerated 2026-09-21 because that script
+% silently excluded Singapore. Chart 03 (capital vs national) gives Singapore capital
+% 361.0 vs paper prose 341; ratio 16x (361.0/22.0) vs paper prose 12x. Text next to the
+% chart quotes the chart. Confirm with paper author which is current.
+\documentclass[25pt, a0paper, portrait, margin=0mm, innermargin=15mm,
+  blockverticalspace=12mm, colspace=15mm, subcolspace=8mm]{tikzposter}
+
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{qrcode}
+\usepackage{enumitem}
+\setlist[itemize]{leftmargin=1.2em, itemsep=0.3em, topsep=0.3em}
+
+\usetheme{Simple}
+\usecolorstyle{Denmark}
+\colorlet{backgroundcolor}{white}
+\colorlet{framecolor}{titlebgcolor}
+
+\newcommand{\fig}[3][1.0]{%
+  \begin{tikzfigure}\includegraphics[width=#1\linewidth]{#2}\end{tikzfigure}
+  \textit{\small #3}}
+
+\title{\parbox{0.92\linewidth}{\centering
+  Beyond Speed Rankings: A Nine-Country Measurement Study of\\
+  Southeast Asia's Application-Layer Digital Divide}}
+\author{Chissanupun Athiwarikanon, Kunanont Malayanont, Pakkapon Pattanakul}
+\institute{Kasetsart University}
+
+\begin{document}
+\maketitle
+
+% ---- Headline stat band ----------------------------------------------
+\begin{columns}
+  \column{0.25}
+  \block{}{\centering \color{titlebgcolor}\Huge\textbf{990M}\\[0.3em]
+    \normalsize\color{black} Speed tests analyzed}
+  \column{0.25}
+  \block{}{\centering \color{titlebgcolor}\Huge\textbf{9}\\[0.3em]
+    \normalsize\color{black} SE Asian countries}
+  \column{0.25}
+  \block{}{\centering \color{titlebgcolor}\Huge\textbf{100\%}\\[0.3em]
+    \normalsize\color{black} HD-video success, every country}
+  \column{0.25}
+  \block{}{\centering \color{titlebgcolor}\Huge\textbf{$<$38\%}\\[0.3em]
+    \normalsize\color{black} Cloud-gaming success, weakest markets}
+\end{columns}
+
+\begin{columns}
+
+  % ==================================================================
+  \column{0.33}
+  \block{Motivation}{
+    Speed-index rankings say little about whether real applications work.
+    Thailand ranked \textbf{12th worldwide} for fixed broadband (Ookla
+    Speedtest Global Index, June 2026), yet a 2023 Thailand Consumer
+    Council survey found \textbf{81\%} of 2{,}924 respondents had
+    connection problems --- mostly slow and dropping connections. The
+    mismatch is not unique to Thailand.
+
+    \vspace{0.8em}
+    \textbf{Question:} how do nine Southeast Asian networks perform against
+    the demands of real applications --- voice, HD video, UHD video and
+    cloud gaming?
+  }
+
+  \block{Data}{
+    \begin{itemize}
+      \item \textbf{Ookla Open Data:} 229.4M tests, quarterly ${\sim}$600\,m
+        tiles, fixed + mobile
+      \item \textbf{M-Lab NDT7:} 760.6M single-stream tests
+      \item \textbf{Coverage:} Thailand, Vietnam, Laos, Myanmar, Cambodia,
+        Indonesia, Philippines, Malaysia, Singapore; Q1 2023--Q4 2025
+      \item Tiles mapped to provinces (point-in-polygon, geoBoundaries ADM1),
+        test-weighted; province-quarters with $\geq$100 tests and $\geq$5 tiles
+      \item Operators grouped by \textbf{ASN}, not raw ISP names
+    \end{itemize}
+  }
+
+  \block{Mobile Is Uniform, Fixed Is Not}{
+    Fixed broadband beats mobile in most countries: Thailand shows the
+    largest gap (\textbf{3.2$\times$}, ${\sim}$275 vs.\ ${\sim}$85~Mbps),
+    Singapore 2.1$\times$. Myanmar is the only country where mobile is
+    \emph{faster} than fixed (0.8$\times$) --- a mobile-first market.
+
+    \vspace{0.5em}
+    \fig{../paper/figures/image3.png}{Mobile mean download by country, Q1 2023--Q4 2025.}
+
+    \vspace{0.5em}
+    Leading mobile operators in seven of nine markets sit in a narrow
+    \textbf{22--39~Mbps} band, versus fixed operators spanning
+    23--300~Mbps.
+  }
+
+  \block{Data \& Code}{
+    \begin{center}
+      \qrcode[height=5cm]{https://github.com/chissanupun/thailand-broadband-analysis}
+      \\[0.6em] \normalsize \texttt{github.com/chissanupun/}\\
+      \texttt{thailand-broadband-analysis}
+    \end{center}
+  }
+
+  % ==================================================================
+  \column{0.34}
+  \block{Finding 1 --- Basics Are Solved}{
+    Voice ($\geq$64~kbps) and HD video ($\geq$5~Mbps) succeed at
+    \textbf{100\%} in every country, every quarter, on fixed and mobile
+    networks. Even the lowest-tier broadband markets meet the basic floor.
+
+    \vspace{0.6em}
+    \begin{center}
+    \begin{tabular}{lll}
+      \toprule
+      \textbf{Application} & \textbf{Data rate} & \textbf{Latency} \\
+      \midrule
+      Voice        & 64 kbps & 200 ms \\
+      Video (HD)   & 5 Mbps  & few s \\
+      Video (UHD)  & 25 Mbps & few s \\
+      Cloud gaming & 44 Mbps & 25 ms \\
+      \bottomrule
+    \end{tabular}
+    \end{center}
+    \small Thresholds after L\"ubben \& Misfeld (2022). Success rate =
+    national-level share meeting the download-speed threshold, per quarter.
+  }
+
+  \block{Finding 2 --- Urban--Rural Stratification}{
+    Most capitals outperform their nation: Bangkok 298.8 vs.\ 276.9~Mbps,
+    Kuala Lumpur 212.3 vs.\ 194.8, Manila NCR 159.6 vs.\ 132.0.
+    Singapore's Central Region (361.0) sits \emph{below} its national mean
+    (394.8). Peak capital speed is \textbf{over 16$\times$} the
+    lowest capital (Myanmar, 22.0~Mbps).
+
+    \vspace{0.5em}
+    \fig{../../outputs/ookla/cross_country/03_capital_vs_national.png}{Capital province vs.\ national mean, fixed broadband, test-weighted.}
+  }
+
+  \block{Finding 3 --- Speed Gap Is Widening}{
+    Singapore nearly \textbf{doubled} its median provincial speed
+    (${\sim}$280 $\to$ ${\sim}$550~Mbps); Thailand grew ${\sim}$200 $\to$
+    ${\sim}$300. Vietnam accelerated to catch Malaysia (200+~Mbps).
+    Laos, Cambodia, Indonesia and Myanmar stayed \textbf{below 60~Mbps}
+    for all three years.
+
+    \vspace{0.5em}
+    \fig{../paper/figures/image6.png}{Median provincial fixed download speed, Q1 2023--Q4 2025.}
+  }
+
+  % ==================================================================
+  \column{0.33}
+  \block{Finding 4 --- Application Tiers Diverge}{
+    \textbf{UHD video ($\geq$25~Mbps)}
+    \begin{itemize}
+      \item Malaysia, Singapore, Thailand, Philippines, Vietnam: 100\% every quarter
+      \item Cambodia 67--86\%; Indonesia 36 $\to$ 65\%; Myanmar 40--55\%
+      \item Laos volatile: 50--100\%
+    \end{itemize}
+    \fig[0.9]{../../outputs/app_success_rate_median/fig_video_uhd_national.png}{UHD-video success rate by country.}
+
+    \vspace{0.8em}
+    \textbf{Cloud gaming ($\geq$44~Mbps)}
+    \begin{itemize}
+      \item Singapore ${\sim}$100\%; Thailand and Malaysia 87--100\%
+      \item Philippines 58--93\%; Vietnam $<$50\% $\to$ ${\sim}$94\%
+      \item Cambodia 38--49\%; Laos ${\sim}$52\%
+      \item Indonesia $<$38\%; Myanmar $<$31\%
+    \end{itemize}
+    \fig[0.9]{../../outputs/app_success_rate_median/fig_cloud_gaming_national.png}{Cloud-gaming success rate by country.}
+  }
+
+  \block{Finding 5 --- Who Delivers the Speed}{
+    Fixed: \textbf{MyRepublic} (SG) 300~Mbps, TIME dotCom (MY) 196, AIS
+    (TH) 126; everyone else below 100, down to 23 (Myanmar). The
+    \emph{most-used} fixed ISP ranges from Singtel Fibre \textbf{176}~Mbps
+    to Telkom Indonesia \textbf{19} and Mytel Myanmar \textbf{10}.
+
+    \vspace{0.5em}
+    \fig{../paper/figures/image7.png}{Fastest major ISP ($\geq$5\% share) per country, fixed (left) and cellular (right).}
+  }
+
+  \block{Takeaway}{
+    Raw speed rankings hide the divide that matters: not whether a country
+    ``has broadband,'' but whether it survives a real application. Basic
+    needs are met everywhere; UHD and cloud gaming expose the gap. This
+    argues for targeted fiber deployment, regional investment and
+    transport-layer optimization.
+  }
+
+\end{columns}
+
+\end{document}

@@ -23,6 +23,7 @@ FILES = {
     'Malaysia':    'ookla_malaysia_province_quarterly.csv',
     'Myanmar':     'ookla_myanmar_province_quarterly.csv',
     'Indonesia':   'ookla_indonesia_province_quarterly.csv',
+    'Singapore':   'ookla_singapore_province_quarterly.csv',
 }
 
 CAPITALS = {
@@ -34,6 +35,7 @@ CAPITALS = {
     'Malaysia':    'Kuala Lumpur',
     'Myanmar':     'Yangon',
     'Indonesia':   'Jakarta',
+    'Singapore':   'Central Region',
 }
 
 BLUE, ORANGE = '#0072B2', '#D55E00'
@@ -59,7 +61,7 @@ bars = ax.bar(nat.index, nat.values, color=BLUE)
 for b, v in zip(bars, nat.values):
     ax.text(b.get_x() + b.get_width() / 2, v + 4, f'{v:.0f}', ha='center', fontsize=9)
 ax.set_ylabel('Mean download (Mbps), test-weighted')
-ax.set_title('Fixed broadband mean download by country — 8 countries, Q1 2023–Q4 2025',
+ax.set_title('Fixed broadband mean download by country — 9 countries, Q1 2023–Q4 2025',
              fontsize=12, fontweight='bold')
 ax.set_ylim(0, nat.max() * 1.15)
 ax.spines[['top', 'right']].set_visible(False)
@@ -84,7 +86,7 @@ ax.bar(order, [cap[c] for c in order], color=ORANGE, label='Capital province')
 ax.scatter(order, [nat[c] for c in order], marker='D', color='black', zorder=3,
            s=45, label='National mean')
 ax.set_ylabel('Mean download (Mbps), test-weighted')
-ax.set_title('Capital province vs national mean — 8 countries',
+ax.set_title('Capital province vs national mean — 9 countries',
              fontsize=12, fontweight='bold')
 ax.spines[['top', 'right']].set_visible(False)
 ax.legend()
