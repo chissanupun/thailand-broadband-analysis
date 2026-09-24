@@ -1,9 +1,10 @@
 # Poster content bank — AINTEC 2026 poster track
 
 Everything here is paste-ready. Text is quoted or condensed from `docs/paper/paper.tex` unless marked otherwise.
-Figures are copied into `docs/poster/assets/` (see catalog in section 7). Previous poster draft: `poster_v_dense.tex` (compiles: `pdflatex poster_v_dense.tex`).
 
-Deadline: poster PDF (max 20.5 MB) + abstract text due Mon 2026-09-28 8pm EDT = Tue 09-29 7am Thai.
+> **2026-09-24 — the poster is now built in Figma, not LaTeX.** See `README.md`. `poster.tex`, `poster_v_dense.tex` and `assets/` were deleted (git history: `b3bcd9a`). Figure paths in section 7 below refer to the deleted `assets/` copies; the live originals are under `outputs/` and `docs/paper/figures/`, and the poster-type-scale versions the Figma file uses are in `outputs/poster_figs/`. This file remains the number-provenance record.
+
+> **The deadline line below was wrong too.** The CFP asks for a **≤2-page ACM abstract**, not the poster PDF, and the deadline is **2026-09-28 23:59 AoE = Tue 2026-09-29 18:59 Thai** — about 12 hours later than stated here. The A1 poster is only produced if accepted (notification 2026-10-09). See `README.md`.
 
 ---
 
