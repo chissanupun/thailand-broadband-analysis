@@ -1,0 +1,126 @@
+%%% -*-BibTeX-*-
+%%% Do NOT edit. File created by BibTeX with style
+%%% ACM-Reference-Format-Journals [18-Jan-2012].
+
+\begin{thebibliography}{6}
+
+%%% ====================================================================
+%%% NOTE TO THE USER: you can override these defaults by providing
+%%% customized versions of any of these macros before the \bibliography
+%%% command.  Each of them MUST provide its own final punctuation,
+%%% except for \shownote{}, \showDOI{}, and \showURL{}.  The latter two
+%%% do not use final punctuation, in order to avoid confusing it with
+%%% the Web address.
+%%%
+%%% To suppress output of a particular field, define its macro to expand
+%%% to an empty string, or better, \unskip, like this:
+%%%
+%%% \newcommand{\showDOI}[1]{\unskip}   % LaTeX syntax
+%%%
+%%% \def \showDOI #1{\unskip}           % plain TeX syntax
+%%%
+%%% ====================================================================
+
+\ifx \showCODEN    \undefined \def \showCODEN     #1{\unskip}     \fi
+\ifx \showDOI      \undefined \def \showDOI       #1{#1}\fi
+\ifx \showISBNx    \undefined \def \showISBNx     #1{\unskip}     \fi
+\ifx \showISBNxiii \undefined \def \showISBNxiii  #1{\unskip}     \fi
+\ifx \showISSN     \undefined \def \showISSN      #1{\unskip}     \fi
+\ifx \showLCCN     \undefined \def \showLCCN      #1{\unskip}     \fi
+\ifx \shownote     \undefined \def \shownote      #1{#1}          \fi
+\ifx \showarticletitle \undefined \def \showarticletitle #1{#1}   \fi
+\ifx \showURL      \undefined \def \showURL       {\relax}        \fi
+% The following commands are used for tagged output and should be
+% invisible to TeX
+\providecommand\bibfield[2]{#2}
+\providecommand\bibinfo[2]{#2}
+\providecommand\natexlab[1]{#1}
+\providecommand\showeprint[2][]{arXiv:#2}
+
+\bibitem[Deng et~al\mbox{.}(2021)]%
+        {Deng2021}
+\bibfield{author}{\bibinfo{person}{Xiaoqi Deng}, \bibinfo{person}{Yijing Feng},
+  \bibinfo{person}{Teanoosha Sutjarittham}, \bibinfo{person}{Hassan~Habibi
+  Gharakheili}, \bibinfo{person}{Blanca Gallego}, {and} \bibinfo{person}{Vijay
+  Sivaraman}.} \bibinfo{year}{2021}\natexlab{}.
+\newblock \bibinfo{title}{Comparing Broadband ISP Performance Using Big Data
+  from M-Lab}.
+\newblock
+\newblock
+\showeprint[arxiv]{2101.09795}
+\urldef\tempurl%
+\url{https://arxiv.org/abs/2101.09795}
+\showURL{%
+\tempurl}
+
+
+\bibitem[L{\"u}bben and Misfeld(2022)]%
+        {Lubben2022}
+\bibfield{author}{\bibinfo{person}{Ralf L{\"u}bben} {and} \bibinfo{person}{Nico
+  Misfeld}.} \bibinfo{year}{2022}\natexlab{}.
+\newblock \showarticletitle{Exploring the Measurement Lab Open Dataset for
+  Internet Performance Evaluation: The German Internet Landscape}.
+\newblock \bibinfo{journal}{\emph{Electronics}} \bibinfo{volume}{11},
+  \bibinfo{number}{1} (\bibinfo{year}{2022}), \bibinfo{pages}{162}.
+\newblock
+\urldef\tempurl%
+\url{https://doi.org/10.3390/electronics11010162}
+\showDOI{\tempurl}
+
+
+\bibitem[{Measurement Lab}(2025)]%
+        {MLabNDT72025}
+\bibfield{author}{\bibinfo{person}{{Measurement Lab}}.}
+  \bibinfo{year}{2025}\natexlab{}.
+\newblock \bibinfo{title}{Measurement Lab NDT7 Data [Dataset]}.
+\newblock
+\newblock
+\urldef\tempurl%
+\url{https://www.measurementlab.net/data/docs/bq/quickstart/}
+\showURL{%
+\tempurl}
+\newblock
+\shownote{Retrieved July 6, 2026}.
+
+
+\bibitem[{Ookla}(2023)]%
+        {OoklaOpenData2023}
+\bibfield{author}{\bibinfo{person}{{Ookla}}.} \bibinfo{year}{2023}\natexlab{}.
+\newblock \bibinfo{title}{Speedtest by Ookla Global Fixed and Mobile Network
+  Performance Maps [Dataset]}.
+\newblock
+\newblock
+\urldef\tempurl%
+\url{https://github.com/teamookla/ookla-open-data}
+\showURL{%
+\tempurl}
+
+
+\bibitem[{Ookla}(2026)]%
+        {OoklaGlobalIndex2026}
+\bibfield{author}{\bibinfo{person}{{Ookla}}.} \bibinfo{year}{2026}\natexlab{}.
+\newblock \bibinfo{title}{Speedtest Global Index [Data set]}.
+\newblock
+\newblock
+\urldef\tempurl%
+\url{https://www.speedtest.net/global-index}
+\showURL{%
+\tempurl}
+
+
+\bibitem[Runfola et~al\mbox{.}(2020)]%
+        {Runfola2020}
+\bibfield{author}{\bibinfo{person}{Daniel Runfola}, \bibinfo{person}{Austin
+  Anderson}, \bibinfo{person}{Heather Baier}, {et~al\mbox{.}}}
+  \bibinfo{year}{2020}\natexlab{}.
+\newblock \showarticletitle{geoBoundaries: A Global Database of Political
+  Administrative Boundaries}.
+\newblock \bibinfo{journal}{\emph{PLOS ONE}} \bibinfo{volume}{15},
+  \bibinfo{number}{4} (\bibinfo{year}{2020}), \bibinfo{pages}{e0231866}.
+\newblock
+\urldef\tempurl%
+\url{https://doi.org/10.1371/journal.pone.0231866}
+\showDOI{\tempurl}
+
+
+\end{thebibliography}

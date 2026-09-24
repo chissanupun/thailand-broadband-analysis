@@ -1,6 +1,12 @@
 % AINTEC 2026 Poster
 % Author list is real names (user call 2026-09-21) — unlike paper.tex's \author{Anonymous}.
 %
+% 2026-09-24: operator / ISP market-structure material removed on อาจารย์'s instruction —
+% it is now a separate poster owned by Kunanont Malayanont. Content bank for it:
+% docs/poster/isp/content.md. Nothing operator-layer belongs on this poster any more;
+% that includes the "operators grouped by ASN" method bullet and the 22-39 Mbps
+% leading-mobile-operator band, both of which moved with it.
+%
 % Number provenance: body text quotes docs/paper/paper.tex; figures marked "paper" are
 % docs/paper/figures/imageN.png (identical to the paper). Figures 01 and 03 come from
 % scripts/build_cross_country_figs_8c.py, regenerated 2026-09-21 because that script
@@ -8,7 +14,7 @@
 % 361.0 vs paper prose 341; ratio 16x (361.0/22.0) vs paper prose 12x. Text next to the
 % chart quotes the chart. Confirm with paper author which is current.
 \documentclass[25pt, a0paper, portrait, margin=0mm, innermargin=15mm,
-  blockverticalspace=12mm, colspace=15mm, subcolspace=8mm]{tikzposter}
+  blockverticalspace=9mm, colspace=15mm, subcolspace=8mm]{tikzposter}
 
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
@@ -78,23 +84,20 @@
         Indonesia, Philippines, Malaysia, Singapore; Q1 2023--Q4 2025
       \item Tiles mapped to provinces (point-in-polygon, geoBoundaries ADM1),
         test-weighted; province-quarters with $\geq$100 tests and $\geq$5 tiles
-      \item Operators grouped by \textbf{ASN}, not raw ISP names
     \end{itemize}
   }
 
-  \block{Mobile Is Uniform, Fixed Is Not}{
-    Fixed broadband beats mobile in most countries: Thailand shows the
-    largest gap (\textbf{3.2$\times$}, ${\sim}$275 vs.\ ${\sim}$85~Mbps),
-    Singapore 2.1$\times$. Myanmar is the only country where mobile is
-    \emph{faster} than fixed (0.8$\times$) --- a mobile-first market.
+  \block{Where the Speed Is}{
+    The five fastest provinces per country, hatched where a province carries
+    under \textbf{5\%} of its country's tests and its rank is therefore not
+    reliable. Singapore clears \textbf{360~Mbps} in every region; Thailand's
+    top five are all Bangkok-adjacent and all thin-sample. Malaysia and the
+    Philippines concentrate in hubs that do carry real volume (Selangor
+    34.3\%, NCR 28.0\%), while the emerging markets top out below 200~Mbps
+    and fill their rankings with low-sample provinces.
 
     \vspace{0.5em}
-    \fig{../paper/figures/image3.png}{Mobile mean download by country, Q1 2023--Q4 2025.}
-
-    \vspace{0.5em}
-    Leading mobile operators in seven of nine markets sit in a narrow
-    \textbf{22--39~Mbps} band, versus fixed operators spanning
-    23--300~Mbps.
+    \fig[0.95]{../paper/figures/image5.png}{Top five provinces per country, fixed broadband; hatched = under 5\% of national tests.}
   }
 
   \block{Data \& Code}{
@@ -160,7 +163,7 @@
       \item Cambodia 67--86\%; Indonesia 36 $\to$ 65\%; Myanmar 40--55\%
       \item Laos volatile: 50--100\%
     \end{itemize}
-    \fig[0.9]{../../outputs/app_success_rate_median/fig_video_uhd_national.png}{UHD-video success rate by country.}
+    \fig[0.82]{../../outputs/app_success_rate_median/fig_video_uhd_national.png}{UHD-video success rate by country.}
 
     \vspace{0.8em}
     \textbf{Cloud gaming ($\geq$44~Mbps)}
@@ -170,17 +173,19 @@
       \item Cambodia 38--49\%; Laos ${\sim}$52\%
       \item Indonesia $<$38\%; Myanmar $<$31\%
     \end{itemize}
-    \fig[0.9]{../../outputs/app_success_rate_median/fig_cloud_gaming_national.png}{Cloud-gaming success rate by country.}
+    \fig[0.82]{../../outputs/app_success_rate_median/fig_cloud_gaming_national.png}{Cloud-gaming success rate by country.}
   }
 
-  \block{Finding 5 --- Who Delivers the Speed}{
-    Fixed: \textbf{MyRepublic} (SG) 300~Mbps, TIME dotCom (MY) 196, AIS
-    (TH) 126; everyone else below 100, down to 23 (Myanmar). The
-    \emph{most-used} fixed ISP ranges from Singtel Fibre \textbf{176}~Mbps
-    to Telkom Indonesia \textbf{19} and Mytel Myanmar \textbf{10}.
+  \block{Finding 5 --- Mobile Is Uniform, Fixed Is Not}{
+    Fixed broadband beats mobile in most countries: Thailand shows the
+    largest gap (\textbf{3.2$\times$}, ${\sim}$275 vs.\ ${\sim}$85~Mbps),
+    Singapore 2.1$\times$, the Philippines 1.9$\times$. Malaysia and
+    Indonesia are near parity (1.1$\times$). Myanmar is the only country
+    where mobile is \emph{faster} than fixed (0.8$\times$) --- a
+    mobile-first market.
 
     \vspace{0.5em}
-    \fig{../paper/figures/image7.png}{Fastest major ISP ($\geq$5\% share) per country, fixed (left) and cellular (right).}
+    \fig[0.92]{../paper/figures/image4.png}{Fixed vs.\ mobile mean download by country, with ratio.}
   }
 
   \block{Takeaway}{
