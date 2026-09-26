@@ -4,7 +4,11 @@ Everything here is paste-ready. Text is quoted or condensed from `docs/paper/pap
 
 > **2026-09-24 — the poster is now built in Figma, not LaTeX.** See `README.md`. `poster.tex`, `poster_v_dense.tex` and `assets/` were deleted (git history: `b3bcd9a`). Figure paths in section 7 below refer to the deleted `assets/` copies; the live originals are under `outputs/` and `docs/paper/figures/`, and the poster-type-scale versions the Figma file uses are in `outputs/poster_figs/`. This file remains the number-provenance record.
 
-> **The deadline line below was wrong too.** The CFP asks for a **≤2-page ACM abstract**, not the poster PDF, and the deadline is **2026-09-28 23:59 AoE = Tue 2026-09-29 18:59 Thai** — about 12 hours later than stated here. The A1 poster is only produced if accepted (notification 2026-10-09). See `README.md`.
+> **The deadline line below was wrong too.** The CFP asks for a **≤2-page ACM abstract**, not the poster PDF. Deadline per the live HotCRP portal is **2026-09-28 8pm EDT = Tue 2026-09-29 07:00 Thai** — the CFP page's generic "23:59 AoE" does not apply to this specific submission round; trust the portal. The A1 poster is only produced if accepted (notification 2026-10-09). See `README.md`.
+
+> **Success-rate definition, resolved 2026-09-26, corrected 2026-09-26 (2nd pass).** Per Pakkapon's commit `64970b8` message: "Success rate = min(city median download / app threshold, 1) x 100 per quarter." It is **not** a share-of-measurements metric — it's a **country's** (not province's — the CSV only has `nat_`/`cap_` national and capital columns, no province granularity) quarterly median download speed expressed as a percentage of the application threshold, capped at 100%. `quarterly_app_success_median.csv` has no generating script in the repo (only the plotting script `scripts/build_app_success_figs.py` reads it), so this commit message is the only provenance for the formula. `abstract.tex` now states this precisely — first pass wrongly said "province-quarter", fixed to "country-quarter" / "a country's quarterly median" on the second pass.
+>
+> **Still open — ask Pakkapon:** the implied national medians behind these percentages (e.g. Thailand ~40 Mbps, Indonesia ~9 Mbps, Cambodia ~18 Mbps) don't match the median of any Ookla fixed, Ookla mobile, or NDT7 export in this repo — they're far below Ookla fixed numbers. Most likely NDT7 test-level medians, but unconfirmed. Also unconfirmed: "on both fixed and mobile networks" (voice/HD 100% claim) — this CSV has no fixed/mobile split; the claim comes from paper prose only (paper.tex ~l.442–444, an interpretive gloss on the national chart, not a fixed/mobile split). **Removed from `abstract.tex` (abstract + §3.1) and `abstract.md` on 2026-09-26 (3rd pass)** so the submission doesn't assert it; restore only if Pakkapon confirms a fixed/mobile split exists.
 
 ---
 
@@ -45,9 +49,10 @@ Our results argue that speed-index rankings obscure the digital divide that actu
 |---|---|---|
 | 990M | speed tests (Ookla 229.4M + NDT7 760.6M) | paper abstract |
 | 9 | Southeast Asian countries | paper |
-| 12 | quarters, Q1 2023 – Q4 2025 | paper §Datasets |
-| 100% | HD-video success, every country, every quarter | paper §Analysis |
-| <38% | cloud-gaming success in weakest markets (Indonesia <38%, Myanmar <31%) | paper |
+| 12 | quarters of raw speed-test data, Q1 2023 – Q4 2025 | paper §Datasets |
+| 8 | quarters covered by the application-success-rate analysis, **2024Q1–2025Q4 only** — not the full 12-quarter window | `outputs/app_success_rate_median/quarterly_app_success_median.csv` |
+| 100% | HD-video success, every country, every quarter **of 2024–2025** | paper §Analysis |
+| <38% | cloud-gaming success ceiling in weakest markets — Indonesia max 37.1%, Myanmar max 31.2% (Indonesia's trough, 20.3%, is the dataset's actual lowest single value) | CSV, verified 2026-09-26 |
 | 3.2x | Thailand fixed vs mobile (largest gap) | paper |
 | 12x (paper) / 16x (regen) | best capital vs worst capital | see section 0 |
 | 300 vs 23 Mbps | fastest fixed ISP (MyRepublic SG) vs fastest in Myanmar | paper |
@@ -75,10 +80,10 @@ Research question: how do nine Southeast Asian networks perform against the dema
 | Video streaming (UHD) | 25 Mbps | few seconds |
 | Cloud gaming | 44 Mbps | 25 ms |
 
-Success rate = national-level share meeting the **download-speed** threshold, per quarter (Q1 2024 – Q4 2025 in the paper's figures).
+Success rate = a country's quarterly median download speed as a percentage of the **download-speed** threshold, capped at 100% (Q1 2024 – Q4 2025). Not a share-of-measurements metric — see the note above.
 
 ### Finding 1 — Basics are solved
-Voice (>= 64 kbps) and HD video (>= 5 Mbps) succeed at 100% in every country, every quarter, on fixed and mobile networks (lines are offset a few pixels in the charts only so they stay visible). Even the lowest-tier broadband markets meet the basic floor.
+Voice (>= 64 kbps) and HD video (>= 5 Mbps) succeed at 100% in every country, every quarter of 2024–2025 (fixed/mobile split unconfirmed — see open note at top; lines are offset a few pixels in the charts only so they stay visible). Even the lowest-tier broadband markets meet the basic floor.
 
 ### Finding 2 — Urban–rural stratification
 **Version A — paper prose (8-country figure, `assets/image2.png`):**
@@ -92,9 +97,9 @@ National fixed means (regen, `assets/regen_fixed_dl.png`): Singapore 395, Thaila
 Singapore nearly doubled its median provincial fixed speed, from ~280 Mbps (early 2023) to ~550 Mbps (late 2025). Thailand grew steadily from ~200 to ~300. Malaysia and Vietnam form a middle tier; Vietnam accelerated to catch Malaysia at over 200 Mbps by Q4 2025. The Philippines moved from ~100 to ~120. Laos, Cambodia, Indonesia and Myanmar stayed flat below 60 Mbps for all three years (Myanmar briefly dipped near 0 at the end of 2025). Figure: `assets/image6.png`.
 
 ### Finding 4 — Application tiers diverge
-**UHD video (>= 25 Mbps):** Malaysia, Singapore, Thailand, Philippines, Vietnam: 100% every quarter. Laos volatile: ~76% (Q1 2024) → 50% (Q4 2024) → 100% (Q1 2025) → ~92% (Q4 2025). Cambodia 67–86%. Indonesia ~36% → 65%. Myanmar 40–55%.
+**UHD video (>= 25 Mbps):** Malaysia, Singapore, Thailand, Philippines: 100% every quarter. **Vietnam 86.1% in Q1 2024, then 100% every quarter from Q2 2024 onward — not 100% throughout.** Laos volatile: ~76% (Q1 2024) → 50% (Q4 2024) → 100% (Q1 2025) → ~92% (Q4 2025). Cambodia 67–86%. Indonesia 35.8% → 65.2%. Myanmar 39.2–55.0%.
 
-**Cloud gaming (>= 44 Mbps):** Singapore ~100% throughout. Thailand and Malaysia 87–100%. Philippines 58–93%. Vietnam from <50% (Q1 2024) to 100% (Q1 2025), settling ~94%. Cambodia 38–49%. Laos spikes to 85% in early 2025, back to ~52%. Indonesia <38%, Myanmar <31%.
+**Cloud gaming (>= 44 Mbps):** Singapore ~100% throughout. Thailand and Malaysia 87–100%. Philippines 58–94% (max 93.52 in Q1 2025, rounds to 94; was "58–93" until 2026-09-26). Vietnam from <50% (Q1 2024) to 100% (Q1 2025), settling ~94%. Cambodia 38–49%. **Laos volatile: 28.7–85.3% (trough Q4 2024, spike to 85.3% Q1 2025, settling ~52% by Q4 2025).** **Indonesia 20.3–37.1% (max never exceeds 38%); Myanmar 22.3–31.2% (max never exceeds 32%) — Indonesia's trough (20.3%) is actually the single lowest value in the dataset, not Myanmar's.**
 
 Figures: `assets/fig_video_uhd_national.png`, `assets/fig_cloud_gaming_national.png` (and `_capital` variants for capital-only rates).
 
@@ -173,4 +178,5 @@ Only public, aggregated/anonymized open datasets (Ookla Open Data, M-Lab NDT7 vi
 - Show อาจารย์; zoom-test at real print size; outside "state the finding in 10 seconds" test.
 - Decide Finding 2 numbers (paper prose 8-country vs regenerated 9-country) — and whether to correct paper Figures 1–2 (currently missing Indonesia).
 - Decide anonymity of the PDF / QR link.
+- Thailand Consumer Council 81% / 2,924 survey has no bib entry (uncited in `abstract.tex` Motivation and in `paper.tex`). Add a reference if a source URL/report exists.
 - HotCRP form: title, poster PDF (<= 20.5 MB), abstract, authors (Chissanupun Athiwarikanon chissanupun.a@ku.th; Kunanont Malayanont kunanont.m@ku.th; Pakkapon Pattanakul pakkapon.p@ku.th), PC conflicts (none — Adisorn Lertsinsrubtavee, Kenjiro Cho, Kun-Chan Lan, Marnel Peradilla).

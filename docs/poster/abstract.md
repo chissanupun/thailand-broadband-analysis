@@ -1,15 +1,42 @@
 # Poster abstract — HotCRP text field
 
-## Title (pick one, or edit)
-1. Beyond Speed Rankings: A Nine-Country Measurement Study of Southeast Asia's Application-Layer Digital Divide
-2. Basic Access Is Universal, Application-Tier Access Isn't: Measuring Broadband in Southeast Asia
+Kept in sync with `main/abstract.tex` — copy this verbatim into the HotCRP
+abstract field, don't hand-edit numbers here independently of the PDF.
 
-## Abstract (~230 words)
+## Title
 
-Southeast Asia's broadband landscape is usually judged by headline speed-index rankings, which say little about whether real applications actually work for users. We analyze over 990 million speed tests (Ookla and M-Lab NDT7, Q1 2023 – Q4 2025) across nine countries — Thailand, Vietnam, Laos, Myanmar, Cambodia, Indonesia, the Philippines, Malaysia, and Singapore — and evaluate them against the bandwidth thresholds of four application classes: voice, HD video streaming, UHD video streaming, and cloud gaming.
+Beyond Speed Rankings: Application-Layer Broadband Performance in Nine
+Southeast Asian Countries
 
-We find that basic connectivity is a solved problem: voice and HD streaming succeed at essentially 100% across all nine countries, on both fixed and mobile networks. This uniformity collapses under higher-tier demand. Fixed broadband shows sharp urban-rural stratification — capital hubs reach speeds up to 12x their country's lower-tier regions, a gap invisible in national rankings. At the application layer, tier-one markets (Singapore, Thailand, Malaysia) sustain UHD streaming and cloud gaming reliably, while several developing markets fall below 38% success on the same thresholds, even though mobile networks offer a more geographically uniform baseline in countries like Myanmar, Laos, and Cambodia.
+## Abstract
 
-Our results argue that speed-index rankings obscure the digital divide that actually matters: not whether a country "has broadband," but whether that broadband survives contact with a real application. We use this framing to identify where infrastructure investment — fiber build-out, mobile-to-fixed migration, transport-layer optimization — would close real usage gaps rather than just index-ranking gaps.
+Southeast Asian broadband is usually judged by headline speed-index
+rankings, which say little about whether real applications work. Thailand
+ranked 12th worldwide for fixed broadband in June 2026, yet a 2023 national
+consumer survey found 81% of 2,924 respondents reporting connection
+problems. We analyze 990 million speed tests — 229.4M from Ookla Open Data
+and 760.6M from M-Lab NDT7, Q1 2023 to Q4 2025 — across nine countries, and
+score each country-quarter against the bandwidth requirements of voice, HD
+video, UHD video and cloud gaming. Our preliminary results show that basic
+connectivity is solved: voice and HD video succeed at 100% in every
+country, every quarter of 2024–2025. That uniformity collapses at higher tiers. Fixed broadband stratifies
+sharply by geography, with a 16x spread between the strongest and weakest
+capital regions, and cloud-gaming success ranges from 100% in Singapore
+to a peak of only 37% in Indonesia and 31% in Myanmar. Work is ongoing
+on per-province modeling and on peak-hour behavior.
 
-**Created:** 2026-09-15
+## Keywords
+
+Internet measurement, broadband performance, Southeast Asia, Ookla, M-Lab
+NDT7, application requirements
+
+**Updated:** 2026-09-26 — resynced to match `main/abstract.tex` (previous
+09-15 draft used stale numbers: title varied, capital-gap figure said 12x,
+verified figure is 16x). Same day, second pass: success-rate window
+(2024–2025), Myanmar/Indonesia cloud-gaming bound, US spelling. Third
+pass: "province-quarter" → "country-quarter" (the success rate is a national
+median, per commit 64970b8), Singapore "roughly 100%" → "100%" (exactly
+100.0 in all 8 quarters), "at most 37%/31%" → "a peak of only" (true values
+37.1/31.2). Fourth pass: removed "on both fixed and mobile networks"
+(CSV has no fixed/mobile split; open question for Pakkapon, see
+`poster_content.md`).

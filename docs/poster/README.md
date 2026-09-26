@@ -12,7 +12,7 @@ Frame is 1684×2384 px = **A1 at 72 dpi**. The frame carries export settings for
 
 | | What | When |
 |---|---|---|
-| **Now** | `main/abstract.tex` → `abstract.pdf`, ≤2 double-column ACM pages, non-anonymous | **2026-09-28 23:59 AoE = 2026-09-29 18:59 Thai** |
+| **Now** | `main/abstract.tex` → `abstract.pdf`, ≤2 double-column ACM pages, non-anonymous | **2026-09-28 8pm EDT = 2026-09-29 07:00 Thai** (live HotCRP portal; ignore the CFP page's generic 23:59 AoE) |
 | **Now** | The abstract text field on HotCRP — text in `abstract.md` | same |
 | If accepted | The A1 poster, exported from Figma | notification **2026-10-09** |
 | If accepted | 3-minute lightning talk (~400 words), not yet written | conference |

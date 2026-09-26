@@ -2,3 +2,7 @@
 *.log
 *.blg
 *.out
+
+# other people's papers kept for format reference only — one is unpublished
+# (a labmate's own CNC-lab paper); never commit these to a public repo.
+reference/
