@@ -1,34 +1,19 @@
 % AINTEC 2026 — POSTER ABSTRACT (main poster)
 %
-% Per the poster CFP: abstract report, at most two double-column pages including
-% figures and tables, references excluded; ACM proceedings template; author names
-% NOT anonymized. Deadline per the live HotCRP portal: Mon 2026-09-28 8pm EDT =
-% Tue 2026-09-29 07:00 Thai (NOT the CFP page's generic 23:59 AoE / 18:59 Thai —
-% the portal's own countdown is authoritative for this specific submission).
-% The A1 poster itself is only produced if accepted (notification 2026-10-09).
+% 2026-09-28: reverted per อาจารย์'s instruction to use ONLY his own wording
+% (from ~/Downloads/AINTEC 2026-paper.docx, the source he wrote paper.tex from).
+% Body text below is excerpted/trimmed verbatim from that document -- not
+% rewritten. Today's independent fixes (test-weighted pass-rate metric,
+% latency check, stale-figure/number corrections, etc.) are NOT applied here;
+% they're tracked separately in docs/paper/proposed-revisions-th.pdf so
+% อาจารย์ can decide what to bring back in. Figures 1 uses the original
+% docs/paper/figures/image1.png + image2.png (same source as the docx), not
+% the regenerated 9-country charts used in the prior abstract.tex draft.
 %
-% Scope note: the operator / ISP market-structure material was split off on
-% 2026-09-24 into a separate poster owned by Kunanont Malayanont. Nothing
-% operator-layer belongs in this abstract. See docs/poster/isp/content.md.
-%
-% Numbers here are the poster-verified set (docs/poster/poster.tex and
-% docs/poster/poster_content.md section 3, "Version B" regenerated 9-country
-% figures), NOT the paper's 8-country prose numbers. Do not mix the two.
-%
-% 2026-09-27 rewrite: the full-paper submission (#51) was rejected; all
-% three reviewers flagged the application-success metric (min(median/
-% threshold,1)*100 -- a ratio, not a pass rate) as the paper's most serious
-% flaw, and this abstract used the same metric. Replaced with the
-% test-weighted share of province-quarters (12 quarters, Q1 2023--Q4 2025,
-% all 9 countries, fixed+mobile) actually clearing each threshold, computed
-% directly from data/exports/ookla_*_province_quarterly.csv, matching the
-% method in notebooks/comparison/rq1_thresholds_ookla.ipynb. Cloud gaming
-% now checks Ookla latency (<=25ms) alongside bandwidth (>=44Mbps), per
-% อาจารย์'s 2026-08-13 ruling that cloud gaming should use Ookla latency,
-% not NDT7 (NDT7 servers are mostly offshore -- see the "Data and Method"
-% latency paragraph below). Every number was independently recomputed and
-% cross-checked against the notebook's methodology, not copied from any
-% prior draft.
+% Per the poster CFP: abstract report, at most two double-column pages
+% including figures/tables, references excluded; ACM proceedings template;
+% author names NOT anonymized. Deadline (live HotCRP portal): Tue 2026-09-29
+% 07:00 Thai.
 \documentclass[sigconf,nonacm]{acmart}
 
 \usepackage{microtype}
@@ -50,9 +35,16 @@
 
 \begin{document}
 
-\title{Beyond Speed Rankings: Application-Layer Broadband Performance
-  in Nine Southeast Asian Countries}
+\title{Internet Landscape Study of Southeast Asian Countries}
 
+\author{Sukumal Kitisin}
+\email{sukumal.i@ku.th}
+\affiliation{%
+  \institution{Kasetsart University}
+  \department{Department of Computer Science}
+  \city{Bangkok}
+  \country{Thailand}
+}
 \author{Chissanupun Athiwarikanon}
 \email{chissanupun.a@ku.th}
 \affiliation{%
@@ -77,216 +69,184 @@
   \city{Bangkok}
   \country{Thailand}
 }
-\author{Sukumal Kitisin}
-\email{sukumal.i@ku.th}
-\affiliation{%
-  \institution{Kasetsart University}
-  \department{Department of Computer Science}
-  \city{Bangkok}
-  \country{Thailand}
-}
 
-\renewcommand{\shortauthors}{Athiwarikanon et al.}
+\renewcommand{\shortauthors}{Kitisin et al.}
 
 \begin{abstract}
-Southeast Asian broadband is usually judged by headline speed-index
-rankings, which do not directly measure application performance. Thailand
-ranked 12th worldwide for fixed broadband in July~2026~\cite{OoklaGlobalIndex2026}.
-A 2023
-Thailand Consumer Council online survey found 81\% of 2{,}924 mobile
-subscribers reporting usage problems~\cite{TCC2023}. Across nine countries,
-our corpus contains 990 million measurement records --- 229.4M from Ookla
-Open Data and 760.6M from M-Lab NDT7, Q1 2023 to
-Q4 2025. Using Ookla province-quarter aggregates, we compute the test-weighted
-share of province-quarters whose means clear illustrative bandwidth and
-latency benchmarks for voice, HD video, UHD video and cloud gaming. Both
-datasets are crowdsourced and user-initiated rather than random samples. Voice and
-HD video clear their bars in essentially every province-quarter across all
-twelve quarters. Fixed broadband stratifies sharply by geography, with a
-16$\times$ spread between the strongest and weakest capital regions. Against
-the combined cloud-gaming bar, the binding constraint flips by market:
-fixed broadband in Cambodia, Laos, Indonesia and Myanmar falls short mostly on
-bandwidth, while five mobile networks --- including Singapore, where only
-48.8\% meet the latency bound by test weight --- clear bandwidth
-almost universally yet fail mostly on latency.
-Work is ongoing on per-province modeling and on peak-hour behavior.
+National Internet broadband service providers particularly in Thailand are
+often perceived from user experiences. In Southeast Asian this assumption
+remains largely unmeasured or studied. For example, Thailand ranked 12th
+worldwide for fixed broadband in Ookla's Speedtest Global Index (June
+2026)~\cite{OoklaGlobalIndex2026}, yet whether such the services reflect
+application-level performance across the country is unclear. A 2023 survey
+by Thailand Consumer Council found that 81\% of 2,924 respondents had
+encountered connection problems, mostly slow and dropping
+connections~\cite{TCC2023}. These numbers contradict with each other for
+Thailand, and definitely, Thailand is not alone on the mismatched
+information in Southeast Asian region.
+
+In this study we analyze and evaluate the communication network quality of
+nine countries: Thailand, Vietnam, Laos, Myanmar, Cambodia, Indonesia, the
+Philippines, Malaysia, and Singapore using the test results from Q1 of
+2023 to Q4 of 2025 using collected open datasets from Ookla (229.4 million
+tests) and M-Lab NDT7 (760.6 million tests). We compared the results to the
+bandwidth requirements of four types of popular application namely voice,
+video streaming (HD), video streaming (UHD), and Cloud gaming.
 \end{abstract}
 
-\keywords{Internet measurement, broadband performance, Southeast Asia,
-  Ookla, M-Lab NDT7, application requirements}
+\keywords{Speed tests analysis, Ookla, NDT7}
 
 \maketitle
 
-\section{Motivation}
-Thailand ranked 12th worldwide for fixed broadband in July~2026 in
-Ookla's Speedtest Global Index~\cite{OoklaGlobalIndex2026}.
-In a 2023 Thailand Consumer Council
-online survey, 81\% of 2{,}924 mobile subscribers reported usage problems;
-slow and dropping connections were the most common complaints~\cite{TCC2023}.
-This self-selected survey does not estimate a population-wide problem rate.
-We ask how nine Southeast Asian countries perform against illustrative
-application benchmarks, beyond national download-speed averages.
+\section{Introduction}
+National Internet Service Providers (ISPs), particularly in Southeast Asian
+countries like Thailand, are frequently judged based on subjective end-user
+perceptions rather than systematic empirical data. A significant gap exists
+between high-level speed index rankings and actual user experiences; for
+example, while Thailand was ranked 12th worldwide for fixed broadband in
+Ookla's Speedtest Global Index in June 2026, a 2023 survey by the Thailand
+Consumer Council revealed that 81\% of 2,924 respondents suffered from
+frequent connection problems such as slow speeds and dropped signals. To
+address this widespread mismatch across the region, this paper presents a
+comprehensive study analyzing communication network quality across nine
+Southeast Asian nations: Thailand, Vietnam, Laos, Myanmar, Cambodia,
+Indonesia, the Philippines, Malaysia, and Singapore. Leveraging
+cross-platform open measurement datasets collected from Q1 2023 to Q4
+2025---comprising 229.4 million tests from Ookla and 760.6 million tests
+from Measurement Lab's NDT7---we evaluate performance against real-world
+application demands.
 
 \section{Data and Method}
-We use two complementary open datasets covering Thailand, Vietnam, Laos,
-Myanmar, Cambodia, Indonesia, the Philippines, Malaysia and Singapore, over
-twelve quarters (Q1~2023--Q4~2025):
+Ookla open data supplies quarterly internet-performance tiles split by
+connection type (fixed, mobile) at Quadkey zoom 16 ($\sim$600x600 m), each
+carrying mean download, upload, latency, and the underlying Speedtest
+submission count, delivered as global Parquet files on Amazon S3. We map
+them to the nine countries and twelve quarters (Q1 2023-Q4 2025); having
+the total of 229,367,221 tests, with largest Indonesia test data of 74.2
+million records and smallest Laos dataset of 875,799 records. Total volume
+across the nine countries from Mlab NDT7 is 760,607,387 tests, with
+largest Indonesia test data of 367.2 million and smallest Laos test record
+of 139,693 records.
 
-\begin{itemize}
-  \item \textbf{Ookla Open Data}~\cite{OoklaOpenData2023} --- 229{,}367{,}221
-    tests, published as quarterly tiles of roughly
-    600\,m$\times$600\,m, fixed and mobile. Tests often use nearby on-net
-    servers and parallel streams, emphasizing access-network capacity.
-  \item \textbf{M-Lab NDT7}~\cite{MLabNDT72025} --- 760{,}607{,}387
-    single-stream measurement records to off-net servers, providing a
-    complementary view of end-to-end throughput.
-\end{itemize}
+The data from the two sources comes in different formats. Ookla comes as
+spatial tiles approximately 600m x 600m, while NDT7 comes as individual
+test records. We want to analyze the data separately as well as together.
+First we clean the data such as throughput $\leq$ 0 and duration $\leq$ 0.
+We then use ip-api.com~\cite{IpApi} which is a free API service for
+checking whether the test records are the mobile / hosting / proxy flags
+and the ASN for each IP. On Ookla dataset, we build a bounding box to
+define each country's extent, referencing the geoBoundaries ADM1
+file~\cite{Runfola2020} for the 9 ASEAN countries, then run
+point-in-polygon on the tiles to determine which province each point falls
+in. Then compute a weighted average by each tile's test count, to prevent
+distortion from tiles with widely different test counts. To ensure
+quality, we filter only province-quarters which has total\_tests $\geq$
+100 and n\_tiles $\geq$ 5 which would better represent the reality.
 
-Ookla tiles are assigned to first-level administrative provinces by
-point-in-polygon against geoBoundaries ADM1~\cite{Runfola2020}. NDT7
-province assignments use the cleaned records' GADM 4.1 (2022) boundaries
-~\cite{GADM2022}. Province averages are test-weighted. We retain Ookla
-province-quarters with at least 100 tests and 5 tiles, and NDT7
-province-quarters with at least 100 tests.
-For NDT7, tests with non-positive throughput or duration are dropped, and IP
-addresses are checked against ip-api.com to exclude hosting/proxy traffic.
-Because user-initiated speed tests are a biased sample~\cite{Deng2021}, we
-report aggregate threshold coverage, without inferring population-wide
-application success. Coverage is uneven: Myanmar is missing 10.7\%
-of fixed and 22\% of mobile province-quarters, and some Vietnamese and
-Cambodian provinces lack mobile data in low-volume quarters --- gaps we
-flag rather than interpolate.
+Table~\ref{tab:app-requirements} lists the bandwidth and latency
+requirements used as a threshold to evaluate whether the services are good
+enough for such applications, following Lübben and Misfeld~\cite{Lubben2022}.
 
-We evaluate four application classes against the illustrative thresholds of
-L\"ubben and Misfeld~\cite{Lubben2022}: voice (64\,kbps, 200\,ms), HD video
-streaming (5\,Mbps), UHD video streaming (25\,Mbps) and cloud gaming
-(44\,Mbps, 25\,ms). \textbf{Pass rate} is the test-weighted share of
-province-quarters (fixed and mobile separately, all twelve quarters,
-Q1~2023--Q4~2025) whose average download speed --- and, where a latency
-bound applies, average latency --- clears the threshold; this is an
-aggregate over 100+ tests per province-quarter. It measures the test weight
-of qualifying aggregate means, not the share of users, sessions or individual
-tests that meet a requirement.
-We use \textbf{Ookla} latency: most NDT7 tests in six countries terminate
-offshore (Thai tests mainly in Singapore or Hong Kong), mixing access and
-international transit delay. Ookla instead selects a nearby server.
-Its idle RTT to an often on-net server does not establish latency to an
-application server under load, or actual application QoE.
-
-\section{Preliminary Results}
-
-\subsection{Voice and HD-video thresholds are widely met}
-The voice (64\,kbps) and HD-video (5\,Mbps) bandwidth bars pass in 100\% of
-province-quarters, fixed and mobile, in every one of the nine countries,
-across all twelve quarters. Voice's 200\,ms latency bar is nearly as
-uniform, with two exceptions: Myanmar's fixed-broadband province-quarters
-have 98.2\% test-weighted coverage (mobile: 99.1\%), and Laos's mobile
-province-quarters have 99.6\%. These aggregate means meet modest bandwidth
-benchmarks; they do not establish call quality, streaming reliability or
-the performance of individual tests.
-
-\subsection{Fixed broadband stratifies by geography}
-\begin{figure}[t]
-  \centering
-  \includegraphics[width=\linewidth]{../../../outputs/ookla/cross_country/03_capital_vs_national.png}
-  \caption{Capital province versus national mean download speed, fixed
-    broadband, test-weighted, nine countries.}
-  \label{fig:capital}
-\end{figure}
-
-Most capital regions outperform their own country
-(Figure~\ref{fig:capital}): Bangkok reaches 298.8\,Mbps against a national
-276.9, Kuala Lumpur 212.3 against 194.8, and Manila NCR 159.6 against
-132.0. Singapore and Myanmar are the exceptions: Singapore's Central
-Region (361.0) sits \emph{below} its national mean (394.8), as does Yangon
-(22.0 against 24.6). The spread between the strongest and weakest capital
-region is over 16$\times$ (Singapore's 361.0 against Yangon's 22.0\,Mbps),
-a gap that a table of national averages conceals.
-
-Absolute speed gaps remain large. Singapore nearly
-doubled its median provincial fixed speed over the period, from roughly 280
-to 550\,Mbps, and Thailand grew from roughly 200 to 300. Vietnam
-accelerated to join Malaysia above 200\,Mbps. Cambodia and Laos both
-roughly doubled their median provincial speed over the period, reaching
-61.7 and 62.2\,Mbps by Q4 2025, and Indonesia and Myanmar reached 53.8 and
-53.6\,Mbps respectively --- all four remain well behind the leading tier,
-but none is flat.
-
-The fixed--mobile gap also varies widely. Fixed broadband exceeds mobile by
-3.2$\times$ in Thailand and 2.1$\times$ in Singapore, but the two are near
-parity in Malaysia and Indonesia (1.1$\times$), and Myanmar is the only
-country in the set where mobile is \emph{faster} than fixed (0.8$\times$)
-in these measurements.
-
-\subsection{UHD video separates the region}
-Raising the bar to 25\,Mbps separates the region into two groups. Thailand,
-Vietnam, Singapore and Malaysia pass 100\% of province-quarters, fixed and
-mobile. The Philippines is near-universal (99.6--100\%), and Laos and
-Cambodia pass 88--99\%. Indonesia and Myanmar diverge by connection type:
-Indonesia passes 88.1\% fixed / 90.5\% mobile, while Myanmar passes only
-22.1\% fixed but 68.8\% mobile --- the one country in the set where mobile
-UHD threshold coverage is substantially higher than fixed, consistent with
-its measured fixed--mobile gap.
-
-\subsection{Cloud-gaming constraints differ by market}
 \begin{table}[t]
-  \centering
-  \small
-  \caption{Test-weighted \% of province-quarters clearing each
-    cloud-gaming component (bandwidth $\geq$44\,Mbps; Ookla latency
-    $\leq$25\,ms; both), 12 quarters, Q1~2023--Q4~2025.}
-  \label{tab:cloudgaming}
-  \begin{tabular}{lrrr@{\hspace{6pt}}rrr}
+  \caption{Bandwidth and latency requirements for different types of applications}
+  \label{tab:app-requirements}
+  \begin{tabular}{lll}
     \toprule
-    & \multicolumn{3}{c}{Fixed} & \multicolumn{3}{c}{Mobile} \\
-    Country & BW & Lat & Both & BW & Lat & Both \\
+    Application Types & Required Data Rate & Required Latency \\
     \midrule
-    Singapore   & 100.0 & 100.0 & 100.0 & 100.0 & 48.8 & 48.8 \\
-    Vietnam     & 100.0 & 100.0 & 100.0 &  95.5 & 27.9 & 27.9 \\
-    Malaysia    & 100.0 &  97.6 &  97.6 & 100.0 & 33.5 & 33.5 \\
-    Thailand    & 100.0 &  99.5 &  99.5 &  99.4 & 21.6 & 21.6 \\
-    Philippines &  99.8 &  92.6 &  92.6 &  93.2 & 43.2 & 43.2 \\
-    Cambodia    &  67.3 &  97.6 &  64.9 &  18.1 & 20.5 & 10.5 \\
-    Laos        &  66.2 &  97.2 &  64.2 &  16.3 &  2.0 &  1.4 \\
-    Indonesia   &  39.2 &  92.6 &  35.6 &  20.3 & 23.0 & 13.9 \\
-    Myanmar     &   5.8 &  71.1 &   0.0 &  12.2 &  0.0 &  0.0 \\
+    Voice                  & 64 Kbps & 200ms \\
+    Video Streaming (HD)   & 5Mbps   & few secs \\
+    Video Streaming (UHD)  & 25Mbps  & few secs \\
+    Cloud gaming           & 44Mbps  & 25 ms \\
     \bottomrule
   \end{tabular}
 \end{table}
 
-Table~\ref{tab:cloudgaming} shows a binding constraint that flips by market
-tier and connection type. In four bandwidth-constrained fixed markets ---
-Cambodia, Laos, Indonesia and Myanmar --- latency clears
-71--98\% by test weight, but bandwidth clears only 6--67\%, capping the
-combined pass rate at 0--65\%. On mobile, five countries --- Singapore,
-Vietnam, Malaysia, Thailand, the Philippines --- show the pattern
-reversed: bandwidth clears 93--100\% of province-quarters, yet latency is
-what fails, down to just 21.6\% in Thailand. Singapore is the sharpest
-case: mobile bandwidth coverage is 100\%, but combined coverage is 48.8\%.
-Malaysia similarly falls from 100\% bandwidth coverage to 33.5\% combined
-coverage. Download-speed comparisons miss these aggregate latency shortfalls.
-The other four mobile markets have low coverage on both components:
-Cambodia and Indonesia are slightly more bandwidth-constrained, while
-Laos and Myanmar have latency coverage of only 2.0\% and 0.0\%, alongside
-low bandwidth coverage.
+\section{Data Analysis}
+Across the nine Southeast Asian countries analyzed, Ookla fixed broadband
+data (2023 Q1 -- 2025 Q4) reveals significant regional performance tiers
+alongside pronounced urban-rural divides when comparing capital city
+performance against national averages. Singapore leads the region overall,
+with its Central Region reaching 341 Mbps, slightly below its top national
+baseline (376 Mbps). In contrast, most other capital regions significantly
+outperform their nationwide benchmarks: Bangkok Metropolis leads Thailand
+at 295 Mbps (vs. 244 Mbps national), Kuala Lumpur drives Malaysia to
+210 Mbps (vs. 178 Mbps national), the Philippines' NCR reaches 159 Mbps
+(vs. 106 Mbps national), and Hanoi records 153 Mbps for Vietnam (vs.
+135 Mbps national). At the lower end of the spectrum, Cambodia (Phnom Penh
+at 54 Mbps vs. 44 Mbps national) and Laos (Vientiane Capital at 53 Mbps
+vs. 45 Mbps national) show modest capital premiums, while Myanmar (Yangon)
+trails at 27 Mbps, sitting slightly below its national average of
+29 Mbps. Overall, these metrics highlight a stark infrastructure gap where
+top-performing capital hubs achieve speeds more than 12 times greater than
+lower-tier regions, with metropolitan centers generally serving as the
+primary drivers of national connectivity.
 
-\section{Ongoing and Future Work}
-Three directions are in progress. First, we are fitting province-level
-models of speed against economic and density covariates to examine
-their associations. Second, we are extending the
-NDT7 analysis to peak-hour behavior, where busy-versus-quiet \emph{ratios}
-remain interpretable even though absolute latency is not, given offshore
-server placement. Third, we are quantifying the measurement bias introduced
-by uneven coverage and assessing sensitivity to thin-sample provinces.
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=0.48\linewidth]{../../../docs/paper/figures/image1.png}
+  \includegraphics[width=0.48\linewidth]{../../../docs/paper/figures/image2.png}
+  \caption{Mean download speed of fixed broadband (Ookla)}
+  \label{fig:fixed-download}
+\end{figure}
 
-Basic voice and HD-video requirements are met in almost all province-quarters.
-At the cloud-gaming tier, fixed networks in Cambodia, Laos, Indonesia and
-Myanmar are mainly bandwidth-limited,
-while five more advanced mobile markets are latency-limited despite
-sufficient bandwidth. The poster will discuss how these differences can
-guide targeted infrastructure improvements.
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=0.48\linewidth]{../../../docs/paper/figures/image9.png}
+  \includegraphics[width=0.48\linewidth]{../../../docs/paper/figures/image10.png}\\[2mm]
+  \includegraphics[width=0.48\linewidth]{../../../docs/paper/figures/image11.png}
+  \includegraphics[width=0.48\linewidth]{../../../docs/paper/figures/image12.png}
+  \caption{Evaluation results on the application requirements}
+  \label{fig:app-eval}
+\end{figure}
 
-% Keep the references outside the two-page content limit.
+For the national-level success rate for voice and HD video
+streaming---defined as achieving a download speed of $\geq$ 64Kbps and
+5Mbps respectively ---across nine Southeast Asian countries from Q1 2024
+through Q4 2025. Over the entire two-year period, every single country
+consistently achieves a 100\% success rate every quarter, with the
+trendlines remaining entirely flat and parallel near the top of the scale
+(offset slightly purely for visual legibility). This indicates that
+across all evaluated nations, including lower-tier broadband markets,
+existing fixed and mobile network infrastructure universally meets the
+basic 5 Mbps threshold required for smooth HD video playback without
+performance bottlenecks. However, the national success rates for Ultra
+High Definition (UHD) video streaming---defined as achieving download
+speeds of $\geq$ 25 Mbps---across eight quarters (Q1 2024 to Q4 2025). The
+results reveal a clear divergence in performance across Southeast Asian
+nations. Advanced broadband markets including Malaysia, Singapore,
+Thailand, Philippines, and Vietnam consistently achieve a 100\% success
+rate throughout the entire period (clustering together along the top
+boundary). In contrast, developing markets exhibit lower and more
+volatile success rates. Additionally, the national success rates for
+cloud gaming---defined by a demanding bandwidth threshold of and $\geq$
+44 Mbps---across nine Southeast Asian nations from Q1 2024 to Q4 2025.
+Singapore, Thailand, and Malaysia form the top tier, with Singapore
+maintaining a near-perfect 100\% success rate throughout, while Thailand
+and Malaysia fluctuate slightly around 87\%--100\%. In contrast,
+lower-tier markets face severe bottlenecks meeting this intensive
+threshold.
+
+\section{Conclusion}
+This study provides a multi-year empirical evaluation of network
+infrastructure performance and application readiness across nine
+Southeast Asian nations using over 990 million tests from Ookla and M-Lab
+NDT7 datasets. Our findings reveal that while foundational network
+requirements---such as voice calls and HD video streaming $\geq$ 5
+Mbps---are universally met with a 100\% success rate across all evaluated
+countries, significant digital divides emerge under higher-tier demands.
+Fixed broadband infrastructure exhibits stark regional stratification and
+severe urban-rural disparities, with primary capital hubs achieving
+speeds up to 12 times higher than lower-tier regions. While mobile
+networks provide a more spatially uniform and reliable baseline in
+developing economies like Myanmar, Laos, and Cambodia, they struggle to
+sustain bandwidth-intensive, latency-critical workloads. Ultimately, this
+research underscores that raw speed rankings fail to reflect end-to-end
+user experiences across diverse application types, highlighting the
+imperative for targeted fiber deployment, regional infrastructure
+investments, and transport-layer optimizations to achieve true digital
+equity across Southeast Asia.
+
 \clearpage
 \bibliographystyle{ACM-Reference-Format}
 \bibliography{../../paper/references}

@@ -2,7 +2,7 @@
 %%% Do NOT edit. File created by BibTeX with style
 %%% ACM-Reference-Format-Journals [18-Jan-2012].
 
-\begin{thebibliography}{8}
+\begin{thebibliography}{5}
 
 %%% ====================================================================
 %%% NOTE TO THE USER: you can override these defaults by providing
@@ -37,35 +37,19 @@
 \providecommand\natexlab[1]{#1}
 \providecommand\showeprint[2][]{arXiv:#2}
 
-\bibitem[Deng et~al\mbox{.}(2021)]%
-        {Deng2021}
-\bibfield{author}{\bibinfo{person}{Xiaoqi Deng}, \bibinfo{person}{Yijing Feng},
-  \bibinfo{person}{Teanoosha Sutjarittham}, \bibinfo{person}{Hassan~Habibi
-  Gharakheili}, \bibinfo{person}{Blanca Gallego}, {and} \bibinfo{person}{Vijay
-  Sivaraman}.} \bibinfo{year}{2021}\natexlab{}.
-\newblock \bibinfo{title}{Comparing Broadband ISP Performance Using Big Data
-  from M-Lab}.
-\newblock
-\newblock
-\showeprint[arxiv]{2101.09795}
-\urldef\tempurl%
-\url{https://arxiv.org/abs/2101.09795}
-\showURL{%
-\tempurl}
-
-
-\bibitem[{Global Administrative Areas}(2022)]%
-        {GADM2022}
-\bibfield{author}{\bibinfo{person}{{Global Administrative Areas}}.}
-  \bibinfo{year}{2022}\natexlab{}.
-\newblock \bibinfo{title}{GADM Database of Global Administrative Areas (Version
-  4.1) [Dataset]}.
+\bibitem[{ip-api.com}({[n.\,d.]})]%
+        {IpApi}
+\bibfield{author}{\bibinfo{person}{{ip-api.com}}.}
+  \bibinfo{year}{[n.\,d.]}\natexlab{}.
+\newblock \bibinfo{title}{IP Geolocation API}.
 \newblock
 \newblock
 \urldef\tempurl%
-\url{https://gadm.org/}
+\url{https://ip-api.com/}
 \showURL{%
 \tempurl}
+\newblock
+\shownote{n.d.}.
 
 
 \bibitem[L{\"u}bben and Misfeld(2022)]%
@@ -80,34 +64,6 @@
 \urldef\tempurl%
 \url{https://doi.org/10.3390/electronics11010162}
 \showDOI{\tempurl}
-
-
-\bibitem[{Measurement Lab}(2025)]%
-        {MLabNDT72025}
-\bibfield{author}{\bibinfo{person}{{Measurement Lab}}.}
-  \bibinfo{year}{2025}\natexlab{}.
-\newblock \bibinfo{title}{Measurement Lab NDT7 Data [Dataset]}.
-\newblock
-\newblock
-\urldef\tempurl%
-\url{https://www.measurementlab.net/data/docs/bq/quickstart/}
-\showURL{%
-\tempurl}
-\newblock
-\shownote{Retrieved July 6, 2026}.
-
-
-\bibitem[{Ookla}(2023)]%
-        {OoklaOpenData2023}
-\bibfield{author}{\bibinfo{person}{{Ookla}}.} \bibinfo{year}{2023}\natexlab{}.
-\newblock \bibinfo{title}{Speedtest by Ookla Global Fixed and Mobile Network
-  Performance Maps [Dataset]}.
-\newblock
-\newblock
-\urldef\tempurl%
-\url{https://github.com/teamookla/ookla-open-data}
-\showURL{%
-\tempurl}
 
 
 \bibitem[{Ookla}(2026)]%
