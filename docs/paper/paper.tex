@@ -476,6 +476,97 @@ capabilities across Southeast Asia.
   \label{fig:most-used-operator}
 \end{figure}
 
+\subsection{Market Structure (RQ4): The Fastest Operator Is Rarely the One People Use}
+Figures~\ref{fig:fastest-operator} and \ref{fig:most-used-operator} already
+show that the fastest major operator and the most-tested operator are
+often not the same brand; here we quantify how often, and how large the
+gap is. Pooling all twelve quarters and restricting to operators (brands,
+ASNs merged) with at least 5\% test share in their country and segment,
+the most-tested fixed-broadband operator is the fastest of the major
+operators in only \textbf{2 of 9 countries} (Laos and Vietnam, where the
+most-tested operator and the fastest happen to coincide). In the other
+seven, the gap between the country's slowest and fastest major operator
+ranges from Vietnam's 1.06$\times$ up to Malaysia's 4.4$\times$
+(Celcom 44.1\,Mbps vs. TIME dotCom 196.3\,Mbps) and Singapore's
+2.4$\times$ on broadband, 4.7$\times$ on cellular (Simba Telecom
+22.2\,Mbps vs. Singtel Mobile 103.8\,Mbps) --- the largest within-market
+gap we observe on either connection type. Indonesia and Myanmar show the
+largest gap between what most people actually use and the fastest
+available major alternative: Telkom Indonesia (the most-tested fixed
+operator, 18.6\,Mbps) is 2.33$\times$ slower than Biznet (43.3\,Mbps), and
+Mytel in Myanmar (10.3\,Mbps) is 2.23$\times$ slower than the fastest
+major alternative (22.9\,Mbps).
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\linewidth]{../../outputs/ndt7/comparison/rq4_fastest_major_compare.png}
+  \caption{Fastest major operator (test share $\geq$5\%) versus the most-tested operator, by country and connection type.}
+  \Description{Bar chart comparing the fastest major ISP against the most-tested ISP per country, fixed and mobile.}
+  \label{fig:rq4-gap}
+\end{figure}
+
+We also compute each market's Herfindahl--Hirschman Index (HHI, the sum of
+squared test-share percentages, a standard concentration measure) and
+correlate it with the speed of that market's fastest major operator.
+Concentration tracks speed on \textbf{cellular} networks (Spearman
+$\rho=-0.82$, $p=0.007$, $n=9$): the more one mobile operator dominates
+test share, the slower the fastest operator tends to be, consistent with
+a dominant incumbent facing less competitive pressure to upgrade. On
+\textbf{fixed} broadband the same relationship is essentially absent
+($\rho=0.12$, $p=0.77$, $n=9$) --- fixed-line speed appears to be driven
+more by infrastructure investment than by the competitive structure of the
+market. As throughout this paper, we treat test share as a proxy for
+market share, not a measurement of it, so this correlation is suggestive
+of a market-structure effect, not proof of one.
+
+\subsection{Peak-Hour Congestion (RQ3): Ratios, Not Absolute Latency}
+Because NDT7 tests mostly terminate at offshore servers for six of our
+nine countries (\S\ref{sec:analysis}), we do not treat absolute busy-hour
+latency as a domestic-access measurement. Busy-versus-quiet
+\emph{throughput ratios}, however, remain interpretable even under an
+offshore server: the propagation delay to that server is the same in both
+the busy and the quiet window, so a within-day ratio isolates congestion
+on the domestic access link rather than international transit. We define each country's local busy hour as its highest-traffic clock
+hour and compute the ratio of busy-hour to off-peak mean throughput.
+Most countries peak in the evening (20:00--22:00), consistent with
+after-work usage; Vietnam (11:00) and Cambodia (12:00) instead peak at
+midday, which we read as more likely to reflect automated or bot-like
+measurement schedules than genuine peak human usage, and treat with
+correspondingly less confidence.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\linewidth]{../../outputs/ndt7/comparison/rq3_capital_degradation.png}
+  \caption{Busy-hour throughput as a fraction of off-peak throughput, capital region versus the rest of the country, fixed and mobile.}
+  \Description{Bar chart comparing peak-hour congestion degradation between capital and non-capital provinces, by country and connection type.}
+  \label{fig:rq3-degradation}
+\end{figure}
+
+Mobile networks degrade more at the busy hour than fixed broadband does,
+and by how much varies widely by country: the busy-to-quiet cellular
+throughput ratio ranges from \textbf{0.23} in Cambodia (busy-hour mobile
+throughput is less than a quarter of its off-peak level) to \textbf{0.73}
+in Singapore, whose mobile network shows the mildest degradation in the
+set. Fixed broadband degrades less severely everywhere, though not
+uniformly: Singapore's fixed broadband is the one case in our data where
+busy-hour throughput \emph{exceeds} off-peak throughput
+(ratio $>1$), which we read as a data artefact of very low off-peak
+sample volume at that hour rather than networks that speed up under load.
+Splitting by capital versus the rest of the country reverses the naive
+expectation that capitals, with more capacity, should hold up better under
+load: on \textbf{fixed} broadband, the capital region degrades \emph{more}
+than the rest of the country in 6 of 8 countries with a capital split
+(all but the Philippines and Myanmar), most sharply in Cambodia (capital
+busy/off-peak ratio 0.77 versus 1.22 outside the capital --- the
+non-capital ratio above 1 likely reflects thin off-peak sample volume
+rather than a genuine speed-up). On \textbf{cellular}, the pattern is
+close to a coin flip (capital worse in 3 of 8, rest worse in 5 of 8), with
+no consistent direction. We read the fixed-broadband result as consistent
+with capitals carrying denser, more contended demand at the busy hour even
+though their off-peak capacity is higher (Figure~\ref{fig:capital}) ---
+peak-hour behavior is a distinct phenomenon from the static capacity gap,
+not a corollary of it.
+
 \textbf{Pass rate} for an application class is the test-weighted share of
 province-quarters (fixed and mobile separately, all twelve quarters,
 Q1~2023--Q4~2025, computed from the Ookla exports of
