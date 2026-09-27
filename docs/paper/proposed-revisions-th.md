@@ -21,27 +21,18 @@
 threshold จริง แยกทั้ง bandwidth และ latency คำนวณจากข้อมูลที่มีอยู่แล้วในโปรเจกต์
 latency ใช้ค่าจาก Ookla ไม่ใช่ NDT7 เพราะ NDT7 ส่วนใหญ่วิ่งไป server ต่างประเทศ
 
-```
-pass rate = Σ(test count ของ province-quarter ที่ผ่าน threshold) / Σ(test count ทั้งหมด) × 100
-```
-
-**หมายเหตุ (28 ก.ย.):** อาจารย์ตั้งข้อสังเกตว่า Ookla server มักอยู่ในประเทศ ทำให้ latency
-ที่วัดได้ต่ำกว่าความเป็นจริง วัดตรงๆ อาจไม่ถูกต้อง ตรวจดูแล้วพบว่าประเด็นนี้ถูกระบุไว้ในเอกสารอยู่แล้ว
-(ในหัวข้อ Data & Method: "Its idle RTT to an often on-net server does not establish
-latency to an application server under load") คือรู้อยู่แล้วว่าตัวเลขที่ได้เป็นค่า
-**lower bound** (optimistic) ไม่ใช่ latency จริงเป๊ะ แต่ยังดีกว่าของเดิมที่ไม่เช็ค
-latency เลย **สถานะ: แนะนำให้คงการแก้ไขนี้ไว้ ไม่ revert** ต่างจากข้อ 2–8 ด้านล่าง
-ที่ยัง pending รอ apply กลับ
+ผลลัพธ์ใหม่ที่เจอ: cloud gaming ของ fixed broadband ในประเทศรายได้ต่ำ
+(กัมพูชา/ลาว/เมียนมา) ติดปัญหาที่ bandwidth จริง แต่ mobile ของ 5 ประเทศ
+(รวมสิงคโปร์) ผ่าน bandwidth เกือบหมดแต่ติดที่ latency แทน mobile ของสิงคโปร์เอง
+ผ่าน latency แค่ 48.8%
 
 ### 2. Citation ที่ยังเป็น placeholder อยู่ในไฟล์ที่ส่งจริง
 มีจุด `[CITATION NEEDED]` ค้างอยู่สองแห่งใน Related Work reference ที่ต้องใช้
-(MacMillan et al. 2023, งานเทียบ Ookla กับ NDT7) มีอยู่ใน reference list
-ของอาจารย์อยู่แล้ว แค่ไม่เคยถูกอ้างถึงในเนื้อหา
+(MacMillan et al. 2023, งานเทียบ Ookla กับ NDT7)
 
 ### 3. รูปที่ 1 ข้อมูลเก่า ขัดกับรูปที่ 2
 Reviewer B ถาม: "ทำไม Indonesia หายไปจากรูปที่ 1?"
 รูปเดิมเป็นแผนที่ยุคก่อนตัดสิงคโปร์ออก (8 ประเทศ) ตัวเลขในเนื้อหาก็เก่าตาม
-(มาจากสคริปต์ที่ hardcode ค่าไว้ ไม่ได้อ่านจากข้อมูลจริง)
 
 **ข้อเสนอ:** ใช้รูปที่ regenerate ใหม่แล้ว (ครบ 9 ประเทศ อ่านจากข้อมูลจริง)
 พร้อมแก้ตัวเลข: ช่องว่างระหว่างเมืองหลวงที่เร็วสุด/ช้าสุดคือ **16.4 เท่า**
@@ -75,14 +66,22 @@ Reviewer A: "ไม่ควรตีความปริมาณการว�
 
 ---
 
-## กลุ่ม B — เนื้อหาที่เพิ่มใหม่ ไม่มีในต้นฉบับอาจารย์เลย (ต้องอาจารย์ตัดสินใจ)
+## กลุ่ม B — เนื้อหาที่เพิ่มใหม่  (ต้องอาจารย์ตัดสินใจว่าจะใส่มั้ยครับ)
 
 ### 9. ย่อหน้า Limitations & Representativeness
-Reviewer C ขอตรงๆ ให้ยอมรับข้อจำกัดของการเก็บข้อมูลแบบ crowdsourced
+Reviewer C: "The paper should acknowledge that, because NDT results are
+user-initiated, they are not necessarily representative. They may
+over-represent problems (people measure when they have a problem), or
+good cases (if an ISP had employees initiate tests from well provisioned
+areas to boost their statistics). As far as I know we have NO way of
+knowing how it relates to a uniform distribution. If you agree, please
+acknowledge this limit. If you disagree, please explain how you
+calibrate these measurements."
+
 ของเดิมไม่มี section นี้เลย เสนอเขียนเพิ่มสั้นๆ ครอบคลุมเรื่อง bias ของกลุ่มตัวอย่าง
 ช่องว่างของ coverage และข้อจำกัดของ latency ที่วัดได้
 
-### 10. Reviewer A, B บอกว่างานวิเคราะห์ตื้นเกินไป ไม่มี takeaway — เอา peak-hour (RQ3) + ISP (RQ4) กลับมาไหม?
+### 10. Reviewer A, B บอกว่างานวิเคราะห์ตื้นเกินไป ไม่มี takeaway — เสนอ เอา peak-hour (RQ3) + ISP (RQ4) กลับมาไหมครับ?
 ข้อมูลทั้งสองเรื่องมีอยู่แล้วในโปรเจกต์ (คำนวณไว้แล้ว) แค่ไม่เคยถูกนำเข้า paper เท่านั้น
 ถ้าใส่กลับเข้าไปจะได้ 2 finding เพิ่ม: (1) ช่วงเวลาเร่งด่วน เมืองหลวงเสื่อมสภาพหนักกว่าต่างจังหวัดใน
 fixed broadband ถึง 6 ใน 8 ประเทศ ขัดกับความเข้าใจทั่วไป และ (2) ผู้ให้บริการที่คนใช้เยอะที่สุด
