@@ -2,7 +2,7 @@
 %%% Do NOT edit. File created by BibTeX with style
 %%% ACM-Reference-Format-Journals [18-Jan-2012].
 
-\begin{thebibliography}{7}
+\begin{thebibliography}{8}
 
 %%% ====================================================================
 %%% NOTE TO THE USER: you can override these defaults by providing
@@ -50,6 +50,20 @@
 \showeprint[arxiv]{2101.09795}
 \urldef\tempurl%
 \url{https://arxiv.org/abs/2101.09795}
+\showURL{%
+\tempurl}
+
+
+\bibitem[{Global Administrative Areas}(2022)]%
+        {GADM2022}
+\bibfield{author}{\bibinfo{person}{{Global Administrative Areas}}.}
+  \bibinfo{year}{2022}\natexlab{}.
+\newblock \bibinfo{title}{GADM Database of Global Administrative Areas (Version
+  4.1) [Dataset]}.
+\newblock
+\newblock
+\urldef\tempurl%
+\url{https://gadm.org/}
 \showURL{%
 \tempurl}
 
