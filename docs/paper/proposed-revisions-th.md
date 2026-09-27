@@ -21,10 +21,9 @@
 threshold จริง แยกทั้ง bandwidth และ latency คำนวณจากข้อมูลที่มีอยู่แล้วในโปรเจกต์
 latency ใช้ค่าจาก Ookla ไม่ใช่ NDT7 เพราะ NDT7 ส่วนใหญ่วิ่งไป server ต่างประเทศ
 
-ผลลัพธ์ใหม่ที่เจอ: cloud gaming ของ fixed broadband ในประเทศรายได้ต่ำ
-(กัมพูชา/ลาว/เมียนมา) ติดปัญหาที่ bandwidth จริง แต่ mobile ของ 5 ประเทศ
-(รวมสิงคโปร์) ผ่าน bandwidth เกือบหมดแต่ติดที่ latency แทน mobile ของสิงคโปร์เอง
-ผ่าน latency แค่ 48.8%
+```
+pass rate = Σ(test count ของ province-quarter ที่ผ่าน threshold) / Σ(test count ทั้งหมด) × 100
+```
 
 ### 2. Citation ที่ยังเป็น placeholder อยู่ในไฟล์ที่ส่งจริง
 มีจุด `[CITATION NEEDED]` ค้างอยู่สองแห่งใน Related Work reference ที่ต้องใช้
