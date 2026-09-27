@@ -16,18 +16,18 @@ ranked 12th worldwide for fixed broadband in June 2026, yet a 2023 national
 consumer survey found 81% of 2,924 respondents reporting connection
 problems (Thailand Consumer Council, 2023). We analyze 990 million speed
 tests — 229.4M from Ookla Open Data and 760.6M from M-Lab NDT7, Q1 2023 to
-Q4 2025 — across nine countries, and score each country-quarter's median
-download speed against the bandwidth requirements of voice, HD video, UHD
-video and cloud gaming (bandwidth only; we do not assess latency, and both
+Q4 2025 — across nine countries, and compute the test-weighted share of
+province-quarters that clear the bandwidth (and, for cloud gaming,
+latency) requirements of voice, HD video, UHD video and cloud gaming (both
 datasets are crowdsourced and user-initiated rather than a random sample).
-Our preliminary results show that median speeds clear the voice and
-HD-video bandwidth bars in every country, every quarter of 2024–2025. That
-uniformity collapses at higher tiers. Fixed broadband stratifies
-sharply by geography, with a 16x spread between the strongest and weakest
-capital regions, and against the cloud-gaming bandwidth bar the median
-reaches 100% in Singapore but only a peak of 37% in Indonesia and 31% in
-Myanmar. Work is ongoing on per-province modeling and on peak-hour
-behavior.
+Voice and HD video clear their bars in essentially every province-quarter
+across all twelve quarters. Fixed broadband stratifies sharply by
+geography, with a 16x spread between the strongest and weakest capital
+regions. Against the combined cloud-gaming bar, the binding constraint
+flips by market: low-tier fixed broadband (Cambodia, Laos, Myanmar) fails
+mostly on bandwidth, while mobile networks in every single country —
+including Singapore, at only 48.8% — fail mostly on latency. Work is
+ongoing on per-province modeling and on peak-hour behavior.
 
 ## Keywords
 
@@ -51,3 +51,20 @@ threshold, not a pass/fail rate; added one sentence stating the evaluation
 is bandwidth-only (no latency) and both datasets are user-initiated, not a
 random sample; added the missing TCC survey citation (`TCC2023` in
 `references.bib`, sourced from tcc.or.th, 19 Dec 2023).
+
+**Sixth pass (2026-09-27), after full-paper rejection — metric replaced,
+not just reworded.** All three AINTEC reviewers of the rejected full paper
+(#51) flagged the median-ratio metric itself, not just its labeling.
+Replaced with the test-weighted % of province-quarters actually clearing
+each threshold — bandwidth AND (for cloud gaming) Ookla latency <=25ms,
+per อาจารย์'s 2026-08-13 ruling that cloud-gaming latency use Ookla, not
+NDT7 (NDT7 mostly hits offshore servers). Every number independently
+recomputed from `data/exports/ookla_*_province_quarterly.csv` — see
+`main/abstract.tex`'s header comment for the exact method (matches
+`notebooks/comparison/rq1_thresholds_ookla.ipynb`). New headline finding:
+the binding constraint on cloud gaming flips by market and connection
+type — bandwidth blocks low-tier fixed broadband, latency blocks mobile
+*everywhere*, including Singapore (48.8% latency pass) and Malaysia/
+Thailand (21.6-33.5%). Old "37% Indonesia / 31% Myanmar" framing is gone —
+it was never a pass rate. PDF recompiled: 2 content pages + references,
+clean.
