@@ -1,0 +1,318 @@
+﻿country,country_iso3,old_area,crosswalk_geoBoundary_name,crosswalk_method,adm1_name,map_join_key,assignment_changed,download_tests,upload_tests,coordinate_groups,geoBoundary_shapeID,mapping_method
+Cambodia,KHM,Batdâmbâng,Battambang,dominant spatial match for transliteration/name variant,Battambang,37992800B82526494497621,False,241,172,6,37992800B82526494497621,same ADM1 label after alias normalization
+Cambodia,KHM,BântéayMéanchey,Bantey Meanchey,dominant spatial match for transliteration/name variant,Bantey Meanchey,37992800B60639331187871,False,265,220,13,37992800B60639331187871,same ADM1 label after alias normalization
+Cambodia,KHM,KaôhKong,Koh Kong,dominant spatial match for transliteration/name variant,Koh Kong,37992800B81044157598883,False,271,215,10,37992800B81044157598883,same ADM1 label after alias normalization
+Cambodia,KHM,Kep,Kep,normalized name / explicit alias,Kep,37992800B18832544789315,False,12,14,8,37992800B18832544789315,same ADM1 label after alias normalization
+Cambodia,KHM,KrongPailin,Pailin,dominant spatial match for transliteration/name variant,Pailin,37992800B9891185734672,False,116,103,9,37992800B9891185734672,same ADM1 label after alias normalization
+Cambodia,KHM,KrongPreahSihanouk,Preah Sihanouk,dominant spatial match for transliteration/name variant,Preah Sihanouk,37992800B48601233133149,False,878,738,24,37992800B48601233133149,same ADM1 label after alias normalization
+Cambodia,KHM,Krâchéh,Kratie,dominant spatial match for transliteration/name variant,Kratie,37992800B82444097829687,False,0,1,1,37992800B82444097829687,same ADM1 label after alias normalization
+Cambodia,KHM,KâmpóngCham,Kampong Cham,normalized name / explicit alias,Kampong Cham,37992800B62393256715912,False,60,48,12,37992800B62393256715912,same ADM1 label after alias normalization
+Cambodia,KHM,KâmpóngChhnang,Kampong Chhnang,normalized name / explicit alias,Kampong Chhnang,37992800B66153290508063,False,36,30,1,37992800B66153290508063,same ADM1 label after alias normalization
+Cambodia,KHM,KâmpóngSpœ,Kampong Speu,dominant spatial match for transliteration/name variant,Kampong Speu,37992800B46036584412355,False,149,103,21,37992800B46036584412355,same ADM1 label after alias normalization
+Cambodia,KHM,KâmpóngThum,Kampong Thom,dominant spatial match for transliteration/name variant,Kampong Thom,37992800B59838984331544,False,129440,79264,47,37992800B59838984331544,same ADM1 label after alias normalization
+Cambodia,KHM,Kâmpôt,Kampot,normalized name / explicit alias,Kampot,37992800B68844415613683,False,13,8,2,37992800B68844415613683,same ADM1 label after alias normalization
+Cambodia,KHM,Kândal,Kandal,normalized name / explicit alias,Kandal,37992800B57023840568534,False,349,267,30,37992800B57023840568534,same ADM1 label after alias normalization
+Cambodia,KHM,MôndólKiri,Mondulkiri,dominant spatial match for transliteration/name variant,Mondulkiri,37992800B84760754839946,False,96,76,11,37992800B84760754839946,same ADM1 label after alias normalization
+Cambodia,KHM,OtdarMeanChey,Oddar Meanchey,dominant spatial match for transliteration/name variant,Oddar Meanchey,37992800B73119019658513,False,4,3,3,37992800B73119019658513,same ADM1 label after alias normalization
+Cambodia,KHM,PhnomPenh,Phnom Penh,normalized name / explicit alias,Phnom Penh,37992800B83627159640807,False,302893,246078,37,37992800B83627159640807,same ADM1 label after alias normalization
+Cambodia,KHM,Pouthisat,Pursat,dominant spatial match for transliteration/name variant,Pursat,37992800B18682012537966,False,148,135,13,37992800B18682012537966,same ADM1 label after alias normalization
+Cambodia,KHM,PreahVihéar,Preah Vihear,normalized name / explicit alias,Preah Vihear,37992800B94509217911919,False,88,67,4,37992800B94509217911919,same ADM1 label after alias normalization
+Cambodia,KHM,PreyVêng,Prey Veng,normalized name / explicit alias,Prey Veng,37992800B42158555562772,False,89,76,11,37992800B42158555562772,same ADM1 label after alias normalization
+Cambodia,KHM,Rôtânôkiri,Ratanakiri Province,dominant spatial match for transliteration/name variant,Ratanakiri Province,37992800B4485162085463,False,484,402,4,37992800B4485162085463,same ADM1 label after alias normalization
+Cambodia,KHM,Siemréab,Siem Reap,dominant spatial match for transliteration/name variant,Siem Reap,37992800B4812755629120,False,2845,2312,23,37992800B4812755629120,same ADM1 label after alias normalization
+Cambodia,KHM,StœngTrêng,Stung Treng,dominant spatial match for transliteration/name variant,Stung Treng,37992800B90729700897308,False,24,18,10,37992800B90729700897308,same ADM1 label after alias normalization
+Cambodia,KHM,SvayRieng,Svay Rieng,normalized name / explicit alias,Svay Rieng,37992800B528078583451,False,250,170,12,37992800B528078583451,same ADM1 label after alias normalization
+Cambodia,KHM,Takêv,Takeo,dominant spatial match for transliteration/name variant,Takeo,37992800B77204168518017,False,246,208,9,37992800B77204168518017,same ADM1 label after alias normalization
+Cambodia,KHM,TbongKhmum,Tbong Khmum,normalized name / explicit alias,Tbong Khmum,37992800B90014860566901,False,392,384,19,37992800B90014860566901,same ADM1 label after alias normalization
+Indonesia,IDN,Aceh,Aceh,normalized name / explicit alias,Aceh,65028918B93184959873838,False,906516,679142,181,65028918B93184959873838,same ADM1 label after alias normalization
+Indonesia,IDN,Bali,Bali,normalized name / explicit alias,Bali,65028918B6690755070061,False,2776794,2065631,388,65028918B6690755070061,same ADM1 label after alias normalization
+Indonesia,IDN,BangkaBelitung,Bangka-Belitung Islands,normalized name / explicit alias,Bangka-Belitung Islands,65028918B10722647473585,False,89480,68069,41,65028918B10722647473585,same ADM1 label after alias normalization
+Indonesia,IDN,Banten,Banten,normalized name / explicit alias,Banten,65028918B99918739720671,False,6725903,5141050,666,65028918B99918739720671,same ADM1 label after alias normalization
+Indonesia,IDN,Bengkulu,Bengkulu,normalized name / explicit alias,Bengkulu,65028918B30999004822283,False,548223,395970,40,65028918B30999004822283,same ADM1 label after alias normalization
+Indonesia,IDN,Gorontalo,Gorontalo,normalized name / explicit alias,Gorontalo,65028918B94020759558104,False,199565,152135,53,65028918B94020759558104,same ADM1 label after alias normalization
+Indonesia,IDN,JakartaRaya,Jakarta Special Capital Region,dominant spatial match for transliteration/name variant,Banten,65028918B99918739720671,True,310,245,8,65028918B99918739720671,coordinate reassigned to a different ADM1
+Indonesia,IDN,JakartaRaya,Jakarta Special Capital Region,dominant spatial match for transliteration/name variant,Jakarta Special Capital Region,65028918B14696209246677,False,70710459,53151206,2439,65028918B14696209246677,same ADM1 label after alias normalization
+Indonesia,IDN,Jambi,Jambi,normalized name / explicit alias,Jambi,65028918B29194895292819,False,680858,505648,121,65028918B29194895292819,same ADM1 label after alias normalization
+Indonesia,IDN,JawaBarat,West Java,dominant spatial match for transliteration/name variant,Central Java,65028918B13838862025135,True,806,603,1,65028918B13838862025135,coordinate reassigned to a different ADM1
+Indonesia,IDN,JawaBarat,West Java,dominant spatial match for transliteration/name variant,Jakarta Special Capital Region,65028918B14696209246677,True,8663,7104,7,65028918B14696209246677,coordinate reassigned to a different ADM1
+Indonesia,IDN,JawaBarat,West Java,dominant spatial match for transliteration/name variant,West Java,65028918B28366581005022,False,33250616,25220260,2321,65028918B28366581005022,same ADM1 label after alias normalization
+Indonesia,IDN,JawaTengah,Central Java,dominant spatial match for transliteration/name variant,Central Java,65028918B13838862025135,False,23130407,17432479,2081,65028918B13838862025135,same ADM1 label after alias normalization
+Indonesia,IDN,JawaTengah,Central Java,dominant spatial match for transliteration/name variant,West Java,65028918B28366581005022,True,521,450,3,65028918B28366581005022,coordinate reassigned to a different ADM1
+Indonesia,IDN,JawaTimur,East Java,dominant spatial match for transliteration/name variant,East Java,65028918B43243108525571,False,31296352,23293166,2567,65028918B43243108525571,same ADM1 label after alias normalization
+Indonesia,IDN,KalimantanBarat,West Kalimantan,dominant spatial match for transliteration/name variant,West Kalimantan,65028918B19721185942402,False,1762222,1304542,163,65028918B19721185942402,same ADM1 label after alias normalization
+Indonesia,IDN,KalimantanSelatan,South Kalimantan,dominant spatial match for transliteration/name variant,South Kalimantan,65028918B30993740608215,False,2636773,1947941,193,65028918B30993740608215,same ADM1 label after alias normalization
+Indonesia,IDN,KalimantanTengah,Central Kalimantan,dominant spatial match for transliteration/name variant,Central Kalimantan,65028918B28198720309323,False,455021,333334,116,65028918B28198720309323,same ADM1 label after alias normalization
+Indonesia,IDN,KalimantanTimur,East Kalimantan,dominant spatial match for transliteration/name variant,East Kalimantan,65028918B68445169823185,False,2262088,1652958,215,65028918B68445169823185,same ADM1 label after alias normalization
+Indonesia,IDN,KalimantanUtara,North Kalimantan,dominant spatial match for transliteration/name variant,North Kalimantan,65028918B52923737893214,False,194952,150205,54,65028918B52923737893214,same ADM1 label after alias normalization
+Indonesia,IDN,KepulauanRiau,Riau Islands,dominant spatial match for transliteration/name variant,Riau Islands,65028918B90123187256494,False,1527500,1163722,228,65028918B90123187256494,same ADM1 label after alias normalization
+Indonesia,IDN,Lampung,Lampung,normalized name / explicit alias,Lampung,65028918B88589358118692,False,2683688,2010256,245,65028918B88589358118692,same ADM1 label after alias normalization
+Indonesia,IDN,Maluku,Maluku,normalized name / explicit alias,Maluku,65028918B48178230554278,False,366873,282477,77,65028918B48178230554278,same ADM1 label after alias normalization
+Indonesia,IDN,MalukuUtara,North Maluku,dominant spatial match for transliteration/name variant,North Maluku,65028918B51364455052819,False,130101,100575,23,65028918B51364455052819,same ADM1 label after alias normalization
+Indonesia,IDN,NusaTenggaraBarat,West Nusa Tenggara,dominant spatial match for transliteration/name variant,West Nusa Tenggara,65028918B98829509874887,False,1252476,913708,213,65028918B98829509874887,same ADM1 label after alias normalization
+Indonesia,IDN,NusaTenggaraTimur,East Nusa Tenggara,dominant spatial match for transliteration/name variant,East Nusa Tenggara,65028918B90323071856071,False,347247,267600,92,65028918B90323071856071,same ADM1 label after alias normalization
+Indonesia,IDN,Papua,Papua,normalized name / explicit alias,Papua,65028918B16658067687714,False,377221,293129,106,65028918B16658067687714,same ADM1 label after alias normalization
+Indonesia,IDN,PapuaBarat,West Papua,dominant spatial match for transliteration/name variant,West Papua,65028918B84835514626455,False,216240,168210,45,65028918B84835514626455,same ADM1 label after alias normalization
+Indonesia,IDN,Riau,Riau,normalized name / explicit alias,Riau,65028918B11286430647546,False,2726934,2088852,413,65028918B11286430647546,same ADM1 label after alias normalization
+Indonesia,IDN,SulawesiBarat,West Sulawesi,dominant spatial match for transliteration/name variant,West Sulawesi,65028918B46678513676023,False,102402,72279,36,65028918B46678513676023,same ADM1 label after alias normalization
+Indonesia,IDN,SulawesiSelatan,South Sulawesi,dominant spatial match for transliteration/name variant,South Sulawesi,65028918B17554737605304,False,4312384,3194688,391,65028918B17554737605304,same ADM1 label after alias normalization
+Indonesia,IDN,SulawesiTengah,Central Sulawesi,dominant spatial match for transliteration/name variant,Central Sulawesi,65028918B55787629749874,False,394691,281384,90,65028918B55787629749874,same ADM1 label after alias normalization
+Indonesia,IDN,SulawesiTenggara,Southeast Sulawesi,dominant spatial match for transliteration/name variant,Southeast Sulawesi,65028918B94007491868798,False,162459,116008,75,65028918B94007491868798,same ADM1 label after alias normalization
+Indonesia,IDN,SulawesiUtara,North Sulawesi,dominant spatial match for transliteration/name variant,North Sulawesi,65028918B26897900130576,False,1082996,818862,151,65028918B26897900130576,same ADM1 label after alias normalization
+Indonesia,IDN,SumateraBarat,West Sumatra,dominant spatial match for transliteration/name variant,West Sumatra,65028918B4119458748300,False,1254979,912076,168,65028918B4119458748300,same ADM1 label after alias normalization
+Indonesia,IDN,SumateraSelatan,South Sumatra,dominant spatial match for transliteration/name variant,South Sumatra,65028918B9551391119865,False,3300060,2423788,182,65028918B9551391119865,same ADM1 label after alias normalization
+Indonesia,IDN,SumateraUtara,North Sumatra,dominant spatial match for transliteration/name variant,North Sumatra,65028918B37605681672150,False,5646389,4266564,637,65028918B37605681672150,same ADM1 label after alias normalization
+Indonesia,IDN,Yogyakarta,Special Region of Yogyakarta,normalized name / explicit alias,Special Region of Yogyakarta,65028918B6070530336190,False,6173240,4669496,433,65028918B6070530336190,same ADM1 label after alias normalization
+Laos,LAO,Attapu,Attapeu,dominant spatial match for transliteration/name variant,Attapeu,31783359B8999899719232,False,817,609,8,31783359B8999899719232,same ADM1 label after alias normalization
+Laos,LAO,Bolikhamxai,Bolikhamsai,dominant spatial match for transliteration/name variant,Bolikhamsai,31783359B52686694059818,False,26498,18577,56,31783359B52686694059818,same ADM1 label after alias normalization
+Laos,LAO,Champasak,Champasak,normalized name / explicit alias,Champasak,31783359B26227132251916,False,762,569,15,31783359B26227132251916,same ADM1 label after alias normalization
+Laos,LAO,Houaphan,Houaphan,normalized name / explicit alias,Houaphan,31783359B1064119540000,False,216,155,12,31783359B1064119540000,same ADM1 label after alias normalization
+Laos,LAO,Khammouan,Khammouane,dominant spatial match for transliteration/name variant,Khammouane,31783359B32687543126582,False,193,163,22,31783359B32687543126582,same ADM1 label after alias normalization
+Laos,LAO,LouangNamtha,Luang Namtha,dominant spatial match for transliteration/name variant,Luang Namtha,31783359B96178998933928,False,7,8,4,31783359B96178998933928,same ADM1 label after alias normalization
+Laos,LAO,Louangphrabang,Luang Prabang,dominant spatial match for transliteration/name variant,Luang Prabang,31783359B8337285946490,False,729,425,8,31783359B8337285946490,same ADM1 label after alias normalization
+Laos,LAO,Oudômxai,Oudomxay,dominant spatial match for transliteration/name variant,Oudomxay,31783359B43569910510083,False,51,58,7,31783359B43569910510083,same ADM1 label after alias normalization
+Laos,LAO,Phôngsali,Phongsaly,dominant spatial match for transliteration/name variant,Phongsaly,31783359B48269776417908,False,81,48,6,31783359B48269776417908,same ADM1 label after alias normalization
+Laos,LAO,Saravan,Salavan,dominant spatial match for transliteration/name variant,Salavan,31783359B10266600227606,False,33,34,10,31783359B10266600227606,same ADM1 label after alias normalization
+Laos,LAO,Savannakhét,Savannakhet,normalized name / explicit alias,Savannakhet,31783359B41032705110141,False,113,77,7,31783359B41032705110141,same ADM1 label after alias normalization
+Laos,LAO,Vientiane,Vientiane,normalized name / explicit alias,Vientiane,31783359B43191608929261,False,87,98,17,31783359B43191608929261,same ADM1 label after alias normalization
+Laos,LAO,Vientiane[prefecture],Vientiane Capital,dominant spatial match for transliteration/name variant,Vientiane Capital,31783359B97264007138888,False,47911,39386,36,31783359B97264007138888,same ADM1 label after alias normalization
+Laos,LAO,Xaignabouri,Xaignabouli,dominant spatial match for transliteration/name variant,Xaignabouli,31783359B80437097027275,False,307,332,12,31783359B80437097027275,same ADM1 label after alias normalization
+Laos,LAO,Xaisômboun,Xaisomboun,normalized name / explicit alias,Xaisomboun,31783359B37921942896223,False,360,249,13,31783359B37921942896223,same ADM1 label after alias normalization
+Laos,LAO,Xiangkhoang,Xiangkhouang,dominant spatial match for transliteration/name variant,Xiangkhouang,31783359B28405124024719,False,20,38,8,31783359B28405124024719,same ADM1 label after alias normalization
+Laos,LAO,Xékong,Xekong,normalized name / explicit alias,Xekong,31783359B64397225362620,False,398,284,13,31783359B64397225362620,same ADM1 label after alias normalization
+Malaysia,MYS,Johor,Johor,normalized name / explicit alias,Johor,15666254B42356713390762,False,102708,91220,718,15666254B42356713390762,same ADM1 label after alias normalization
+Malaysia,MYS,Kedah,Kedah,normalized name / explicit alias,Kedah,15666254B71428205180864,False,24598,22168,375,15666254B71428205180864,same ADM1 label after alias normalization
+Malaysia,MYS,Kelantan,Kelantan,normalized name / explicit alias,Kelantan,15666254B53975248776023,False,7398,7186,203,15666254B53975248776023,same ADM1 label after alias normalization
+Malaysia,MYS,KualaLumpur,Kuala Lumpur,normalized name / explicit alias,Kuala Lumpur,15666254B97003483933575,False,1781709,1526657,1148,15666254B97003483933575,same ADM1 label after alias normalization
+Malaysia,MYS,KualaLumpur,Kuala Lumpur,normalized name / explicit alias,Selangor,15666254B89722251658211,True,90285,79511,161,15666254B89722251658211,coordinate reassigned to a different ADM1
+Malaysia,MYS,Labuan,Labuan,normalized name / explicit alias,Labuan,15666254B4265207353082,False,748,745,29,15666254B4265207353082,same ADM1 label after alias normalization
+Malaysia,MYS,Melaka,Malacca,dominant spatial match for transliteration/name variant,Johor,15666254B42356713390762,True,17,6,2,15666254B42356713390762,coordinate reassigned to a different ADM1
+Malaysia,MYS,Melaka,Malacca,dominant spatial match for transliteration/name variant,Malacca,15666254B45695250728659,False,18515,15628,277,15666254B45695250728659,same ADM1 label after alias normalization
+Malaysia,MYS,NegeriSembilan,Negeri Sembilan,normalized name / explicit alias,Negeri Sembilan,15666254B60207109163985,False,36454,33336,337,15666254B60207109163985,same ADM1 label after alias normalization
+Malaysia,MYS,Pahang,Pahang,normalized name / explicit alias,Pahang,15666254B34720353032971,False,5253,4255,284,15666254B34720353032971,same ADM1 label after alias normalization
+Malaysia,MYS,Perak,Perak,normalized name / explicit alias,Perak,15666254B15173108486297,False,37983,34476,475,15666254B15173108486297,same ADM1 label after alias normalization
+Malaysia,MYS,Perak,Perak,normalized name / explicit alias,Selangor,15666254B89722251658211,True,15,15,4,15666254B89722251658211,coordinate reassigned to a different ADM1
+Malaysia,MYS,Perlis,Perlis,normalized name / explicit alias,Perlis,15666254B44964481844598,False,705,664,48,15666254B44964481844598,same ADM1 label after alias normalization
+Malaysia,MYS,PulauPinang,Penang,dominant spatial match for transliteration/name variant,Penang,15666254B92074897121205,False,143573,130562,724,15666254B92074897121205,same ADM1 label after alias normalization
+Malaysia,MYS,Putrajaya,Putrajaya,normalized name / explicit alias,Putrajaya,15666254B54729125478011,False,1941,1692,53,15666254B54729125478011,same ADM1 label after alias normalization
+Malaysia,MYS,Putrajaya,Putrajaya,normalized name / explicit alias,Selangor,15666254B89722251658211,True,77476,68327,40,15666254B89722251658211,coordinate reassigned to a different ADM1
+Malaysia,MYS,Sabah,Sabah,normalized name / explicit alias,Sabah,15666254B50935235229272,False,144733,122708,358,15666254B50935235229272,same ADM1 label after alias normalization
+Malaysia,MYS,Sarawak,Sarawak,normalized name / explicit alias,Sarawak,15666254B8535925993004,False,435719,377045,437,15666254B8535925993004,same ADM1 label after alias normalization
+Malaysia,MYS,Selangor,Selangor,normalized name / explicit alias,Kuala Lumpur,15666254B97003483933575,True,13045,10970,61,15666254B97003483933575,coordinate reassigned to a different ADM1
+Malaysia,MYS,Selangor,Selangor,normalized name / explicit alias,Putrajaya,15666254B54729125478011,True,1277,1046,37,15666254B54729125478011,coordinate reassigned to a different ADM1
+Malaysia,MYS,Selangor,Selangor,normalized name / explicit alias,Selangor,15666254B89722251658211,False,623902,555038,1527,15666254B89722251658211,same ADM1 label after alias normalization
+Malaysia,MYS,Trengganu,Terengganu,dominant spatial match for transliteration/name variant,Terengganu,15666254B71460903090065,False,3395,2987,183,15666254B71460903090065,same ADM1 label after alias normalization
+Myanmar,MMR,Ayeyarwady,Ayeyarwady,normalized name / explicit alias,Ayeyarwady,20573499B9779674920937,False,13065,9431,15,20573499B9779674920937,same ADM1 label after alias normalization
+Myanmar,MMR,Bago,Bago,normalized name / explicit alias,Bago,20573499B19694912925518,False,5057,2613,20,20573499B19694912925518,same ADM1 label after alias normalization
+Myanmar,MMR,Chin,Chin,normalized name / explicit alias,Chin,20573499B58864057590207,False,73,62,8,20573499B58864057590207,same ADM1 label after alias normalization
+Myanmar,MMR,Kachin,Kachin,normalized name / explicit alias,Kachin,20573499B79934184351821,False,1137,902,12,20573499B79934184351821,same ADM1 label after alias normalization
+Myanmar,MMR,Kayah,Kayah,normalized name / explicit alias,Kayah,20573499B20332088310808,False,4000,3320,14,20573499B20332088310808,same ADM1 label after alias normalization
+Myanmar,MMR,Kayin,Kayin,normalized name / explicit alias,Kayin,20573499B82081528957960,False,804,702,8,20573499B82081528957960,same ADM1 label after alias normalization
+Myanmar,MMR,Magway,Magway,normalized name / explicit alias,Magway,20573499B51748932062429,False,433,293,7,20573499B51748932062429,same ADM1 label after alias normalization
+Myanmar,MMR,Mandalay,Mandalay,normalized name / explicit alias,Mandalay,20573499B45980987355836,False,625254,448705,117,20573499B45980987355836,same ADM1 label after alias normalization
+Myanmar,MMR,Mon,Mon,normalized name / explicit alias,Mon,20573499B93796524737308,False,307,180,9,20573499B93796524737308,same ADM1 label after alias normalization
+Myanmar,MMR,Naypyitaw,Mandalay,normalized name / explicit alias,Mandalay,20573499B45980987355836,False,5909,3837,18,20573499B45980987355836,same ADM1 label after alias normalization
+Myanmar,MMR,Sagaing,Saigang,normalized name / explicit alias,Saigang,20573499B8199738503087,False,269,170,5,20573499B8199738503087,same ADM1 label after alias normalization
+Myanmar,MMR,Shan,Shan,normalized name / explicit alias,Shan,20573499B82952573339616,False,11903,7967,42,20573499B82952573339616,same ADM1 label after alias normalization
+Myanmar,MMR,Tanintharyi,Tanitharyi,normalized name / explicit alias,Tanitharyi,20573499B47967485654923,False,680,565,13,20573499B47967485654923,same ADM1 label after alias normalization
+Myanmar,MMR,Yangon,Yangon,normalized name / explicit alias,Yangon,20573499B24734669936209,False,575829,392272,99,20573499B24734669936209,same ADM1 label after alias normalization
+Philippines,PHL,BARMM,ARMM,dominant spatial match for transliteration/name variant,ARMM,36201628B49646111072560,False,55449,40765,74,36201628B49646111072560,same ADM1 label after alias normalization
+Philippines,PHL,BARMM,ARMM,dominant spatial match for transliteration/name variant,Soccsksargen,36201628B76469343449086,True,30904,23573,15,36201628B76469343449086,coordinate reassigned to a different ADM1
+Philippines,PHL,BARMM,ARMM,dominant spatial match for transliteration/name variant,Zamboanga Peninsula,36201628B47773222326566,True,413,332,3,36201628B47773222326566,coordinate reassigned to a different ADM1
+Philippines,PHL,CAR,CAR,normalized name / explicit alias,CAR,36201628B92932511992503,False,2946276,2204263,170,36201628B92932511992503,same ADM1 label after alias normalization
+Philippines,PHL,CAR,CAR,normalized name / explicit alias,Cagayan Valley,36201628B63748016552864,True,6712,5427,12,36201628B63748016552864,coordinate reassigned to a different ADM1
+Philippines,PHL,CAR,CAR,normalized name / explicit alias,Ilocos Region,36201628B64564033926366,True,121,84,3,36201628B64564033926366,coordinate reassigned to a different ADM1
+Philippines,PHL,MIMAROPA,Mimaropa,normalized name / explicit alias,Mimaropa,36201628B45254163682963,False,218188,165285,253,36201628B45254163682963,same ADM1 label after alias normalization
+Philippines,PHL,NCR,NCR,normalized name / explicit alias,Calabarzon,36201628B13373758884154,True,260056,201905,28,36201628B13373758884154,coordinate reassigned to a different ADM1
+Philippines,PHL,NCR,NCR,normalized name / explicit alias,NCR,36201628B69282955287113,False,62398371,46661238,1863,36201628B69282955287113,same ADM1 label after alias normalization
+Philippines,PHL,Region I,Ilocos Region,dominant spatial match for transliteration/name variant,Ilocos Region,36201628B64564033926366,False,1399350,1053746,694,36201628B64564033926366,same ADM1 label after alias normalization
+Philippines,PHL,Region II,Cagayan Valley,dominant spatial match for transliteration/name variant,Cagayan Valley,36201628B63748016552864,False,1021251,756034,484,36201628B63748016552864,same ADM1 label after alias normalization
+Philippines,PHL,Region III,Central Luzon,dominant spatial match for transliteration/name variant,Central Luzon,36201628B47630810559445,False,14093327,10462347,1848,36201628B47630810559445,same ADM1 label after alias normalization
+Philippines,PHL,Region III,Central Luzon,dominant spatial match for transliteration/name variant,NCR,36201628B69282955287113,True,138033,103807,33,36201628B69282955287113,coordinate reassigned to a different ADM1
+Philippines,PHL,Region IV-A,Calabarzon,dominant spatial match for transliteration/name variant,Calabarzon,36201628B13373758884154,False,22121437,16809447,1887,36201628B13373758884154,same ADM1 label after alias normalization
+Philippines,PHL,Region IV-A,Calabarzon,dominant spatial match for transliteration/name variant,NCR,36201628B69282955287113,True,162530,122678,55,36201628B69282955287113,coordinate reassigned to a different ADM1
+Philippines,PHL,Region IX,Zamboanga Peninsula,dominant spatial match for transliteration/name variant,Northern Mindanao,36201628B97761566458517,True,147,124,2,36201628B97761566458517,coordinate reassigned to a different ADM1
+Philippines,PHL,Region IX,Zamboanga Peninsula,dominant spatial match for transliteration/name variant,Zamboanga Peninsula,36201628B47773222326566,False,702012,545094,237,36201628B47773222326566,same ADM1 label after alias normalization
+Philippines,PHL,Region V,Bicol Region,dominant spatial match for transliteration/name variant,Bicol Region,36201628B13149248482964,False,2118564,1620444,691,36201628B13149248482964,same ADM1 label after alias normalization
+Philippines,PHL,Region VI,Western Visayas,dominant spatial match for transliteration/name variant,Western Visayas,36201628B91065962446027,False,6805546,5019142,859,36201628B91065962446027,same ADM1 label after alias normalization
+Philippines,PHL,Region VII,Central Visayas,dominant spatial match for transliteration/name variant,Central Visayas,36201628B88329767373181,False,14826140,11425847,889,36201628B88329767373181,same ADM1 label after alias normalization
+Philippines,PHL,Region VIII,Eastern Visayas,dominant spatial match for transliteration/name variant,Eastern Visayas,36201628B29919658129037,False,582051,445266,458,36201628B29919658129037,same ADM1 label after alias normalization
+Philippines,PHL,Region X,Northern Mindanao,dominant spatial match for transliteration/name variant,Northern Mindanao,36201628B97761566458517,False,6934508,5271681,566,36201628B97761566458517,same ADM1 label after alias normalization
+Philippines,PHL,Region XI,Davao Region,dominant spatial match for transliteration/name variant,Davao Region,36201628B90061603712355,False,10064174,7758064,443,36201628B90061603712355,same ADM1 label after alias normalization
+Philippines,PHL,Region XII,Soccsksargen,dominant spatial match for transliteration/name variant,Soccsksargen,36201628B76469343449086,False,730579,575552,359,36201628B76469343449086,same ADM1 label after alias normalization
+Philippines,PHL,Region XIII,Caraga,dominant spatial match for transliteration/name variant,Caraga,36201628B99380759663697,False,1850631,1371905,255,36201628B99380759663697,same ADM1 label after alias normalization
+Singapore,SGP,Central Region,CENTRAL REGION,normalized name / explicit alias,CENTRAL REGION,49756563B71725710252082,False,14022268,10391948,820,49756563B71725710252082,same ADM1 label after alias normalization
+Singapore,SGP,East Region,EAST REGION,normalized name / explicit alias,EAST REGION,49756563B91384122076896,False,783857,584801,189,49756563B91384122076896,same ADM1 label after alias normalization
+Singapore,SGP,North Region,NORTH REGION,normalized name / explicit alias,NORTH REGION,49756563B73572011151336,False,1752493,1251634,134,49756563B73572011151336,same ADM1 label after alias normalization
+Singapore,SGP,North-East Region,NORTH-EAST REGION,normalized name / explicit alias,NORTH-EAST REGION,49756563B55738899153180,False,2038601,1471027,161,49756563B55738899153180,same ADM1 label after alias normalization
+Singapore,SGP,West Region,WEST REGION,normalized name / explicit alias,WEST REGION,49756563B34226909336254,False,2460418,1912276,251,49756563B34226909336254,same ADM1 label after alias normalization
+Thailand,THA,Amnat Charoen,Amnat Charoen,normalized name / explicit alias,Amnat Charoen,THA-ADM1:amnatcharoen,False,6546,4781,38,,same ADM1 label after alias normalization
+Thailand,THA,Ang Thong,Ang Thong,normalized name / explicit alias,Ang Thong,THA-ADM1:angthong,False,25966,16561,58,,same ADM1 label after alias normalization
+Thailand,THA,Bangkok Metropolis,Bangkok Metropolis,normalized name / explicit alias,Bangkok Metropolis,THA-ADM1:bangkokmetropolis,False,23163157,15465889,1132,,same ADM1 label after alias normalization
+Thailand,THA,Bueng Kan,Bueng Kan,normalized name / explicit alias,Bueng Kan,THA-ADM1:buengkan,False,7534,5830,39,,same ADM1 label after alias normalization
+Thailand,THA,Buri Ram,Buri Ram,normalized name / explicit alias,Buri Ram,THA-ADM1:buriram,False,33923,23409,129,,same ADM1 label after alias normalization
+Thailand,THA,Chachoengsao,Chachoengsao,normalized name / explicit alias,Chachoengsao,THA-ADM1:chachoengsao,False,147843,102131,139,,same ADM1 label after alias normalization
+Thailand,THA,Chai Nat,Chai Nat,normalized name / explicit alias,Chai Nat,THA-ADM1:chainat,False,9398,6531,63,,same ADM1 label after alias normalization
+Thailand,THA,Chaiyaphum,Chaiyaphum,normalized name / explicit alias,Chaiyaphum,THA-ADM1:chaiyaphum,False,14295,10187,95,,same ADM1 label after alias normalization
+Thailand,THA,Chanthaburi,Chanthaburi,normalized name / explicit alias,Chanthaburi,THA-ADM1:chanthaburi,False,26388,18609,96,,same ADM1 label after alias normalization
+Thailand,THA,Chiang Mai,Chiang Mai,normalized name / explicit alias,Chiang Mai,THA-ADM1:chiangmai,False,1388919,987907,304,,same ADM1 label after alias normalization
+Thailand,THA,Chiang Rai,Chiang Rai,normalized name / explicit alias,Chiang Rai,THA-ADM1:chiangrai,False,93435,64745,148,,same ADM1 label after alias normalization
+Thailand,THA,Chon Buri,Chon Buri,normalized name / explicit alias,Chon Buri,THA-ADM1:chonburi,False,1607623,1116061,294,,same ADM1 label after alias normalization
+Thailand,THA,Chumphon,Chumphon,normalized name / explicit alias,Chumphon,THA-ADM1:chumphon,False,23159,16806,66,,same ADM1 label after alias normalization
+Thailand,THA,Kalasin,Kalasin,normalized name / explicit alias,Kalasin,THA-ADM1:kalasin,False,16521,12073,102,,same ADM1 label after alias normalization
+Thailand,THA,Kamphaeng Phet,Kamphaeng Phet,normalized name / explicit alias,Kamphaeng Phet,THA-ADM1:kamphaengphet,False,31111,22346,85,,same ADM1 label after alias normalization
+Thailand,THA,Kanchanaburi,Kanchanaburi,normalized name / explicit alias,Kanchanaburi,THA-ADM1:kanchanaburi,False,20572,14164,87,,same ADM1 label after alias normalization
+Thailand,THA,Khon Kaen,Khon Kaen,normalized name / explicit alias,Khon Kaen,THA-ADM1:khonkaen,False,692354,495913,194,,same ADM1 label after alias normalization
+Thailand,THA,Krabi,Krabi,normalized name / explicit alias,Krabi,THA-ADM1:krabi,False,41390,31770,89,,same ADM1 label after alias normalization
+Thailand,THA,Lampang,Lampang,normalized name / explicit alias,Lampang,THA-ADM1:lampang,False,56039,40698,122,,same ADM1 label after alias normalization
+Thailand,THA,Lamphun,Lamphun,normalized name / explicit alias,Lamphun,THA-ADM1:lamphun,False,28465,19727,68,,same ADM1 label after alias normalization
+Thailand,THA,Loei,Loei,normalized name / explicit alias,Loei,THA-ADM1:loei,False,15778,11847,67,,same ADM1 label after alias normalization
+Thailand,THA,Lop Buri,Lop Buri,normalized name / explicit alias,Lop Buri,THA-ADM1:lopburi,False,85623,60224,102,,same ADM1 label after alias normalization
+Thailand,THA,Mae Hong Son,Mae Hong Son,normalized name / explicit alias,Mae Hong Son,THA-ADM1:maehongson,False,2793,2151,26,,same ADM1 label after alias normalization
+Thailand,THA,Maha Sarakham,Maha Sarakham,normalized name / explicit alias,Maha Sarakham,THA-ADM1:mahasarakham,False,33188,22770,89,,same ADM1 label after alias normalization
+Thailand,THA,Mukdahan,Mukdahan,normalized name / explicit alias,Mukdahan,THA-ADM1:mukdahan,False,17705,11671,52,,same ADM1 label after alias normalization
+Thailand,THA,Nakhon Nayok,Nakhon Nayok,normalized name / explicit alias,Nakhon Nayok,THA-ADM1:nakhonnayok,False,16940,9717,58,,same ADM1 label after alias normalization
+Thailand,THA,Nakhon Pathom,Nakhon Pathom,normalized name / explicit alias,Nakhon Pathom,THA-ADM1:nakhonpathom,False,510146,360376,145,,same ADM1 label after alias normalization
+Thailand,THA,Nakhon Phanom,Nakhon Phanom,normalized name / explicit alias,Nakhon Phanom,THA-ADM1:nakhonphanom,False,23224,17356,98,,same ADM1 label after alias normalization
+Thailand,THA,Nakhon Ratchasima,Nakhon Ratchasima,normalized name / explicit alias,Nakhon Ratchasima,THA-ADM1:nakhonratchasima,False,778647,565927,257,,same ADM1 label after alias normalization
+Thailand,THA,Nakhon Sawan,Nakhon Sawan,normalized name / explicit alias,Nakhon Sawan,THA-ADM1:nakhonsawan,False,111356,80001,109,,same ADM1 label after alias normalization
+Thailand,THA,Nakhon Si Thammarat,Nakhon Si Thammarat,normalized name / explicit alias,Nakhon Si Thammarat,THA-ADM1:nakhonsithammarat,False,25844,19385,134,,same ADM1 label after alias normalization
+Thailand,THA,Nan,Nan,normalized name / explicit alias,Nan,THA-ADM1:nan,False,33783,23795,58,,same ADM1 label after alias normalization
+Thailand,THA,Narathiwat,Narathiwat,normalized name / explicit alias,Narathiwat,THA-ADM1:narathiwat,False,17987,12006,112,,same ADM1 label after alias normalization
+Thailand,THA,Nong Bua Lam Phu,Nong Bua Lam Phu,normalized name / explicit alias,Nong Bua Lam Phu,THA-ADM1:nongbualamphu,False,10120,7519,46,,same ADM1 label after alias normalization
+Thailand,THA,Nong Khai,Nong Khai,normalized name / explicit alias,Nong Khai,THA-ADM1:nongkhai,False,7767,5617,62,,same ADM1 label after alias normalization
+Thailand,THA,Nonthaburi,Nonthaburi,normalized name / explicit alias,Nonthaburi,THA-ADM1:nonthaburi,False,1443694,963636,267,,same ADM1 label after alias normalization
+Thailand,THA,Pathum Thani,Pathum Thani,normalized name / explicit alias,Pathum Thani,THA-ADM1:pathumthani,False,330393,229558,173,,same ADM1 label after alias normalization
+Thailand,THA,Pattani,Pattani,normalized name / explicit alias,Pattani,THA-ADM1:pattani,False,28698,20514,81,,same ADM1 label after alias normalization
+Thailand,THA,Phangnga,Phangnga,normalized name / explicit alias,Phangnga,THA-ADM1:phangnga,False,6516,4194,52,,same ADM1 label after alias normalization
+Thailand,THA,Phatthalung,Phatthalung,normalized name / explicit alias,Phatthalung,THA-ADM1:phatthalung,False,15512,11460,58,,same ADM1 label after alias normalization
+Thailand,THA,Phayao,Phayao,normalized name / explicit alias,Phayao,THA-ADM1:phayao,False,22570,15763,72,,same ADM1 label after alias normalization
+Thailand,THA,Phetchabun,Phetchabun,normalized name / explicit alias,Phetchabun,THA-ADM1:phetchabun,False,26993,19065,74,,same ADM1 label after alias normalization
+Thailand,THA,Phetchaburi,Phetchaburi,normalized name / explicit alias,Phetchaburi,THA-ADM1:phetchaburi,False,23327,15449,86,,same ADM1 label after alias normalization
+Thailand,THA,Phichit,Phichit,normalized name / explicit alias,Phichit,THA-ADM1:phichit,False,22605,16500,71,,same ADM1 label after alias normalization
+Thailand,THA,Phitsanulok,Phitsanulok,normalized name / explicit alias,Phitsanulok,THA-ADM1:phitsanulok,False,241944,177091,86,,same ADM1 label after alias normalization
+Thailand,THA,Phra Nakhon Si Ayutthaya,Phra Nakhon Si Ayutthaya,normalized name / explicit alias,Phra Nakhon Si Ayutthaya,THA-ADM1:phranakhonsiayutthaya,False,446152,305282,262,,same ADM1 label after alias normalization
+Thailand,THA,Phrae,Phrae,normalized name / explicit alias,Phrae,THA-ADM1:phrae,False,10003,7086,50,,same ADM1 label after alias normalization
+Thailand,THA,Phuket,Phuket,normalized name / explicit alias,Phuket,THA-ADM1:phuket,False,777309,549888,166,,same ADM1 label after alias normalization
+Thailand,THA,Prachin Buri,Prachin Buri,normalized name / explicit alias,Prachin Buri,THA-ADM1:prachinburi,False,22397,15464,127,,same ADM1 label after alias normalization
+Thailand,THA,Prachuap Khiri Khan,Prachuap Khiri Khan,normalized name / explicit alias,Prachuap Khiri Khan,THA-ADM1:prachuapkhirikhan,False,111104,79230,102,,same ADM1 label after alias normalization
+Thailand,THA,Ranong,Ranong,normalized name / explicit alias,Ranong,THA-ADM1:ranong,False,4230,2850,24,,same ADM1 label after alias normalization
+Thailand,THA,Ratchaburi,Ratchaburi,normalized name / explicit alias,Ratchaburi,THA-ADM1:ratchaburi,False,30230,20406,87,,same ADM1 label after alias normalization
+Thailand,THA,Rayong,Rayong,normalized name / explicit alias,Rayong,THA-ADM1:rayong,False,173978,122408,161,,same ADM1 label after alias normalization
+Thailand,THA,Roi Et,Roi Et,normalized name / explicit alias,Roi Et,THA-ADM1:roiet,False,17618,12362,103,,same ADM1 label after alias normalization
+Thailand,THA,Sa Kaeo,Sa Kaeo,normalized name / explicit alias,Sa Kaeo,THA-ADM1:sakaeo,False,10492,7343,53,,same ADM1 label after alias normalization
+Thailand,THA,Sakon Nakhon,Sakon Nakhon,normalized name / explicit alias,Sakon Nakhon,THA-ADM1:sakonnakhon,False,38173,27467,135,,same ADM1 label after alias normalization
+Thailand,THA,Samut Prakan,Samut Prakan,normalized name / explicit alias,Samut Prakan,THA-ADM1:samutprakan,False,1205431,815387,256,,same ADM1 label after alias normalization
+Thailand,THA,Samut Sakhon,Samut Sakhon,normalized name / explicit alias,Samut Sakhon,THA-ADM1:samutsakhon,False,159118,112221,82,,same ADM1 label after alias normalization
+Thailand,THA,Samut Songkhram,Samut Songkhram,normalized name / explicit alias,Samut Songkhram,THA-ADM1:samutsongkhram,False,7908,5650,33,,same ADM1 label after alias normalization
+Thailand,THA,Saraburi,Saraburi,normalized name / explicit alias,Saraburi,THA-ADM1:saraburi,False,76106,47675,165,,same ADM1 label after alias normalization
+Thailand,THA,Satun,Satun,normalized name / explicit alias,Satun,THA-ADM1:satun,False,9349,6736,60,,same ADM1 label after alias normalization
+Thailand,THA,Si Sa Ket,Si Sa Ket,normalized name / explicit alias,Si Sa Ket,THA-ADM1:sisaket,False,90905,67045,178,,same ADM1 label after alias normalization
+Thailand,THA,Sing Buri,Sing Buri,normalized name / explicit alias,Sing Buri,THA-ADM1:singburi,False,14189,9874,62,,same ADM1 label after alias normalization
+Thailand,THA,Songkhla,Songkhla,normalized name / explicit alias,Songkhla,THA-ADM1:songkhla,False,435148,311491,207,,same ADM1 label after alias normalization
+Thailand,THA,Sukhothai,Sukhothai,normalized name / explicit alias,Sukhothai,THA-ADM1:sukhothai,False,13508,9714,90,,same ADM1 label after alias normalization
+Thailand,THA,Suphan Buri,Suphan Buri,normalized name / explicit alias,Suphan Buri,THA-ADM1:suphanburi,False,86883,54039,160,,same ADM1 label after alias normalization
+Thailand,THA,Surat Thani,Surat Thani,normalized name / explicit alias,Surat Thani,THA-ADM1:suratthani,False,238223,166960,253,,same ADM1 label after alias normalization
+Thailand,THA,Surin,Surin,normalized name / explicit alias,Surin,THA-ADM1:surin,False,74838,55783,115,,same ADM1 label after alias normalization
+Thailand,THA,Tak,Tak,normalized name / explicit alias,Tak,THA-ADM1:tak,False,18832,13701,62,,same ADM1 label after alias normalization
+Thailand,THA,Trang,Trang,normalized name / explicit alias,Trang,THA-ADM1:trang,False,58661,44128,109,,same ADM1 label after alias normalization
+Thailand,THA,Trat,Trat,normalized name / explicit alias,Trat,THA-ADM1:trat,False,4325,3105,16,,same ADM1 label after alias normalization
+Thailand,THA,Ubon Ratchathani,Ubon Ratchathani,normalized name / explicit alias,Ubon Ratchathani,THA-ADM1:ubonratchathani,False,54650,36211,124,,same ADM1 label after alias normalization
+Thailand,THA,Udon Thani,Udon Thani,normalized name / explicit alias,Udon Thani,THA-ADM1:udonthani,False,331615,243407,119,,same ADM1 label after alias normalization
+Thailand,THA,Uthai Thani,Uthai Thani,normalized name / explicit alias,Uthai Thani,THA-ADM1:uthaithani,False,13919,9510,35,,same ADM1 label after alias normalization
+Thailand,THA,Uttaradit,Uttaradit,normalized name / explicit alias,Uttaradit,THA-ADM1:uttaradit,False,26078,18081,61,,same ADM1 label after alias normalization
+Thailand,THA,Yala,Yala,normalized name / explicit alias,Yala,THA-ADM1:yala,False,24964,17787,51,,same ADM1 label after alias normalization
+Thailand,THA,Yasothon,Yasothon,normalized name / explicit alias,Yasothon,THA-ADM1:yasothon,False,9629,7100,55,,same ADM1 label after alias normalization
+Vietnam,VNM,AnGiang,An Giang,normalized name / explicit alias,An Giang,63759600B46141220358660,False,36196,31120,88,63759600B46141220358660,same ADM1 label after alias normalization
+Vietnam,VNM,AnGiang,An Giang,normalized name / explicit alias,Đồng Tháp,63759600B81354309972615,True,9233,9872,13,63759600B81354309972615,coordinate reassigned to a different ADM1
+Vietnam,VNM,BàRịa-VũngTàu,Bà Rịa–Vũng Tàu,normalized name / explicit alias,Bà Rịa–Vũng Tàu,63759600B21811289888982,False,78763,82222,74,63759600B21811289888982,same ADM1 label after alias normalization
+Vietnam,VNM,BàRịa-VũngTàu,Bà Rịa–Vũng Tàu,normalized name / explicit alias,Bình Thuận,63759600B31473825670333,True,504,428,5,63759600B31473825670333,coordinate reassigned to a different ADM1
+Vietnam,VNM,BàRịa-VũngTàu,Bà Rịa–Vũng Tàu,normalized name / explicit alias,Đồng Nai,63759600B12839449494422,True,25,26,3,63759600B12839449494422,coordinate reassigned to a different ADM1
+Vietnam,VNM,BìnhDương,Bình Dương,normalized name / explicit alias,Bình Dương,63759600B4649941622975,False,48793,44471,114,63759600B4649941622975,same ADM1 label after alias normalization
+Vietnam,VNM,BìnhDương,Bình Dương,normalized name / explicit alias,Bình Phước,63759600B13042736323456,True,27,19,3,63759600B13042736323456,coordinate reassigned to a different ADM1
+Vietnam,VNM,BìnhDương,Bình Dương,normalized name / explicit alias,Tây Ninh,63759600B24834630697040,True,137,86,3,63759600B24834630697040,coordinate reassigned to a different ADM1
+Vietnam,VNM,BìnhPhước,Bình Phước,normalized name / explicit alias,Bình Phước,63759600B13042736323456,False,8296,7013,62,63759600B13042736323456,same ADM1 label after alias normalization
+Vietnam,VNM,BìnhThuận,Bình Thuận,normalized name / explicit alias,Bình Thuận,63759600B31473825670333,False,9897,9789,32,63759600B31473825670333,same ADM1 label after alias normalization
+Vietnam,VNM,BìnhĐịnh,Bình Định,normalized name / explicit alias,Bình Định,63759600B9901642676381,False,29048,26127,102,63759600B9901642676381,same ADM1 label after alias normalization
+Vietnam,VNM,BạcLiêu,Bạc Liêu,normalized name / explicit alias,Bạc Liêu,63759600B49404698723526,False,6526,5697,14,63759600B49404698723526,same ADM1 label after alias normalization
+Vietnam,VNM,BắcGiang,Bắc Giang,normalized name / explicit alias,Bắc Giang,63759600B37262939240335,False,212811,203091,68,63759600B37262939240335,same ADM1 label after alias normalization
+Vietnam,VNM,BắcGiang,Bắc Giang,normalized name / explicit alias,Bắc Ninh,63759600B40382966221261,True,1338,1337,7,63759600B40382966221261,coordinate reassigned to a different ADM1
+Vietnam,VNM,BắcKạn,Bắc Kạn,normalized name / explicit alias,Bắc Kạn,63759600B29118141744967,False,1090,830,17,63759600B29118141744967,same ADM1 label after alias normalization
+Vietnam,VNM,BắcNinh,Bắc Ninh,normalized name / explicit alias,Bắc Ninh,63759600B40382966221261,False,81458,73864,59,63759600B40382966221261,same ADM1 label after alias normalization
+Vietnam,VNM,BắcNinh,Bắc Ninh,normalized name / explicit alias,Hà Nội,63759600B97268694287734,True,139,110,10,63759600B97268694287734,coordinate reassigned to a different ADM1
+Vietnam,VNM,BắcNinh,Bắc Ninh,normalized name / explicit alias,Hưng Yên,63759600B38696477403674,True,1,1,1,63759600B38696477403674,coordinate reassigned to a different ADM1
+Vietnam,VNM,BếnTre,Bến Tre,normalized name / explicit alias,Bến Tre,63759600B71233846988018,False,19499,17289,38,63759600B71233846988018,same ADM1 label after alias normalization
+Vietnam,VNM,CaoBằng,Cao Bằng,normalized name / explicit alias,Cao Bằng,63759600B11108179203280,False,2412,1866,20,63759600B11108179203280,same ADM1 label after alias normalization
+Vietnam,VNM,CàMau,Cà Mau,normalized name / explicit alias,Cà Mau,63759600B81181225404594,False,15886,14399,23,63759600B81181225404594,same ADM1 label after alias normalization
+Vietnam,VNM,CầnThơ,Cần Thơ,normalized name / explicit alias,Cần Thơ,63759600B21046589863912,False,158398,152372,98,63759600B21046589863912,same ADM1 label after alias normalization
+Vietnam,VNM,GiaLai,Gia Lai,normalized name / explicit alias,Gia Lai,63759600B15361955936842,False,37135,31086,26,63759600B15361955936842,same ADM1 label after alias normalization
+Vietnam,VNM,HoàBình,Hòa Bình,normalized name / explicit alias,Hòa Bình,63759600B96462676465033,False,18887,17099,34,63759600B96462676465033,same ADM1 label after alias normalization
+Vietnam,VNM,HàGiang,Hà Giang,normalized name / explicit alias,Hà Giang,63759600B80209413202681,False,3087,2309,17,63759600B80209413202681,same ADM1 label after alias normalization
+Vietnam,VNM,HàNam,Hà Nam,normalized name / explicit alias,Hà Nam,63759600B38291039937725,False,62817,59862,57,63759600B38291039937725,same ADM1 label after alias normalization
+Vietnam,VNM,HàNội,Hà Nội,normalized name / explicit alias,Hà Nội,63759600B97268694287734,False,4177846,3904703,241,63759600B97268694287734,same ADM1 label after alias normalization
+Vietnam,VNM,HàNội,Hà Nội,normalized name / explicit alias,Phú Thọ,63759600B45971409679814,True,161,126,7,63759600B45971409679814,coordinate reassigned to a different ADM1
+Vietnam,VNM,HàNội,Hà Nội,normalized name / explicit alias,Vĩnh Phúc,63759600B34367175145761,True,24,15,7,63759600B34367175145761,coordinate reassigned to a different ADM1
+Vietnam,VNM,HàTĩnh,Hà Tĩnh,normalized name / explicit alias,Hà Tĩnh,63759600B52412632417993,False,10319,9051,42,63759600B52412632417993,same ADM1 label after alias normalization
+Vietnam,VNM,HưngYên,Hưng Yên,normalized name / explicit alias,Hà Nam,63759600B38291039937725,True,17112,14756,25,63759600B38291039937725,coordinate reassigned to a different ADM1
+Vietnam,VNM,HưngYên,Hưng Yên,normalized name / explicit alias,Hà Nội,63759600B97268694287734,True,359,340,13,63759600B97268694287734,coordinate reassigned to a different ADM1
+Vietnam,VNM,HưngYên,Hưng Yên,normalized name / explicit alias,Hưng Yên,63759600B38696477403674,False,24,19,7,63759600B38696477403674,same ADM1 label after alias normalization
+Vietnam,VNM,HảiDương,Hải Dương,normalized name / explicit alias,Bắc Ninh,63759600B40382966221261,True,101,72,8,63759600B40382966221261,coordinate reassigned to a different ADM1
+Vietnam,VNM,HảiDương,Hải Dương,normalized name / explicit alias,Hải Dương,63759600B6612369570330,False,135803,130747,60,63759600B6612369570330,same ADM1 label after alias normalization
+Vietnam,VNM,HảiPhòng,Hải Phòng,normalized name / explicit alias,Hải Dương,63759600B6612369570330,True,33,20,4,63759600B6612369570330,coordinate reassigned to a different ADM1
+Vietnam,VNM,HảiPhòng,Hải Phòng,normalized name / explicit alias,Hải Phòng,63759600B57390768683549,False,320659,310595,72,63759600B57390768683549,same ADM1 label after alias normalization
+Vietnam,VNM,HậuGiang,Hậu Giang,normalized name / explicit alias,Hậu Giang,63759600B90584107995256,False,4598,3600,29,63759600B90584107995256,same ADM1 label after alias normalization
+Vietnam,VNM,HồChíMinh,Ho Chi Minh,normalized name / explicit alias,Bình Dương,63759600B4649941622975,True,10336,10908,17,63759600B4649941622975,coordinate reassigned to a different ADM1
+Vietnam,VNM,HồChíMinh,Ho Chi Minh,normalized name / explicit alias,Ho Chi Minh,63759600B80663352659785,False,3296821,3091934,380,63759600B80663352659785,same ADM1 label after alias normalization
+Vietnam,VNM,HồChíMinh,Ho Chi Minh,normalized name / explicit alias,Long An,63759600B22652371205312,True,25,11,1,63759600B22652371205312,coordinate reassigned to a different ADM1
+Vietnam,VNM,HồChíMinh,Ho Chi Minh,normalized name / explicit alias,Đồng Nai,63759600B12839449494422,True,7632,7801,23,63759600B12839449494422,coordinate reassigned to a different ADM1
+Vietnam,VNM,KhánhHòa,Khánh Hòa,normalized name / explicit alias,Khánh Hòa,63759600B80040926405936,False,138934,125579,74,63759600B80040926405936,same ADM1 label after alias normalization
+Vietnam,VNM,KiênGiang,Kiên Giang,normalized name / explicit alias,Kiên Giang,63759600B18022923052532,False,16485,14461,60,63759600B18022923052532,same ADM1 label after alias normalization
+Vietnam,VNM,KonTum,Kon Tum,normalized name / explicit alias,Kon Tum,63759600B65226847193503,False,12762,11218,17,63759600B65226847193503,same ADM1 label after alias normalization
+Vietnam,VNM,LaiChâu,Lai Châu,normalized name / explicit alias,Lai Châu,63759600B24004656938543,False,5643,4775,80,63759600B24004656938543,same ADM1 label after alias normalization
+Vietnam,VNM,LongAn,Long An,normalized name / explicit alias,Ho Chi Minh,63759600B80663352659785,True,153,112,9,63759600B80663352659785,coordinate reassigned to a different ADM1
+Vietnam,VNM,LongAn,Long An,normalized name / explicit alias,Long An,63759600B22652371205312,False,6201,6082,35,63759600B22652371205312,same ADM1 label after alias normalization
+Vietnam,VNM,LongAn,Long An,normalized name / explicit alias,Tiền Giang,63759600B12588044805894,True,23443,22419,17,63759600B12588044805894,coordinate reassigned to a different ADM1
+Vietnam,VNM,LongAn,Long An,normalized name / explicit alias,Tây Ninh,63759600B24834630697040,True,0,1,1,63759600B24834630697040,coordinate reassigned to a different ADM1
+Vietnam,VNM,LàoCai,Lào Cai,normalized name / explicit alias,Lào Cai,63759600B43481155123024,False,8008,6525,35,63759600B43481155123024,same ADM1 label after alias normalization
+Vietnam,VNM,LâmĐồng,Lâm Đồng,normalized name / explicit alias,Lâm Đồng,63759600B25056861299541,False,34342,30339,61,63759600B25056861299541,same ADM1 label after alias normalization
+Vietnam,VNM,LạngSơn,Lạng Sơn,normalized name / explicit alias,Lạng Sơn,63759600B58815535609509,False,9841,8923,23,63759600B58815535609509,same ADM1 label after alias normalization
+Vietnam,VNM,NamĐịnh,Nam Định,normalized name / explicit alias,Nam Định,63759600B40468097531795,False,34372,30366,67,63759600B40468097531795,same ADM1 label after alias normalization
+Vietnam,VNM,NghệAn,Nghệ An,normalized name / explicit alias,Hà Tĩnh,63759600B52412632417993,True,19,12,1,63759600B52412632417993,coordinate reassigned to a different ADM1
+Vietnam,VNM,NghệAn,Nghệ An,normalized name / explicit alias,Nghệ An,63759600B83996903780984,False,54794,48622,125,63759600B83996903780984,same ADM1 label after alias normalization
+Vietnam,VNM,NinhBình,Ninh Bình,normalized name / explicit alias,Ninh Bình,63759600B34339839848337,False,73105,70006,49,63759600B34339839848337,same ADM1 label after alias normalization
+Vietnam,VNM,NinhThuận,Ninh Thuận,normalized name / explicit alias,Ninh Thuận,63759600B19155127097543,False,1565,1620,18,63759600B19155127097543,same ADM1 label after alias normalization
+Vietnam,VNM,PhúThọ,Phú Thọ,normalized name / explicit alias,Phú Thọ,63759600B45971409679814,False,93475,94650,98,63759600B45971409679814,same ADM1 label after alias normalization
+Vietnam,VNM,PhúYên,Phú Yên,normalized name / explicit alias,Phú Yên,63759600B26645729855564,False,12616,11801,37,63759600B26645729855564,same ADM1 label after alias normalization
+Vietnam,VNM,QuảngBình,Quảng Bình,normalized name / explicit alias,Quảng Bình,63759600B63586366081005,False,12045,9651,35,63759600B63586366081005,same ADM1 label after alias normalization
+Vietnam,VNM,QuảngNam,Quảng Nam,normalized name / explicit alias,Quảng Nam,63759600B74453713760270,False,78835,72476,139,63759600B74453713760270,same ADM1 label after alias normalization
+Vietnam,VNM,QuảngNgãi,Quảng Ngãi,normalized name / explicit alias,Quảng Ngãi,63759600B52816170319692,False,74235,73892,33,63759600B52816170319692,same ADM1 label after alias normalization
+Vietnam,VNM,QuảngNinh,Quảng Ninh,normalized name / explicit alias,Hải Dương,63759600B6612369570330,True,46,29,6,63759600B6612369570330,coordinate reassigned to a different ADM1
+Vietnam,VNM,QuảngNinh,Quảng Ninh,normalized name / explicit alias,Hải Phòng,63759600B57390768683549,True,73183,73122,18,63759600B57390768683549,coordinate reassigned to a different ADM1
+Vietnam,VNM,QuảngNinh,Quảng Ninh,normalized name / explicit alias,Quảng Ninh,63759600B48704001246073,False,5811,4345,40,63759600B48704001246073,same ADM1 label after alias normalization
+Vietnam,VNM,QuảngTrị,Quảng Trị,normalized name / explicit alias,Quảng Trị,63759600B21465540527765,False,24565,21835,66,63759600B21465540527765,same ADM1 label after alias normalization
+Vietnam,VNM,SócTrăng,Sóc Trăng,normalized name / explicit alias,Sóc Trăng,63759600B58335636470412,False,13374,11524,35,63759600B58335636470412,same ADM1 label after alias normalization
+Vietnam,VNM,SơnLa,Sơn La,normalized name / explicit alias,Sơn La,63759600B3920147428024,False,12532,11618,28,63759600B3920147428024,same ADM1 label after alias normalization
+Vietnam,VNM,ThanhHóa,Thanh Hóa,normalized name / explicit alias,Thanh Hóa,63759600B30623332474263,False,49462,44582,92,63759600B30623332474263,same ADM1 label after alias normalization
+Vietnam,VNM,TháiBình,Thái Bình,normalized name / explicit alias,Nam Định,63759600B40468097531795,True,170,115,8,63759600B40468097531795,coordinate reassigned to a different ADM1
+Vietnam,VNM,TháiBình,Thái Bình,normalized name / explicit alias,Thái Bình,63759600B57830284065529,False,112353,106725,56,63759600B57830284065529,same ADM1 label after alias normalization
+Vietnam,VNM,TháiNguyên,Thái Nguyên,normalized name / explicit alias,Thái Nguyên,63759600B68663063324919,False,180159,165686,53,63759600B68663063324919,same ADM1 label after alias normalization
+Vietnam,VNM,ThừaThiênHuế,Thừa Thiên Huế,normalized name / explicit alias,Thừa Thiên Huế,63759600B73452440048702,False,1903753,1838445,86,63759600B73452440048702,same ADM1 label after alias normalization
+Vietnam,VNM,TiềnGiang,Tiền Giang,normalized name / explicit alias,Long An,63759600B22652371205312,True,39,16,1,63759600B22652371205312,coordinate reassigned to a different ADM1
+Vietnam,VNM,TiềnGiang,Tiền Giang,normalized name / explicit alias,Tiền Giang,63759600B12588044805894,False,3949,2997,73,63759600B12588044805894,same ADM1 label after alias normalization
+Vietnam,VNM,TràVinh,Trà Vinh,normalized name / explicit alias,Trà Vinh,63759600B34771484427393,False,13253,10810,42,63759600B34771484427393,same ADM1 label after alias normalization
+Vietnam,VNM,TuyênQuang,Tuyên Quang,normalized name / explicit alias,Tuyên Quang,63759600B31607366287554,False,10533,9349,28,63759600B31607366287554,same ADM1 label after alias normalization
+Vietnam,VNM,TâyNinh,Tây Ninh,normalized name / explicit alias,Tây Ninh,63759600B24834630697040,False,33568,30252,65,63759600B24834630697040,same ADM1 label after alias normalization
+Vietnam,VNM,VĩnhLong,Vĩnh Long,normalized name / explicit alias,Trà Vinh,63759600B34771484427393,True,42,29,2,63759600B34771484427393,coordinate reassigned to a different ADM1
+Vietnam,VNM,VĩnhLong,Vĩnh Long,normalized name / explicit alias,Vĩnh Long,63759600B66868150968055,False,6334,5131,44,63759600B66868150968055,same ADM1 label after alias normalization
+Vietnam,VNM,VĩnhPhúc,Vĩnh Phúc,normalized name / explicit alias,Hà Nội,63759600B97268694287734,True,9043,8751,17,63759600B97268694287734,coordinate reassigned to a different ADM1
+Vietnam,VNM,VĩnhPhúc,Vĩnh Phúc,normalized name / explicit alias,Phú Thọ,63759600B45971409679814,True,3,2,1,63759600B45971409679814,coordinate reassigned to a different ADM1
+Vietnam,VNM,VĩnhPhúc,Vĩnh Phúc,normalized name / explicit alias,Vĩnh Phúc,63759600B34367175145761,False,46045,42637,66,63759600B34367175145761,same ADM1 label after alias normalization
+Vietnam,VNM,YênBái,Yên Bái,normalized name / explicit alias,Yên Bái,63759600B52601599488063,False,10958,9967,32,63759600B52601599488063,same ADM1 label after alias normalization
+Vietnam,VNM,ĐiệnBiên,Điện Biên,normalized name / explicit alias,Điện Biên,63759600B72990231521734,False,10418,11281,25,63759600B72990231521734,same ADM1 label after alias normalization
+Vietnam,VNM,ĐàNẵng,Đà Nẵng,normalized name / explicit alias,Đà Nẵng,63759600B8583399541445,False,480335,432036,77,63759600B8583399541445,same ADM1 label after alias normalization
+Vietnam,VNM,ĐắkLắk,Đắk Lắk,normalized name / explicit alias,Đắk Lắk,63759600B97182540787332,False,37907,34027,70,63759600B97182540787332,same ADM1 label after alias normalization
+Vietnam,VNM,ĐắkNông,Đắk Nông,normalized name / explicit alias,Đắk Nông,63759600B22683796323846,False,7260,6602,29,63759600B22683796323846,same ADM1 label after alias normalization
+Vietnam,VNM,ĐồngNai,Đồng Nai,normalized name / explicit alias,Bình Dương,63759600B4649941622975,True,269,245,5,63759600B4649941622975,coordinate reassigned to a different ADM1
+Vietnam,VNM,ĐồngNai,Đồng Nai,normalized name / explicit alias,Ho Chi Minh,63759600B80663352659785,True,0,1,1,63759600B80663352659785,coordinate reassigned to a different ADM1
+Vietnam,VNM,ĐồngNai,Đồng Nai,normalized name / explicit alias,Đồng Nai,63759600B12839449494422,False,145632,131635,142,63759600B12839449494422,same ADM1 label after alias normalization
+Vietnam,VNM,ĐồngTháp,Đồng Tháp,normalized name / explicit alias,Vĩnh Long,63759600B66868150968055,True,164,150,3,63759600B66868150968055,coordinate reassigned to a different ADM1
+Vietnam,VNM,ĐồngTháp,Đồng Tháp,normalized name / explicit alias,Đồng Tháp,63759600B81354309972615,False,14085,12617,48,63759600B81354309972615,same ADM1 label after alias normalization

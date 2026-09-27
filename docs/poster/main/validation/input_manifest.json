@@ -1,0 +1,74 @@
+[
+  {
+    "path": "data\\exports\\ookla_province_quarterly.csv",
+    "sha256": "0a63990a3e03ca801b094268c3bfb94421962c80e58162fb5a3e51024a24ed2a"
+  },
+  {
+    "path": "data\\exports\\ookla_mobile_province_quarterly.csv",
+    "sha256": "81ef5cec7db38270075668ff266c4e64277dc13deb51d7c3f26b3087ecb255e5"
+  },
+  {
+    "path": "data\\exports\\ookla_vietnam_province_quarterly.csv",
+    "sha256": "a7388da138feb56a22b957214208aa7ff57f894fac7dca9a9631f0d01096918c"
+  },
+  {
+    "path": "data\\exports\\ookla_mobile_vietnam_province_quarterly.csv",
+    "sha256": "8fb2fde7e754a9932142d6f299aa1287056044850c088b3feadebc925f2cdbdd"
+  },
+  {
+    "path": "data\\exports\\ookla_philippines_province_quarterly.csv",
+    "sha256": "3bf1c6be2bd9b7b72b706aa7af469647c76bb18b5ef8a890767315530adb668e"
+  },
+  {
+    "path": "data\\exports\\ookla_mobile_philippines_province_quarterly.csv",
+    "sha256": "22e19ff6b2c537c0bd1c8213411fc4b3533ecf0f41f958ad12da31693c543bf0"
+  },
+  {
+    "path": "data\\exports\\ookla_singapore_province_quarterly.csv",
+    "sha256": "1b3ea7414effdf94b62bf5dc5cc1ef1e06534b22e9fb90ea25ca5f05b87ec540"
+  },
+  {
+    "path": "data\\exports\\ookla_mobile_singapore_province_quarterly.csv",
+    "sha256": "362f62048c37184597fbc66dad2ada82e6c1d47cfcb6c9792c9f2906ae5c10ae"
+  },
+  {
+    "path": "data\\exports\\ookla_cambodia_province_quarterly.csv",
+    "sha256": "f6d2e8c47d3387716429536aad0e1da62e8ae4d315285c90224fde9e94ebfe62"
+  },
+  {
+    "path": "data\\exports\\ookla_mobile_cambodia_province_quarterly.csv",
+    "sha256": "6891b78b3b62d58225c13e60ae9bc41c1aa755e691f519c462b94003ce4e795b"
+  },
+  {
+    "path": "data\\exports\\ookla_laos_province_quarterly.csv",
+    "sha256": "bd3a6ccfd63e65c307533788d8393dd0eac02400108bee214b2d5a28359ba8e5"
+  },
+  {
+    "path": "data\\exports\\ookla_mobile_laos_province_quarterly.csv",
+    "sha256": "a1b366e32b404f24d4089d55741cd00d0903b4be88ef523337fffd36df6d4e26"
+  },
+  {
+    "path": "data\\exports\\ookla_malaysia_province_quarterly.csv",
+    "sha256": "d49230d99fdab2ca6b3c940257ea761bbefa907aae8069666bc83b6e7a63f88f"
+  },
+  {
+    "path": "data\\exports\\ookla_mobile_malaysia_province_quarterly.csv",
+    "sha256": "de7fbf6818aeeeb7647960629dcf2c3462e72755c52cb4423fa71dff7d9de4bb"
+  },
+  {
+    "path": "data\\exports\\ookla_myanmar_province_quarterly.csv",
+    "sha256": "9aac9bd49aff7df9b37cce647320fde309750d0f5ffec3e5d2c025f870c4764f"
+  },
+  {
+    "path": "data\\exports\\ookla_mobile_myanmar_province_quarterly.csv",
+    "sha256": "09ab9e785ef794623ea02875d61a57042d0f83ab23661df81b0cb02ac4d79fa3"
+  },
+  {
+    "path": "data\\exports\\ookla_indonesia_province_quarterly.csv",
+    "sha256": "7b4926a2275d9a410aaa33b245e2704327b078840ba931f2a9d271b9e4e264da"
+  },
+  {
+    "path": "data\\exports\\ookla_mobile_indonesia_province_quarterly.csv",
+    "sha256": "5273e120b48eada10e8868e39a66a7dc02ac41a14e197067ce421c867998ccc9"
+  }
+]
