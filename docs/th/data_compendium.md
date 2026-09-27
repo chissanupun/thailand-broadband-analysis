@@ -319,33 +319,35 @@ degr_fixed = อัตราส่วน busy/off-peak หน้าต่าง�
 
 ---
 
-## Bonus — App Success Rate (median-based), ข้อมูลใหม่ 2026-08-20
+## Bonus — App Pass Rate (test-weighted), แก้ใหม่ 2026-09-28
 
-สูตร: success_rate = min(city median download / เกณฑ์แอป, 1) × 100 ต่อไตรมาส, เกณฑ์เดียวกับ RQ1 (Voice/HD/UHD/Cloud gaming), แยก national/capital
+**แก้แทนของเดิม (median-based, commit `64970b8`, Pakkapon, 2026-08-20):** reviewer AINTEC '26 ติงว่า metric เดิม (`min(city median / เกณฑ์, 1) × 100`) เป็น ratio ไม่ใช่ pass rate จริง แล้ว cloud gaming ไม่เคยเช็ค latency 25ms เลย ทั้งที่ตาราง requirement มีอยู่แล้ว — CSV เดิมก็ไม่มี source script ใน repo, back-solve ตัวเลขแล้วไม่ตรงกับ Ookla/NDT7 export ไหนใน repo เลย (ดู `docs/poster/poster_content.md` บรรทัด 9-11) เปลี่ยนมาใช้ Ookla fixed (มี test count ต่อ province-quarter ถ่วงน้ำหนักได้จริง, reproducible) — **นี่คือจุดที่เปลี่ยน dataset ไม่ใช่แค่ metric** ตามที่อาจารย์อนุมัติ 2026-09-28
+
+สูตรใหม่: `pass_rate = Σ(test count ของ province-quarter ที่ผ่าน threshold) / Σ(test count ทั้งหมด) × 100` ต่อไตรมาส, national scope เท่านั้น (ของเดิมมี capital ด้วยแต่ paper/poster ไม่เคยใช้ cap_ เลยตัดออก) — cloud gaming กับ voice เช็ค latency ด้วย (Ookla latency, ไม่ใช่ NDT7)
+
+Source script: `scripts/build_app_success_testweighted.py` + `scripts/plot_app_success_testweighted.py`
 
 ### ไตรมาสล่าสุด 2025Q4
 
-| country     | quarter   |   nat_Voice |   cap_Voice |   nat_Video HD |   cap_Video HD |   nat_Video UHD |   cap_Video UHD |   nat_Cloud gaming |   cap_Cloud gaming |
-|:------------|:----------|-------------:|-------------:|-----------------:|-----------------:|-------------------:|-------------------:|----------------------:|----------------------:|
-| Cambodia    | 2025Q4    |         100 |         100 |            100 |            100 |            68.3 |            71.7 |               38.8 |               40.7 |
-| Indonesia   | 2025Q4    |         100 |         100 |            100 |            100 |            65.2 |            66.4 |               37.1 |               37.8 |
-| Laos        | 2025Q4    |         100 |         100 |            100 |            100 |            91.6 |            98.5 |               52.1 |               55.9 |
-| Malaysia    | 2025Q4    |         100 |         100 |            100 |            100 |           100   |           100   |              100   |              100   |
-| Myanmar     | 2025Q4    |         100 |         100 |            100 |            100 |            47   |            48.5 |               26.7 |               27.6 |
-| Philippines | 2025Q4    |         100 |         100 |            100 |            100 |           100   |           100   |               78.6 |               78   |
-| Singapore   | 2025Q4    |         100 |         100 |            100 |            100 |           100   |           100   |              100   |              100   |
-| Thailand    | 2025Q4    |         100 |         100 |            100 |            100 |           100   |           100   |              100   |              100   |
-| Vietnam     | 2025Q4    |         100 |         100 |            100 |            100 |           100   |           100   |               93.8 |               81.6 |
+| country     | quarter   |   nat_Voice |   nat_Video HD |   nat_Video UHD |   nat_Cloud gaming |
+|:------------|:----------|-------------:|-----------------:|-------------------:|----------------------:|
+| Cambodia    | 2025Q4    |         100 |            100 |            100 |               88.9 |
+| Indonesia   | 2025Q4    |         100 |            100 |            100 |               91.0 |
+| Laos        | 2025Q4    |         100 |            100 |            100 |              100   |
+| Malaysia    | 2025Q4    |         100 |            100 |            100 |               96.0 |
+| Myanmar     | 2025Q4    |         100 |            100 |            100 |                0   |
+| Philippines | 2025Q4    |         100 |            100 |            100 |               99.5 |
+| Singapore   | 2025Q4    |         100 |            100 |            100 |              100   |
+| Thailand    | 2025Q4    |         100 |            100 |            100 |               99.3 |
+| Vietnam     | 2025Q4    |         100 |            100 |            100 |              100   |
 
-ชุดข้อมูลเต็ม 8 ไตรมาส (2024Q1–2025Q4) อยู่ที่ `outputs/app_success_rate_median/quarterly_app_success_median.csv`
+ชุดข้อมูลเต็ม 8 ไตรมาส (2024Q1–2025Q4) อยู่ที่ `outputs/app_success_rate_testweighted/quarterly_app_success_testweighted.csv`
 
-**Source:** commit `64970b8`, 2026-08-20, Pakkapon (ทีม) — ไม่ได้ทับซ้อนกับ RQ1-A/B/C ข้างบน (ใช้ city median ไม่ใช่ tile-weighted average, cover เฉพาะ 2024-2025 ไม่ใช่ 2023-2025)
+![fig_cloud_gaming_national](../../outputs/app_success_rate_testweighted/fig_cloud_gaming_national.png)
+*Cloud gaming pass rate รายไตรมาส ทั้งประเทศ (test-weighted)*
 
-![fig_cloud_gaming_national](../../outputs/app_success_rate_median/fig_cloud_gaming_national.png)
-*Cloud gaming success rate รายไตรมาส ทั้งประเทศ*
-
-![fig_video_uhd_national](../../outputs/app_success_rate_median/fig_video_uhd_national.png)
-*Video UHD success rate รายไตรมาส ทั้งประเทศ*
+![fig_video_uhd_national](../../outputs/app_success_rate_testweighted/fig_video_uhd_national.png)
+*Video UHD pass rate รายไตรมาส ทั้งประเทศ (test-weighted)*
 
 ---
 

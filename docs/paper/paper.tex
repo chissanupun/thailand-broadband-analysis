@@ -429,49 +429,41 @@ application requirements from Table~\ref{tab:app-requirements}.
   \includegraphics[width=0.48\linewidth]{figures/image11.png}
   \includegraphics[width=0.48\linewidth]{figures/image12.png}
   \caption{Evaluation results on the application requirements}
-  \Description{Four line charts showing national success rates over time for voice, HD video, UHD video, and cloud gaming thresholds.}
+  \Description{Four line charts showing national test-weighted pass rates over time for voice, HD video, UHD video, and cloud gaming thresholds.}
   \label{fig:app-eval}
 \end{figure}
 
-For the national-level success rate for voice and HD video streaming ---
-defined as achieving a download speed of $\geq$ 64 Kbps and 5 Mbps
-respectively --- across nine Southeast Asian countries from Q1 2024 through
-Q4 2025, every single country consistently achieves a 100\% success rate
-every quarter, with the trendlines remaining entirely flat and parallel
-near the top of the scale (offset slightly purely for visual legibility).
-This indicates that across all evaluated nations, including lower-tier
-broadband markets, existing fixed and mobile network infrastructure
-universally meets the basic 5 Mbps threshold required for smooth HD video
-playback without performance bottlenecks. However, the national success
-rates for Ultra High Definition (UHD) video streaming --- defined as
-achieving download speeds of $\geq$ 25 Mbps --- across eight quarters (Q1
-2024 to Q4 2025) reveal a clear divergence in performance across Southeast
-Asian nations. Advanced broadband markets including Malaysia, Singapore,
-Thailand, the Philippines, and Vietnam consistently achieve a 100\% success
-rate throughout the entire period (clustering together along the top
-boundary). In contrast, developing markets exhibit lower and more volatile
-success rates: Laos shows significant fluctuation, climbing from
-$\sim$76\% in Q1 2024, dipping to 50\% in Q4 2024, surging to 100\% in Q1
-2025, and stabilizing around 92\% by Q4 2025. Cambodia maintains moderate
-success rates fluctuating between 67\% and 86\%, while Indonesia
-demonstrates steady upward progress from $\sim$36\% to 65\%. Myanmar
-consistently trails the region, with its UHD success rate hovering between
-40\% and 55\% over the two-year timeframe, illustrating that higher
-bandwidth requirements like UHD video continue to expose infrastructure
-constraints in emerging digital economies. Additionally, the national
-success rates for cloud gaming --- defined by a demanding bandwidth
-threshold of $\geq$ 44 Mbps --- across nine Southeast Asian nations from Q1
-2024 to Q4 2025 show Singapore, Thailand, and Malaysia forming the top
-tier, with Singapore maintaining a near-perfect 100\% success rate
-throughout, while Thailand and Malaysia fluctuate slightly around
-87\%--100\%. The Philippines and Vietnam occupy a mid-tier position;
-Vietnam shows dramatic improvement from under 50\% in Q1 2024 to peaking at
-100\% in Q1 2025 before settling around 94\%, while the Philippines ranges
-between 58\% and 93\%. In contrast, lower-tier markets face severe
-bottlenecks meeting this intensive threshold: Cambodia hovers between 38\%
-and 49\%, Laos surges briefly to 85\% in early 2025 before dropping back to
-$\sim$52\%, and Indonesia and Myanmar consistently trail the region at the
-bottom, struggling below 38\% and 31\% success rates, respectively.
+For the national-level pass rate for voice and HD video streaming ---
+defined as the test-weighted share of province-quarters achieving a
+download speed of $\geq$ 64 Kbps and 5 Mbps respectively, with voice also
+requiring latency $\leq$ 200 ms --- across nine Southeast Asian countries
+from Q1 2024 through Q4 2025, nearly every country consistently achieves a
+100\% pass rate every quarter. The only departures are Thailand's brief dip
+to 99.8\% in Q2 2024 and Myanmar's drop to 53.6\% in Q2 2025, both driven by
+latency rather than bandwidth. HD video streaming meets its 5 Mbps
+bandwidth threshold in every country, every quarter, without exception.
+However, the national pass rates for Ultra High Definition (UHD) video
+streaming --- defined as the test-weighted share of province-quarters
+achieving download speeds of $\geq$ 25 Mbps --- across the same eight
+quarters reveal a clear divergence in performance across Southeast Asian
+nations. Eight of the nine countries hold a 100\% pass rate throughout the
+period, with the sole exception of Indonesia's brief dip to 84.8\% in Q1
+2024. Myanmar consistently trails the region, with its UHD pass rate
+swinging between 10.5\% and 100\% over the two-year timeframe, illustrating
+that higher bandwidth requirements like UHD video continue to expose
+infrastructure constraints in this emerging digital economy. Additionally,
+the national pass rates for cloud gaming --- defined by the test-weighted
+share of province-quarters clearing both a bandwidth threshold of $\geq$ 44
+Mbps and a latency threshold of $\leq$ 25 ms --- across nine Southeast
+Asian nations from Q1 2024 to Q4 2025 show Singapore, Thailand, Malaysia,
+and Vietnam forming the top tier, sustaining a 95\%--100\% pass rate
+throughout. Cambodia, Laos, and the Philippines occupy a mid tier, ranging
+between 67\% and 100\%. Indonesia shows a marked recovery, climbing from
+24.5\% in Q1 2024 to 91.0\% by Q4 2025. In contrast, Myanmar fails to clear
+the combined threshold in any quarter of the study period: every
+province-quarter that clears the 44 Mbps bandwidth bar still falls short of
+the 25 ms latency requirement, leaving its cloud-gaming pass rate at 0\%
+throughout.
 
 Taken together, these findings demonstrate that while basic connectivity
 needs like HD video streaming $\geq$ 5 Mbps are universally met across
@@ -496,7 +488,7 @@ infrastructure performance and application readiness across nine Southeast
 Asian nations using over 990 million tests from Ookla and M-Lab NDT7
 datasets. Our findings reveal that while foundational network
 requirements --- such as voice calls and HD video streaming $\geq$ 5 Mbps ---
-are universally met with a 100\% success rate across all evaluated
+are met with a pass rate at or near 100\% across nearly all evaluated
 countries, significant digital divides emerge under higher-tier demands.
 Fixed broadband infrastructure exhibits stark regional stratification and
 severe urban-rural disparities, with primary capital hubs achieving speeds
@@ -506,9 +498,10 @@ economies like Myanmar, Laos, and Cambodia, they struggle to sustain
 bandwidth-intensive, latency-critical workloads. As network requirements
 scale to Ultra HD streaming $\geq$ 25 Mbps and cloud gaming $\geq$ 44 Mbps,
 performance diverges sharply: tier-one markets like Singapore, Thailand,
-and Malaysia consistently deliver seamless execution, whereas developing
-markets face severe infrastructural bottlenecks that drop success rates
-below 38\%. Ultimately, this research underscores that raw speed rankings
+Malaysia, and Vietnam consistently deliver seamless execution, whereas
+Myanmar faces the most severe infrastructural bottleneck, never clearing
+the combined cloud-gaming bandwidth-and-latency threshold across the entire
+study period. Ultimately, this research underscores that raw speed rankings
 fail to reflect end-to-end user experiences across diverse application
 types, highlighting the imperative for targeted fiber deployment, regional
 infrastructure investments, and transport-layer optimizations to achieve

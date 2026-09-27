@@ -25,6 +25,13 @@ latency ใช้ค่าจาก Ookla ไม่ใช่ NDT7 เพรา�
 pass rate = Σ(test count ของ province-quarter ที่ผ่าน threshold) / Σ(test count ทั้งหมด) × 100
 ```
 
+ตัวอย่าง: province A มี 10,000 test ผ่านเกณฑ์ทั้งหมด, province B มี 100 test ไม่ผ่านเลย
+```
+pass rate = 10,000 / (10,000 + 100) × 100 = 99%
+```
+(ถ้านับ province เป็นหน่วยเดียวเท่ากันหมดแบบไม่ถ่วงน้ำหนัก จะได้ 1/2 = 50% ซึ่งผิด
+เพราะ province B มีข้อมูลน้อยกว่ามาก ไม่ควรมีน้ำหนักเท่ากับ province A)
+
 ### 2. Citation ที่ยังเป็น placeholder อยู่ในไฟล์ที่ส่งจริง
 มีจุด `[CITATION NEEDED]` ค้างอยู่สองแห่งใน Related Work reference ที่ต้องใช้
 (MacMillan et al. 2023, งานเทียบ Ookla กับ NDT7)
