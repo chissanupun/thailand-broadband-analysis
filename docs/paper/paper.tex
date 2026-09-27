@@ -243,10 +243,13 @@ identified and separated mobile and fixed broadband, and separated cloud
 services from individual clients. Due to ISP name spelling differences,
 operators are grouped using ASN rather than M-Lab's raw ISP-name field,
 which is unreliable at scale. For very large datasets, particularly
-Indonesia, we needed to cut down the time required to obtain the whole
-27-day dataset, so we strategically sampled the dataset in a way proven to
-be a good representative of the whole. For the remaining countries we
-obtained the whole dataset during the studied period.
+Indonesia, the per-IP mobile/hosting-flag lookup via ip-api.com would have
+taken roughly 27 days to query every IP individually, so we cut down the
+time required by strategically sampling five IPs per block in a way proven
+to be a good representative of the whole, reducing this lookup to roughly
+11.5 hours without affecting the underlying NDT7 test records themselves.
+For the remaining countries this lookup completed within a practical
+timeframe without sampling.
 
 For grouping operators, we rely primarily on the ASN (Autonomous System
 Number), because ISP names from M-Lab can be outdated, and a single
