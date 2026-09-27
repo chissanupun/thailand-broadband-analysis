@@ -1,0 +1,10 @@
+country,records,min_date,max_date,path
+Thailand,60248884,2023-01-01,2025-12-31,E:\ndt7\data\ndt7\th\mlab_th_clean.parquet
+Vietnam,24667548,2023-01-01,2025-12-31,E:\ndt7\data\ndt7\vn\mlab_vn_clean.parquet
+Philippines,262110845,2023-01-01,2025-12-31,E:\ndt7\data\ndt7\ph\mlab_ph_clean.parquet
+Singapore,36669323,2023-01-01,2025-12-31,E:\ndt7\data\ndt7\sg\mlab_sg_clean.parquet
+Cambodia,770501,2023-01-01,2025-12-31,E:\ndt7\data\ndt7\kh\mlab_kh_clean.parquet
+Laos,139693,2023-01-01,2025-12-31,E:\ndt7\data\ndt7\la\mlab_la_clean.parquet
+Malaysia,6637691,2023-01-01,2025-12-31,E:\ndt7\data\ndt7\my\mlab_my_clean.parquet
+Myanmar,2115739,2023-01-01,2025-12-31,E:\ndt7\data\ndt7\mm\mlab_mm_clean.parquet
+Indonesia,367247163,2023-01-01,2025-12-31,E:\ndt7\data\ndt7\id\mlab_id_clean.parquet

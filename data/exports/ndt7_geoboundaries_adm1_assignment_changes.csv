@@ -1,0 +1,318 @@
+﻿country,country_iso3,old_area,expected_geoBoundary_name,adm1_name,assignment_changed,download_tests,upload_tests,coordinate_groups
+Cambodia,KHM,Batdâmbâng,Battambang,Battambang,False,241,172,6
+Cambodia,KHM,BântéayMéanchey,Bantey Meanchey,Bantey Meanchey,False,265,220,13
+Cambodia,KHM,KaôhKong,Koh Kong,Koh Kong,False,271,215,10
+Cambodia,KHM,Kep,Kep,Kep,False,12,14,8
+Cambodia,KHM,KrongPailin,Pailin,Pailin,False,116,103,9
+Cambodia,KHM,KrongPreahSihanouk,Preah Sihanouk,Preah Sihanouk,False,878,738,24
+Cambodia,KHM,Krâchéh,Kratie,Kratie,False,0,1,1
+Cambodia,KHM,KâmpóngCham,Kampong Cham,Kampong Cham,False,60,48,12
+Cambodia,KHM,KâmpóngChhnang,Kampong Chhnang,Kampong Chhnang,False,36,30,1
+Cambodia,KHM,KâmpóngSpœ,Kampong Speu,Kampong Speu,False,149,103,21
+Cambodia,KHM,KâmpóngThum,Kampong Thom,Kampong Thom,False,129440,79264,47
+Cambodia,KHM,Kâmpôt,Kampot,Kampot,False,13,8,2
+Cambodia,KHM,Kândal,Kandal,Kandal,False,349,267,30
+Cambodia,KHM,MôndólKiri,Mondulkiri,Mondulkiri,False,96,76,11
+Cambodia,KHM,OtdarMeanChey,Oddar Meanchey,Oddar Meanchey,False,4,3,3
+Cambodia,KHM,PhnomPenh,Phnom Penh,Phnom Penh,False,302893,246078,37
+Cambodia,KHM,Pouthisat,Pursat,Pursat,False,148,135,13
+Cambodia,KHM,PreahVihéar,Preah Vihear,Preah Vihear,False,88,67,4
+Cambodia,KHM,PreyVêng,Prey Veng,Prey Veng,False,89,76,11
+Cambodia,KHM,Rôtânôkiri,Ratanakiri Province,Ratanakiri Province,False,484,402,4
+Cambodia,KHM,Siemréab,Siem Reap,Siem Reap,False,2845,2312,23
+Cambodia,KHM,StœngTrêng,Stung Treng,Stung Treng,False,24,18,10
+Cambodia,KHM,SvayRieng,Svay Rieng,Svay Rieng,False,250,170,12
+Cambodia,KHM,Takêv,Takeo,Takeo,False,246,208,9
+Cambodia,KHM,TbongKhmum,Tbong Khmum,Tbong Khmum,False,392,384,19
+Indonesia,IDN,Aceh,Aceh,Aceh,False,906516,679142,181
+Indonesia,IDN,Bali,Bali,Bali,False,2776794,2065631,388
+Indonesia,IDN,BangkaBelitung,Bangka-Belitung Islands,Bangka-Belitung Islands,False,89480,68069,41
+Indonesia,IDN,Banten,Banten,Banten,False,6725903,5141050,666
+Indonesia,IDN,Bengkulu,Bengkulu,Bengkulu,False,548223,395970,40
+Indonesia,IDN,Gorontalo,Gorontalo,Gorontalo,False,199565,152135,53
+Indonesia,IDN,JakartaRaya,Jakarta Special Capital Region,Banten,True,310,245,8
+Indonesia,IDN,JakartaRaya,Jakarta Special Capital Region,Jakarta Special Capital Region,False,70710459,53151206,2439
+Indonesia,IDN,Jambi,Jambi,Jambi,False,680858,505648,121
+Indonesia,IDN,JawaBarat,West Java,Central Java,True,806,603,1
+Indonesia,IDN,JawaBarat,West Java,Jakarta Special Capital Region,True,8663,7104,7
+Indonesia,IDN,JawaBarat,West Java,West Java,False,33250616,25220260,2321
+Indonesia,IDN,JawaTengah,Central Java,Central Java,False,23130407,17432479,2081
+Indonesia,IDN,JawaTengah,Central Java,West Java,True,521,450,3
+Indonesia,IDN,JawaTimur,East Java,East Java,False,31296352,23293166,2567
+Indonesia,IDN,KalimantanBarat,West Kalimantan,West Kalimantan,False,1762222,1304542,163
+Indonesia,IDN,KalimantanSelatan,South Kalimantan,South Kalimantan,False,2636773,1947941,193
+Indonesia,IDN,KalimantanTengah,Central Kalimantan,Central Kalimantan,False,455021,333334,116
+Indonesia,IDN,KalimantanTimur,East Kalimantan,East Kalimantan,False,2262088,1652958,215
+Indonesia,IDN,KalimantanUtara,North Kalimantan,North Kalimantan,False,194952,150205,54
+Indonesia,IDN,KepulauanRiau,Riau Islands,Riau Islands,False,1527500,1163722,228
+Indonesia,IDN,Lampung,Lampung,Lampung,False,2683688,2010256,245
+Indonesia,IDN,Maluku,Maluku,Maluku,False,366873,282477,77
+Indonesia,IDN,MalukuUtara,North Maluku,North Maluku,False,130101,100575,23
+Indonesia,IDN,NusaTenggaraBarat,West Nusa Tenggara,West Nusa Tenggara,False,1252476,913708,213
+Indonesia,IDN,NusaTenggaraTimur,East Nusa Tenggara,East Nusa Tenggara,False,347247,267600,92
+Indonesia,IDN,Papua,Papua,Papua,False,377221,293129,106
+Indonesia,IDN,PapuaBarat,West Papua,West Papua,False,216240,168210,45
+Indonesia,IDN,Riau,Riau,Riau,False,2726934,2088852,413
+Indonesia,IDN,SulawesiBarat,West Sulawesi,West Sulawesi,False,102402,72279,36
+Indonesia,IDN,SulawesiSelatan,South Sulawesi,South Sulawesi,False,4312384,3194688,391
+Indonesia,IDN,SulawesiTengah,Central Sulawesi,Central Sulawesi,False,394691,281384,90
+Indonesia,IDN,SulawesiTenggara,Southeast Sulawesi,Southeast Sulawesi,False,162459,116008,75
+Indonesia,IDN,SulawesiUtara,North Sulawesi,North Sulawesi,False,1082996,818862,151
+Indonesia,IDN,SumateraBarat,West Sumatra,West Sumatra,False,1254979,912076,168
+Indonesia,IDN,SumateraSelatan,South Sumatra,South Sumatra,False,3300060,2423788,182
+Indonesia,IDN,SumateraUtara,North Sumatra,North Sumatra,False,5646389,4266564,637
+Indonesia,IDN,Yogyakarta,Special Region of Yogyakarta,Special Region of Yogyakarta,False,6173240,4669496,433
+Laos,LAO,Attapu,Attapeu,Attapeu,False,817,609,8
+Laos,LAO,Bolikhamxai,Bolikhamsai,Bolikhamsai,False,26498,18577,56
+Laos,LAO,Champasak,Champasak,Champasak,False,762,569,15
+Laos,LAO,Houaphan,Houaphan,Houaphan,False,216,155,12
+Laos,LAO,Khammouan,Khammouane,Khammouane,False,193,163,22
+Laos,LAO,LouangNamtha,Luang Namtha,Luang Namtha,False,7,8,4
+Laos,LAO,Louangphrabang,Luang Prabang,Luang Prabang,False,729,425,8
+Laos,LAO,Oudômxai,Oudomxay,Oudomxay,False,51,58,7
+Laos,LAO,Phôngsali,Phongsaly,Phongsaly,False,81,48,6
+Laos,LAO,Saravan,Salavan,Salavan,False,33,34,10
+Laos,LAO,Savannakhét,Savannakhet,Savannakhet,False,113,77,7
+Laos,LAO,Vientiane,Vientiane,Vientiane,False,87,98,17
+Laos,LAO,Vientiane[prefecture],Vientiane Capital,Vientiane Capital,False,47911,39386,36
+Laos,LAO,Xaignabouri,Xaignabouli,Xaignabouli,False,307,332,12
+Laos,LAO,Xaisômboun,Xaisomboun,Xaisomboun,False,360,249,13
+Laos,LAO,Xiangkhoang,Xiangkhouang,Xiangkhouang,False,20,38,8
+Laos,LAO,Xékong,Xekong,Xekong,False,398,284,13
+Malaysia,MYS,Johor,Johor,Johor,False,102708,91220,718
+Malaysia,MYS,Kedah,Kedah,Kedah,False,24598,22168,375
+Malaysia,MYS,Kelantan,Kelantan,Kelantan,False,7398,7186,203
+Malaysia,MYS,KualaLumpur,Kuala Lumpur,Kuala Lumpur,False,1781709,1526657,1148
+Malaysia,MYS,KualaLumpur,Kuala Lumpur,Selangor,True,90285,79511,161
+Malaysia,MYS,Labuan,Labuan,Labuan,False,748,745,29
+Malaysia,MYS,Melaka,Malacca,Johor,True,17,6,2
+Malaysia,MYS,Melaka,Malacca,Malacca,False,18515,15628,277
+Malaysia,MYS,NegeriSembilan,Negeri Sembilan,Negeri Sembilan,False,36454,33336,337
+Malaysia,MYS,Pahang,Pahang,Pahang,False,5253,4255,284
+Malaysia,MYS,Perak,Perak,Perak,False,37983,34476,475
+Malaysia,MYS,Perak,Perak,Selangor,True,15,15,4
+Malaysia,MYS,Perlis,Perlis,Perlis,False,705,664,48
+Malaysia,MYS,PulauPinang,Penang,Penang,False,143573,130562,724
+Malaysia,MYS,Putrajaya,Putrajaya,Putrajaya,False,1941,1692,53
+Malaysia,MYS,Putrajaya,Putrajaya,Selangor,True,77476,68327,40
+Malaysia,MYS,Sabah,Sabah,Sabah,False,144733,122708,358
+Malaysia,MYS,Sarawak,Sarawak,Sarawak,False,435719,377045,437
+Malaysia,MYS,Selangor,Selangor,Kuala Lumpur,True,13045,10970,61
+Malaysia,MYS,Selangor,Selangor,Putrajaya,True,1277,1046,37
+Malaysia,MYS,Selangor,Selangor,Selangor,False,623902,555038,1527
+Malaysia,MYS,Trengganu,Terengganu,Terengganu,False,3395,2987,183
+Myanmar,MMR,Ayeyarwady,Ayeyarwady,Ayeyarwady,False,13065,9431,15
+Myanmar,MMR,Bago,Bago,Bago,False,5057,2613,20
+Myanmar,MMR,Chin,Chin,Chin,False,73,62,8
+Myanmar,MMR,Kachin,Kachin,Kachin,False,1137,902,12
+Myanmar,MMR,Kayah,Kayah,Kayah,False,4000,3320,14
+Myanmar,MMR,Kayin,Kayin,Kayin,False,804,702,8
+Myanmar,MMR,Magway,Magway,Magway,False,433,293,7
+Myanmar,MMR,Mandalay,Mandalay,Mandalay,False,625254,448705,117
+Myanmar,MMR,Mon,Mon,Mon,False,307,180,9
+Myanmar,MMR,Naypyitaw,Mandalay,Mandalay,False,5909,3837,18
+Myanmar,MMR,Sagaing,Saigang,Saigang,False,269,170,5
+Myanmar,MMR,Shan,Shan,Shan,False,11903,7967,42
+Myanmar,MMR,Tanintharyi,Tanitharyi,Tanitharyi,False,680,565,13
+Myanmar,MMR,Yangon,Yangon,Yangon,False,575829,392272,99
+Philippines,PHL,BARMM,ARMM,ARMM,False,55449,40765,74
+Philippines,PHL,BARMM,ARMM,Soccsksargen,True,30904,23573,15
+Philippines,PHL,BARMM,ARMM,Zamboanga Peninsula,True,413,332,3
+Philippines,PHL,CAR,CAR,CAR,False,2946276,2204263,170
+Philippines,PHL,CAR,CAR,Cagayan Valley,True,6712,5427,12
+Philippines,PHL,CAR,CAR,Ilocos Region,True,121,84,3
+Philippines,PHL,MIMAROPA,Mimaropa,Mimaropa,False,218188,165285,253
+Philippines,PHL,NCR,NCR,Calabarzon,True,260056,201905,28
+Philippines,PHL,NCR,NCR,NCR,False,62398371,46661238,1863
+Philippines,PHL,Region I,Ilocos Region,Ilocos Region,False,1399350,1053746,694
+Philippines,PHL,Region II,Cagayan Valley,Cagayan Valley,False,1021251,756034,484
+Philippines,PHL,Region III,Central Luzon,Central Luzon,False,14093327,10462347,1848
+Philippines,PHL,Region III,Central Luzon,NCR,True,138033,103807,33
+Philippines,PHL,Region IV-A,Calabarzon,Calabarzon,False,22121437,16809447,1887
+Philippines,PHL,Region IV-A,Calabarzon,NCR,True,162530,122678,55
+Philippines,PHL,Region IX,Zamboanga Peninsula,Northern Mindanao,True,147,124,2
+Philippines,PHL,Region IX,Zamboanga Peninsula,Zamboanga Peninsula,False,702012,545094,237
+Philippines,PHL,Region V,Bicol Region,Bicol Region,False,2118564,1620444,691
+Philippines,PHL,Region VI,Western Visayas,Western Visayas,False,6805546,5019142,859
+Philippines,PHL,Region VII,Central Visayas,Central Visayas,False,14826140,11425847,889
+Philippines,PHL,Region VIII,Eastern Visayas,Eastern Visayas,False,582051,445266,458
+Philippines,PHL,Region X,Northern Mindanao,Northern Mindanao,False,6934508,5271681,566
+Philippines,PHL,Region XI,Davao Region,Davao Region,False,10064174,7758064,443
+Philippines,PHL,Region XII,Soccsksargen,Soccsksargen,False,730579,575552,359
+Philippines,PHL,Region XIII,Caraga,Caraga,False,1850631,1371905,255
+Singapore,SGP,Central Region,CENTRAL REGION,CENTRAL REGION,False,14022268,10391948,820
+Singapore,SGP,East Region,EAST REGION,EAST REGION,False,783857,584801,189
+Singapore,SGP,North Region,NORTH REGION,NORTH REGION,False,1752493,1251634,134
+Singapore,SGP,North-East Region,NORTH-EAST REGION,NORTH-EAST REGION,False,2038601,1471027,161
+Singapore,SGP,West Region,WEST REGION,WEST REGION,False,2460418,1912276,251
+Thailand,THA,Amnat Charoen,Amnat Charoen,Amnat Charoen,False,6546,4781,38
+Thailand,THA,Ang Thong,Ang Thong,Ang Thong,False,25966,16561,58
+Thailand,THA,Bangkok Metropolis,Bangkok Metropolis,Bangkok Metropolis,False,23163157,15465889,1132
+Thailand,THA,Bueng Kan,Bueng Kan,Bueng Kan,False,7534,5830,39
+Thailand,THA,Buri Ram,Buri Ram,Buri Ram,False,33923,23409,129
+Thailand,THA,Chachoengsao,Chachoengsao,Chachoengsao,False,147843,102131,139
+Thailand,THA,Chai Nat,Chai Nat,Chai Nat,False,9398,6531,63
+Thailand,THA,Chaiyaphum,Chaiyaphum,Chaiyaphum,False,14295,10187,95
+Thailand,THA,Chanthaburi,Chanthaburi,Chanthaburi,False,26388,18609,96
+Thailand,THA,Chiang Mai,Chiang Mai,Chiang Mai,False,1388919,987907,304
+Thailand,THA,Chiang Rai,Chiang Rai,Chiang Rai,False,93435,64745,148
+Thailand,THA,Chon Buri,Chon Buri,Chon Buri,False,1607623,1116061,294
+Thailand,THA,Chumphon,Chumphon,Chumphon,False,23159,16806,66
+Thailand,THA,Kalasin,Kalasin,Kalasin,False,16521,12073,102
+Thailand,THA,Kamphaeng Phet,Kamphaeng Phet,Kamphaeng Phet,False,31111,22346,85
+Thailand,THA,Kanchanaburi,Kanchanaburi,Kanchanaburi,False,20572,14164,87
+Thailand,THA,Khon Kaen,Khon Kaen,Khon Kaen,False,692354,495913,194
+Thailand,THA,Krabi,Krabi,Krabi,False,41390,31770,89
+Thailand,THA,Lampang,Lampang,Lampang,False,56039,40698,122
+Thailand,THA,Lamphun,Lamphun,Lamphun,False,28465,19727,68
+Thailand,THA,Loei,Loei,Loei,False,15778,11847,67
+Thailand,THA,Lop Buri,Lop Buri,Lop Buri,False,85623,60224,102
+Thailand,THA,Mae Hong Son,Mae Hong Son,Mae Hong Son,False,2793,2151,26
+Thailand,THA,Maha Sarakham,Maha Sarakham,Maha Sarakham,False,33188,22770,89
+Thailand,THA,Mukdahan,Mukdahan,Mukdahan,False,17705,11671,52
+Thailand,THA,Nakhon Nayok,Nakhon Nayok,Nakhon Nayok,False,16940,9717,58
+Thailand,THA,Nakhon Pathom,Nakhon Pathom,Nakhon Pathom,False,510146,360376,145
+Thailand,THA,Nakhon Phanom,Nakhon Phanom,Nakhon Phanom,False,23224,17356,98
+Thailand,THA,Nakhon Ratchasima,Nakhon Ratchasima,Nakhon Ratchasima,False,778647,565927,257
+Thailand,THA,Nakhon Sawan,Nakhon Sawan,Nakhon Sawan,False,111356,80001,109
+Thailand,THA,Nakhon Si Thammarat,Nakhon Si Thammarat,Nakhon Si Thammarat,False,25844,19385,134
+Thailand,THA,Nan,Nan,Nan,False,33783,23795,58
+Thailand,THA,Narathiwat,Narathiwat,Narathiwat,False,17987,12006,112
+Thailand,THA,Nong Bua Lam Phu,Nong Bua Lam Phu,Nong Bua Lam Phu,False,10120,7519,46
+Thailand,THA,Nong Khai,Nong Khai,Nong Khai,False,7767,5617,62
+Thailand,THA,Nonthaburi,Nonthaburi,Nonthaburi,False,1443694,963636,267
+Thailand,THA,Pathum Thani,Pathum Thani,Pathum Thani,False,330393,229558,173
+Thailand,THA,Pattani,Pattani,Pattani,False,28698,20514,81
+Thailand,THA,Phangnga,Phangnga,Phangnga,False,6516,4194,52
+Thailand,THA,Phatthalung,Phatthalung,Phatthalung,False,15512,11460,58
+Thailand,THA,Phayao,Phayao,Phayao,False,22570,15763,72
+Thailand,THA,Phetchabun,Phetchabun,Phetchabun,False,26993,19065,74
+Thailand,THA,Phetchaburi,Phetchaburi,Phetchaburi,False,23327,15449,86
+Thailand,THA,Phichit,Phichit,Phichit,False,22605,16500,71
+Thailand,THA,Phitsanulok,Phitsanulok,Phitsanulok,False,241944,177091,86
+Thailand,THA,Phra Nakhon Si Ayutthaya,Phra Nakhon Si Ayutthaya,Phra Nakhon Si Ayutthaya,False,446152,305282,262
+Thailand,THA,Phrae,Phrae,Phrae,False,10003,7086,50
+Thailand,THA,Phuket,Phuket,Phuket,False,777309,549888,166
+Thailand,THA,Prachin Buri,Prachin Buri,Prachin Buri,False,22397,15464,127
+Thailand,THA,Prachuap Khiri Khan,Prachuap Khiri Khan,Prachuap Khiri Khan,False,111104,79230,102
+Thailand,THA,Ranong,Ranong,Ranong,False,4230,2850,24
+Thailand,THA,Ratchaburi,Ratchaburi,Ratchaburi,False,30230,20406,87
+Thailand,THA,Rayong,Rayong,Rayong,False,173978,122408,161
+Thailand,THA,Roi Et,Roi Et,Roi Et,False,17618,12362,103
+Thailand,THA,Sa Kaeo,Sa Kaeo,Sa Kaeo,False,10492,7343,53
+Thailand,THA,Sakon Nakhon,Sakon Nakhon,Sakon Nakhon,False,38173,27467,135
+Thailand,THA,Samut Prakan,Samut Prakan,Samut Prakan,False,1205431,815387,256
+Thailand,THA,Samut Sakhon,Samut Sakhon,Samut Sakhon,False,159118,112221,82
+Thailand,THA,Samut Songkhram,Samut Songkhram,Samut Songkhram,False,7908,5650,33
+Thailand,THA,Saraburi,Saraburi,Saraburi,False,76106,47675,165
+Thailand,THA,Satun,Satun,Satun,False,9349,6736,60
+Thailand,THA,Si Sa Ket,Si Sa Ket,Si Sa Ket,False,90905,67045,178
+Thailand,THA,Sing Buri,Sing Buri,Sing Buri,False,14189,9874,62
+Thailand,THA,Songkhla,Songkhla,Songkhla,False,435148,311491,207
+Thailand,THA,Sukhothai,Sukhothai,Sukhothai,False,13508,9714,90
+Thailand,THA,Suphan Buri,Suphan Buri,Suphan Buri,False,86883,54039,160
+Thailand,THA,Surat Thani,Surat Thani,Surat Thani,False,238223,166960,253
+Thailand,THA,Surin,Surin,Surin,False,74838,55783,115
+Thailand,THA,Tak,Tak,Tak,False,18832,13701,62
+Thailand,THA,Trang,Trang,Trang,False,58661,44128,109
+Thailand,THA,Trat,Trat,Trat,False,4325,3105,16
+Thailand,THA,Ubon Ratchathani,Ubon Ratchathani,Ubon Ratchathani,False,54650,36211,124
+Thailand,THA,Udon Thani,Udon Thani,Udon Thani,False,331615,243407,119
+Thailand,THA,Uthai Thani,Uthai Thani,Uthai Thani,False,13919,9510,35
+Thailand,THA,Uttaradit,Uttaradit,Uttaradit,False,26078,18081,61
+Thailand,THA,Yala,Yala,Yala,False,24964,17787,51
+Thailand,THA,Yasothon,Yasothon,Yasothon,False,9629,7100,55
+Vietnam,VNM,AnGiang,An Giang,An Giang,False,36196,31120,88
+Vietnam,VNM,AnGiang,An Giang,Đồng Tháp,True,9233,9872,13
+Vietnam,VNM,BàRịa-VũngTàu,Bà Rịa–Vũng Tàu,Bà Rịa–Vũng Tàu,False,78763,82222,74
+Vietnam,VNM,BàRịa-VũngTàu,Bà Rịa–Vũng Tàu,Bình Thuận,True,504,428,5
+Vietnam,VNM,BàRịa-VũngTàu,Bà Rịa–Vũng Tàu,Đồng Nai,True,25,26,3
+Vietnam,VNM,BìnhDương,Bình Dương,Bình Dương,False,48793,44471,114
+Vietnam,VNM,BìnhDương,Bình Dương,Bình Phước,True,27,19,3
+Vietnam,VNM,BìnhDương,Bình Dương,Tây Ninh,True,137,86,3
+Vietnam,VNM,BìnhPhước,Bình Phước,Bình Phước,False,8296,7013,62
+Vietnam,VNM,BìnhThuận,Bình Thuận,Bình Thuận,False,9897,9789,32
+Vietnam,VNM,BìnhĐịnh,Bình Định,Bình Định,False,29048,26127,102
+Vietnam,VNM,BạcLiêu,Bạc Liêu,Bạc Liêu,False,6526,5697,14
+Vietnam,VNM,BắcGiang,Bắc Giang,Bắc Giang,False,212811,203091,68
+Vietnam,VNM,BắcGiang,Bắc Giang,Bắc Ninh,True,1338,1337,7
+Vietnam,VNM,BắcKạn,Bắc Kạn,Bắc Kạn,False,1090,830,17
+Vietnam,VNM,BắcNinh,Bắc Ninh,Bắc Ninh,False,81458,73864,59
+Vietnam,VNM,BắcNinh,Bắc Ninh,Hà Nội,True,139,110,10
+Vietnam,VNM,BắcNinh,Bắc Ninh,Hưng Yên,True,1,1,1
+Vietnam,VNM,BếnTre,Bến Tre,Bến Tre,False,19499,17289,38
+Vietnam,VNM,CaoBằng,Cao Bằng,Cao Bằng,False,2412,1866,20
+Vietnam,VNM,CàMau,Cà Mau,Cà Mau,False,15886,14399,23
+Vietnam,VNM,CầnThơ,Cần Thơ,Cần Thơ,False,158398,152372,98
+Vietnam,VNM,GiaLai,Gia Lai,Gia Lai,False,37135,31086,26
+Vietnam,VNM,HoàBình,Hòa Bình,Hòa Bình,False,18887,17099,34
+Vietnam,VNM,HàGiang,Hà Giang,Hà Giang,False,3087,2309,17
+Vietnam,VNM,HàNam,Hà Nam,Hà Nam,False,62817,59862,57
+Vietnam,VNM,HàNội,Hà Nội,Hà Nội,False,4177846,3904703,241
+Vietnam,VNM,HàNội,Hà Nội,Phú Thọ,True,161,126,7
+Vietnam,VNM,HàNội,Hà Nội,Vĩnh Phúc,True,24,15,7
+Vietnam,VNM,HàTĩnh,Hà Tĩnh,Hà Tĩnh,False,10319,9051,42
+Vietnam,VNM,HưngYên,Hưng Yên,Hà Nam,True,17112,14756,25
+Vietnam,VNM,HưngYên,Hưng Yên,Hà Nội,True,359,340,13
+Vietnam,VNM,HưngYên,Hưng Yên,Hưng Yên,False,24,19,7
+Vietnam,VNM,HảiDương,Hải Dương,Bắc Ninh,True,101,72,8
+Vietnam,VNM,HảiDương,Hải Dương,Hải Dương,False,135803,130747,60
+Vietnam,VNM,HảiPhòng,Hải Phòng,Hải Dương,True,33,20,4
+Vietnam,VNM,HảiPhòng,Hải Phòng,Hải Phòng,False,320659,310595,72
+Vietnam,VNM,HậuGiang,Hậu Giang,Hậu Giang,False,4598,3600,29
+Vietnam,VNM,HồChíMinh,Ho Chi Minh,Bình Dương,True,10336,10908,17
+Vietnam,VNM,HồChíMinh,Ho Chi Minh,Ho Chi Minh,False,3296821,3091934,380
+Vietnam,VNM,HồChíMinh,Ho Chi Minh,Long An,True,25,11,1
+Vietnam,VNM,HồChíMinh,Ho Chi Minh,Đồng Nai,True,7632,7801,23
+Vietnam,VNM,KhánhHòa,Khánh Hòa,Khánh Hòa,False,138934,125579,74
+Vietnam,VNM,KiênGiang,Kiên Giang,Kiên Giang,False,16485,14461,60
+Vietnam,VNM,KonTum,Kon Tum,Kon Tum,False,12762,11218,17
+Vietnam,VNM,LaiChâu,Lai Châu,Lai Châu,False,5643,4775,80
+Vietnam,VNM,LongAn,Long An,Ho Chi Minh,True,153,112,9
+Vietnam,VNM,LongAn,Long An,Long An,False,6201,6082,35
+Vietnam,VNM,LongAn,Long An,Tiền Giang,True,23443,22419,17
+Vietnam,VNM,LongAn,Long An,Tây Ninh,True,0,1,1
+Vietnam,VNM,LàoCai,Lào Cai,Lào Cai,False,8008,6525,35
+Vietnam,VNM,LâmĐồng,Lâm Đồng,Lâm Đồng,False,34342,30339,61
+Vietnam,VNM,LạngSơn,Lạng Sơn,Lạng Sơn,False,9841,8923,23
+Vietnam,VNM,NamĐịnh,Nam Định,Nam Định,False,34372,30366,67
+Vietnam,VNM,NghệAn,Nghệ An,Hà Tĩnh,True,19,12,1
+Vietnam,VNM,NghệAn,Nghệ An,Nghệ An,False,54794,48622,125
+Vietnam,VNM,NinhBình,Ninh Bình,Ninh Bình,False,73105,70006,49
+Vietnam,VNM,NinhThuận,Ninh Thuận,Ninh Thuận,False,1565,1620,18
+Vietnam,VNM,PhúThọ,Phú Thọ,Phú Thọ,False,93475,94650,98
+Vietnam,VNM,PhúYên,Phú Yên,Phú Yên,False,12616,11801,37
+Vietnam,VNM,QuảngBình,Quảng Bình,Quảng Bình,False,12045,9651,35
+Vietnam,VNM,QuảngNam,Quảng Nam,Quảng Nam,False,78835,72476,139
+Vietnam,VNM,QuảngNgãi,Quảng Ngãi,Quảng Ngãi,False,74235,73892,33
+Vietnam,VNM,QuảngNinh,Quảng Ninh,Hải Dương,True,46,29,6
+Vietnam,VNM,QuảngNinh,Quảng Ninh,Hải Phòng,True,73183,73122,18
+Vietnam,VNM,QuảngNinh,Quảng Ninh,Quảng Ninh,False,5811,4345,40
+Vietnam,VNM,QuảngTrị,Quảng Trị,Quảng Trị,False,24565,21835,66
+Vietnam,VNM,SócTrăng,Sóc Trăng,Sóc Trăng,False,13374,11524,35
+Vietnam,VNM,SơnLa,Sơn La,Sơn La,False,12532,11618,28
+Vietnam,VNM,ThanhHóa,Thanh Hóa,Thanh Hóa,False,49462,44582,92
+Vietnam,VNM,TháiBình,Thái Bình,Nam Định,True,170,115,8
+Vietnam,VNM,TháiBình,Thái Bình,Thái Bình,False,112353,106725,56
+Vietnam,VNM,TháiNguyên,Thái Nguyên,Thái Nguyên,False,180159,165686,53
+Vietnam,VNM,ThừaThiênHuế,Thừa Thiên Huế,Thừa Thiên Huế,False,1903753,1838445,86
+Vietnam,VNM,TiềnGiang,Tiền Giang,Long An,True,39,16,1
+Vietnam,VNM,TiềnGiang,Tiền Giang,Tiền Giang,False,3949,2997,73
+Vietnam,VNM,TràVinh,Trà Vinh,Trà Vinh,False,13253,10810,42
+Vietnam,VNM,TuyênQuang,Tuyên Quang,Tuyên Quang,False,10533,9349,28
+Vietnam,VNM,TâyNinh,Tây Ninh,Tây Ninh,False,33568,30252,65
+Vietnam,VNM,VĩnhLong,Vĩnh Long,Trà Vinh,True,42,29,2
+Vietnam,VNM,VĩnhLong,Vĩnh Long,Vĩnh Long,False,6334,5131,44
+Vietnam,VNM,VĩnhPhúc,Vĩnh Phúc,Hà Nội,True,9043,8751,17
+Vietnam,VNM,VĩnhPhúc,Vĩnh Phúc,Phú Thọ,True,3,2,1
+Vietnam,VNM,VĩnhPhúc,Vĩnh Phúc,Vĩnh Phúc,False,46045,42637,66
+Vietnam,VNM,YênBái,Yên Bái,Yên Bái,False,10958,9967,32
+Vietnam,VNM,ĐiệnBiên,Điện Biên,Điện Biên,False,10418,11281,25
+Vietnam,VNM,ĐàNẵng,Đà Nẵng,Đà Nẵng,False,480335,432036,77
+Vietnam,VNM,ĐắkLắk,Đắk Lắk,Đắk Lắk,False,37907,34027,70
+Vietnam,VNM,ĐắkNông,Đắk Nông,Đắk Nông,False,7260,6602,29
+Vietnam,VNM,ĐồngNai,Đồng Nai,Bình Dương,True,269,245,5
+Vietnam,VNM,ĐồngNai,Đồng Nai,Ho Chi Minh,True,0,1,1
+Vietnam,VNM,ĐồngNai,Đồng Nai,Đồng Nai,False,145632,131635,142
+Vietnam,VNM,ĐồngTháp,Đồng Tháp,Vĩnh Long,True,164,150,3
+Vietnam,VNM,ĐồngTháp,Đồng Tháp,Đồng Tháp,False,14085,12617,48
