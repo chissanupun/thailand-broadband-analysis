@@ -45,7 +45,7 @@
 \acmConference[AINTEC '26]{Asian Internet Engineering Conference}{2026}{Thailand}
 \acmISBN{978-1-4503-XXXX-X/2026/XX}
 
-\settopmatter{printacmref=false, authorsperrow=3}
+\settopmatter{printacmref=false, authorsperrow=4}
 \renewcommand\footnotetextcopyrightpermission[1]{}
 
 \begin{document}
@@ -53,10 +53,19 @@
 \title{Beyond Speed Rankings: Application-Layer Broadband Performance
   in Nine Southeast Asian Countries}
 
+\author{Sukumal Kitisin}
+\email{sukumal.i@ku.th}
+\affiliation{%
+  \institution{Kasetsart University}
+  \department{Department of Computer Science}
+  \city{Bangkok}
+  \country{Thailand}
+}
 \author{Chissanupun Athiwarikanon}
 \email{chissanupun.a@ku.th}
 \affiliation{%
   \institution{Kasetsart University}
+  \department{Department of Computer Science}
   \city{Bangkok}
   \country{Thailand}
 }
@@ -64,6 +73,7 @@
 \email{kunanont.m@ku.th}
 \affiliation{%
   \institution{Kasetsart University}
+  \department{Department of Computer Science}
   \city{Bangkok}
   \country{Thailand}
 }
@@ -71,30 +81,32 @@
 \email{pakkapon.p@ku.th}
 \affiliation{%
   \institution{Kasetsart University}
+  \department{Department of Computer Science}
   \city{Bangkok}
   \country{Thailand}
 }
 
-\renewcommand{\shortauthors}{Athiwarikanon et al.}
+\renewcommand{\shortauthors}{Kitisin et al.}
 
 \begin{abstract}
 Southeast Asian broadband is usually judged by headline speed-index
 rankings, which say little about whether real applications work. Thailand
 ranked 12th worldwide for fixed broadband in June 2026, yet a 2023 national
 consumer survey found 81\% of 2{,}924 respondents reporting connection
-problems~\cite{TCC2023}. We analyze 990 million speed tests --- 229.4M
-from Ookla Open Data and 760.6M from M-Lab NDT7, Q1 2023 to Q4 2025 ---
-across nine countries, and compute the test-weighted share of
-province-quarters that clear the bandwidth (and, for cloud gaming, latency)
-requirements of voice, HD video, UHD video and cloud gaming (both datasets
-are crowdsourced and user-initiated rather than a random sample). Voice and
+problems~\cite{TCC2023}. Across nine countries, we analyze 990 million speed
+tests --- 229.4M from Ookla Open Data and 760.6M from M-Lab NDT7, Q1 2023 to
+Q4 2025. Using Ookla province-quarter aggregates, we compute the test-weighted
+share of province-quarters that clear the bandwidth (and, for cloud gaming,
+latency) requirements of voice, HD video, UHD video and cloud gaming. Both
+datasets are crowdsourced and user-initiated rather than random samples. Voice and
 HD video clear their bars in essentially every province-quarter across all
 twelve quarters. Fixed broadband stratifies sharply by geography, with a
 16$\times$ spread between the strongest and weakest capital regions. Against
 the combined cloud-gaming bar, the binding constraint flips by market:
 low-tier fixed broadband (Cambodia, Laos, Myanmar) fails mostly on
-bandwidth, while five mobile networks --- including Singapore, at only
-48.8\% --- clear bandwidth almost universally yet fail mostly on latency.
+bandwidth, while five mobile networks --- including Singapore, where only
+48.8\% of province-quarters meet the latency bound --- clear bandwidth
+almost universally yet fail mostly on latency.
 Work is ongoing on per-province modeling and on peak-hour behavior.
 \end{abstract}
 
@@ -104,23 +116,16 @@ Work is ongoing on per-province modeling and on peak-hour behavior.
 \maketitle
 
 \section{Motivation}
-National broadband quality in Southeast Asia is usually argued from two
-sources that disagree with each other: index rankings and user complaints.
-Thailand was ranked 12th worldwide for fixed broadband in Ookla's Speedtest
-Global Index in June~2026~\cite{OoklaGlobalIndex2026}, while a 2023 survey
-by the Thailand Consumer Council found that 81\% of 2{,}924 respondents had
-encountered connection problems, mostly slow or dropping
-connections~\cite{TCC2023}. A
-national mean download speed cannot reconcile those two observations,
-because it describes the network rather than the service a user is trying
-to run over it.
-
-We therefore ask a different question: \emph{how do Southeast Asian
-networks perform against the demands of the applications people actually
-use?} Rather than ranking countries by speed, we compute the test-weighted
-share of province-quarters that clear published bandwidth (and, for cloud
-gaming, latency) requirements. The mismatch above is not unique
-to Thailand, so we run the analysis across nine countries.
+Speed rankings and user complaints offer different views of Southeast
+Asian broadband. Thailand ranked 12th worldwide for fixed broadband in
+Ookla's Speedtest Global Index in June~2026~\cite{OoklaGlobalIndex2026}, yet
+a 2023 Thailand Consumer Council survey found that 81\% of 2{,}924
+respondents reported slow or dropping connections~\cite{TCC2023}.
+National averages do not show whether application requirements are met.
+We therefore ask: \emph{how do Southeast Asian networks perform against
+the demands of the applications people actually use?} Across nine countries,
+we compute the test-weighted share of province-quarters clearing published
+bandwidth and latency requirements.
 
 \section{Data and Method}
 We use two complementary open datasets covering Thailand, Vietnam, Laos,
@@ -277,16 +282,14 @@ server placement. Third, we are quantifying the measurement bias introduced
 by thin-sample provinces, which currently inflate the apparent performance
 of several emerging markets.
 
-The broader argument we wish to discuss at the poster session is that a
-speed index answers the wrong question, and that bandwidth alone answers
-only half of it. Basic voice and video access across Southeast Asia is
-effectively universal, and what separates fixed-broadband markets at the
-cloud-gaming tier is still mostly bandwidth. But the region's five more
-advanced mobile markets clear bandwidth almost universally and still fail
-mostly on latency --- a distinction a download-speed ranking cannot see,
-and one that points at different infrastructure investment than a ranking
-does.
+Basic voice and HD-video requirements are met in almost all province-quarters.
+At the cloud-gaming tier, low-tier fixed markets are mainly bandwidth-limited,
+while five more advanced mobile markets are latency-limited despite
+sufficient bandwidth. The poster will discuss how these differences can
+guide targeted infrastructure improvements.
 
+% Keep the references outside the two-page content limit.
+\clearpage
 \bibliographystyle{ACM-Reference-Format}
 \bibliography{../../paper/references}
 

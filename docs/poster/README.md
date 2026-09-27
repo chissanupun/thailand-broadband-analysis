@@ -10,6 +10,8 @@ Frame is 1684×2384 px = **A1 at 72 dpi**. The frame carries export settings for
 
 ## What is due when
 
+Main abstract Overleaf project: **https://www.overleaf.com/project/6ab8f2d64f3863fedb8de8d2** — "AINTEC 2026 - Main Poster Abstract", created 2026-09-27 using the supplied ACM template. Current author order: Sukumal Kitisin, Chissanupun Athiwarikanon, Kunanont Malayanont, Pakkapon Pattanakul. Compiled PDF: two content pages, followed by a references-only third page.
+
 | | What | When |
 |---|---|---|
 | **Now** | `main/abstract.tex` → `abstract.pdf`, ≤2 double-column ACM pages, non-anonymous | **2026-09-28 8pm EDT = 2026-09-29 07:00 Thai** (live HotCRP portal; ignore the CFP page's generic 23:59 AoE) |
