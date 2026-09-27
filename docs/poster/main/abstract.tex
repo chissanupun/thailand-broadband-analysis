@@ -130,8 +130,10 @@ of 139,693 records.
 
 The data from the two sources comes in different formats. Ookla comes as
 spatial tiles approximately 600m x 600m, while NDT7 comes as individual
-test records. We want to analyze the data separately as well as together.
-First we clean the data such as throughput $\leq$ 0 and duration $\leq$ 0.
+test records. We keep the two sources separate throughout and never pool
+their records; we analyze each independently and compare the results side
+by side. First we clean the data such as throughput $\leq$ 0 and duration
+$\leq$ 0.
 We then use ip-api.com~\cite{IpApi} which is a free API service for
 checking whether the test records are the mobile / hosting / proxy flags
 and the ASN for each IP. On Ookla dataset, we build a bounding box to

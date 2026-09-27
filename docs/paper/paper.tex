@@ -208,18 +208,19 @@ smallest Laos test record of 139{,}693 records.
 \section{Data Cleansing and Preparation}
 The data from the two sources comes in different formats. Ookla comes as
 spatial tiles approximately 600 m $\times$ 600 m, while NDT7 comes as
-individual test records. We analyze the data separately as well as
-together. First, we clean the data by removing records with throughput
-$\leq 0$ and duration $\leq 0$. We then use ip-api.com~\cite{IpApi}, a free
-API service, to check whether test records carry mobile/hosting/proxy flags
-and to resolve the ASN for each IP.
+individual test records. We keep the two sources separate throughout and
+never pool their records; we analyze each independently and compare the
+results side by side. First, we clean the data by removing records with
+throughput $\leq 0$ and duration $\leq 0$. We then use
+ip-api.com~\cite{IpApi}, a free API service, to check whether test records
+carry mobile/hosting/proxy flags and to resolve the ASN for each IP.
 
-To use both data sources together, we preprocess the NDT7 dataset into
-tiles like those from Ookla using GeoPandas~\cite{GeoPandas2020} and
-Shapely, performing a point-in-polygon join of client coordinates against
-province/region boundaries, using \texttt{sjoin\_nearest} for coordinates
-that fall outside every polygon (e.g., coastal points) to compute distance
-for accuracy.
+To make the two sources comparable on the same spatial basis, we
+preprocess the NDT7 dataset into tiles like those from Ookla using
+GeoPandas~\cite{GeoPandas2020} and Shapely, performing a point-in-polygon
+join of client coordinates against province/region boundaries, using
+\texttt{sjoin\_nearest} for coordinates that fall outside every polygon
+(e.g., coastal points) to compute distance for accuracy.
 
 On the Ookla dataset, we build a bounding box to define each country's
 extent, referencing the geoBoundaries ADM1 file~\cite{Runfola2020} for the
