@@ -6,3 +6,7 @@
 # other people's papers kept for format reference only — one is unpublished
 # (a labmate's own CNC-lab paper); never commit these to a public repo.
 reference/
+
+# third-party trademarks (KU/AINTEC/CNC logos) cropped from a labmate's Canva
+# poster — don't commit institutional marks to a public repo without asking.
+logos/

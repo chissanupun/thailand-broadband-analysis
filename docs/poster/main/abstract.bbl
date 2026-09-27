@@ -2,7 +2,7 @@
 %%% Do NOT edit. File created by BibTeX with style
 %%% ACM-Reference-Format-Journals [18-Jan-2012].
 
-\begin{thebibliography}{6}
+\begin{thebibliography}{7}
 
 %%% ====================================================================
 %%% NOTE TO THE USER: you can override these defaults by providing
@@ -121,6 +121,23 @@
 \urldef\tempurl%
 \url{https://doi.org/10.1371/journal.pone.0231866}
 \showDOI{\tempurl}
+
+
+\bibitem[{Thailand Consumer Council}(2023)]%
+        {TCC2023}
+\bibfield{author}{\bibinfo{person}{{Thailand Consumer Council}}.}
+  \bibinfo{year}{2023}\natexlab{}.
+\newblock \bibinfo{title}{Consumer survey after the TRUE--DTAC merger: 81\%
+  report usage problems in the past 6 months (in Thai)}.
+\newblock
+\newblock
+\urldef\tempurl%
+\url{https://www.tcc.or.th/true-dtac-merger-consumer/}
+\showURL{%
+\tempurl}
+\newblock
+\shownote{Online survey, n=2{,}924, conducted 9--23 Nov 2023, jointly with the
+  Foundation for Consumers}.
 
 
 \end{thebibliography}

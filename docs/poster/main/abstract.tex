@@ -66,17 +66,19 @@ Southeast Asian broadband is usually judged by headline speed-index
 rankings, which say little about whether real applications work. Thailand
 ranked 12th worldwide for fixed broadband in June 2026, yet a 2023 national
 consumer survey found 81\% of 2{,}924 respondents reporting connection
-problems. We analyze 990 million speed tests --- 229.4M from Ookla Open
-Data and 760.6M from M-Lab NDT7, Q1 2023 to Q4 2025 --- across nine
-countries, and score each country-quarter against the bandwidth
-requirements of voice, HD video, UHD video and cloud gaming. Our
-preliminary results show that basic connectivity is solved: voice and HD
-video succeed at 100\% in every country, every quarter of 2024--2025.
-That uniformity collapses at higher tiers. Fixed broadband
-stratifies sharply by geography, with a 16$\times$ spread between the
-strongest and weakest capital regions, and cloud-gaming success ranges from
-100\% in Singapore to a peak of only 37\% in Indonesia and 31\% in
-Myanmar. Work is ongoing on per-province modeling and on peak-hour
+problems~\cite{TCC2023}. We analyze 990 million speed tests --- 229.4M
+from Ookla Open Data and 760.6M from M-Lab NDT7, Q1 2023 to Q4 2025 ---
+across nine countries, and score each country-quarter's median download
+speed against the bandwidth requirements of voice, HD video, UHD video and
+cloud gaming (bandwidth only; we do not assess latency, and both datasets
+are crowdsourced and user-initiated rather than a random sample). Our
+preliminary results show that median speeds clear the voice and HD-video
+bandwidth bars in every country, every quarter of 2024--2025. That
+uniformity collapses at higher tiers. Fixed broadband stratifies sharply by
+geography, with a 16$\times$ spread between the strongest and weakest
+capital regions, and against the cloud-gaming bandwidth bar the median
+reaches 100\% in Singapore but only a peak of 37\% in Indonesia and 31\%
+in Myanmar. Work is ongoing on per-province modeling and on peak-hour
 behavior.
 \end{abstract}
 
@@ -91,7 +93,8 @@ sources that disagree with each other: index rankings and user complaints.
 Thailand was ranked 12th worldwide for fixed broadband in Ookla's Speedtest
 Global Index in June~2026~\cite{OoklaGlobalIndex2026}, while a 2023 survey
 by the Thailand Consumer Council found that 81\% of 2{,}924 respondents had
-encountered connection problems, mostly slow or dropping connections. A
+encountered connection problems, mostly slow or dropping
+connections~\cite{TCC2023}. A
 national mean download speed cannot reconcile those two observations,
 because it describes the network rather than the service a user is trying
 to run over it.
@@ -123,10 +126,14 @@ Tiles are assigned to first-level administrative provinces by
 point-in-polygon against geoBoundaries ADM1~\cite{Runfola2020}; NDT7 points
 are joined to the same polygons. Province averages are test-weighted, and we
 keep only province-quarters with at least 100 tests and at least 5 tiles.
-Tests with non-positive throughput or duration are dropped. Because
-user-initiated speed tests are a biased sample~\cite{Deng2021}, we report
-distributions and success rates rather than treating any single figure as
-a population mean.
+Tests with non-positive throughput or duration are dropped, and IP
+addresses are checked against ip-api.com to exclude hosting/proxy traffic.
+Because user-initiated speed tests are a biased sample~\cite{Deng2021}, we
+report distributions and success rates rather than treating any single
+figure as a population mean. Coverage is uneven: Myanmar is missing 10.7\%
+of fixed and 22\% of mobile province-quarters, and some Vietnamese and
+Cambodian provinces lack mobile data in low-volume quarters --- gaps we
+flag rather than interpolate.
 
 We evaluate four application classes against the thresholds of
 L\"ubben and Misfeld~\cite{Lubben2022}: voice (64\,kbps), HD video
@@ -143,12 +150,14 @@ domestic access.
 
 \section{Preliminary Results}
 
-\subsection{Basic connectivity is solved}
-Voice and HD video succeed at 100\% in every country, in every quarter of
+\subsection{Median speeds clear the low-bandwidth bars}
+The median download speed clears the voice and HD-video bandwidth
+thresholds (a 100\% score) in every country, in every quarter of
 2024--2025. This holds for the lowest-tier markets in
 the set as firmly as for Singapore. Whatever the regional digital divide
-consists of, it is not a failure to carry a phone call or a 5\,Mbps video
-stream.
+consists of, a national median failing to reach 5\,Mbps is not part of it
+--- though this says nothing about the tail of individual tests, or about
+latency, which we do not evaluate.
 
 \subsection{Fixed broadband stratifies by geography}
 \begin{figure}[t]
@@ -199,11 +208,13 @@ range, which we attribute to its small measurement volume rather than to
 genuine quarter-to-quarter swings in capacity.
 
 Cloud gaming separates them further (Figure~\ref{fig:cloudgaming}).
-Singapore holds 100\% in every quarter, and Thailand and Malaysia hold
-87--100\%. The Philippines ranges from 58\% to 94\%, and Vietnam climbs
-from under 50\% to 94--100\% in 2025. At the other end, Cambodia reaches
-only 38--49\%, Laos swings between 29\% and 85\%, Indonesia peaks at
-37\% and Myanmar at 31\%. Networks that clear the voice bar
+Singapore's median clears the 44\,Mbps bar in every quarter (100\%), and
+Thailand and Malaysia score 87--100\%. The Philippines ranges from 58\% to
+94\%, and Vietnam climbs from under 50\% to 94--100\% in 2025. At the other
+end, Cambodia reaches only 38--49\%, Laos swings between 29\% and 85\%,
+Indonesia peaks at 37\% and Myanmar at 31\% --- meaning their median
+download speed reaches barely a third of the cloud-gaming bandwidth
+requirement. Networks whose median clears the voice bar
 everywhere can still fall far short of what a bandwidth-hungry interactive
 application needs.
 
