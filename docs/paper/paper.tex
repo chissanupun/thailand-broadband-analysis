@@ -50,10 +50,11 @@ province-quarter, fixed and mobile, across the whole period. Fixed
 broadband stratifies sharply by geography, with over a $16\times$ spread
 between the strongest and weakest capital regions. At the cloud-gaming
 tier, the binding constraint flips by market and connection type:
-bandwidth blocks the region's lowest-tier fixed markets, while latency
-blocks mobile networks in \emph{every} country in the set, including
-Singapore, whose mobile network passes the bandwidth bar in 100\% of
-province-quarters but the latency bar in only 48.8\%.
+bandwidth blocks the region's lowest-tier fixed markets, while for five of
+the region's more advanced mobile networks --- including Singapore, whose
+mobile network passes the bandwidth bar in 100\% of province-quarters but
+the latency bar in only 48.8\% --- bandwidth clears almost universally and
+latency is what fails instead.
 \end{abstract}
 
 \keywords{Speed tests analysis, Ookla, NDT7}
@@ -106,9 +107,11 @@ outside the provider's domain, and to protocol design, since Ookla opens
 multiple parallel TCP streams and excludes the initial slow-start phase,
 while NDT7 measures a single stream. Consequently, Ookla's approach
 measures close to the maximum theoretical capacity of the immediate
-broadband access network (the ``last mile''), while NDT7's single-stream,
-off-net design is a closer proxy for what a single application flow, such
-as web browsing or adaptive video streaming, actually experiences.
+broadband access network (the ``last mile''); we read NDT7's
+single-stream, off-net design as a closer proxy for what a single
+application flow, such as web browsing or adaptive video streaming, would
+actually experience, though this specific interpretation is ours rather
+than a claim we attribute to MacMillan et al.
 Additionally, Deng et al.~\cite{Deng2021} point out that user-initiated
 tests like Ookla are subject to sampling bias and spatial multiplexing
 distortions --- such as multiple devices operating behind Network Address
@@ -185,17 +188,18 @@ applications, a methodology we adopt in Table~\ref{tab:app-requirements}.
 
 \subsection{Regional Broadband Disparity Studies}
 Two recent reports apply Ookla-based speed-test analysis to broader
-regions without an application-threshold framing. Ofa and
-Aparicio~\cite{Ofa2021} visualize broadband speed disparities across
-Asia-Pacific economies, and Caldas et al.~\cite{Caldas2023} use OECD
-speed-test data to quantify spatial disparities in internet quality within
-member countries. Both studies, like most Ookla-only work, report mean or
-median speeds and rankings; neither evaluates whether measured speeds
-clear the bandwidth or latency bar a specific application needs, nor
-combines a crowdsourced platform (Ookla) with an off-net one (NDT7) to
-cross-check the result. This paper's contribution over that line of work
-is exactly that combination, applied for the first time, to our knowledge,
-across all nine of these Southeast Asian countries.
+regions. Ofa and Aparicio~\cite{Ofa2021} visualize broadband speed
+disparities across Asia-Pacific economies, and Caldas et al.~\cite{Caldas2023}
+use Ookla speed-test data, published as an OECD Regional Development
+Paper, to quantify spatial disparities in internet quality within OECD
+member countries. Based on their titles and stated scope, both studies
+report mean or median speeds and rankings rather than evaluating measured
+speeds against application-specific bandwidth or latency requirements,
+and neither, to our knowledge, cross-checks a crowdsourced platform
+(Ookla) against an off-net one (NDT7). If that reading holds, this paper's
+contribution over that line of work is exactly that combination, applied,
+to our knowledge, for the first time across all nine of these Southeast
+Asian countries.
 
 \begin{table}
   \caption{Bandwidth and latency requirements for different types of applications}
@@ -305,9 +309,9 @@ capital-region performance against national averages
 its Central Region (361.0 Mbps) sits \emph{below} its own national mean
 (394.8 Mbps); Myanmar's Yangon (22.0) is likewise slightly below its
 national mean (24.6). Every other capital region outperforms its own
-country: Bangkok drives Thailand to 298.8 Mbps against a 276.9 national
-mean, Kuala Lumpur lifts Malaysia to 212.3 against 194.8, Manila's NCR
-reaches 159.6 against 132.0, Jakarta reaches 63.4 against 41.2, and Hanoi,
+country: Bangkok reaches 298.8 Mbps against Thailand's 276.9 national
+mean, Kuala Lumpur 212.3 against Malaysia's 194.8, Manila's NCR
+159.6 against the Philippines' 132.0, Jakarta 63.4 against Indonesia's 41.2, and Hanoi,
 Phnom Penh and Vientiane each sit modestly above their national means.
 Because these two exceptions are also the fastest and slowest capitals in
 the set, the spread between the strongest and weakest capital region is
@@ -325,7 +329,7 @@ table of nine national averages does not surface.
 \begin{figure}
   \centering
   \includegraphics[width=\linewidth]{../../outputs/ookla/cross_country/03_capital_vs_national.png}
-  \caption{Capital-region versus national mean download speed, fixed broadband, test-weighted, nine countries.}
+  \caption{Capital-region versus national mean download speed, fixed broadband, test-weighted, nine countries (Ookla).}
   \Description{Bar chart comparing each country's capital region to its national mean fixed broadband download speed.}
   \label{fig:capital}
 \end{figure}
@@ -374,7 +378,7 @@ provinces to fill out their top rankings.
 \begin{figure}
   \centering
   \includegraphics[width=\linewidth]{../../outputs/ookla/cross_country/04_top5_provinces_per_country.png}
-  \caption{The top five fastest provinces of each country}
+  \caption{The top five fastest provinces of each country, fixed broadband (Ookla)}
   \Description{Bar chart of the top five fastest provinces or regions for fixed broadband mean download speeds in each of the nine countries.}
   \label{fig:top5}
 \end{figure}
@@ -388,19 +392,20 @@ late 2025. Thailand maintains a steady second position, scaling from
 $\sim$200 Mbps to around 300 Mbps, while Malaysia and Vietnam form a strong
 middle tier, with Vietnam showing notable acceleration to catch up to
 Malaysia at over 200 Mbps by Q4 2025. The Philippines experiences moderate
-growth, hovering near 100 Mbps before closing around 120 Mbps. Meanwhile,
-developing broadband markets --- Laos, Cambodia and Indonesia --- cluster
-tightly at the bottom, registering flat or minimal growth under 60 Mbps
-throughout the entire three-year period. Myanmar is the exception among
-this group: its fixed-broadband mean download speed roughly doubled, from
-$\sim$21 Mbps in Q1 2023 to $\sim$44 Mbps in Q4 2025, the fastest relative
-growth of any country in the set even though it remains the slowest in
-absolute terms.
+growth, hovering near 100 Mbps before closing around 120 Mbps. Cambodia,
+Laos, Indonesia and Myanmar cluster tightly at the bottom of the absolute
+scale --- none reaches 65 Mbps by the end of the period --- but none is
+flat: their median provincial speed roughly doubled or more over the three
+years (Cambodia 25.3$\to$61.7 Mbps, 2.44$\times$; Indonesia
+24.2$\to$53.8, 2.23$\times$; Laos 32.0$\to$62.2, 1.94$\times$; Myanmar
+20.3$\to$53.6, 2.64$\times$, the fastest relative growth of any country
+in the set). Myanmar is the standout only in \emph{relative} terms; it
+remains the slowest in absolute terms throughout.
 
 \begin{figure}
   \centering
   \includegraphics[width=\linewidth]{../../outputs/ookla/cross_country/07_growth_trajectory.png}
-  \caption{Quarterly growth of median provincial fixed broadband download speeds across nine Southeast Asian nations}
+  \caption{Quarterly growth of median provincial fixed broadband download speeds across nine Southeast Asian nations (Ookla)}
   \Description{Line chart tracking quarterly median provincial fixed broadband download speeds from Q1 2023 to Q4 2025.}
   \label{fig:quarterly-growth}
 \end{figure}
@@ -436,7 +441,7 @@ infrastructure.
 \begin{figure}
   \centering
   \includegraphics[width=\linewidth]{figures/image7.png}
-  \caption{Comparison of the average download speeds of the fastest operators of each country}
+  \caption{Comparison of the average download speeds of the fastest operators of each country (M-Lab NDT7)}
   \Description{Bar charts comparing the fastest fixed and cellular operators per country by test share and average download speed.}
   \label{fig:fastest-operator}
 \end{figure}
@@ -471,37 +476,47 @@ capabilities across Southeast Asia.
 \begin{figure}
   \centering
   \includegraphics[width=\linewidth]{figures/image8.png}
-  \caption{Comparison of the average download speeds of the major operators of each country}
+  \caption{Comparison of the average download speeds of the major operators of each country (M-Lab NDT7)}
   \Description{Bar charts comparing the most-used fixed and cellular operators per country by sample volume and average download speed.}
   \label{fig:most-used-operator}
 \end{figure}
 
-\subsection{Market Structure (RQ4): The Fastest Operator Is Rarely the One People Use}
+\subsection{Market Structure (RQ4): The Fastest Operator Is Rarely the Most-Tested One}
+This subsection uses the M-Lab NDT7 ISP data introduced in
+\S\ref{sec:analysis} (Figures~\ref{fig:fastest-operator} and
+\ref{fig:most-used-operator}), grouped by ASN into operator brands.
 Figures~\ref{fig:fastest-operator} and \ref{fig:most-used-operator} already
 show that the fastest major operator and the most-tested operator are
 often not the same brand; here we quantify how often, and how large the
 gap is. Pooling all twelve quarters and restricting to operators (brands,
-ASNs merged) with at least 5\% test share in their country and segment,
-the most-tested fixed-broadband operator is the fastest of the major
-operators in only \textbf{2 of 9 countries} (Laos and Vietnam, where the
-most-tested operator and the fastest happen to coincide). In the other
-seven, the gap between the country's slowest and fastest major operator
-ranges from Vietnam's 1.06$\times$ up to Malaysia's 4.4$\times$
-(Celcom 44.1\,Mbps vs. TIME dotCom 196.3\,Mbps) and Singapore's
-2.4$\times$ on broadband, 4.7$\times$ on cellular (Simba Telecom
-22.2\,Mbps vs. Singtel Mobile 103.8\,Mbps) --- the largest within-market
-gap we observe on either connection type. Indonesia and Myanmar show the
-largest gap between what most people actually use and the fastest
-available major alternative: Telkom Indonesia (the most-tested fixed
-operator, 18.6\,Mbps) is 2.33$\times$ slower than Biznet (43.3\,Mbps), and
-Mytel in Myanmar (10.3\,Mbps) is 2.23$\times$ slower than the fastest
-major alternative (22.9\,Mbps).
+ASNs merged) with at least 5\% test share in their country and segment, the
+most-tested operator is the fastest of the major operators in
+\textbf{2 of 9 countries on fixed broadband} (Laos and Vietnam) and
+\textbf{4 of 9 on cellular} (Indonesia, Laos, Singapore and Vietnam) ---
+mobile users are somewhat more likely to already be on the fastest major
+network than fixed subscribers are. The starkest gaps between what people
+actually use and the fastest available major alternative are both on
+fixed broadband: Telkom Indonesia, the most-tested fixed operator at
+18.6\,Mbps, is 2.33$\times$ slower than Biznet (43.3\,Mbps), and Mytel in
+Myanmar (10.3\,Mbps) is 2.23$\times$ slower than the fastest major
+alternative (22.9\,Mbps).
+
+Separately, among fixed-broadband markets with at least two major
+(5\%+ share) operators, the spread between the slowest and fastest major
+operator ranges from Vietnam's 1.06$\times$ (VNPT 66.7\,Mbps vs. Viettel
+71.0\,Mbps) up to Malaysia's 4.45$\times$ (Celcom 44.1\,Mbps vs. TIME
+dotCom 196.3\,Mbps); Singapore's fixed spread is 2.37$\times$. On cellular
+the equivalent spread reaches \textbf{4.67$\times$} in Singapore (Simba
+Telecom 22.2\,Mbps vs. Singtel Mobile 103.8\,Mbps) --- the largest
+within-market gap we observe on either connection type, even though
+Singapore's most-tested cellular operator \emph{is} Singtel Mobile, the
+fastest one.
 
 \begin{figure}
   \centering
-  \includegraphics[width=\linewidth]{../../outputs/ndt7/comparison/rq4_fastest_major_compare.png}
-  \caption{Fastest major operator (test share $\geq$5\%) versus the most-tested operator, by country and connection type.}
-  \Description{Bar chart comparing the fastest major ISP against the most-tested ISP per country, fixed and mobile.}
+  \includegraphics[width=\linewidth]{../../outputs/ndt7/comparison/rq4_within_gap.png}
+  \caption{Spread between the slowest and fastest major operator (test share $\geq$5\%) in each country's fixed and cellular market (M-Lab NDT7 ISP data).}
+  \Description{Bar chart showing the ratio between the slowest and fastest major ISP's average download speed, by country and connection type.}
   \label{fig:rq4-gap}
 \end{figure}
 
@@ -521,23 +536,29 @@ of a market-structure effect, not proof of one.
 
 \subsection{Peak-Hour Congestion (RQ3): Ratios, Not Absolute Latency}
 Because NDT7 tests mostly terminate at offshore servers for six of our
-nine countries (\S\ref{sec:analysis}), we do not treat absolute busy-hour
+nine countries (detailed below in the discussion of cloud-gaming
+latency), we do not treat absolute busy-hour
 latency as a domestic-access measurement. Busy-versus-quiet
-\emph{throughput ratios}, however, remain interpretable even under an
-offshore server: the propagation delay to that server is the same in both
-the busy and the quiet window, so a within-day ratio isolates congestion
-on the domestic access link rather than international transit. We define each country's local busy hour as its highest-traffic clock
-hour and compute the ratio of busy-hour to off-peak mean throughput.
-Most countries peak in the evening (20:00--22:00), consistent with
-after-work usage; Vietnam (11:00) and Cambodia (12:00) instead peak at
-midday, which we read as more likely to reflect automated or bot-like
-measurement schedules than genuine peak human usage, and treat with
-correspondingly less confidence.
+\emph{throughput ratios} are more robust to this problem, though not
+immune to it: an offshore server's propagation delay is roughly constant
+across the day, so a within-day ratio is a better proxy for domestic
+congestion than an absolute value is, but congestion on the international
+transit link itself, if it exists, would still move the ratio. We compute
+this ratio as busy-window mean throughput divided by off-peak mean
+throughput, where the busy window is a fixed weekday 19:00--22:00 local
+time and the off-peak window is 03:00--05:00 local time, chosen to
+represent typical evening and overnight usage rather than each country's
+individual highest-traffic hour. Separately, we also compute each
+country's own highest-traffic clock hour: most countries peak in the
+evening (20:00--22:00), consistent with the fixed window above, but
+Vietnam (11:00) and Cambodia (12:00) peak at midday, which we read as more
+likely to reflect automated or bot-like measurement schedules than genuine
+peak human usage.
 
 \begin{figure}
   \centering
   \includegraphics[width=\linewidth]{../../outputs/ndt7/comparison/rq3_capital_degradation.png}
-  \caption{Busy-hour throughput as a fraction of off-peak throughput, capital region versus the rest of the country, fixed and mobile.}
+  \caption{Busy-hour throughput as a fraction of off-peak throughput, capital region versus the rest of the country, fixed broadband (M-Lab NDT7).}
   \Description{Bar chart comparing peak-hour congestion degradation between capital and non-capital provinces, by country and connection type.}
   \label{fig:rq3-degradation}
 \end{figure}
@@ -549,17 +570,21 @@ throughput is less than a quarter of its off-peak level) to \textbf{0.73}
 in Singapore, whose mobile network shows the mildest degradation in the
 set. Fixed broadband degrades less severely everywhere, though not
 uniformly: Singapore's fixed broadband is the one case in our data where
-busy-hour throughput \emph{exceeds} off-peak throughput
-(ratio $>1$), which we read as a data artefact of very low off-peak
-sample volume at that hour rather than networks that speed up under load.
+busy-hour throughput \emph{exceeds} off-peak throughput (ratio $1.25$).
+This is not a low-volume artefact --- Singapore's 03:00--05:00 window
+alone carries roughly 152,000 fixed-broadband tests, with a stable median
+around 71--74\,Mbps against 88--92\,Mbps at 19:00--22:00 --- so we treat
+it as a genuine feature of this dataset rather than explain it away, and
+leave its cause (a different population of overnight testers, a
+provisioning policy, or something else) as an open question.
 Splitting by capital versus the rest of the country reverses the naive
 expectation that capitals, with more capacity, should hold up better under
 load: on \textbf{fixed} broadband, the capital region degrades \emph{more}
 than the rest of the country in 6 of 8 countries with a capital split
 (all but the Philippines and Myanmar), most sharply in Cambodia (capital
-busy/off-peak ratio 0.77 versus 1.22 outside the capital --- the
-non-capital ratio above 1 likely reflects thin off-peak sample volume
-rather than a genuine speed-up). On \textbf{cellular}, the pattern is
+busy/off-peak ratio 0.77 versus 1.22 outside the capital --- as with
+Singapore above, we do not have a confirmed explanation for the
+non-capital ratio exceeding 1 and flag it rather than assert a cause). On \textbf{cellular}, the pattern is
 close to a coin flip (capital worse in 3 of 8, rest worse in 5 of 8), with
 no consistent direction. We read the fixed-broadband result as consistent
 with capitals carrying denser, more contended demand at the busy hour even
@@ -576,9 +601,10 @@ threshold; it is an aggregate over 100+ tests per province-quarter, not a
 per-test rate. For voice and HD video, whose bandwidth thresholds (64\,kbps
 and 5\,Mbps) are trivially low against observed broadband speeds, the
 download-side pass rate is 100\% in all nine countries, fixed and mobile,
-across every quarter. Voice's 200\,ms latency bar is almost as uniform,
-with one exception: Myanmar's fixed-broadband province-quarters pass it
-only 98.2\% of the time (mobile: 99.1\%). Whatever the regional digital
+across every quarter. Voice's 200\,ms latency bar is nearly as uniform,
+with two exceptions: Myanmar's fixed-broadband province-quarters pass it
+only 98.2\% of the time (mobile: 99.1\%), and Laos's mobile
+province-quarters pass 99.6\%. Whatever the regional digital
 divide in this dataset consists of, it is not a failure to carry a phone
 call or a 5\,Mbps video stream.
 
@@ -630,14 +656,19 @@ Table~\ref{tab:cloudgaming} shows a binding constraint that flips by
 market tier and connection type. In the three lowest-tier fixed markets
 --- Cambodia, Laos, Myanmar --- bandwidth is what fails: latency clears
 71--98\% of the time, but bandwidth clears only 6--67\%, capping the
-combined pass rate at 0--65\%. On mobile, the pattern reverses
-\emph{everywhere}: bandwidth clears 93--100\% of province-quarters in
-every country except Cambodia, Laos and Myanmar, yet latency is what fails
---- including in Singapore, where mobile bandwidth clears 100\% of the
-time but latency only 48.8\%, and in Thailand, Vietnam and Malaysia, where
-mobile latency clears just 21.6--33.5\%. A ranking built on download speed
-alone would call Singapore's and Malaysia's mobile networks cloud-gaming
-ready; once latency is included, they fail roughly half the time or worse.
+combined pass rate at 0--65\%. On mobile, five countries --- Singapore,
+Vietnam, Malaysia, Thailand, the Philippines --- show the pattern
+reversed: bandwidth clears 93--100\% of province-quarters, yet latency is
+what fails, down to just 21.6\% in Thailand. Singapore is the sharpest
+case: mobile bandwidth clears 100\% of the time but latency only 48.8\%. A
+ranking built on download speed alone would call Singapore's and
+Malaysia's mobile networks cloud-gaming ready; once latency is included,
+they fail roughly half the time or worse. The remaining four mobile
+markets are simply weak on both components rather than reversed: Cambodia
+and Indonesia fail bandwidth slightly more than latency (18.1\% vs.\
+20.5\%, and 20.3\% vs.\ 23.0\%), while Laos and Myanmar fail
+overwhelmingly on latency (2.0\% and 0.0\% pass) on top of already-low
+bandwidth.
 
 Taken together, these findings demonstrate that basic connectivity needs
 (voice, HD video) are universally met across Southeast Asia, but the
@@ -646,8 +677,8 @@ bandwidth. Fixed broadband stratifies sharply by geography, with over a
 $16\times$ spread between the strongest and weakest capital regions
 (\S\ref{sec:analysis}). At the cloud-gaming tier, low-income fixed markets
 remain bandwidth-constrained, exactly as a speed-index ranking would
-predict --- but mobile networks in \emph{every} country in the set,
-including the region's fastest, are latency-constrained instead, a
+predict --- but the region's five most advanced mobile networks clear
+bandwidth almost universally and are latency-constrained instead, a
 distinction a download-speed ranking cannot see. This is, we argue, the
 paper's central finding: application readiness is not one axis, and which
 axis binds changes by market tier and by connection type.
@@ -681,10 +712,10 @@ geography, with capital regions reaching speeds over $16\times$ those of
 the weakest capital in the set. At the cloud-gaming tier, the constraint
 that actually blocks readiness is not the same everywhere: bandwidth binds
 in the region's lowest-tier fixed markets (Cambodia, Laos, Myanmar), as a
-speed-index ranking would predict, but latency binds mobile networks in
-\emph{every} country we studied, including Singapore and Malaysia, whose
-mobile networks pass the bandwidth bar almost universally yet fail the
-latency bar roughly half the time or worse. This paper's central claim is
+speed-index ranking would predict, but latency binds the region's five
+most advanced mobile networks instead, including Singapore and Malaysia,
+whose mobile networks pass the bandwidth bar almost universally yet fail
+the latency bar roughly half the time or worse. This paper's central claim is
 that application readiness is not a single axis reducible to a speed
 ranking, and that which axis binds changes by market tier and by
 connection type --- a distinction that points toward different

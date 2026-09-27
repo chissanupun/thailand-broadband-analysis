@@ -92,9 +92,9 @@ twelve quarters. Fixed broadband stratifies sharply by geography, with a
 16$\times$ spread between the strongest and weakest capital regions. Against
 the combined cloud-gaming bar, the binding constraint flips by market:
 low-tier fixed broadband (Cambodia, Laos, Myanmar) fails mostly on
-bandwidth, while mobile networks in every single country --- including
-Singapore, at only 48.8\% --- fail mostly on latency. Work is ongoing on
-per-province modeling and on peak-hour behavior.
+bandwidth, while five mobile networks --- including Singapore, at only
+48.8\% --- clear bandwidth almost universally yet fail mostly on latency.
+Work is ongoing on per-province modeling and on peak-hour behavior.
 \end{abstract}
 
 \keywords{Internet measurement, broadband performance, Southeast Asia,
@@ -116,9 +116,9 @@ to run over it.
 
 We therefore ask a different question: \emph{how do Southeast Asian
 networks perform against the demands of the applications people actually
-use?} Rather than ranking countries by speed, we score every
-country-quarter against published bandwidth requirements and report how
-close each country's median connection comes to clearing each bar. The mismatch above is not unique
+use?} Rather than ranking countries by speed, we compute the test-weighted
+share of province-quarters that clear published bandwidth (and, for cloud
+gaming, latency) requirements. The mismatch above is not unique
 to Thailand, so we run the analysis across nine countries.
 
 \section{Data and Method}
@@ -161,9 +161,9 @@ aggregate over 100+ tests per province-quarter, not a per-test rate.
 Latency is evaluated using \textbf{Ookla}, not M-Lab NDT7: for six of our
 nine countries most NDT7 tests terminate at an offshore server (Thai tests
 mainly in Singapore or Hong Kong), so NDT7 round-trip time mostly reflects
-international transit rather than domestic access, whereas Ookla selects a nearby server, matching our faculty advisor's
-ruling that cloud-gaming latency be evaluated on Ookla.
-Ookla latency is still an idle measurement to an often on-net server, so it
+international transit rather than domestic access, whereas Ookla selects a
+nearby server and is therefore the metric we use for the latency
+component. Ookla latency is still an idle measurement to an often on-net server, so it
 is a lower bound on the round-trip time a real interactive session would
 see.
 
@@ -172,9 +172,10 @@ see.
 \subsection{Voice and HD video are effectively solved}
 The voice (64\,kbps) and HD-video (5\,Mbps) bandwidth bars pass in 100\% of
 province-quarters, fixed and mobile, in every one of the nine countries,
-across all twelve quarters. Voice's 200\,ms latency bar is just as
-uniform, with one exception: Myanmar's fixed-broadband province-quarters
-pass it only 98.2\% of the time (mobile: 99.1\%). Whatever the regional
+across all twelve quarters. Voice's 200\,ms latency bar is nearly as
+uniform, with two exceptions: Myanmar's fixed-broadband province-quarters
+pass it only 98.2\% of the time (mobile: 99.1\%), and Laos's mobile
+province-quarters pass 99.6\%. Whatever the regional
 digital divide consists of, it is not a failure to carry a phone call or a
 5\,Mbps video stream --- though this says nothing about the tail of
 individual tests.
@@ -200,8 +201,11 @@ a gap that a table of national averages conceals.
 The trajectory is also diverging rather than converging. Singapore nearly
 doubled its median provincial fixed speed over the period, from roughly 280
 to 550\,Mbps, and Thailand grew from roughly 200 to 300. Vietnam
-accelerated to join Malaysia above 200\,Mbps. Laos, Cambodia, Indonesia and
-Myanmar remained below 60\,Mbps for all three years.
+accelerated to join Malaysia above 200\,Mbps. Cambodia and Laos both
+roughly doubled their median provincial speed over the period, reaching
+61.7 and 62.2\,Mbps by Q4 2025, and Indonesia and Myanmar reached 53.8 and
+53.6\,Mbps respectively --- all four remain well behind the leading tier,
+but none is flat.
 
 The fixed--mobile gap also varies widely. Fixed broadband exceeds mobile by
 3.2$\times$ in Thailand and 2.1$\times$ in Singapore, but the two are near
@@ -249,14 +253,18 @@ Table~\ref{tab:cloudgaming} shows a binding constraint that flips by market
 tier and connection type. In the three lowest-tier fixed markets ---
 Cambodia, Laos, Myanmar --- bandwidth is what fails: latency clears
 71--98\% of the time, but bandwidth clears only 6--67\%, capping the
-combined pass rate at 0--65\%. On mobile, the pattern reverses
-\emph{everywhere}: bandwidth clears 93--100\% of province-quarters in
-every country except Cambodia, Laos and Myanmar, yet latency is what fails
---- including in Singapore, where mobile bandwidth clears 100\% of the time
-but latency only 48.8\%, and in Thailand, Vietnam and Malaysia, where
-mobile latency clears just 21.6--33.5\%. A ranking built on download speed alone would call Singapore's and
+combined pass rate at 0--65\%. On mobile, five countries --- Singapore,
+Vietnam, Malaysia, Thailand, the Philippines --- show the pattern
+reversed: bandwidth clears 93--100\% of province-quarters, yet latency is
+what fails, down to just 21.6\% in Thailand. Singapore is the sharpest
+case: mobile bandwidth clears 100\% of the time but latency only 48.8\%. A
+ranking built on download speed alone would call Singapore's and
 Malaysia's mobile networks cloud-gaming ready; once latency is included,
-they fail roughly half the time or worse.
+they fail roughly half the time or worse. The remaining four mobile
+markets are worse on both components at once rather than reversed:
+Cambodia and Indonesia fail bandwidth slightly more than latency (18.1
+vs.\ 20.5, and 20.3 vs.\ 23.0), while Laos and Myanmar fail overwhelmingly
+on latency (2.0\% and 0.0\% pass) on top of already-low bandwidth.
 
 \section{Ongoing and Future Work}
 Three directions are in progress. First, we are fitting province-level
@@ -272,11 +280,11 @@ The broader argument we wish to discuss at the poster session is that a
 speed index answers the wrong question, and that bandwidth alone answers
 only half of it. Basic voice and video access across Southeast Asia is
 effectively universal, and what separates fixed-broadband markets at the
-cloud-gaming tier is still mostly bandwidth. But for mobile networks in
-every country in the set, the constraint that actually blocks a
-latency-sensitive application is latency, not throughput --- a distinction
-a download-speed ranking cannot see, and one that points at different
-infrastructure investment than a ranking does.
+cloud-gaming tier is still mostly bandwidth. But the region's five more
+advanced mobile markets clear bandwidth almost universally and still fail
+mostly on latency --- a distinction a download-speed ranking cannot see,
+and one that points at different infrastructure investment than a ranking
+does.
 
 \bibliographystyle{ACM-Reference-Format}
 \bibliography{../../paper/references}
