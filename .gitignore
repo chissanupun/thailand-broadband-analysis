@@ -61,3 +61,4 @@ docs/th/*.docx
 # Agent tooling
 .agents/
 skills-lock.json
+data/ndt7/*/client_ip_*.csv

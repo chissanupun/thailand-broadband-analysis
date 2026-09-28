@@ -64,7 +64,7 @@ for country, fname in COUNTRY_FILE.items():
         rows.append(row)
 
 out = pd.DataFrame(rows).sort_values(['country', 'quarter'])
-out = out[out['quarter'].str.match(r'202[45]-Q[1-4]')]
+out = out[out['quarter'].str.match(r'202[345]-Q[1-4]')]
 out.to_csv(OUT_DIR / 'quarterly_app_success_testweighted.csv', index=False)
 print(out.to_string())
 print(f'\nwritten to {OUT_DIR / "quarterly_app_success_testweighted.csv"}')
