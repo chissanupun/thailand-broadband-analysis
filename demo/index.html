@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SEA Broadband Explorer</title>
+<meta name="description" content="Fixed and mobile broadband speed history across 9 Southeast Asian countries, 2023–2025, from the AINTEC 2026 poster 'Internet Landscape Study of Southeast Asian Countries'.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f6f7f5; --card: #ffffff; --ink: #14201c; --muted: #5b6863; --line: #dfe4e1;
+  --accent: #0b6e5f; --accent-soft: #e2f1ed; --warn: #9a5b00; --warn-soft: #fff4e0;
+  --nat: #0b6e5f; --cap: #d55e00; --sel: #3b5bdb;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0f1513; --card: #18201d; --ink: #e7eeeb; --muted: #9aa8a2; --line: #2a3531;
+    --accent: #3fb8a3; --accent-soft: #1b2e29; --warn: #f0b45a; --warn-soft: #2e2416;
+    --nat: #3fb8a3; --cap: #ff8a3d; --sel: #7c9bff;
+  }
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 15px/1.5 Inter, system-ui, sans-serif; }
+main { max-width: 980px; margin: 0 auto; padding: 24px 16px 48px; }
+header h1 { font-size: 26px; margin: 0 0 4px; letter-spacing: -0.01em; }
+header p { margin: 0; color: var(--muted); }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 18px; margin-top: 16px; }
+.controls { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; }
+label { display: block; font-size: 12px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: .04em; margin-bottom: 4px; }
+select { width: 100%; padding: 8px 10px; font: inherit; color: var(--ink); background: var(--bg); border: 1px solid var(--line); border-radius: 8px; }
+.seg { display: inline-flex; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+.seg button { font: inherit; padding: 8px 14px; border: 0; background: var(--bg); color: var(--ink); cursor: pointer; }
+.seg button[aria-pressed="true"] { background: var(--accent); color: #fff; }
+.tabs { display: flex; gap: 4px; border-bottom: 1px solid var(--line); margin-top: 20px; }
+.tabs button { font: inherit; font-weight: 600; padding: 10px 16px; border: 0; background: none; color: var(--muted); cursor: pointer; border-bottom: 3px solid transparent; margin-bottom: -1px; }
+.tabs button[aria-selected="true"] { color: var(--accent); border-bottom-color: var(--accent); }
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin-bottom: 12px; }
+.stat b { display: block; font-size: 24px; font-variant-numeric: tabular-nums; }
+.stat span { font-size: 13px; color: var(--muted); }
+.chart { position: relative; height: 340px; }
+table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; font-size: 14px; }
+th, td { padding: 6px 8px; text-align: right; border-bottom: 1px solid var(--line); }
+th:first-child, td:first-child { text-align: left; }
+th { color: var(--muted); font-weight: 600; font-size: 12px; }
+.tablewrap { overflow-x: auto; }
+.note { background: var(--warn-soft); color: var(--warn); border-radius: 8px; padding: 10px 12px; font-size: 13px; margin-bottom: 12px; }
+h2 { font-size: 17px; margin: 0 0 4px; }
+.sub { color: var(--muted); font-size: 13px; margin: 0 0 12px; }
+footer { color: var(--muted); font-size: 13px; margin-top: 24px; }
+footer a { color: var(--accent); }
+[hidden] { display: none !important; }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>SEA Broadband Explorer</h1>
+    <p>Internet Landscape Study of Southeast Asian Countries · AINTEC 2026 poster companion</p>
+  </header>
+
+  <section class="card controls" aria-label="Filters">
+    <div><label for="country">Country</label><select id="country"></select></div>
+    <div><label for="area">Area</label><select id="area"></select></div>
+    <div><label>Network</label>
+      <div class="seg" role="group" aria-label="Network">
+        <button type="button" data-net="fixed" aria-pressed="true">Fixed</button>
+        <button type="button" data-net="mobile" aria-pressed="false">Mobile</button>
+      </div>
+    </div>
+  </section>
+
+  <nav class="tabs" role="tablist">
+    <button role="tab" id="tab-history" aria-selected="true" aria-controls="panel-history">History 2023–2025</button>
+    <button role="tab" id="tab-projection" aria-selected="false" aria-controls="panel-projection">Projection to 2030</button>
+  </nav>
+
+  <section id="panel-history" role="tabpanel" aria-labelledby="tab-history">
+    <div class="card">
+      <div class="stats" id="hist-stats"></div>
+      <div class="chart"><canvas id="hist-chart" aria-label="Download speed history chart"></canvas></div>
+    </div>
+    <div class="card">
+      <h2>Application readiness, national (fixed)</h2>
+      <p class="sub">Share of tests meeting each application's bandwidth and latency requirement, test-weighted. Voice 64 Kbps / 200 ms · HD 5 Mbps · UHD 25 Mbps · Cloud gaming 44 Mbps / 25 ms.</p>
+      <div class="tablewrap"><table id="pass-table"></table></div>
+    </div>
+  </section>
+
+  <section id="panel-projection" role="tabpanel" aria-labelledby="tab-projection" hidden>
+    <div class="card">
+      <div class="note">Illustrative only, not a result of the paper. A constant-growth trend fitted to 12 quarters and extended 5 years. The shaded band is an 80% prediction interval; real networks change in steps (new cables, policy, operators) that a trend cannot see.</div>
+      <div class="stats" id="proj-stats"></div>
+      <div class="chart"><canvas id="proj-chart" aria-label="Download speed projection chart"></canvas></div>
+    </div>
+  </section>
+
+  <footer>
+    Data: Ookla® Speedtest® Open Data (fixed and mobile, 2023-Q1 to 2025-Q4), province × quarter cells with ≥100 tests; national figure is the test-weighted mean of those cells.
+    Authors: Chissanupun Athiwarikanon, Kunanont Malayanont, Pakkapon Pattanakul, Sukumal Kitisin · Kasetsart University.
+    <a href="https://github.com/chissanupun/thailand-broadband-analysis">Code and data on GitHub</a>.
+  </footer>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script type="module">
+import { project, nextQuarters, MIN_POINTS } from './projection.js';
+
+const DATA = await (await fetch('data.json')).json();
+const $ = (id) => document.getElementById(id);
+const css = (v) => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+const fmt = (v) => v >= 100 ? v.toFixed(0) : v.toFixed(1);
+const state = { country: 'Thailand', area: '__national', net: 'fixed', tab: 'history' };
+const charts = {};
+
+for (const c of Object.keys(DATA)) $('country').add(new Option(c, c));
+$('country').value = state.country;
+
+function fillAreas() {
+  const d = DATA[state.country];
+  const sel = $('area');
+  sel.innerHTML = '';
+  sel.add(new Option('National (test-weighted)', '__national'));
+  sel.add(new Option(`${d.capital} (capital)`, d.capital));
+  for (const p of Object.keys(d[state.net].provinces)) if (p !== d.capital) sel.add(new Option(p, p));
+  sel.value = [...sel.options].some((o) => o.value === state.area) ? state.area : '__national';
+  state.area = sel.value;
+}
+
+function series(net, area) {
+  const d = DATA[state.country][net];
+  return area === '__national' ? d.national : (d.provinces[area] || {});
+}
+
+function areaLabel() {
+  return state.area === '__national' ? `${state.country} national` : state.area;
+}
+
+function stat(v, label) { return `<div class="stat"><b>${v}</b><span>${label}</span></div>`; }
+
+function draw(key, canvas, config) {
+  charts[key]?.destroy();
+  charts[key] = new Chart(canvas, config);
+}
+
+function baseOptions() {
+  const grid = css('--line'), tick = css('--muted');
+  return {
+    responsive: true, maintainAspectRatio: false, interaction: { mode: 'index', intersect: false },
+    scales: {
+      x: { grid: { color: grid }, ticks: { color: tick, maxRotation: 0, autoSkipPadding: 12 } },
+      y: { beginAtZero: true, grid: { color: grid }, ticks: { color: tick }, title: { display: true, text: 'Mean download (Mbps)', color: tick } },
+    },
+    plugins: {
+      legend: { labels: { color: css('--ink'), boxWidth: 12 } },
+      tooltip: { callbacks: { label: (c) => c.raw == null ? null : `${c.dataset.label}: ${fmt(c.raw)} Mbps` } },
+    },
+  };
+}
+
+function renderHistory() {
+  const d = DATA[state.country];
+  const quarters = Object.keys(d[state.net].national);
+  const nat = d[state.net].national, cap = series(state.net, d.capital), sel = series(state.net, state.area);
+  const ds = [
+    { label: 'National', data: quarters.map((q) => nat[q] ?? null), borderColor: css('--nat'), backgroundColor: css('--nat') },
+    { label: `${d.capital} (capital)`, data: quarters.map((q) => cap[q] ?? null), borderColor: css('--cap'), backgroundColor: css('--cap'), borderDash: [5, 4] },
+  ];
+  if (state.area !== '__national' && state.area !== d.capital) {
+    ds.push({ label: state.area, data: quarters.map((q) => sel[q] ?? null), borderColor: css('--sel'), backgroundColor: css('--sel'), borderWidth: 3 });
+  }
+  ds.forEach((x) => Object.assign(x, { tension: 0.25, pointRadius: 2, spanGaps: true }));
+  draw('hist', $('hist-chart'), { type: 'line', data: { labels: quarters, datasets: ds }, options: baseOptions() });
+
+  const vals = Object.values(sel), first = vals[0], last = vals.at(-1), lastQ = Object.keys(sel).at(-1);
+  const gap = cap[lastQ] && nat[lastQ] ? cap[lastQ] / nat[lastQ] : null;
+  $('hist-stats').innerHTML = vals.length ? [
+    stat(`${fmt(last)} Mbps`, `${areaLabel()}, ${lastQ}`),
+    stat(`${last >= first ? '+' : ''}${fmt(last - first)} Mbps`, `change since ${Object.keys(sel)[0]}`),
+    stat(gap ? `${gap.toFixed(1)}×` : '—', `capital ÷ national, ${lastQ}`),
+  ].join('') : stat('—', 'no reliable data for this area');
+
+  const pass = d.pass, pq = Object.keys(pass);
+  const cell = (v) => `<td>${v.toFixed(v === 100 || v === 0 ? 0 : 1)}%</td>`;
+  $('pass-table').innerHTML = '<tr><th>Quarter</th><th>Voice</th><th>HD video</th><th>UHD video</th><th>Cloud gaming</th></tr>' +
+    pq.map((q) => `<tr><td>${q}</td>${cell(pass[q].voice)}${cell(pass[q].hd)}${cell(pass[q].uhd)}${cell(pass[q].cloud)}</tr>`).join('');
+}
+
+function renderProjection() {
+  const s = series(state.net, state.area), qs = Object.keys(s);
+  const allQ = Object.keys(DATA[state.country][state.net].national);
+  const complete = qs.length === allQ.length && qs.length >= MIN_POINTS;
+  const p = complete ? project(qs.map((q) => s[q]), 20) : null;
+  if (!p) {
+    $('proj-stats').innerHTML = stat('—', `${areaLabel()} has gaps in its quarterly data, so no trend is drawn. Pick national or another area.`);
+    charts.proj?.destroy(); delete charts.proj;
+    return;
+  }
+  const fut = nextQuarters(qs.at(-1), 20), labels = [...qs, ...fut], n = qs.length;
+  const pad = (arr) => [...Array(n).fill(null), ...arr];
+  const hist = [...qs.map((q) => s[q]), ...Array(20).fill(null)];
+  const mid = [...Array(n - 1).fill(null), s[qs.at(-1)], ...p.points.map((x) => x.mid)];
+  const accent = css('--accent');
+  draw('proj', $('proj-chart'), {
+    type: 'line',
+    data: { labels, datasets: [
+      { label: '80% interval (high)', data: pad(p.points.map((x) => x.hi)), borderWidth: 0, pointRadius: 0, fill: '+1', backgroundColor: accent + '22' },
+      { label: '80% interval (low)', data: pad(p.points.map((x) => x.lo)), borderWidth: 0, pointRadius: 0, fill: false },
+      { label: `${areaLabel()} measured`, data: hist, borderColor: css('--ink'), backgroundColor: css('--ink'), pointRadius: 2, tension: 0.25 },
+      { label: 'Trend', data: mid, borderColor: accent, backgroundColor: accent, borderDash: [6, 4], pointRadius: 0 },
+    ] },
+    options: { ...baseOptions(), plugins: { ...baseOptions().plugins, legend: { labels: { color: css('--ink'), boxWidth: 12, filter: (i) => !i.text.startsWith('80%') } } } },
+  });
+  const end = p.points.at(-1);
+  $('proj-stats').innerHTML = [
+    stat(`${(p.annualGrowth * 100).toFixed(0)}% / yr`, 'fitted growth rate, 2023–2025'),
+    stat(`${fmt(end.mid)} Mbps`, `trend value, ${fut.at(-1)}`),
+    stat(`${fmt(end.lo)}–${fmt(end.hi)}`, `80% interval, ${fut.at(-1)}`),
+  ].join('');
+}
+
+function render() { state.tab === 'history' ? renderHistory() : renderProjection(); }
+
+$('country').addEventListener('change', (e) => { state.country = e.target.value; state.area = '__national'; fillAreas(); render(); });
+$('area').addEventListener('change', (e) => { state.area = e.target.value; render(); });
+document.querySelectorAll('[data-net]').forEach((b) => b.addEventListener('click', () => {
+  state.net = b.dataset.net;
+  document.querySelectorAll('[data-net]').forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+  fillAreas(); render();
+}));
+for (const tab of ['history', 'projection']) {
+  $(`tab-${tab}`).addEventListener('click', () => {
+    state.tab = tab;
+    for (const t of ['history', 'projection']) {
+      $(`tab-${t}`).setAttribute('aria-selected', String(t === tab));
+      $(`panel-${t}`).hidden = t !== tab;
+    }
+    render();
+  });
+}
+
+fillAreas();
+render();
+</script>
+</body>
+</html>
