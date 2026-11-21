@@ -10,7 +10,7 @@ const PHONE = matchMedia('(max-width: 760px)');
 // ---------- i18n ----------
 const TH = {
   'Overview': 'ภาพรวม', 'Provinces': 'รายจังหวัด', 'Forecast': 'พยากรณ์', 'About the data': 'เกี่ยวกับข้อมูล', 'About': 'เกี่ยวกับ',
-  'Read the paper': 'อ่านงานวิจัย', 'beta': 'ทดลอง', 'Map': 'แผนที่', 'Line': 'กราฟเส้น', 'Table': 'ตาราง',
+  'View the poster': 'ดูโปสเตอร์', 'beta': 'ทดลอง', 'Map': 'แผนที่', 'Line': 'กราฟเส้น', 'Table': 'ตาราง',
   'Country': 'ประเทศ', 'Network': 'เครือข่าย', 'Fixed broadband': 'อินเทอร์เน็ตบ้าน', 'Mobile': 'มือถือ',
   'fixed broadband': 'อินเทอร์เน็ตบ้าน', 'mobile': 'อินเทอร์เน็ตมือถือ',
   'Select a country to see its provinces': 'เลือกประเทศเพื่อดูรายจังหวัด', 'Select a row to see its provinces': 'เลือกแถวเพื่อดูรายจังหวัด',
@@ -44,7 +44,7 @@ const TH = {
   'Required: 64 Kbps, 200 ms': 'เกณฑ์: 64 Kbps, 200 ms', 'Required: 5 Mbps': 'เกณฑ์: 5 Mbps', 'Required: 25 Mbps': 'เกณฑ์: 25 Mbps', 'Required: 44 Mbps, 25 ms': 'เกณฑ์: 44 Mbps, 25 ms',
   'Experimental forecast': 'การพยากรณ์ (ทดลอง)',
   'Trained on Q1 2023 to Q4 2024, tested on the four quarters of 2025, then used to project 2026.': 'ฝึกโมเดลด้วยข้อมูล Q1 2023 ถึง Q4 2024 ทดสอบกับ 4 ไตรมาสของปี 2025 แล้วจึงใช้คาดการณ์ปี 2026',
-  'Experimental. Not part of the paper.': 'ส่วนทดลอง ไม่อยู่ในงานวิจัย',
+  'Experimental. Not part of the poster.': 'ส่วนทดลอง ไม่อยู่ในโปสเตอร์',
   "One gradient-boosting model trained on the Ookla province-quarters of all nine countries. Ookla tests are user-initiated and subject to sampling bias, and the forecast inherits it. The model cannot anticipate sudden changes: Vietnam's mobile mean download rose from 63 to 147 Mbps in Q4 2024 and the model missed it.":
     'ใช้โมเดล gradient boosting ตัวเดียว ฝึกด้วยข้อมูลจังหวัด-ไตรมาสของ Ookla จากทั้ง 9 ประเทศ ผลทดสอบของ Ookla มาจากผู้ใช้ที่กดทดสอบเอง จึงมี sampling bias และการพยากรณ์ก็รับ bias นี้มาด้วย โมเดลคาดการณ์การเปลี่ยนแปลงฉับพลันไม่ได้ เช่น ความเร็วดาวน์โหลดเฉลี่ยบนมือถือของเวียดนามพุ่งจาก 63 เป็น 147 Mbps ใน Q4 2024 ซึ่งโมเดลพลาดไป',
   '{0}, {1} mean download speed (Mbps)': '{0} ความเร็วดาวน์โหลดเฉลี่ยของ{1} (Mbps)',
@@ -57,7 +57,7 @@ const TH = {
   'Straight-line trend': 'แนวโน้มเส้นตรง', 'Last value repeated': 'ใช้ค่าล่าสุดซ้ำ',
   'Absolute percentage error against the measured 2025 values, over {0} province-quarter forecasts. On mean error the three methods are about even; sudden changes hurt every method.':
     'ร้อยละความคลาดเคลื่อนสัมบูรณ์เทียบกับค่าจริงปี 2025 จากการพยากรณ์จังหวัด-ไตรมาส {0} รายการ ถ้าดูค่าเฉลี่ย ทั้ง 3 วิธีพอ ๆ กัน และการเปลี่ยนแปลงฉับพลันก็ทำให้ทุกวิธีพลาด',
-  'The paper': 'งานวิจัย', 'Code': 'โค้ด', 'Datasets': 'ชุดข้อมูล',
+  'The poster': 'โปสเตอร์', 'Contact': 'ติดต่อ', 'Questions about the data or the study? Email the first author.': 'มีคำถามเรื่องข้อมูลหรืองานวิจัย อีเมลหาผู้วิจัยหลักได้เลย', 'Poster preview': 'ตัวอย่างโปสเตอร์', 'Code': 'โค้ด', 'Datasets': 'ชุดข้อมูล',
   'Internet Landscape Study of Southeast Asian Countries. Poster, AINTEC 2026, Taipei.': 'Internet Landscape Study of Southeast Asian Countries โปสเตอร์ AINTEC 2026 ไทเป',
   'Download PDF': 'ดาวน์โหลด PDF', 'Open on GitHub': 'เปิดใน GitHub', 'Ookla Open Data': 'Ookla Open Data', 'M-Lab NDT7': 'M-Lab NDT7',
   'Data cleansing and preparation, and data analysis.': 'การทำความสะอาดและเตรียมข้อมูล และการวิเคราะห์ข้อมูล',
@@ -65,7 +65,7 @@ const TH = {
   'Data cleansing and preparation': 'การทำความสะอาดและเตรียมข้อมูล',
   "Ookla open data supplies quarterly internet-performance tiles split by connection type (fixed, mobile) at Quadkey zoom 16 (~600 × 600 m), each carrying mean download, upload, latency, and the underlying Speedtest submission count. We run point-in-polygon on the tiles to determine which province each point falls in, then compute a weighted average by each tile's test count. We filter only province-quarters with total_tests ≥ 100 and n_tiles ≥ 5. The bandwidth and latency requirements for different types of applications are adopted from Lübben and Misfeld.":
     'Ookla Open Data ให้ข้อมูลประสิทธิภาพอินเทอร์เน็ตรายไตรมาสในรูปแบบ tile แบ่งตามประเภทการเชื่อมต่อ (fixed, mobile) ที่ Quadkey zoom 16 (ขนาดราว 600 × 600 เมตร) แต่ละ tile มีค่าเฉลี่ย download, upload, latency พร้อมจำนวนครั้งที่ทดสอบ (Speedtest submission) กำกับมาด้วย tile ของ Ookla ถูกจับคู่เข้ากับจังหวัดด้วย point-in-polygon แล้วรวมเป็นระดับจังหวัด-ไตรมาสแบบถ่วงน้ำหนักตามจำนวนครั้งที่ทดสอบของแต่ละ tile ทุกจังหวัด-ไตรมาสต้องผ่านเกณฑ์ total_tests ≥ 100 และ n_tiles ≥ 5 ส่วนเกณฑ์ throughput และ latency สำหรับ application ประเภทต่าง ๆ มาจากงานของ Lübben และ Misfeld',
-  'This site shows the Ookla dataset (229.4 million tests). The paper also analyzes M-Lab NDT7 (760.6 million tests). We keep the two sources separate throughout and never pool their records.':
+  'This site shows the Ookla dataset (229.4 million tests). The study also analyzes M-Lab NDT7 (760.6 million tests). We keep the two sources separate throughout and never pool their records.':
     'เว็บไซต์นี้แสดงชุดข้อมูล Ookla (229.4 ล้านการทดสอบ) งานวิจัยยังวิเคราะห์ M-Lab NDT7 (760.6 ล้านการทดสอบ) ด้วย ค่าความเร็วดิบจาก Ookla และ NDT7 ไม่ถูกนำมารวมกันโดยตรง เนื่องจากทั้งสองแพลตฟอร์มวัด network performance ภายใต้เงื่อนไขที่แตกต่างกัน',
   'Authors': 'ผู้วิจัย', 'Cite this work': 'อ้างอิงงานนี้',
   'Chissanupun Athiwarikanon, Kunanont Malayanont, Pakkapon Pattanakul and Sukumal Kitisin, Kasetsart University.':
@@ -310,7 +310,7 @@ function forecast() {
   <div class="fsel">${sel('fc-c', 'Country', byNat().map(x => `<option value="${x}"${x === c ? ' selected' : ''}>${nm(x)}</option>`).join(''))}
     ${sel('fc-n', 'Network', ['fixed', 'mobile'].map(n => `<option value="${n}"${n === net ? ' selected' : ''}>${t(n === 'fixed' ? 'Fixed broadband' : 'Mobile')}</option>`).join(''))}
     ${sel('fc-p', 'Area', `<option value="__national__">${t('Whole country')}</option>` + provOpts.map(x => `<option value="${esc(x)}"${x === p ? ' selected' : ''}>${nm(x)}</option>`).join(''))}</div>
-  <div class="disc"><b>${t('Experimental. Not part of the paper.')}</b> ${t("One gradient-boosting model trained on the Ookla province-quarters of all nine countries. Ookla tests are user-initiated and subject to sampling bias, and the forecast inherits it. The model cannot anticipate sudden changes: Vietnam's mobile mean download rose from 63 to 147 Mbps in Q4 2024 and the model missed it.")}</div>
+  <div class="disc"><b>${t('Experimental. Not part of the poster.')}</b> ${t("One gradient-boosting model trained on the Ookla province-quarters of all nine countries. Ookla tests are user-initiated and subject to sampling bias, and the forecast inherits it. The model cannot anticipate sudden changes: Vietnam's mobile mean download rose from 63 to 147 Mbps in Q4 2024 and the model missed it.")}</div>
   <div class="fg">
     <section class="det"><h3>${t('{0}, {1} mean download speed (Mbps)', area, netName(net))}</h3>${ch}
       <div class="lg2"><span><i style="background:${INDIGO}"></i>${t('Measured')}</span><span><i style="background:${ORANGE}"></i>${t('Model')}</span><span><i class="bx"></i>${t('80% interval')}</span></div></section>
@@ -325,13 +325,14 @@ function forecast() {
 </div>`;
 }
 function about() {
-  const card = (h, p, links) => `<div class="rc"><h3>${t(h)}</h3><p>${t(p)}</p>${links.map(([l, u]) => `<a class="lnk" href="${u}" target="_blank" rel="noopener">${t(l)}</a>`).join('')}</div>`;
+  const card = (h, p, links, img = '') => `<div class="rc${img ? ' rcp' : ''}">${img}<div class="rcb"><h3>${t(h)}</h3><p>${t(p)}</p>${links.map(([l, u]) => `<a class="lnk" href="${u}" target="_blank" rel="noopener">${t(l)}</a>`).join('')}</div></div>`;
   return `<div class="page"><h1 class="h1s">${t('About the data')}</h1>
-  <div class="rcs">${card('The paper', 'Internet Landscape Study of Southeast Asian Countries. Poster, AINTEC 2026, Taipei.', [['Download PDF', 'paper.pdf']])}
+  <div class="rcs">${card('The poster', 'Internet Landscape Study of Southeast Asian Countries. Poster, AINTEC 2026, Taipei.', [['Download PDF', 'poster.pdf']], `<a class="pthumb" href="poster.pdf" target="_blank" rel="noopener"><img src="poster.jpg" width="640" height="906" alt="${t('Poster preview')}" loading="lazy"></a>`)}
     ${card('Code', 'Data cleansing and preparation, and data analysis.', [['Open on GitHub', 'https://github.com/chissanupun/thailand-broadband-analysis']])}
-    ${card('Datasets', 'Ookla Open Data (global Parquet files on Amazon S3) and M-Lab NDT7 (BigQuery).', [['Ookla Open Data', 'https://github.com/teamookla/ookla-open-data'], ['M-Lab NDT7', 'https://www.measurementlab.net/tests/ndt/ndt7/']])}</div>
+    ${card('Datasets', 'Ookla Open Data (global Parquet files on Amazon S3) and M-Lab NDT7 (BigQuery).', [['Ookla Open Data', 'https://github.com/teamookla/ookla-open-data'], ['M-Lab NDT7', 'https://www.measurementlab.net/tests/ndt/ndt7/']])}
+    ${card('Contact', 'Questions about the data or the study? Email the first author.', [['chissanupun.a@ku.th', 'mailto:chissanupun.a@ku.th']])}</div>
   <div class="ag"><section class="det"><h3>${t('Data cleansing and preparation')}</h3><p class="pp">${t("Ookla open data supplies quarterly internet-performance tiles split by connection type (fixed, mobile) at Quadkey zoom 16 (~600 × 600 m), each carrying mean download, upload, latency, and the underlying Speedtest submission count. We run point-in-polygon on the tiles to determine which province each point falls in, then compute a weighted average by each tile's test count. We filter only province-quarters with total_tests ≥ 100 and n_tiles ≥ 5. The bandwidth and latency requirements for different types of applications are adopted from Lübben and Misfeld.")}</p>
-    <p class="pp mt16">${t('This site shows the Ookla dataset (229.4 million tests). The paper also analyzes M-Lab NDT7 (760.6 million tests). We keep the two sources separate throughout and never pool their records.')}</p></section>
+    <p class="pp mt16">${t('This site shows the Ookla dataset (229.4 million tests). The study also analyzes M-Lab NDT7 (760.6 million tests). We keep the two sources separate throughout and never pool their records.')}</p></section>
   <section class="det"><h3>${t('Authors')}</h3><p class="pp">${t('Chissanupun Athiwarikanon, Kunanont Malayanont, Pakkapon Pattanakul and Sukumal Kitisin, Kasetsart University.')}</p>
     <h3 class="mt16">${t('Cite this work')}</h3><p class="code">Athiwarikanon C., Malayanont K., Pattanakul P., Kitisin S. Internet Landscape Study of Southeast Asian Countries. AINTEC 2026.</p></section></div>
 </div>`;
@@ -357,14 +358,19 @@ function play() {
   timer = setInterval(() => { S.qi++; if (S.qi >= Q.length - 1) { S.qi = Q.length - 1; stop(); } render(); }, 900);
   render();
 }
-range.addEventListener('input', () => { stop(); S.qi = +range.value; render(); });
+// Re-rendering detaches the slider and kills a pointer drag, so while dragging only the label moves;
+// the view redraws on release. Keyboard input redraws every step.
+let dragging = false;
+range.addEventListener('pointerdown', () => { dragging = true; });
+addEventListener('pointerup', () => { if (dragging) { dragging = false; render(); } });
+range.addEventListener('input', () => { stop(); S.qi = +range.value; if (dragging) syncPlayer(); else render(); });
 
 // ---------- render + routing ----------
 const app = document.getElementById('app');
 function render() {
   document.documentElement.lang = S.lang;
   document.querySelectorAll('[data-lang]').forEach(b => b.setAttribute('aria-pressed', b.dataset.lang === S.lang));
-  document.getElementById('paper-link').textContent = t('Read the paper');
+  document.getElementById('paper-link').textContent = t('View the poster');
   const links = (withBeta, short) => NAV.map(([k, n, d]) => `<a href="#${k}"${S.view === k ? ' aria-current="page"' : ''}>${short ? `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="${d}"/></svg>` : ''}${t(short && k === 'about' ? 'About' : n)}${withBeta && k === 'forecast' ? ` <em class="beta">${t('beta')}</em>` : ''}</a>`).join('');
   document.getElementById('nav').innerHTML = links(true, false);
   document.getElementById('bbar').innerHTML = links(false, true);
