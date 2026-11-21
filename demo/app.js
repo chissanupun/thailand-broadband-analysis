@@ -142,9 +142,12 @@ const NAV = [['overview', 'Overview', 'M4 4h7v7H4zM13 4h7v7h-7zM4 13h7v7H4zM13 1
 function chart({ w, h, series, labels, band, shade, marker, pad = [44, 16, 130, 30] }) {
   const [l, tp, r, b] = pad, n = labels.length, iw = w - l - r, ih = h - tp - b;
   const all = series.flatMap(s => s.vals).concat(band ? [...band.lo, ...band.hi] : []).filter(v => v != null);
+  if (!all.length) all.push(0, 100);
   const raw = (Math.max(...all) - Math.min(...all)) / 4 || 10, p10 = 10 ** Math.floor(Math.log10(raw)), f = raw / p10;
   const step = (f <= 1 ? 1 : f <= 2 ? 2 : f <= 5 ? 5 : 10) * p10;
-  const y0 = Math.max(0, Math.floor(Math.min(...all) / step) * step), y1 = Math.ceil(Math.max(...all) / step) * step || step;
+  const y0 = Math.max(0, Math.floor(Math.min(...all) / step) * step);
+  let y1 = Math.ceil(Math.max(...all) / step) * step || step;
+  if (y1 <= y0) y1 = y0 + step;
   const X = i => l + iw * i / (n - 1), Y = v => tp + ih * (1 - (v - y0) / (y1 - y0));
   const o = [`<svg viewBox="0 0 ${w} ${h}" style="width:100%;height:auto;display:block" role="img">`];
   for (let v = y0; v <= y1 + 1e-9; v += step)
@@ -161,7 +164,7 @@ function chart({ w, h, series, labels, band, shade, marker, pad = [44, 16, 130, 
     let d = '', pen = false;
     s.vals.forEach((v, i) => { if (v == null) { pen = false; return; } d += `${pen ? 'L' : 'M'}${X(s.s0 + i).toFixed(1)} ${Y(v).toFixed(1)}`; pen = true; });
     o.push(`<path d="${d}" fill="none" stroke="${s.color}" stroke-width="${s.wd}" stroke-linecap="round" stroke-linejoin="round"${s.dash ? ` stroke-dasharray="${s.dash}"` : ''}/>`);
-    const li = s.vals.length - 1;
+    let li = s.vals.length - 1; while (li > 0 && s.vals[li] == null) li--;
     if (s.label && s.vals[li] != null) ends.push({ x: X(s.s0 + li), y: Y(s.vals[li]), ly: Y(s.vals[li]) + 4, s });
   }
   ends.sort((a, b) => a.ly - b.ly).forEach((e, i, a) => { if (i && e.ly < a[i - 1].ly + 15) e.ly = a[i - 1].ly + 15; });
@@ -185,7 +188,7 @@ function seaMap() {
   for (const c in paths) o.push(`<path d="${paths[c]}" transform="translate(0 6)" fill="#c3c9ec" opacity=".45"/>`);
   for (const c in paths) o.push(`<path class="hit" d="${paths[c]}" fill="${col(nat(c))}" stroke="#fff" stroke-width="1.6" stroke-linejoin="round" data-c="${c}" tabindex="0" role="button" aria-label="${nm(c)}, ${r0(nat(c))} Mbps"><title>${nm(c)}: ${r0(nat(c))} Mbps</title></path>`);
   const [sx, sy] = P(103.82, 1.35);
-  o.push(`<circle class="hit" cx="${sx.toFixed(1)}" cy="${sy.toFixed(1)}" r="7" fill="${col(nat('Singapore'))}" stroke="#fff" stroke-width="2" data-c="Singapore"/>`);
+  o.push(`<circle class="hit" cx="${sx.toFixed(1)}" cy="${sy.toFixed(1)}" r="7" fill="${col(nat('Singapore'))}" stroke="${S.country === 'Singapore' ? ORANGE : '#fff'}" stroke-width="${S.country === 'Singapore' ? 3 : 2}" data-c="Singapore" tabindex="0" role="button" aria-label="${nm('Singapore')}, ${r0(nat('Singapore'))} Mbps"><title>${nm('Singapore')}: ${r0(nat('Singapore'))} Mbps</title></circle>`);
   o.push(`<path d="${paths[S.country]}" fill="none" stroke="${ORANGE}" stroke-width="3" stroke-linejoin="round" pointer-events="none"/>`);
   if (labels) {
     o.push('<g pointer-events="none">');
@@ -261,7 +264,7 @@ function provinces() {
   const top = ranked.slice(0, 5).map((x, i) => `<button type="button" class="tl" data-p="${esc(x)}"><span><em>${i + 1}</em>${nm(x)}</span><b>${r0(prov(c, x))}</b></button>`).join('');
   const opts = byNat().map(x => `<option value="${x}"${x === c ? ' selected' : ''}>${nm(x)} · ${r0(nat(x))} Mbps</option>`).join('');
   const series = [];
-  if (p !== T.capital && T[S.net].provinces[T.capital]) series.push({ s0: 0, vals: Q.map(qq => prov(c, T.capital, S.net, qq)), color: '#9aa0c4', wd: 2, dash: '5 5', label: nm(T.capital) });
+  if (p !== T.capital && T[S.net].provinces[T.capital]) series.push({ s0: 0, vals: Q.map(qq => prov(c, T.capital, S.net, qq)), color: '#9aa0c4', wd: 2, dash: '5 5', label: S.lang === 'th' && TH[T.capital] ? TH[T.capital] : T.capital });
   series.push({ s0: 0, vals: Q.map(qq => nat(c, S.net, qq)), color: INDIGO, wd: 2.5, label: t('National mean') });
   series.push({ s0: 0, vals: Q.map(qq => prov(c, p, S.net, qq)), color: ORANGE, wd: 3, label: S.lang === 'th' && TH[p] ? TH[p] : p });
   const P = T.pass[q()] || {};
@@ -292,11 +295,12 @@ function forecast() {
   if (!F.series[`${c}|${net}|${S.fc.p}`]) S.fc.p = '__national__';
   const p = S.fc.p, f = F.series[`${c}|${net}|${p}`], national = p === '__national__';
   const meas = Q.map(qq => national ? nat(c, net, qq) : prov(c, p, net, qq));
-  const last = meas[meas.length - 1], allq = Q.concat(F.future_quarters), li = Q.length - 1;
+  let li = meas.length - 1; while (li > 0 && meas[li] == null) li--;
+  const last = meas[li], allq = Q.concat(F.future_quarters), gap = Array(Q.length - 1 - li).fill(null);
   const area = national ? nm(c) : `${nm(p)}, ${nm(c)}`;
   const ch = chart({ w: PHONE.matches ? 380 : 900, h: PHONE.matches ? 280 : 360, labels: yearLabels(allq), shade: [Q.length, allq.length - 1, '2026'],
-    series: [{ s0: 0, vals: meas, color: INDIGO, wd: 3 }, ...(last == null ? [] : [{ s0: li, vals: [last, ...f.ml], color: ORANGE, wd: 3, dash: '7 5', label: t('Model') }])],
-    band: last == null ? null : { s0: li, lo: [last, ...f.lo], hi: [last, ...f.hi] }, pad: [40, 16, PHONE.matches ? 56 : 80, 30] });
+    series: [{ s0: 0, vals: meas, color: INDIGO, wd: 3 }, ...(last == null ? [] : [{ s0: li, vals: [last, ...gap, ...f.ml], color: ORANGE, wd: 3, dash: '7 5', label: t('Model') }])],
+    band: last == null ? null : (gap.length ? { s0: Q.length, lo: f.lo, hi: f.hi } : { s0: li, lo: [last, ...f.lo], hi: [last, ...f.hi] }), pad: [40, 16, PHONE.matches ? 56 : 80, 30] });
   const S1 = F.summary, R1 = F.rolling_one_step;
   const provOpts = Object.keys(D[c][net].provinces).filter(x => F.series[`${c}|${net}|${x}`]).sort();
   const sel = (id, label, opts) => `<select id="${id}" aria-label="${t(label)}">${opts}</select>`;
@@ -364,10 +368,10 @@ function render() {
   const links = (withBeta, short) => NAV.map(([k, n, d]) => `<a href="#${k}"${S.view === k ? ' aria-current="page"' : ''}>${short ? `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="${d}"/></svg>` : ''}${t(short && k === 'about' ? 'About' : n)}${withBeta && k === 'forecast' ? ` <em class="beta">${t('beta')}</em>` : ''}</a>`).join('');
   document.getElementById('nav').innerHTML = links(true, false);
   document.getElementById('bbar').innerHTML = links(false, true);
-  const sx = scrollX, sy = scrollY, keep = document.activeElement?.dataset;
+  const sx = scrollX, sy = scrollY, inPlayer = player.contains(document.activeElement) ? document.activeElement : null, keep = inPlayer ? null : document.activeElement?.dataset;
   app.innerHTML = { overview, provinces, forecast, about }[S.view]();
   const slot = app.querySelector('[data-player]');
-  if (slot) { slot.replaceWith(player); syncPlayer(); }
+  if (slot) { slot.replaceWith(player); syncPlayer(); inPlayer?.focus({ preventScroll: true }); }
   if (keep) { // put keyboard focus back on the same control after a re-render
     const k = ['c', 'p', 'net', 'ov', 'sort'].find(x => keep[x] != null);
     if (k) app.querySelector(`[data-${k}="${CSS.escape(keep[k])}"]`)?.focus({ preventScroll: true });
@@ -375,9 +379,11 @@ function render() {
   scrollTo(sx, sy);
 }
 function route() {
-  const [v, c, p] = location.hash.slice(1).split('/').map(decodeURIComponent);
+  if (!D) return;
+  let parts; try { parts = location.hash.slice(1).split('/').map(decodeURIComponent); } catch { parts = []; }
+  const [v, c, p] = parts;
   const view = NAV.some(([k]) => k === v) ? v : 'overview';
-  if (view !== S.view) { scrollTo(0, 0); }
+  if (view !== S.view) { stop(); scrollTo(0, 0); }
   S.view = view;
   if (view === 'provinces' && c && D[c]) { if (c !== S.country) S.prov = null; S.country = c; if (p) S.prov = p; }
   render();
