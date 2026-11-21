@@ -31,7 +31,12 @@ const TH = {
   'The fastest capital (Singapore, Central Region 361 Mbps) reaches speeds 16.4 times greater than the slowest capital (Yangon, 22 Mbps).':
     'เมืองหลวงที่เร็วที่สุด (สิงคโปร์ Central Region 361 Mbps) เร็วกว่าเมืองหลวงที่ช้าที่สุด (ย่างกุ้ง 22 Mbps) ถึง 16.4 เท่า',
   'Voice and HD video, Q1 2023 to Q4 2025': 'Voice และ Video streaming (HD), Q1 2023 ถึง Q4 2025',
-  'Myanmar, cloud gaming, 12 quarters': 'เมียนมา, Cloud gaming, 12 ไตรมาส',
+  'Indonesia, cloud gaming, 12 quarters': 'อินโดนีเซีย, Cloud gaming, 12 ไตรมาส',
+  "Indonesia's cloud-gaming pass rate by Q4 2025. Indonesia shows a marked recovery, climbing from roughly 11%–16% in 2023.":
+    'คืออัตราการผ่านเกณฑ์ Cloud gaming ของอินโดนีเซียใน Q4 2025 ฟื้นตัวชัดเจนจากราว 11%–16% ในปี 2023',
+  'Fixed broadband shows severe urban-rural disparities, with the fastest capital reaching speeds up to 16.4 times higher than the slowest capital.':
+    'บรอดแบนด์แบบมีสายมีความเหลื่อมล้ำระหว่างเมืองกับชนบทสูง เมืองหลวงที่เร็วที่สุดเร็วกว่าเมืองหลวงที่ช้าที่สุดได้ถึง 16.4 เท่า',
+  'Fastest': 'เร็วสุด', 'Slowest': 'ช้าสุด', 'Capital download speed, Mbps': 'ความเร็วดาวน์โหลดของเมืองหลวง (Mbps)',
   'Cloud gaming pass rate': 'อัตราการผ่านเกณฑ์ Cloud gaming',
   'Mean download speed (Mbps) and cloud gaming pass rate (fixed broadband), {0}.': 'ความเร็วดาวน์โหลดเฉลี่ย (Mbps) และอัตราการผ่านเกณฑ์ Cloud gaming (อินเทอร์เน็ตบ้าน) {0}',
   'Top five fastest provinces': '5 จังหวัดที่เร็วที่สุด', '{0}, {1} provinces': '{0} {1} จังหวัด',
@@ -319,8 +324,8 @@ function overview() {
 </section>
 <section class="facts">
   <div class="fc"><div class="viz">${sq('on')}<small>${t('Voice and HD video, Q1 2023 to Q4 2025')}</small></div><b>100%</b><p>${t("pass rate every quarter for voice and HD video streaming in nearly every country. The only departures are Thailand's brief dip to 99.8% in Q2 2024 and Myanmar's drop to 53.6% in Q2 2025, both driven by latency rather than bandwidth.")}</p></div>
-  <div class="fc"><div class="viz">${sq('off')}<small>${t('Myanmar, cloud gaming, 12 quarters')}</small></div><b>0%</b><p>${t("Myanmar's cloud-gaming pass rate. Myanmar fails to clear the combined threshold of 44 Mbps and 25 ms in any quarter of the study period.")}</p></div>
-  <div class="fc"><div class="viz"><div class="cmp" aria-hidden="true"><span>${nm('Singapore')}</span><em><i style="width:100%"></i></em><span>361</span><span>${nm('Yangon')}</span><em><i class="lo" style="width:6.1%"></i></em><span>22</span></div></div><b>16.4×</b><p>${t('The fastest capital (Singapore, Central Region 361 Mbps) reaches speeds 16.4 times greater than the slowest capital (Yangon, 22 Mbps).')}</p></div>
+  <div class="fc"><div class="viz"><div class="bars12" aria-hidden="true">${Object.values(D.Indonesia.pass).map(q => `<i style="height:${Math.max(4, q.cloud * 0.36).toFixed(1)}px"></i>`).join('')}</div><small>${t('Indonesia, cloud gaming, 12 quarters')}</small></div><b>91.0%</b><p>${t("Indonesia's cloud-gaming pass rate by Q4 2025. Indonesia shows a marked recovery, climbing from roughly 11%–16% in 2023.")}</p></div>
+  <div class="fc"><div class="viz"><div class="cmp" aria-hidden="true"><span>${t('Fastest')}</span><em><i style="width:100%"></i></em><span>361</span><span>${t('Slowest')}</span><em><i class="lo" style="width:6.1%"></i></em><span>22</span></div><small>${t('Capital download speed, Mbps')}</small></div><b>16.4×</b><p>${t('Fixed broadband shows severe urban-rural disparities, with the fastest capital reaching speeds up to 16.4 times higher than the slowest capital.')}</p></div>
 </section>`;
 }
 function table() {

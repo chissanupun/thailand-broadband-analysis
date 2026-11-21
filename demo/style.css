@@ -224,3 +224,5 @@ html[lang="th"] .stage h1, html[lang="th"] .h1s { font-size: 44px; }
 @media (prefers-reduced-motion: reduce) { .bw i, .mb i { transition: none; } }
 .map path.hit:focus { outline: none; }
 .map path.hit:focus-visible { stroke: var(--orange); stroke-width: 2.5; }
+
+.bars12 { display: flex; align-items: flex-end; gap: 4px; height: 36px; } .bars12 i { flex: 1; max-width: 14px; background: var(--indigo); border-radius: 3px 3px 1px 1px; } .bars12 i:last-child { background: var(--orange); }
