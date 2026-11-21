@@ -3,83 +3,14 @@
 // geo.json (simplified shapes), forecast.json (experimental model). Design = Figma "Web demo (v7)".
 
 let D, G, F, Q = [];
-const S = { lang: 'en', view: 'overview', net: 'fixed', qi: 0, ovTab: 'map', country: 'Thailand', prov: null,
+const S = { view: 'overview', net: 'fixed', qi: 0, ovTab: 'map', country: 'Thailand', prov: null,
   sort: { k: 'fixed', dir: -1 }, zoom: { c: null, vb: null }, fc: { c: 'Thailand', net: 'fixed', p: '__national__' } };
 const PHONE = matchMedia('(max-width: 760px)');
 
 // ---------- i18n ----------
-const TH = {
-  'Overview': 'ภาพรวม', 'Provinces': 'รายจังหวัด', 'Forecast': 'พยากรณ์', 'About the data': 'เกี่ยวกับข้อมูล', 'About': 'เกี่ยวกับ',
-  'View the poster': 'ดูโปสเตอร์', 'beta': 'ทดลอง', 'Map': 'แผนที่', 'Line': 'กราฟเส้น', 'Table': 'ตาราง',
-  'Country': 'ประเทศ', 'Network': 'เครือข่าย', 'Fixed broadband': 'อินเทอร์เน็ตบ้าน', 'Mobile': 'มือถือ',
-  'fixed broadband': 'อินเทอร์เน็ตบ้าน', 'mobile': 'อินเทอร์เน็ตมือถือ',
-  'Select a country to see its provinces': 'เลือกประเทศเพื่อดูรายจังหวัด', 'Select a row to see its provinces': 'เลือกแถวเพื่อดูรายจังหวัด',
-  'Select a province': 'เลือกจังหวัด', 'Tap a province': 'แตะจังหวัด', 'Selected province': 'จังหวัดที่เลือก',
-  'Singapore': 'สิงคโปร์', 'Thailand': 'ไทย', 'Malaysia': 'มาเลเซีย', 'Vietnam': 'เวียดนาม', 'Philippines': 'ฟิลิปปินส์',
-  'Cambodia': 'กัมพูชา', 'Laos': 'ลาว', 'Indonesia': 'อินโดนีเซีย', 'Myanmar': 'เมียนมา', 'Yangon': 'ย่างกุ้ง',
-  'Bangkok Metropolis': 'กรุงเทพมหานคร', 'Chiang Mai': 'เชียงใหม่',
-  'Internet Landscape Study of Southeast Asian Countries': 'การศึกษาภูมิทัศน์อินเทอร์เน็ตของประเทศในเอเชียตะวันออกเฉียงใต้',
-  'Significant digital divides emerge under higher-tier demands.': '<span class="nw">ยิ่งเกณฑ์การใช้งาน</span><wbr><span class="nw">แอปสูงขึ้น</span> <span class="nw">ความเหลื่อมล้ำ</span><wbr><span class="nw">ก็ยิ่งชัดเจน</span>',
-  'The communication network quality of nine Southeast Asian countries, using test results from Q1 2023 to Q4 2025 from Ookla (229.4 million tests), compared against the bandwidth requirements of four popular application types.':
-    'วิเคราะห์ 9 ประเทศในเอเชียตะวันออกเฉียงใต้ ตั้งแต่ Q1 2023 ถึง Q4 2025 ใช้ข้อมูลเปิดจาก Ookla Open Data (229.4 ล้านการทดสอบ) และตัดสินคุณภาพด้วยเกณฑ์การใช้งานแอป 4 ระดับ',
-  'Mean download speed of {0}, {1} (Mbps)': 'ความเร็วดาวน์โหลดเฉลี่ยของ{0} {1} (Mbps)',
-  'Mean download speed of {0} by country (Mbps)': 'ความเร็วดาวน์โหลดเฉลี่ยของ{0} รายประเทศ (Mbps)',
-  "pass rate every quarter for voice and HD video streaming in nearly every country. The only departures are Thailand's brief dip to 99.8% in Q2 2024 and Myanmar's drop to 53.6% in Q2 2025, both driven by latency rather than bandwidth.":
-    'คืออัตราการผ่านเกณฑ์ Voice และ Video streaming (HD) ทุกไตรมาสในเกือบทุกประเทศ ข้อยกเว้นมีแค่ไทยที่ตกลงเหลือ 99.8% ช่วงสั้น ๆ ใน Q2 2024 และเมียนมาที่ตกลงเหลือ 53.6% ใน Q2 2025 ทั้งสองกรณีเกิดจาก latency ไม่ใช่ bandwidth',
-  "Myanmar's cloud-gaming pass rate. Myanmar fails to clear the combined threshold of 44 Mbps and 25 ms in any quarter of the study period.":
-    'คืออัตราการผ่านเกณฑ์ Cloud gaming ของเมียนมา ตลอดช่วงที่ศึกษา เมียนมาไม่ผ่านเกณฑ์ 44 Mbps และ 25 ms เลยสักไตรมาส',
-  'The fastest capital (Singapore, Central Region 361 Mbps) reaches speeds 16.4 times greater than the slowest capital (Yangon, 22 Mbps).':
-    'เมืองหลวงที่เร็วที่สุด (สิงคโปร์ Central Region 361 Mbps) เร็วกว่าเมืองหลวงที่ช้าที่สุด (ย่างกุ้ง 22 Mbps) ถึง 16.4 เท่า',
-  'Voice and HD video, Q1 2023 to Q4 2025': 'Voice และ Video streaming (HD), Q1 2023 ถึง Q4 2025',
-  'Indonesia, cloud gaming, 12 quarters': 'อินโดนีเซีย, Cloud gaming, 12 ไตรมาส',
-  "Indonesia's cloud-gaming pass rate by Q4 2025. Indonesia shows a marked recovery, climbing from roughly 11%–16% in 2023.":
-    'คืออัตราการผ่านเกณฑ์ Cloud gaming ของอินโดนีเซียใน Q4 2025 ฟื้นตัวชัดเจนจากราว 11%–16% ในปี 2023',
-  'Fixed broadband shows severe urban-rural disparities, with the fastest capital reaching speeds up to 16.4 times higher than the slowest capital.':
-    'บรอดแบนด์แบบมีสายมีความเหลื่อมล้ำระหว่างเมืองกับชนบทสูง เมืองหลวงที่เร็วที่สุดเร็วกว่าเมืองหลวงที่ช้าที่สุดได้ถึง 16.4 เท่า',
-  'Fastest': 'เร็วสุด', 'Slowest': 'ช้าสุด', 'Capital download speed, Mbps': 'ความเร็วดาวน์โหลดของเมืองหลวง (Mbps)',
-  'Cloud gaming pass rate': 'อัตราการผ่านเกณฑ์ Cloud gaming',
-  'Mean download speed (Mbps) and cloud gaming pass rate (fixed broadband), {0}.': 'ความเร็วดาวน์โหลดเฉลี่ย (Mbps) และอัตราการผ่านเกณฑ์ Cloud gaming (อินเทอร์เน็ตบ้าน) {0}',
-  'Top five fastest provinces': '5 จังหวัดที่เร็วที่สุด', '{0}, {1} provinces': '{0} {1} จังหวัด',
-  'Rank {0} of {1}': 'อันดับ {0} จาก {1}', 'No data for {0}': 'ไม่มีข้อมูล {0}',
-  'mean download speed, {0}': 'ความเร็วดาวน์โหลดเฉลี่ย {0}', 'national mean, {0}': 'ค่าเฉลี่ยทั้งประเทศ {0}',
-  'National mean': 'ค่าเฉลี่ยทั้งประเทศ',
-  'Evaluation results on the application requirements': 'ผลการประเมินตามเกณฑ์การใช้งานแอปพลิเคชัน',
-  'National pass rate for fixed broadband: the test-weighted share of province-quarters meeting each requirement, {0}':
-    'อัตราการผ่านเกณฑ์ระดับประเทศของอินเทอร์เน็ตบ้าน: สัดส่วนจังหวัด-ไตรมาสที่ผ่านแต่ละเกณฑ์ ถ่วงน้ำหนักตามจำนวนครั้งที่ทดสอบ {0}',
-  'Required: 64 Kbps, 200 ms': 'เกณฑ์: 64 Kbps, 200 ms', 'Required: 5 Mbps': 'เกณฑ์: 5 Mbps', 'Required: 25 Mbps': 'เกณฑ์: 25 Mbps', 'Required: 44 Mbps, 25 ms': 'เกณฑ์: 44 Mbps, 25 ms',
-  'Experimental forecast': 'การพยากรณ์ (ทดลอง)',
-  'Trained on Q1 2023 to Q4 2024, tested on the four quarters of 2025, then used to project 2026.': 'ฝึกโมเดลด้วยข้อมูล Q1 2023 ถึง Q4 2024 ทดสอบกับ 4 ไตรมาสของปี 2025 แล้วจึงใช้คาดการณ์ปี 2026',
-  'Experimental. Not part of the poster.': 'ส่วนทดลอง ไม่อยู่ในโปสเตอร์',
-  "One gradient-boosting model trained on the Ookla province-quarters of all nine countries. Ookla tests are user-initiated and subject to sampling bias, and the forecast inherits it. The model cannot anticipate sudden changes: Vietnam's mobile mean download rose from 63 to 147 Mbps in Q4 2024 and the model missed it.":
-    'ใช้โมเดล gradient boosting ตัวเดียว ฝึกด้วยข้อมูลจังหวัด-ไตรมาสของ Ookla จากทั้ง 9 ประเทศ ผลทดสอบของ Ookla มาจากผู้ใช้ที่กดทดสอบเอง จึงมี sampling bias และการพยากรณ์ก็รับ bias นี้มาด้วย โมเดลคาดการณ์การเปลี่ยนแปลงฉับพลันไม่ได้ เช่น ความเร็วดาวน์โหลดเฉลี่ยบนมือถือของเวียดนามพุ่งจาก 63 เป็น 147 Mbps ใน Q4 2024 ซึ่งโมเดลพลาดไป',
-  '{0}, {1} mean download speed (Mbps)': '{0} ความเร็วดาวน์โหลดเฉลี่ยของ{1} (Mbps)',
-  'Whole country': 'ทั้งประเทศ', 'Area': 'พื้นที่',
-  'Model': 'โมเดล', 'Measured': 'ค่าจริง', '80% interval': 'ช่วง 80%', 'Projected, Q4 2026': 'คาดการณ์ Q4 2026',
-  "80% interval {0} to {1} Mbps, from the model's errors on 2025.": 'ช่วง 80% อยู่ที่ {0} ถึง {1} Mbps คำนวณจากความคลาดเคลื่อนของโมเดลในปี 2025',
-  'Median error on 2025': 'มัธยฐานความคลาดเคลื่อน ปี 2025', 'against {0}% for repeating the last value.': 'เทียบกับ {0}% ถ้าใช้ค่าล่าสุดซ้ำ',
-  'Errors on the four quarters of 2025': 'ความคลาดเคลื่อนใน 4 ไตรมาสของปี 2025',
-  'Method': 'วิธี', 'Median error': 'มัธยฐาน', 'Mean error': 'ค่าเฉลี่ย', 'One quarter ahead': 'ล่วงหน้า 1 ไตรมาส',
-  'Straight-line trend': 'แนวโน้มเส้นตรง', 'Last value repeated': 'ใช้ค่าล่าสุดซ้ำ',
-  'Absolute percentage error against the measured 2025 values, over {0} province-quarter forecasts. On mean error the three methods are about even; sudden changes hurt every method.':
-    'ร้อยละความคลาดเคลื่อนสัมบูรณ์เทียบกับค่าจริงปี 2025 จากการพยากรณ์จังหวัด-ไตรมาส {0} รายการ ถ้าดูค่าเฉลี่ย ทั้ง 3 วิธีพอ ๆ กัน และการเปลี่ยนแปลงฉับพลันก็ทำให้ทุกวิธีพลาด',
-  'The poster': 'โปสเตอร์', 'Contact': 'ติดต่อ', 'Questions about the data or the study? Email the first author.': 'มีคำถามเรื่องข้อมูลหรืองานวิจัย อีเมลหาผู้วิจัยหลักได้เลย', 'Poster preview': 'ตัวอย่างโปสเตอร์', 'Code': 'โค้ด', 'Datasets': 'ชุดข้อมูล',
-  'Internet Landscape Study of Southeast Asian Countries. Poster, AINTEC 2026, Taipei.': 'Internet Landscape Study of Southeast Asian Countries โปสเตอร์ AINTEC 2026 ไทเป',
-  'Download PDF': 'ดาวน์โหลด PDF', 'Open on GitHub': 'เปิดใน GitHub', 'Ookla Open Data': 'Ookla Open Data', 'M-Lab NDT7': 'M-Lab NDT7',
-  'Data cleansing and preparation, and data analysis.': 'การทำความสะอาดและเตรียมข้อมูล และการวิเคราะห์ข้อมูล',
-  'Ookla Open Data (global Parquet files on Amazon S3) and M-Lab NDT7 (BigQuery).': 'Ookla Open Data (ไฟล์ Parquet บน Amazon S3 แบบ global) และ M-Lab NDT7 (BigQuery)',
-  'Data cleansing and preparation': 'การทำความสะอาดและเตรียมข้อมูล',
-  "Ookla open data supplies quarterly internet-performance tiles split by connection type (fixed, mobile) at Quadkey zoom 16 (~600 × 600 m), each carrying mean download, upload, latency, and the underlying Speedtest submission count. We run point-in-polygon on the tiles to determine which province each point falls in, then compute a weighted average by each tile's test count. We filter only province-quarters with total_tests ≥ 100 and n_tiles ≥ 5. The bandwidth and latency requirements for different types of applications are adopted from Lübben and Misfeld.":
-    'Ookla Open Data ให้ข้อมูลประสิทธิภาพอินเทอร์เน็ตรายไตรมาสในรูปแบบ tile แบ่งตามประเภทการเชื่อมต่อ (fixed, mobile) ที่ Quadkey zoom 16 (ขนาดราว 600 × 600 เมตร) แต่ละ tile มีค่าเฉลี่ย download, upload, latency พร้อมจำนวนครั้งที่ทดสอบ (Speedtest submission) กำกับมาด้วย tile ของ Ookla ถูกจับคู่เข้ากับจังหวัดด้วย point-in-polygon แล้วรวมเป็นระดับจังหวัด-ไตรมาสแบบถ่วงน้ำหนักตามจำนวนครั้งที่ทดสอบของแต่ละ tile ทุกจังหวัด-ไตรมาสต้องผ่านเกณฑ์ total_tests ≥ 100 และ n_tiles ≥ 5 ส่วนเกณฑ์ throughput และ latency สำหรับ application ประเภทต่าง ๆ มาจากงานของ Lübben และ Misfeld',
-  'This site shows the Ookla dataset (229.4 million tests). The study also analyzes M-Lab NDT7 (760.6 million tests). We keep the two sources separate throughout and never pool their records.':
-    'เว็บไซต์นี้แสดงชุดข้อมูล Ookla (229.4 ล้านการทดสอบ) งานวิจัยยังวิเคราะห์ M-Lab NDT7 (760.6 ล้านการทดสอบ) ด้วย ค่าความเร็วดิบจาก Ookla และ NDT7 ไม่ถูกนำมารวมกันโดยตรง เนื่องจากทั้งสองแพลตฟอร์มวัด network performance ภายใต้เงื่อนไขที่แตกต่างกัน',
-  'Authors': 'ผู้วิจัย', 'Cite this work': 'อ้างอิงงานนี้',
-  'Chissanupun Athiwarikanon, Kunanont Malayanont, Pakkapon Pattanakul and Sukumal Kitisin, Kasetsart University.':
-    'Chissanupun Athiwarikanon, Kunanont Malayanont, Pakkapon Pattanakul และ Sukumal Kitisin มหาวิทยาลัยเกษตรศาสตร์',
-  'Play quarters': 'เล่นทีละไตรมาส', 'Zoom in': 'ซูมเข้า', 'Zoom out': 'ซูมออก', 'Reset zoom': 'รีเซ็ตการซูม', 'Scroll or pinch to zoom': 'เลื่อนเมาส์หรือถ่างนิ้วเพื่อซูม', 'Pause': 'หยุด', 'Quarter': 'ไตรมาส', 'Language': 'ภาษา',
-};
-const t = (s, ...a) => (S.lang === 'th' && TH[s] != null ? TH[s] : s).replace(/\{(\d)\}/g, (_, i) => a[i]);
+const t = (s, ...a) => s.replace(/\{(\d)\}/g, (_, i) => a[i]);
 const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]);
-const nm = s => esc(S.lang === 'th' && TH[s] ? TH[s] : s); // place names: Thai where we have it
+const nm = s => esc(s);
 const ql = q => `${q.slice(5)} ${q.slice(0, 4)}`;
 const netName = n => t(n === 'fixed' ? 'fixed broadband' : 'mobile');
 const r0 = v => (v == null ? '–' : Math.round(v));
@@ -454,8 +385,6 @@ range.addEventListener('input', () => { stop(); S.qi = +range.value; if (draggin
 // ---------- render + routing ----------
 const app = document.getElementById('app');
 function render() {
-  document.documentElement.lang = S.lang;
-  document.querySelectorAll('[data-lang]').forEach(b => b.setAttribute('aria-pressed', b.dataset.lang === S.lang));
   document.getElementById('paper-link').textContent = t('View the poster');
   const links = (withBeta, short) => NAV.map(([k, n, d]) => `<a href="#${k}"${S.view === k ? ' aria-current="page"' : ''}>${short ? `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="${d}"/></svg>` : ''}${t(short && k === 'about' ? 'About' : n)}${withBeta && k === 'forecast' ? ` <em class="beta">${t('beta')}</em>` : ''}</a>`).join('');
   document.getElementById('nav').innerHTML = links(true, false);
@@ -486,11 +415,10 @@ const goProvinces = (c, p) => { location.hash = ['provinces', c, p].filter(Boole
 document.addEventListener('click', e => {
   const z = e.target.closest('[data-zoom]');
   if (z) { const svg = app.querySelector('.pmap'); if (z.dataset.zoom === 'reset') zoomPan(svg, 0, 0, +svg.dataset.w, +svg.dataset.h); else zoomBy(svg, z.dataset.zoom === 'in' ? 1.6 : 1 / 1.6); return; }
-  const el = e.target.closest('[data-lang],[data-net],[data-ov],[data-sort],[data-play],[data-c],[data-p]');
+  const el = e.target.closest('[data-net],[data-ov],[data-sort],[data-play],[data-c],[data-p]');
   if (!el) return;
   const d = el.dataset;
-  if (d.lang) { S.lang = d.lang; try { localStorage.setItem('lang', S.lang); } catch {} render(); }
-  else if (d.net) { S.net = d.net; render(); }
+  if (d.net) { S.net = d.net; render(); }
   else if (d.ov) { S.ovTab = d.ov; render(); }
   else if (d.sort) { S.sort = { k: d.sort, dir: S.sort.k === d.sort ? -S.sort.dir : d.sort === 'country' ? 1 : -1 }; render(); }
   else if (d.play != null) play();
@@ -511,7 +439,6 @@ addEventListener('hashchange', route);
 PHONE.addEventListener('change', render);
 
 (async () => {
-  try { const l = localStorage.getItem('lang'); if (l === 'th' || l === 'en') S.lang = l; } catch {}
   try {
     [D, G, F] = await Promise.all(['data.json', 'geo.json', 'forecast.json'].map(f => fetch(f).then(r => { if (!r.ok) throw new Error(`${f}: HTTP ${r.status}`); return r.json(); })));
   } catch (err) {
