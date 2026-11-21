@@ -229,18 +229,24 @@ function provMap(c) {
 }
 
 // ---------- province map zoom (viewBox pan/zoom; labels appear once zoomed and only where they fit) ----------
-const ZMAX = 8, ZLABEL = 1.6;
+const ZMAX = 8, ZLABEL = 1.2;
 function zoomApply(svg) {
   const W = +svg.dataset.w, H = +svg.dataset.h, [x, y, w, h] = S.zoom.vb, k = W / w;
   svg.setAttribute('viewBox', `${x} ${y} ${w} ${h}`);
   svg.style.touchAction = k > 1.01 ? 'none' : 'pan-y';
-  const px = svg.getBoundingClientRect().width / w || 1, fs = 11 / px; // 11 screen px whatever the zoom
-  for (const tx of svg.querySelectorAll('.plab text')) {
-    const half = (tx.textContent.length * 3.2 + 4) / px, lx = +tx.getAttribute('x'), ly = +tx.getAttribute('y');
-    const inView = lx - half > x && lx + half < x + w && ly - 8 / px > y && ly + 8 / px < y + h;
-    const fits = k >= ZLABEL && inView && (tx.dataset.p === S.prov || +tx.dataset.w * px > tx.textContent.length * 6.4 + 6);
-    tx.style.display = fits ? '' : 'none';
-    if (fits) { tx.setAttribute('font-size', fs.toFixed(2)); tx.setAttribute('stroke-width', (3 / px).toFixed(2)); }
+  const px = svg.getBoundingClientRect().width / w || 1, fs = 10.5 / px; // constant on-screen size
+  // Greedy placement: selected province first, then bigger provinces; skip a label that would overlap one already placed.
+  const placed = [], texts = [...svg.querySelectorAll('.plab text')]
+    .sort((a, b) => (b.dataset.p === S.prov) - (a.dataset.p === S.prov) || b.dataset.w - a.dataset.w);
+  for (const tx of texts) {
+    const lx = (+tx.getAttribute('x') - x) * px, ly = (+tx.getAttribute('y') - y) * px;
+    const hw = tx.textContent.length * 3.1 + 3, hh = 8, vw = w * px, vh = h * px;
+    const box = [lx - hw, ly - hh, lx + hw, ly + hh];
+    const ok = k >= ZLABEL && box[0] > 2 && box[1] > 2 && box[2] < vw - 44 * (ly < 130) - 2 && box[3] < vh - 2 // keep clear of the zoom buttons
+      && (tx.dataset.p === S.prov || +tx.dataset.w * px > hw * 0.9)
+      && !placed.some(b => box[0] < b[2] && box[2] > b[0] && box[1] < b[3] && box[3] > b[1]);
+    tx.style.display = ok ? '' : 'none';
+    if (ok) { placed.push(box); tx.setAttribute('font-size', fs.toFixed(2)); tx.setAttribute('stroke-width', (3 / px).toFixed(2)); }
   }
 }
 function zoomBy(svg, f, ux, uy) {
