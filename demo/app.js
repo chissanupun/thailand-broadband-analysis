@@ -4,7 +4,7 @@
 
 let D, G, F, Q = [];
 const S = { lang: 'en', view: 'overview', net: 'fixed', qi: 0, ovTab: 'map', country: 'Thailand', prov: null,
-  sort: { k: 'fixed', dir: -1 }, fc: { c: 'Thailand', net: 'fixed', p: '__national__' } };
+  sort: { k: 'fixed', dir: -1 }, zoom: { c: null, vb: null }, fc: { c: 'Thailand', net: 'fixed', p: '__national__' } };
 const PHONE = matchMedia('(max-width: 760px)');
 
 // ---------- i18n ----------
@@ -70,7 +70,7 @@ const TH = {
   'Authors': 'ผู้วิจัย', 'Cite this work': 'อ้างอิงงานนี้',
   'Chissanupun Athiwarikanon, Kunanont Malayanont, Pakkapon Pattanakul and Sukumal Kitisin, Kasetsart University.':
     'Chissanupun Athiwarikanon, Kunanont Malayanont, Pakkapon Pattanakul และ Sukumal Kitisin มหาวิทยาลัยเกษตรศาสตร์',
-  'Play quarters': 'เล่นทีละไตรมาส', 'Pause': 'หยุด', 'Quarter': 'ไตรมาส', 'Language': 'ภาษา',
+  'Play quarters': 'เล่นทีละไตรมาส', 'Zoom in': 'ซูมเข้า', 'Zoom out': 'ซูมออก', 'Reset zoom': 'รีเซ็ตการซูม', 'Scroll or pinch to zoom': 'เลื่อนเมาส์หรือถ่างนิ้วเพื่อซูม', 'Pause': 'หยุด', 'Quarter': 'ไตรมาส', 'Language': 'ภาษา',
 };
 const t = (s, ...a) => (S.lang === 'th' && TH[s] != null ? TH[s] : s).replace(/\{(\d)\}/g, (_, i) => a[i]);
 const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]);
@@ -119,7 +119,17 @@ function provGeom(c) {
   if (!pathCache.has(c)) {
     const rings = Object.values(G[c].provinces), w = 400, h = Math.round(Math.min(560, Math.max(280, w * aspect(rings) + 20)));
     const P = projector(rings, w, h, 10);
-    pathCache.set(c, { w, h, paths: Object.fromEntries(Object.entries(G[c].provinces).map(([n, r]) => [n, pathD(r, P)])) });
+    const lab = {};
+    for (const [n, rs] of Object.entries(G[c].provinces)) {
+      let best = null, bestA = 0;
+      for (const ring of rs) {
+        const pts = ring.map(q => P(...q)); let a = 0, cx = 0, cy = 0;
+        for (let i = 0, j = pts.length - 1; i < pts.length; j = i++) { const f = pts[j][0] * pts[i][1] - pts[i][0] * pts[j][1]; a += f; cx += (pts[j][0] + pts[i][0]) * f; cy += (pts[j][1] + pts[i][1]) * f; }
+        if (Math.abs(a) > bestA) { bestA = Math.abs(a); const xs = pts.map(q => q[0]); best = { x: cx / (3 * a), y: cy / (3 * a), w: Math.max(...xs) - Math.min(...xs) }; }
+      }
+      if (best) lab[n] = best;
+    }
+    pathCache.set(c, { w, h, lab, paths: Object.fromEntries(Object.entries(G[c].provinces).map(([n, r]) => [n, pathD(r, P)])) });
   }
   return pathCache.get(c);
 }
@@ -206,11 +216,76 @@ function seaMap() {
   return o.join('') + '</svg>';
 }
 function provMap(c) {
-  const { w, h, paths } = provGeom(c), o = [`<svg class="map" viewBox="0 0 ${w} ${h}" style="width:100%;height:auto;display:block">`];
+  const { w, h, paths, lab } = provGeom(c), v = S.zoom.c === c ? S.zoom.vb : [0, 0, w, h];
+  const o = [`<div class="mapwrap"><svg class="map pmap" viewBox="${v.join(' ')}" data-w="${w}" data-h="${h}" style="width:100%;height:auto;display:block;aspect-ratio:${w}/${h}">`];
   for (const p in paths) o.push(`<path d="${paths[p]}" transform="translate(0 5)" fill="#c3c9ec" opacity=".45"/>`);
-  for (const p in paths) { const v = prov(c, p); o.push(`<path class="hit" d="${paths[p]}" fill="${col(v)}" stroke="#fff" stroke-width=".7" stroke-linejoin="round" data-p="${esc(p)}" tabindex="0" role="button" aria-label="${nm(p)}, ${r0(v)} Mbps"><title>${nm(p)}: ${r0(v)} Mbps</title></path>`); }
-  if (S.prov && paths[S.prov]) o.push(`<path d="${paths[S.prov]}" fill="none" stroke="${ORANGE}" stroke-width="3" stroke-linejoin="round" pointer-events="none"/>`);
-  return o.join('') + '</svg>';
+  for (const p in paths) { const v = prov(c, p); o.push(`<path class="hit" d="${paths[p]}" fill="${col(v)}" stroke="#fff" stroke-width=".7" vector-effect="non-scaling-stroke" stroke-linejoin="round" data-p="${esc(p)}" tabindex="0" role="button" aria-label="${nm(p)}, ${r0(v)} Mbps"><title>${nm(p)}: ${r0(v)} Mbps</title></path>`); }
+  if (S.prov && paths[S.prov]) o.push(`<path d="${paths[S.prov]}" fill="none" stroke="${ORANGE}" stroke-width="3" vector-effect="non-scaling-stroke" stroke-linejoin="round" pointer-events="none"/>`);
+  o.push('<g class="plab" pointer-events="none">');
+  for (const p in lab) { const v = prov(c, p), dark = DARK.has(col(v)); o.push(`<text x="${lab[p].x.toFixed(1)}" y="${lab[p].y.toFixed(1)}" data-p="${esc(p)}" data-w="${lab[p].w.toFixed(1)}" text-anchor="middle" dominant-baseline="middle" fill="${dark ? '#fff' : INK}" stroke="${dark ? '#161c4f' : '#fff'}" stroke-opacity=".55" paint-order="stroke" font-weight="600">${nm(p)}</text>`); }
+  o.push('</g></svg>');
+  o.push(`<div class="zctl"><button type="button" data-zoom="in" aria-label="${t('Zoom in')}">+</button><button type="button" data-zoom="out" aria-label="${t('Zoom out')}">−</button><button type="button" data-zoom="reset" aria-label="${t('Reset zoom')}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg></button></div></div>`);
+  return o.join('');
+}
+
+// ---------- province map zoom (viewBox pan/zoom; labels appear once zoomed and only where they fit) ----------
+const ZMAX = 8, ZLABEL = 1.6;
+function zoomApply(svg) {
+  const W = +svg.dataset.w, H = +svg.dataset.h, [x, y, w, h] = S.zoom.vb, k = W / w;
+  svg.setAttribute('viewBox', `${x} ${y} ${w} ${h}`);
+  svg.style.touchAction = k > 1.01 ? 'none' : 'pan-y';
+  const px = svg.getBoundingClientRect().width / w || 1, fs = 11 / px; // 11 screen px whatever the zoom
+  for (const tx of svg.querySelectorAll('.plab text')) {
+    const half = (tx.textContent.length * 3.2 + 4) / px, lx = +tx.getAttribute('x'), ly = +tx.getAttribute('y');
+    const inView = lx - half > x && lx + half < x + w && ly - 8 / px > y && ly + 8 / px < y + h;
+    const fits = k >= ZLABEL && inView && (tx.dataset.p === S.prov || +tx.dataset.w * px > tx.textContent.length * 6.4 + 6);
+    tx.style.display = fits ? '' : 'none';
+    if (fits) { tx.setAttribute('font-size', fs.toFixed(2)); tx.setAttribute('stroke-width', (3 / px).toFixed(2)); }
+  }
+}
+function zoomBy(svg, f, ux, uy) {
+  const W = +svg.dataset.w, H = +svg.dataset.h, [x, y, w, h] = S.zoom.vb;
+  const nw = Math.min(W, Math.max(W / ZMAX, w / f)), nh = nw * H / W;
+  if (ux == null) { ux = x + w / 2; uy = y + h / 2; }
+  zoomPan(svg, ux - (ux - x) * nw / w, uy - (uy - y) * nh / h, nw, nh);
+}
+function zoomPan(svg, x, y, w, h) {
+  const W = +svg.dataset.w, H = +svg.dataset.h;
+  S.zoom.vb = [Math.min(Math.max(0, x), W - w), Math.min(Math.max(0, y), H - h), w, h];
+  zoomApply(svg);
+}
+function zoomSetup() {
+  const svg = app.querySelector('.pmap');
+  if (!svg) return;
+  if (S.zoom.c !== S.country) S.zoom = { c: S.country, vb: [0, 0, +svg.dataset.w, +svg.dataset.h] };
+  zoomApply(svg);
+  const toUnits = (cx, cy) => { const b = svg.getBoundingClientRect(), [x, y, w, h] = S.zoom.vb; return [x + (cx - b.left) / b.width * w, y + (cy - b.top) / b.height * h]; };
+  svg.addEventListener('wheel', e => {
+    const out = e.deltaY > 0;
+    if (out && S.zoom.vb[2] >= +svg.dataset.w - 0.01) return; // fully out: let the page scroll
+    e.preventDefault();
+    zoomBy(svg, Math.exp(-e.deltaY * (e.deltaMode ? 0.05 : 0.0018)), ...toUnits(e.clientX, e.clientY));
+  }, { passive: false });
+  const pts = new Map(); let start = null, moved = false;
+  const snap = () => { const a = [...pts.values()]; const cx = a.reduce((s, p) => s + p.x, 0) / a.length, cy = a.reduce((s, p) => s + p.y, 0) / a.length;
+    return { cx, cy, d: a.length > 1 ? Math.hypot(a[0].x - a[1].x, a[0].y - a[1].y) : 0, vb: [...S.zoom.vb], n: a.length }; };
+  svg.addEventListener('pointerdown', e => { pts.set(e.pointerId, { x: e.clientX, y: e.clientY }); start = snap(); moved = false; });
+  svg.addEventListener('pointermove', e => {
+    if (!pts.has(e.pointerId)) return;
+    pts.set(e.pointerId, { x: e.clientX, y: e.clientY });
+    const now = snap(); if (now.n !== start.n) { start = now; return; }
+    const b = svg.getBoundingClientRect(), [x, y, w, h] = start.vb, upp = w / b.width;
+    if (!moved && Math.hypot(now.cx - start.cx, now.cy - start.cy) < 5 && Math.abs(now.d - start.d) < 5) return;
+    if (!moved) { moved = true; try { svg.setPointerCapture(e.pointerId); } catch {} }
+    if (now.n > 1 && start.d) { // pinch: zoom about the start midpoint, then follow the fingers
+      const W = +svg.dataset.w, H = +svg.dataset.h, nw = Math.min(W, Math.max(W / ZMAX, w * start.d / now.d)), nh = nw * H / W;
+      const ux = x + (start.cx - b.left) * upp, uy = y + (start.cy - b.top) * upp, nupp = nw / b.width;
+      zoomPan(svg, ux - (now.cx - b.left) * nupp, uy - (now.cy - b.top) * nupp, nw, nh);
+    } else if (w < +svg.dataset.w - 0.01) zoomPan(svg, x - (now.cx - start.cx) * upp, y - (now.cy - start.cy) * upp, w, h);
+  });
+  const end = e => { pts.delete(e.pointerId); start = pts.size ? snap() : null; };
+  svg.addEventListener('pointerup', end); svg.addEventListener('pointercancel', end);
+  svg.addEventListener('click', e => { if (moved) { e.stopPropagation(); moved = false; } }, true); // a drag is not a province click
 }
 
 // ---------- views ----------
@@ -377,6 +452,7 @@ function render() {
   const sx = scrollX, sy = scrollY, inPlayer = player.contains(document.activeElement) ? document.activeElement : null, keep = inPlayer ? null : document.activeElement?.dataset;
   app.innerHTML = { overview, provinces, forecast, about }[S.view]();
   const slot = app.querySelector('[data-player]');
+  zoomSetup();
   if (slot) { slot.replaceWith(player); syncPlayer(); inPlayer?.focus({ preventScroll: true }); }
   if (keep) { // put keyboard focus back on the same control after a re-render
     const k = ['c', 'p', 'net', 'ov', 'sort'].find(x => keep[x] != null);
@@ -397,6 +473,8 @@ function route() {
 const goProvinces = (c, p) => { location.hash = ['provinces', c, p].filter(Boolean).map(encodeURIComponent).join('/'); };
 
 document.addEventListener('click', e => {
+  const z = e.target.closest('[data-zoom]');
+  if (z) { const svg = app.querySelector('.pmap'); if (z.dataset.zoom === 'reset') zoomPan(svg, 0, 0, +svg.dataset.w, +svg.dataset.h); else zoomBy(svg, z.dataset.zoom === 'in' ? 1.6 : 1 / 1.6); return; }
   const el = e.target.closest('[data-lang],[data-net],[data-ov],[data-sort],[data-play],[data-c],[data-p]');
   if (!el) return;
   const d = el.dataset;

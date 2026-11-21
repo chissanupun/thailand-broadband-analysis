@@ -51,6 +51,11 @@ a { color: inherit; }
 svg text { font-family: var(--ui); }
 svg .num { font-family: var(--display); }
 .map path.hit { cursor: pointer; }
+.mapwrap { position: relative; overflow: hidden; border-radius: 12px; }
+.pmap { cursor: grab; user-select: none; -webkit-user-select: none; } .pmap:active { cursor: grabbing; }
+.zctl { position: absolute; right: 6px; top: 6px; display: flex; flex-direction: column; background: #fff; border-radius: 10px; box-shadow: var(--sh); overflow: hidden; }
+.zctl button { width: 36px; height: 36px; font: 600 18px var(--ui); color: var(--ink); display: flex; align-items: center; justify-content: center; }
+.zctl button + button { border-top: 1px solid var(--line); } .zctl button:hover { background: var(--paper); }
 .map path.hit:hover { filter: brightness(1.12); }
 
 /* player */
@@ -217,3 +222,5 @@ html[lang="th"] .stage h1, html[lang="th"] .h1s { font-size: 44px; }
   .det { padding: 18px; }
 }
 @media (prefers-reduced-motion: reduce) { .bw i, .mb i { transition: none; } }
+.map path.hit:focus { outline: none; }
+.map path.hit:focus-visible { stroke: var(--orange); stroke-width: 2.5; }
