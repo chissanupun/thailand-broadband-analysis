@@ -1,0 +1,197 @@
+{
+  "origin": "2024-Q4",
+  "horizon": 4,
+  "train_rows": 3318,
+  "series": 558,
+  "multi_step": {
+    "ml": {
+      "h1": {
+        "n": 545,
+        "mape": 12.22,
+        "median_ape": 5.41,
+        "p90_ape": 24.92
+      },
+      "h2": {
+        "n": 545,
+        "mape": 16.49,
+        "median_ape": 7.61,
+        "p90_ape": 37.94
+      },
+      "h3": {
+        "n": 546,
+        "mape": 18.49,
+        "median_ape": 10.66,
+        "p90_ape": 40.78
+      },
+      "h4": {
+        "n": 546,
+        "mape": 20.53,
+        "median_ape": 12.33,
+        "p90_ape": 50.32
+      },
+      "all": {
+        "n": 2182,
+        "mape": 16.94,
+        "median_ape": 8.24,
+        "p90_ape": 40.37
+      }
+    },
+    "trend": {
+      "h1": {
+        "n": 545,
+        "mape": 12.18,
+        "median_ape": 9.69,
+        "p90_ape": 25.78
+      },
+      "h2": {
+        "n": 545,
+        "mape": 15.65,
+        "median_ape": 12.23,
+        "p90_ape": 33.34
+      },
+      "h3": {
+        "n": 546,
+        "mape": 19.38,
+        "median_ape": 14.35,
+        "p90_ape": 43.02
+      },
+      "h4": {
+        "n": 546,
+        "mape": 22.78,
+        "median_ape": 17.56,
+        "p90_ape": 48.13
+      },
+      "all": {
+        "n": 2182,
+        "mape": 17.5,
+        "median_ape": 13.0,
+        "p90_ape": 38.43
+      }
+    },
+    "naive": {
+      "h1": {
+        "n": 545,
+        "mape": 11.25,
+        "median_ape": 6.53,
+        "p90_ape": 20.36
+      },
+      "h2": {
+        "n": 545,
+        "mape": 15.4,
+        "median_ape": 10.96,
+        "p90_ape": 29.37
+      },
+      "h3": {
+        "n": 546,
+        "mape": 17.94,
+        "median_ape": 15.12,
+        "p90_ape": 32.92
+      },
+      "h4": {
+        "n": 546,
+        "mape": 22.68,
+        "median_ape": 21.46,
+        "p90_ape": 39.93
+      },
+      "all": {
+        "n": 2182,
+        "mape": 16.82,
+        "median_ape": 12.6,
+        "p90_ape": 34.11
+      }
+    }
+  },
+  "national_series_all_h": {
+    "ml": {
+      "n": 72,
+      "mape": 12.46,
+      "median_ape": 6.62,
+      "p90_ape": 40.2
+    },
+    "trend": {
+      "n": 72,
+      "mape": 13.19,
+      "median_ape": 9.56,
+      "p90_ape": 31.74
+    },
+    "naive": {
+      "n": 72,
+      "mape": 12.34,
+      "median_ape": 9.75,
+      "p90_ape": 25.15
+    }
+  },
+  "rolling_one_step": {
+    "ml": {
+      "n": 2175,
+      "mape": 10.42,
+      "median_ape": 5.97,
+      "p90_ape": 23.95
+    },
+    "trend": {
+      "n": 2175,
+      "mape": 12.37,
+      "median_ape": 8.81,
+      "p90_ape": 27.3
+    },
+    "naive": {
+      "n": 2175,
+      "mape": 11.1,
+      "median_ape": 7.1,
+      "p90_ape": 23.52
+    }
+  },
+  "by_country_all_h": {
+    "ml": {
+      "Cambodia": 11.47,
+      "Indonesia": 9.73,
+      "Laos": 16.83,
+      "Malaysia": 5.81,
+      "Myanmar": 26.58,
+      "Philippines": 7.49,
+      "Singapore": 7.77,
+      "Thailand": 12.17,
+      "Vietnam": 33.76
+    },
+    "trend": {
+      "Cambodia": 26.54,
+      "Indonesia": 14.05,
+      "Laos": 23.74,
+      "Malaysia": 26.47,
+      "Myanmar": 26.04,
+      "Philippines": 9.9,
+      "Singapore": 7.55,
+      "Thailand": 13.95,
+      "Vietnam": 17.65
+    },
+    "naive": {
+      "Cambodia": 14.95,
+      "Indonesia": 13.42,
+      "Laos": 21.41,
+      "Malaysia": 6.45,
+      "Myanmar": 23.83,
+      "Philippines": 10.43,
+      "Singapore": 15.58,
+      "Thailand": 14.7,
+      "Vietnam": 24.19
+    }
+  },
+  "ml_log_residual_q10_q90": {
+    "h1": [
+      -0.1986,
+      0.1109
+    ],
+    "h2": [
+      -0.2473,
+      0.1818
+    ],
+    "h3": [
+      -0.2452,
+      0.3092
+    ],
+    "h4": [
+      -0.2664,
+      0.3937
+    ]
+  }
+}
